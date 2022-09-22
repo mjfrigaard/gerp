@@ -1,0 +1,28 @@
+Package: geR2
+Type: Package
+Title: Good Enuff R (version 2!)
+Version: 0.1.0
+Author: Martin Frigaard
+Maintainer: Martin Frigaard <mjfrigaard@pm.me>
+Description: This package helps users adopt a set of good enough computing 
+    practices when working with data. The methods are largely based on the 
+    paper, 'Good enough practices in scientific computing' by Wilson et al 
+    (2017). DOI: https://doi.org/10.1371/journal.pcbi.1005510
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.1
+Depends: 
+    R (>= 2.10)
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Imports: 
+    dplyr,
+    fs,
+    readr,
+    rstudioapi,
+    stringr,
+    tidyr,
+    vroom
