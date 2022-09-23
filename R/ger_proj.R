@@ -11,12 +11,12 @@
 #' @description Create and open a new 'good enough' project.
 #' @param parent_dir the parent folder of your project
 #' @param proj_name name of your project
-#' @details The `ger_proj()` function will open a new RStudio project.
-#'     The `parent_dir` is the folder that will contain your new project, and
-#'     the `proj_name` will be the name of the new sub-folder.
-#'     To navigate folders on your computer, I like to use the `dir()` function.
-#'     If you start with `dir("/")`, you should be able to find all the folders
-#'     you have permissions to (probably best to start with `"/Users"`).
+#' @details this function will open a new RStudio project. The parent_dir is
+#'     the folder that will contain your new project, and the proj_name will
+#'     be the name of the new sub-folder.
+#'     To navigate folders on your computer, I like to use the dir() function.
+#'     If you start with dir("/"), you should be able to find all the folders
+#'     you have permissions to (probably best to start with "/Users").
 #' @examples # not run
 #' # use dir() to find the parent folder path.
 #' # ger_proj(parent_dir = "/Users/mjfrigaard/Documents/", "my new project")
@@ -33,8 +33,12 @@ ger_proj <- function(parent_dir, proj_name) {
   project_path <- base::paste0(folder_path, "/", clean_project_name, "/")
   # initialize project
   rstudioapi::initializeProject(path = project_path)
+  # full_project_path <- base::paste0(project_path, clean_project_name)
+  project_readme <- base::paste0(project_path, "README.Rmd")
   # full project path (for opening in new session)
   rproj_full_project_path <- base::paste0(project_path, clean_project_name, ".Rproj")
-  # # open new session
+  # open new session
   rstudioapi::openProject(path = rproj_full_project_path, newSession = TRUE)
+  download.file(url = "https://raw.githubusercontent.com/mjfrigaard/ger2/main/inst/rmarkdown/templates/ger2-README/README.Rmd",
+    destfile = project_readme)
 }

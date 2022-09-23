@@ -10,10 +10,29 @@ vignette: >
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>", 
+  eval = FALSE
 )
 ```
 
 ```{r pkg}
 library(geR2)
 ```
+
+# Install package 
+
+```{r eval=FALSE}
+install.packages("remotes")
+remotes::install_github("mjfrigaard/goodenuffR")
+```
+
+# Load package 
+
+```{r}
+library(geR2)
+```
+
+# Create package 
+
+
+

@@ -14,7 +14,7 @@ ger_setup(code = TRUE, data = TRUE, docs = TRUE)
 \item{docs}{logical, include docs folder and files?}
 }
 \description{
-ger_setup() is a wrapper around the `ger_code()`, `ger_data()`,
-    and `ger_docs()` functions. This is intended for an easy setup with a
+ger_setup() is a wrapper around the ger_code(), ger_data(),
+    and ger_docs() functions. This is intended for an easy setup with a
     new project.
 }

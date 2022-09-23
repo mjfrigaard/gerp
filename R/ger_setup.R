@@ -10,23 +10,23 @@
 #'
 #' @export ger_setup
 #'
-#' @description ger_setup() is a wrapper around the `ger_code()`, `ger_data()`,
-#'     and `ger_docs()` functions. This is intended for an easy setup with a
+#' @description ger_setup() is a wrapper around the ger_code(), ger_data(),
+#'     and ger_docs() functions. This is intended for an easy setup with a
 #'     new project.
 ger_setup <- function(code = TRUE, data = TRUE, docs = TRUE) {
   if (code == FALSE & data == TRUE & docs == TRUE) {
-    ger_data()
-    ger_docs()
+    ger_data(show_file = FALSE)
+    ger_docs(show_file = FALSE)
   } else if (code == TRUE & data == FALSE & docs == TRUE) {
     ger_code()
-    ger_docs()
+    ger_docs(show_file = FALSE)
   } else if (code == TRUE & data == TRUE & docs == FALSE) {
     ger_code()
-    ger_data()
+    ger_data(show_file = FALSE)
   } else {
     ger_code()
-    ger_data()
-    ger_docs()
+    ger_data(show_file = FALSE)
+    ger_docs(show_file = FALSE)
   }
   # citation
   fs::file_create("CITATION")

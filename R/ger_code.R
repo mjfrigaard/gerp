@@ -11,8 +11,9 @@
 #'
 #' @description Create the code folder for the import, tidy, wrangle, visualize,
 #'     model, and data .R files.
-#' @details If header is `FALSE`, code files are created with a standard script
-#'    header.
+#' @details If header is FALSE, code files are created with a standard script
+#'    header. By default, the code files are placed in a code/ folder, but this
+#'    can be changed with a character string.
 ger_code <- function(folder_name = NULL, header = TRUE) {
   if (is.null(folder_name)) {
     code_dir <- paste0("code", "/")
@@ -76,6 +77,9 @@ ger_code <- function(folder_name = NULL, header = TRUE) {
   # data file
   data_file_path <- paste0(code_dir, "data.R")
   fs::file_create(data_file_path)
-  data_example <- "#' Title (dataset description)\n#'\n#' @format A dataset with variables:\n#' \\describe{\n#'   \\item{variable}{variable description}\n#'   \\item{variable}{variable description}\n#'   \\item{variable}{variable description}\n#'   \\item{variable}{variable description}\n#' }\n#' @source\n#' Link to data, <https://data.source.com/>,\n#' (downloaded YYYY-MM-DD)\n'data_name'"
-  readr::write_lines(x = data_example, file = data_file_path)
+  data_example <- "#' Title (dataset description)\n#'\n#' @format A dataset with variables:\n#' \\describe{\n#'   \\item{member}{Wu-Tang Clan Member Name}\n#'   \\item{name}{Wu-Tang Clan Given Name}\n#'   \\item{born}{Birth Year}\n#'   \\item{city}{Birth City}\n#'   \\item{alive}{Stil Alive?}\n#' }\n#' @source Link to data: https://en.wikipedia.org/wiki/Wu-Tang_Clan\n#' (downloaded YYYY-MM-DD)\n'wu_data'"
+  readr::write_lines(
+    x = data_example,
+    file = data_file_path,
+    append = TRUE)
 }

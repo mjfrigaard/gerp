@@ -16,6 +16,7 @@ Create the code folder for the import, tidy, wrangle, visualize,
     model, and data .R files.
 }
 \details{
-If header is `FALSE`, code files are created with a standard script
-   header.
+If header is FALSE, code files are created with a standard script
+   header. By default, the code files are placed in a code/ folder, but this
+   can be changed with a character string.
 }

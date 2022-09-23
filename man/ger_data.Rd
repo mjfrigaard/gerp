@@ -4,9 +4,25 @@
 \alias{ger_data}
 \title{good enuff data folders}
 \usage{
-ger_data()
+ger_data(show_file = TRUE)
+}
+\arguments{
+\item{show_file}{open data.md file?}
 }
 \description{
 Create data folders, inst/extdata folder, and
     data.md file
+}
+\details{
+ger_data() will create the following files and folders:
+\describe{
+  \item{data-raw/}{should contain any code used to import, download and include data in your project}
+  \item{data/}{should contain processed, intermediate, or otherwise altered data in your project}
+  \item{inst/exdata/}{should have any external data used for examples or testing}
+  \item{data.md}{Document your data here and in code/data.R}
+}
+}
+\examples{
+# in new project
+# ger_data(show_file = FALSE)
 }

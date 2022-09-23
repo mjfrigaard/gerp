@@ -4,9 +4,17 @@
 \alias{ger_docs}
 \title{good enuff R documentation}
 \usage{
-ger_docs()
+ger_docs(show_file = TRUE)
+}
+\arguments{
+\item{show_file}{open changelog.md file?}
 }
 \description{
 Create docs folder with docs/notebook.Rmd, docs/manuscript.Rmd,
     and changelog.md files.
+\describe{
+  \item{docs/notebook.Rmd}{An R Markdown notebook (i.e., lab notebook).}
+  \item{docs/manuscript.Rmd}{A more polished R Markdown file for reports or manuscripts.}
+  \item{changelog.md}{Manually document changes to the files or folders in your project.}
+}
 }

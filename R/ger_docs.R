@@ -4,11 +4,20 @@
 #' @importFrom fs file_create
 #' @importFrom fs file_show
 #' @importFrom readr write_lines
+#'
+#' @param show_file open changelog.md file?
+#'
 #' @export ger_docs
 #'
 #' @description Create docs folder with docs/notebook.Rmd, docs/manuscript.Rmd,
 #'     and changelog.md files.
-ger_docs <- function() {
+#' \describe{
+#'   \item{docs/notebook.Rmd}{An R Markdown notebook (i.e., lab notebook).}
+#'   \item{docs/manuscript.Rmd}{A more polished R Markdown file for reports or manuscripts.}
+#'   \item{changelog.md}{Manually document changes to the files or folders in your project.}
+#' }
+#'
+ger_docs <- function(show_file = TRUE) {
   fs::dir_create("docs")
 # notebook ----------------------------------------------------------------
   fs::file_create("docs/notebook.Rmd")
@@ -25,5 +34,8 @@ ger_docs <- function() {
   date_stamp <- paste0("## ", tday)
   changelog_content <- c("<!--\n...make dated notes about changes to the project in this file in reverse\nchronological order (i.e., most recent first). See examples below:\n-->", "\n# CHANGELOG", "=============\n", date_stamp , "\n* Created docs/ folder", "\n* Created docs/notebook.Rmd and docs/manuscript.Rmd", "\nSource: https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/")
   readr::write_lines(x = changelog_content, file = "changelog.md")
-  fs::file_show(path = "changelog.md")
+  if (show_file == TRUE) {
+   fs::file_show(path = "changelog.md")
+  }
+
 }
