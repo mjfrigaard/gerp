@@ -8,7 +8,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-primary"><div class="container">
     
     <a class="navbar-brand me-2" href="../index.html">geR2</a>
 
@@ -54,11 +54,41 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ger_data</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ger_data</span><span class="op">(</span>show_file <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
+    <dl><dt>show_file</dt>
+<dd><p>open data.md file?</p></dd>
 
-  </main></div>
+</dl></div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>ger_data() will create the following files and folders:</p><dl><dt>data-raw/</dt>
+<dd><p>should contain any code used to import, download and include data in your project</p></dd>
+
+  <dt>data/</dt>
+<dd><p>should contain processed, intermediate, or otherwise altered data in your project</p></dd>
+
+  <dt>inst/exdata/</dt>
+<dd><p>should have any external data used for examples or testing</p></dd>
+
+  <dt>data.md</dt>
+<dd><p>Document your data here and in code/data.R</p></dd>
+
+
+</dl></div>
+
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># in new project</span></span></span>
+<span class="r-in"><span><span class="co"># ger_data(show_file = FALSE)</span></span></span>
+<span class="r-in"></span>
+</code></pre></div>
+    </div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">
