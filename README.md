@@ -13,14 +13,16 @@ The goal of `geR2` is to …
 You can install the development version of `geR2` like so:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+install.packages("remotes")
+remotes::install_github("mjfrigaard/goodenuffR")
 ```
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Create a new `ger2` project:
 
 ``` r
 library(geR2)
-## basic example code
+ger_proj(parent_dir = "/Users/mjfrigaard/Documents/", 
+  proj_name = "my new project")
 ```
