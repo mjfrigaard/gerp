@@ -91,6 +91,154 @@
 <div class="section level2">
 <h2 id="create-project">Create project<a class="anchor" aria-label="anchor" href="#create-project"></a>
 </h2>
+<p>Create a new <code>ger2</code> project:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mjfrigaard.github.io/ger2/">geR2</a></span><span class="op">)</span></span>
+<span><span class="fu">ger2</span><span class="fu">::</span><span class="fu">ger_proj</span><span class="op">(</span>parent_dir <span class="op">=</span> <span class="st">"/Users/&lt;username&gt;/"</span>, proj_name <span class="op">=</span> <span class="st">"my new project"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="../reference/figures/ger2-new-proj.gif" width="100%"></p>
+<div class="section level3">
+<h3 id="ger_code">
+<code>ger_code()</code><a class="anchor" aria-label="anchor" href="#ger_code"></a>
+</h3>
+<p>The <code><a href="../reference/ger_code.html">ger_code()</a></code> creates the following files:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>code</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  ├── data.R</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  ├── import.R</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  ├── model.R</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  ├── tidy.R</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  ├── visualize.R</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  └── wrangle.R</span></code></pre></div>
+<p>You can choose to have regular R script headers or <code>roxygen2</code> headers:</p>
+<div class="section level4">
+<h4 id="header-true-default">
+<code>header = TRUE</code> (default)<a class="anchor" aria-label="anchor" href="#header-true-default"></a>
+</h4>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#' @title </span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @import </span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @description</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @details</span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#' @examples </span></span>
+<span><span class="co">#' </span></span>
+<span><span class="co">#'</span></span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="header-false">
+<code>header = FALSE</code><a class="anchor" aria-label="anchor" href="#header-false"></a>
+</h4>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#=====================================================================#</span></span>
+<span><span class="co"># This is code to create:</span></span>
+<span><span class="co"># Authored by and feedback to:</span></span>
+<span><span class="co"># MIT License</span></span>
+<span><span class="co"># Version:</span></span>
+<span><span class="co">#=====================================================================#</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level3">
+<h3 id="codedata-r">
+<code>code/data.R</code><a class="anchor" aria-label="anchor" href="#codedata-r"></a>
+</h3>
+<p>The <code>code/data.R</code> file should be used for documenting datasets in your project. See example below:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">#' Title (dataset description)</span></span>
+<span><span class="co">#'</span></span>
+<span><span class="co">#' @format A dataset with variables:</span></span>
+<span><span class="co">#' \describe{</span></span>
+<span><span class="co">#'   \item{member}{Wu-Tang Clan Member Name}</span></span>
+<span><span class="co">#'   \item{name}{Wu-Tang Clan Given Name}</span></span>
+<span><span class="co">#'   \item{born}{Birth Year}</span></span>
+<span><span class="co">#'   \item{city}{Birth City}</span></span>
+<span><span class="co">#'   \item{alive}{Stil Alive?}</span></span>
+<span><span class="co">#' }</span></span>
+<span><span class="co">#' @source Link to data: https://en.wikipedia.org/wiki/Wu-Tang_Clan</span></span>
+<span><span class="co">#' (downloaded YYYY-MM-DD)</span></span>
+<span><span class="st">'wu_df'</span></span></code></pre></div>
+<p>This will create the .Rd document so your dataset is accessible in the <strong>Help</strong> pane.</p>
+<p><br></p>
+<p><img src="../reference/figures/data-rd.png" width="70%" style="display: block; margin: auto;"></p>
+</div>
+<div class="section level3">
+<h3 id="ger_data">
+<code>ger_data()</code><a class="anchor" aria-label="anchor" href="#ger_data"></a>
+</h3>
+<p>The <code><a href="../reference/ger_data.html">ger_data()</a></code> creates three folders and a <code>data.md</code> file.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>├── data.md</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>├── data</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>├── data<span class="sc">-</span>raw</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>└── inst</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    └── extdata</span></code></pre></div>
+<ul>
+<li><p><code>data-raw/</code>: should contain any code used to import, download and include data in your project</p></li>
+<li><p><code>data/</code>: should contain processed, intermediate, or otherwise altered data in your project</p></li>
+<li><p><code>inst/exdata/</code>: should have any external data used for examples or testing</p></li>
+<li><p><code>data.md</code>: Document your data here and in <code>code/data.R</code></p></li>
+</ul>
+<p>For example, I have stored the <code>wu_data.csv</code> data stored in <code>inst/exdata/</code>:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>inst<span class="sc">/</span>extdata<span class="sc">/</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>        └── wu_data.csv</span></code></pre></div>
+<p>The code to download <code>wu_data.csv</code> from Github in <code>data-raw/wu_df.R</code> (see below)</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## code to prepare `wu_df` dataset goes here</span></span>
+<span><span class="va">wu_df</span> <span class="op">&lt;-</span> <span class="fu">utils</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span></span>
+<span>  <span class="st">"https://raw.githubusercontent.com/mjfrigaard/ger2/main/inst/extdata/wu_data.csv"</span><span class="op">)</span></span>
+<span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_data</span><span class="op">(</span><span class="va">wu_df</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p>The <code>usethis::use_data(wu_df, overwrite = TRUE)</code> command will automatically save this to the <code>data/</code> folder.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>data</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  └── wu_df.rda</span></code></pre></div>
+<p>It’s documented in the <code>code/data.R</code> example, and I can add more details in <code>data.md</code>.</p>
+</div>
+<div class="section level3">
+<h3 id="ger_docs">
+<code>ger_docs()</code><a class="anchor" aria-label="anchor" href="#ger_docs"></a>
+</h3>
+<p>The <code><a href="../reference/ger_docs.html">ger_docs()</a></code> function creates three files for documentation: docs/notebook.Rmd, docs/manuscript.Rmd, and changelog.md.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>├── changelog.md</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>docs</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  ├── manuscript.Rmd</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  └── notebook.Rmd</span></code></pre></div>
+<ul>
+<li><p><code>docs/notebook.Rmd</code>: An R Markdown notebook (i.e., lab notebook).</p></li>
+<li><p><code>docs/manuscript.Rmd</code>: A more polished R Markdown file for reports or manuscripts.</p></li>
+<li><p><code>changelog.md</code>: Manually document changes to the files or folders in your project.</p></li>
+</ul>
+<p><br><br></p>
+</div>
+</div>
+<div class="section level2">
+<h2 id="wrapper-ger_setup">Wrapper (<code>ger_setup()</code>)<a class="anchor" aria-label="anchor" href="#wrapper-ger_setup"></a>
+</h2>
+<p><br><br></p>
+<p>For quick setup, run the <code><a href="../reference/ger_setup.html">ger_setup()</a></code> function to create <code>code/</code>, <code>data/</code>, and <code>docs/</code> folders.</p>
+<p><img src="../reference/figures/ger2-setup.gif" width="100%"></p>
+<p>This also creates a <code>CITATION</code> file:</p>
+<pre><code>Make the project citable (3e) by including a CITATION file in the project's home
+directory that describes how to cite this project as a whole, and where to find
+(and how to cite) any data sets, code, figures, and other artifacts that have 
+their own DOIs.
+
+
+
+Please cite this work as:
+
+Morris, B.D. and E.P. White. 2013. 'The EcoData Retriever:
+improving access to existing ecological data.'PLOS ONE 8:e65848.
+http://doi.org/doi:10.1371/journal.pone.0065848</code></pre>
+<p>A <code>requirements.md</code> file</p>
+<pre><code># Requirements 
+==============
+
+Make dependencies and requirements explicit. This is usually done on a 
+per-project rather than per-program basis, i.e., by adding a file called 
+something like requirements.txt to the root directory of the project
+
+
+source: https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/</code></pre>
+<p>And a <code>LICENSE</code> file (from <a href="https://creativecommons.org/publicdomain/zero/1.0/" class="external-link">CC0 1.0 Universal</a>)</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
