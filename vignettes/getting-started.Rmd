@@ -19,20 +19,210 @@ knitr::opts_chunk$set(
 library(geR2)
 ```
 
-# Install package 
+## Install package 
 
 ```{r eval=FALSE}
 install.packages("remotes")
 remotes::install_github("mjfrigaard/ger2")
 ```
 
-# Load package 
+## Load package 
 
 ```{r}
 library(geR2)
 ```
 
-# Create project 
+## Create project 
+
+Create a new `ger2` project:
+
+```{r example, eval=FALSE}
+library(geR2)
+ger2::ger_proj(parent_dir = "/Users/<username>/", proj_name = "my new project")
+```
+
+```{r ger2-new-proj, echo=FALSE, eval=TRUE, out.width='100%'}
+knitr::include_graphics("../man/figures/ger2-new-proj.gif")
+```
+
+### `ger_code()` 
+
+The `ger_code()` creates the following files:
+
+```{r code, eval=FALSE}
+code
+  ├── data.R
+  ├── import.R
+  ├── model.R
+  ├── tidy.R
+  ├── visualize.R
+  └── wrangle.R
+```
+
+You can choose to have regular R script headers or `roxygen2` headers: 
+
+#### `header = TRUE` (default)
+
+```{r , eval=FALSE}
+#' @title 
+#' 
+#' @import 
+#' 
+#' @description
+#' 
+#' @details
+#' 
+#' @examples 
+#' 
+#'
+```
+
+
+#### `header = FALSE`
+
+```{r , eval=FALSE}
+#=====================================================================#
+# This is code to create:
+# Authored by and feedback to:
+# MIT License
+# Version:
+#=====================================================================#
+```
+
+### `code/data.R`
+
+The `code/data.R` file should be used for documenting datasets in your project. See example below:
+
+```{r , eval=FALSE}
+#' Title (dataset description)
+#'
+#' @format A dataset with variables:
+#' \describe{
+#'   \item{member}{Wu-Tang Clan Member Name}
+#'   \item{name}{Wu-Tang Clan Given Name}
+#'   \item{born}{Birth Year}
+#'   \item{city}{Birth City}
+#'   \item{alive}{Stil Alive?}
+#' }
+#' @source Link to data: https://en.wikipedia.org/wiki/Wu-Tang_Clan
+#' (downloaded YYYY-MM-DD)
+'wu_df'
+```
+
+This will create the .Rd document so your dataset is accessible in the **Help** pane.
+
+<br>
+
+```{r data-rd, echo=FALSE, out.width='70%', eval=TRUE, fig.align='center'}
+knitr::include_graphics("../man/figures/data-rd.png")
+```
+
+### `ger_data()` 
+
+The `ger_data()` creates three folders and a `data.md` file. 
+
+```{r ger_data, eval=FALSE}
+├── data.md
+├── data
+├── data-raw
+└── inst
+    └── extdata
+```
+
++ `data-raw/`: should contain any code used to import, download and include data in your project
+
++ `data/`: should contain processed, intermediate, or otherwise altered data in your project
+
++ `inst/exdata/`: should have any external data used for examples or testing
+
++ `data.md`: Document your data here and in `code/data.R`
+
+For example, I have stored the `wu_data.csv` data stored in `inst/exdata/`: 
+
+```{r extdata-wu_data-csv, eval=FALSE}
+inst/extdata/
+        └── wu_data.csv
+```
+
+The code to download `wu_data.csv` from Github in `data-raw/wu_df.R` (see below)
+
+```{r data-raw-wu_df}
+## code to prepare `wu_df` dataset goes here
+wu_df <- utils::read.csv(
+  "https://raw.githubusercontent.com/mjfrigaard/ger2/main/inst/extdata/wu_data.csv")
+usethis::use_data(wu_df, overwrite = TRUE)
+```
+
+The `usethis::use_data(wu_df, overwrite = TRUE)` command will automatically save this to the `data/` folder. 
+
+```{r data-wu_df, eval=FALSE}
+data
+  └── wu_df.rda
+```
+
+It's documented in the `code/data.R` example, and I can add more details in `data.md`. 
+
+### `ger_docs()`
+
+The `ger_docs()` function creates three files for documentation: docs/notebook.Rmd, docs/manuscript.Rmd, and changelog.md.
+
+```{r docs, eval=FALSE}
+├── changelog.md
+docs
+  ├── manuscript.Rmd
+  └── notebook.Rmd
+```
+
++ `docs/notebook.Rmd`: An R Markdown notebook (i.e., lab notebook).
+
++ `docs/manuscript.Rmd`: A more polished R Markdown file for reports or manuscripts.
+
++ `changelog.md`: Manually document changes to the files or folders in your project.
+
+<br><br>
+
+## Wrapper (`ger_setup()`)
+
+<br><br>
+
+For quick setup, run the `ger_setup()` function to create `code/`, `data/`, and `docs/` folders. 
+
+```{r ger2-setup, echo=FALSE, eval=TRUE, out.width='100%'}
+knitr::include_graphics("../man/figures/ger2-setup.gif")
+```
+
+This also creates a `CITATION` file: 
+
+```
+Make the project citable (3e) by including a CITATION file in the project's home
+directory that describes how to cite this project as a whole, and where to find
+(and how to cite) any data sets, code, figures, and other artifacts that have 
+their own DOIs.
+
+
+
+Please cite this work as:
+
+Morris, B.D. and E.P. White. 2013. 'The EcoData Retriever:
+improving access to existing ecological data.'PLOS ONE 8:e65848.
+http://doi.org/doi:10.1371/journal.pone.0065848
+```
+
+A `requirements.md` file
+
+```
+# Requirements 
+==============
+
+Make dependencies and requirements explicit. This is usually done on a 
+per-project rather than per-program basis, i.e., by adding a file called 
+something like requirements.txt to the root directory of the project
+
+
+source: https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/
+```
+
+And a `LICENSE` file (from [CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/))
 
 
 

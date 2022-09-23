@@ -34,7 +34,7 @@ ger_setup <- function(code = TRUE, data = TRUE, docs = TRUE) {
   readr::write_lines(x = citation_content, file = "CITATION")
   # requirements
   fs::file_create("requirements.md")
-  requirements_content <- c("# Requirements \n\n", "============\n", "Make dependencies and requirements explicit. This is usually done on a per-project rather than per-program basis, i.e., by adding a file called something like requirements.txt to the root directory of the project", "\n\nsource: https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/")
+  requirements_content <- c("# Requirements", "===============\n", "Make dependencies and requirements explicit. This is usually done on a per-project rather than per-program basis, i.e., by adding a file called something like requirements.txt to the root directory of the project", "\n\nsource: https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/")
   readr::write_lines(x = requirements_content, file = "requirements.md")
   # LISCENSE
   utils::download.file(

@@ -5,3 +5,5 @@
 * Added `data-raw/wu_df.R`, `data-raw/wu_dt.R`, and `data-raw/wu_tbl.R`  
 * Added `inst/extdata/wu_data.csv`  
 * Added `inst/rmarkdown/templates/ger2-README/README.Rmd` for `README.Rmd` template
+* Updated README  
+* Added `vignette/getting-started.Rmd`  
