@@ -2,10 +2,10 @@
 
 export(ger_code)
 export(ger_data)
-export(ger_docs)
 export(ger_fun_headr)
 export(ger_headr)
 export(ger_proj)
+export(ger_ref)
 export(ger_setup)
 import(collateral)
 import(fs)

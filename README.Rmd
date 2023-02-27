@@ -13,39 +13,39 @@ knitr::opts_chunk$set(
 )
 ```
 
-# `geR2`: Good Enuff R (version 2!) 
+# `gerp`: Good Enuff R Practices
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of `geR2` is to get you up and running with '[good enough practices!](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)'
+The goal of `gerp` is to get you up and running with '[good enough R  practices!](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)'
 
 ## Installation
 
-You can install the development version of `geR2` like so:
+You can install the development version of `gerp` like so:
 
 ``` r
 install.packages("remotes")
-remotes::install_github("mjfrigaard/ger2")
+remotes::install_github("mjfrigaard/gerp")
 ```
 
 ## Example
 
-Create a new `ger2` project:
+Create a new `ger` project:
 
 ```{r example, eval=FALSE}
-library(geR2)
-ger2::ger_proj(parent_dir = "/Users/mjfrigaard/", 
+library(gerp)
+ger::ger_proj(parent_dir = "/Users/mjfrigaard/", 
   proj_name = "my new project")
 ```
 
-```{r ger2-new-proj, echo=FALSE, eval=TRUE}
-knitr::include_graphics("man/figures/ger2-new-proj.gif")
+```{r gerp-new-proj, echo=FALSE, eval=TRUE}
+knitr::include_graphics("man/figures/gerp-new-proj.gif")
 ```
 
-Run `ger2::ger_setup()` and start working! 
+Run `ger::ger_setup()` and start working! 
 
-```{r ger2-setup, echo=FALSE, eval=TRUE}
-knitr::include_graphics("man/figures/ger2-setup.gif")
+```{r gerp-setup, echo=FALSE, eval=TRUE}
+knitr::include_graphics("man/figures/gerp-setup.gif")
 ```
 

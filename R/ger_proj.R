@@ -39,6 +39,6 @@ ger_proj <- function(parent_dir, proj_name) {
   rproj_full_project_path <- base::paste0(project_path, clean_project_name, ".Rproj")
   # open new session
   rstudioapi::openProject(path = rproj_full_project_path, newSession = TRUE)
-  download.file(url = "https://raw.githubusercontent.com/mjfrigaard/ger2/main/inst/rmarkdown/templates/ger2-README/README.Rmd",
+  download.file(url = "https://raw.githubusercontent.com/mjfrigaard/gerp/main/inst/rmarkdown/templates/gerp-README/README.Rmd",
     destfile = project_readme)
 }
