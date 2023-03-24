@@ -1,4 +1,4 @@
-#' good enuff data folders
+#' good enough data folders
 #'
 #' @importFrom fs dir_create
 #' @importFrom fs file_create

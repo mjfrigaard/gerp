@@ -1,0 +1,48 @@
+---
+title: "documents"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{documents}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(gerp)
+```
+
+## Creating a `gerp` project
+
+Create a new `gerp` project:
+
+```{r example, eval=FALSE}
+gerp::ger_proj(parent_dir = "/Users/<username>/", proj_name = "my new project")
+```
+
+```{r gerp-new-proj, echo=FALSE, eval=TRUE, out.width='100%'}
+knitr::include_graphics("../man/figures/gerp-new-proj.gif")
+```
+
+### `ger_ref()`
+
+The `ger_ref()` function creates three files for documentation: `ref/notebook.Rmd`, `ref/manuscript.Rmd`, and `changelog.md`.
+
+```{r ref, eval=FALSE}
+├── changelog.md
+ref/
+  ├── manuscript.Rmd
+  └── notebook.Rmd
+```
+
+-   `ref/notebook.Rmd`: An R Markdown notebook (i.e., lab notebook).
+
+-   `ref/manuscript.Rmd`: A more polished R Markdown file for reports or manuscripts.
+
+-   `changelog.md`: Manually document changes to the files or folders in your project.

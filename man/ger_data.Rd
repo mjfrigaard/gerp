@@ -2,7 +2,7 @@
 % Please edit documentation in R/ger_data.R
 \name{ger_data}
 \alias{ger_data}
-\title{good enuff data folders}
+\title{good enough data folders}
 \usage{
 ger_data(show_file = TRUE)
 }

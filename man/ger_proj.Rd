@@ -2,7 +2,7 @@
 % Please edit documentation in R/ger_proj.R
 \name{ger_proj}
 \alias{ger_proj}
-\title{Create a new good enuff R project}
+\title{Create a new good enough R project}
 \usage{
 ger_proj(parent_dir, proj_name)
 }

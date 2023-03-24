@@ -1,4 +1,4 @@
-#' @title  good enuff code files
+#' @title  good enough code files
 #'
 #' @import fs
 #' @import readr
@@ -50,7 +50,7 @@ ger_code <- function(folder_name = NULL, header = TRUE) {
   )
 
   if (isTRUE(header)) {
-    code_header <- c("#' @title \n#' \n#' @import \n#' \n#' @description\n#' \n#' @details\n#' \n#' @examples \n#' \n#'")
+    code_header <- c("#' @title \n#' \n#' @importFrom \n#' \n#' @description\n#' \n#' @details\n#' \n#' @examples \n#' \n#'")
     suppressMessages(
       suppressWarnings(
         collateral::map2_safely(

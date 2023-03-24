@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# `gerp`: Good Enuff R Practices
+# `gerp`: Good Enough R Practices
 
 <!-- badges: start -->
 <!-- badges: end -->

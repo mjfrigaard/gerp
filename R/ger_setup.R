@@ -1,4 +1,4 @@
-#' good enuff R setup
+#' good enough R setup
 #'
 #' @importFrom readr write_lines
 #' @importFrom fs file_create

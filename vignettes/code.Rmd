@@ -1,0 +1,105 @@
+---
+title: "code"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{code}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(gerp)
+```
+
+## Creating a `gerp` project
+
+Create a new `gerp` project:
+
+```{r example, eval=FALSE}
+gerp::ger_proj(parent_dir = "/Users/<username>/", proj_name = "my new project")
+```
+
+```{r gerp-new-proj, echo=FALSE, eval=TRUE, out.width='100%'}
+knitr::include_graphics("../man/figures/gerp-new-proj.gif")
+```
+
+### `ger_code()`
+
+The `ger_code()` creates the following files:
+
+```{r code, eval=FALSE}
+code
+  ├── data.R
+  ├── import.R
+  ├── model.R
+  ├── tidy.R
+  ├── visualize.R
+  └── wrangle.R
+```
+
+You can choose to have regular R script headers or `roxygen2` headers:
+
+#### `header = TRUE` (default)
+
+```{r , eval=FALSE}
+#' @title 
+#' 
+#' 
+#' @description
+#' 
+#' @details
+#' 
+#' @importFrom
+#' 
+#' @examples 
+#' 
+#'
+```
+
+#### `header = FALSE`
+
+```{r , eval=FALSE}
+#=====================================================================#
+# This is code to create:
+# Authored by and feedback to:
+# MIT License
+# Version:
+#=====================================================================#
+```
+
+### `code/data.R`
+
+The `code/data.R` file should be used for documenting datasets in your project. See example below:
+
+```{r , eval=FALSE}
+#' Title (dataset description)
+#'
+#' @format A dataset with variables:
+#' \describe{
+#'   \item{member}{Wu-Tang Clan Member Name}
+#'   \item{name}{Wu-Tang Clan Given Name}
+#'   \item{born}{Birth Year}
+#'   \item{city}{Birth City}
+#'   \item{alive}{Stil Alive?}
+#' }
+#' @source Link to data: https://en.wikipedia.org/wiki/Wu-Tang_Clan
+#' (downloaded YYYY-MM-DD)
+'wu_df'
+```
+
+This will create the .Rd document so your dataset is accessible in the **Help** pane.
+
+<br>
+
+```{r data-rd, echo=FALSE, out.width='70%', eval=TRUE, fig.align='center'}
+knitr::include_graphics("../man/figures/data-rd.png")
+```
+
+

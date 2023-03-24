@@ -2,7 +2,7 @@
 % Please edit documentation in R/ger_ref.R
 \name{ger_ref}
 \alias{ger_ref}
-\title{good enuff R references}
+\title{good enough R references}
 \usage{
 ger_ref(show_file = TRUE)
 }

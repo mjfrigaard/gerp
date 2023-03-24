@@ -2,7 +2,7 @@
 % Please edit documentation in R/ger_setup.R
 \name{ger_setup}
 \alias{ger_setup}
-\title{good enuff R setup}
+\title{good enough R setup}
 \usage{
 ger_setup(code = TRUE, data = TRUE, docs = TRUE)
 }

@@ -1,4 +1,4 @@
-#' good enuff R references
+#' good enough R references
 #'
 #' @importFrom fs dir_create
 #' @importFrom fs file_create

@@ -1,4 +1,4 @@
-#' Create a new good enuff R project
+#' Create a new good enough R project
 #'
 #' @import rstudioapi
 #' @import fs

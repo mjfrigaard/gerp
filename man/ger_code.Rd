@@ -2,7 +2,7 @@
 % Please edit documentation in R/ger_code.R
 \name{ger_code}
 \alias{ger_code}
-\title{good enuff code files}
+\title{good enough code files}
 \usage{
 ger_code(folder_name = NULL, header = TRUE)
 }

@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# `gerp`: Good Enuff R Practices
+# `gerp`: Good Enough R Practices
 
 <!-- badges: start -->
 <!-- badges: end -->
