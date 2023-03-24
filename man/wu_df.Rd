@@ -7,11 +7,11 @@
 \format{
 A dataset with variables:
 \describe{
-  \item{member}{Wu-Tang Clan Member Name}
-  \item{name}{Wu-Tang Clan Given Name}
-  \item{born}{Birth Year}
-  \item{city}{Birth City}
-  \item{alive}{Stil Alive?}
+\item{member}{Wu-Tang Clan Member Name}
+\item{name}{Wu-Tang Clan Given Name}
+\item{born}{Birth Year}
+\item{city}{Birth City}
+\item{alive}{Stil Alive?}
 }
 }
 \source{

@@ -7,6 +7,8 @@
 #' @return file path(s) that are either normalized (`rel = FALSE`) or relative.
 #' @export ger_paths
 #'
+#' @importFrom tools file_ext
+#'
 #' @examples
 #' ger_paths(".")
 ger_paths <- function(..., ext = NULL, rel = TRUE) {

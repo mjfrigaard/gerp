@@ -1,9 +1,9 @@
 #' @title  good enough code files
 #'
-#' @import fs
-#' @import readr
-#' @import purrr
-#' @import collateral
+#' @importFrom fs dir_create file_create
+#' @importFrom readr write_lines
+#' @importFrom purrr map2_chr
+#' @importFrom collateral map_safely
 #' @export ger_code
 #'
 #' @param folder_name name of folder for code files (string)

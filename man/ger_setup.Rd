@@ -15,6 +15,6 @@ ger_setup(code = TRUE, data = TRUE, docs = TRUE)
 }
 \description{
 ger_setup() is a wrapper around the ger_code(), ger_data(),
-    and ger_docs() functions. This is intended for an easy setup with a
-    new project.
+and ger_docs() functions. This is intended for an easy setup with a
+new project.
 }

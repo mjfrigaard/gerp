@@ -1,8 +1,6 @@
 #' good enough data folders
 #'
-#' @importFrom fs dir_create
-#' @importFrom fs file_create
-#' @importFrom fs file_show
+#' @importFrom fs file_show file_create dir_create
 #' @importFrom readr write_lines
 #' @export ger_data
 #'

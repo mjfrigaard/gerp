@@ -2,7 +2,7 @@
 % Please edit documentation in R/ger_fun_headr.R, R/utils.R
 \name{ger_fun_headr}
 \alias{ger_fun_headr}
-\title{Fun script header `<(+_+)>`}
+\title{Fun script header \verb{<(+_+)>}}
 \usage{
 ger_fun_headr(name)
 
@@ -12,10 +12,10 @@ ger_fun_headr(name)
 \item{name}{}
 }
 \description{
-The `fun_headr()` function is similar to the hot keys
+The \code{fun_headr()} function is similar to the hot keys
 'cmd + shift + R' for creating a section header.
 
-The `fun_headr()` function is similar to the hot keys
+The \code{fun_headr()} function is similar to the hot keys
 'cmd + shift + R' for creating a section header.
 }
 \examples{

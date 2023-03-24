@@ -11,10 +11,10 @@ ger_ref(show_file = TRUE)
 }
 \description{
 Create ref folder with ref/notebook.Rmd, ref/manuscript.Rmd,
-    and changelog.md files.
+and changelog.md files.
 \describe{
-  \item{ref/notebook.Rmd}{An R Markdown notebook (i.e., lab notebook).}
-  \item{ref/manuscript.Rmd}{A more polished R Markdown file for reports or manuscripts.}
-  \item{changelog.md}{Manually document changes to the files or folders in your project.}
+\item{ref/notebook.Rmd}{An R Markdown notebook (i.e., lab notebook).}
+\item{ref/manuscript.Rmd}{A more polished R Markdown file for reports or manuscripts.}
+\item{changelog.md}{Manually document changes to the files or folders in your project.}
 }
 }

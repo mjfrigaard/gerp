@@ -7,15 +7,14 @@
 ger_headr()
 }
 \description{
-The `ger_headr()` function can be used in a new R script
-    to create a header. The header includes sections for:
-* what the code creates
-
-* who the author is
-
-* an MIT License
-
-* Version
+The \code{ger_headr()} function can be used in a new R script
+to create a header. The header includes sections for:
+\itemize{
+\item what the code creates
+\item who the author is
+\item an MIT License
+\item Version
+}
 }
 \examples{
 # use this to create a script header (with RStudio open)

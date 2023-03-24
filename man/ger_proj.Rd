@@ -16,11 +16,11 @@ Create and open a new 'good enough' project.
 }
 \details{
 this function will open a new RStudio project. The parent_dir is
-    the folder that will contain your new project, and the proj_name will
-    be the name of the new sub-folder.
-    To navigate folders on your computer, I like to use the dir() function.
-    If you start with dir("/"), you should be able to find all the folders
-    you have permissions to (probably best to start with "/Users").
+the folder that will contain your new project, and the proj_name will
+be the name of the new sub-folder.
+To navigate folders on your computer, I like to use the dir() function.
+If you start with dir("/"), you should be able to find all the folders
+you have permissions to (probably best to start with "/Users").
 }
 \examples{
 # not run

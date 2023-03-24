@@ -7,14 +7,14 @@
 ger_paths(..., ext = NULL, rel = TRUE)
 }
 \arguments{
-\item{...}{arguments passed to `dir()`}
+\item{...}{arguments passed to \code{dir()}}
 
-\item{ext}{optional file extension (with or without the dot (`.`))}
+\item{ext}{optional file extension (with or without the dot (\code{.}))}
 
 \item{rel}{logical, relative or absolute path (default is relative)}
 }
 \value{
-file path(s) that are either normalized (`rel = FALSE`) or relative.
+file path(s) that are either normalized (\code{rel = FALSE}) or relative.
 }
 \description{
 Get good enough file paths
