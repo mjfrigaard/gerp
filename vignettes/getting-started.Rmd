@@ -116,7 +116,7 @@ To keep things simple, let's assume I've chosen to place my R projects in a `pro
 
 <br>
 
-```{r my-projects, echo=FALSE, eval=TRUE, out.width='80%', fig.align='center', fig.cap='folder structure on macOS'}
+```{r my-projects, echo=FALSE, eval=TRUE, out.width='70%', fig.align='center', fig.cap='folder structure on macOS'}
 knitr::include_graphics("../man/figures/my-projects.png")
 ```
 
@@ -126,7 +126,7 @@ If I'm using a Windows system, a similar `Projects/` folder might look like this
 
 <br>
 
-```{r my-folders-win, echo=FALSE, eval=TRUE, out.width='55%', fig.align='center', fig.cap='folder structure on Windows'}
+```{r my-folders-win, echo=FALSE, eval=TRUE, out.width='50%', fig.align='center', fig.cap='folder structure on Windows'}
 knitr::include_graphics("../man/figures/my-folders-win.png")
 ```
 
@@ -136,7 +136,7 @@ When I open RStudio (on a PC), the **Files** pane is set to my `User` folder (im
 
 <br>
 
-```{r home-win, echo=FALSE, eval=TRUE, out.width='80%', fig.align='center', fig.cap='Home folder RStudio (macOS)'}
+```{r home-win, echo=FALSE, eval=TRUE, out.width='70%', fig.align='center', fig.cap='Home folder RStudio (macOS)'}
 knitr::include_graphics("../man/figures/rstudio-files-pane-win.png")
 ```
 
@@ -146,7 +146,7 @@ These different displays can be confusing, which is it's better to think of file
 
 <br>
 
-```{r rstudio-files-path-win, echo=FALSE, eval=TRUE, out.width='90%', fig.align='center', fig.cap='Directory path (Windows)'}
+```{r rstudio-files-path-win, echo=FALSE, eval=TRUE, out.width='95%', fig.align='center', fig.cap='Directory path (Windows)'}
 knitr::include_graphics("../man/figures/rstudio-files-path-win.png")
 ```
 
@@ -156,7 +156,7 @@ The folder RStudio initially displays in the **Files** pane is called the *defau
 
 <br>
 
-```{r new-default-wd.png, echo=FALSE, eval=TRUE, out.width='90%', fig.align='center', fig.cap='Change default working directory'}
+```{r new-default-wd.png, echo=FALSE, eval=TRUE, out.width='95%', fig.align='center', fig.cap='Change default working directory'}
 knitr::include_graphics("../man/figures/new-default-wd.png")
 ```
 
@@ -178,7 +178,7 @@ dir()
  [1] "Applications"         "Creative Cloud Files" "Desktop"             
  [4] "digital-id"           "Documents"            "Downloads"           
  [7] "Dropbox"              "Fonts"                "Library"             
-[10] "Movies"               "Music"                "obs-out"             
+[10] "Movies"               "Music"                "opt"             
 [13] "Pictures"             "projects"             "Public"
 [16] "R"                    "Themes"
 ```
@@ -189,7 +189,7 @@ dir(full.names = TRUE)
  [1] "./Applications"         "./Creative Cloud Files" "./Desktop"             
  [4] "./digital-id"           "./Documents"            "./Downloads"           
  [7] "./Dropbox"              "./Fonts"                "./Library"             
-[10] "./Movies"               "./Music"                "./obs-out"             
+[10] "./Movies"               "./Music"                "./opt"             
 [13] "./Pictures"             "./projects"             "./Public"
 [16] "./R"                    "./Themes"
 ```
@@ -198,7 +198,7 @@ Adding the `full.names` returned the folders and files in the working directory,
 
 ### Folder trees
 
-A handy tool for navigating your computer's folder structure is the [folder tree](https://www.wikiwand.com/en/Directory_structure). As noted above, computers organize folders and files in a hierarchical tree-like arrangement. In most computer systems, the file system hierarchy is organized like a tree, with a single root directory (or folder) at the top and sub-folders branching off from it. Each folder can contain files and additional subfolders and, in turn, can have more files and subfolders.
+[folder tree's](https://www.wikiwand.com/en/Directory_structure) are handy tools for navigating a computer's folder structure. As noted above, operating systems organize folders and files in a hierarchical, tree-like arrangement, with a single root directory (or folder) at the top, and sub-folders branching off from it. Each folder can contain files and additional subfolders and, in turn, can have more files and subfolders.
 
 We'll use folder trees to describe the special directories implied by `"."` and `".."`: 
 
@@ -234,6 +234,29 @@ We'll use folder trees to describe the special directories implied by `"."` and 
       └── jdoe/ -> ".."
             └── documents/ 
     ```
+
+
+## `ger_path()`
+
+The first function we'll cover is one to get comfortable using, `ger_path()`. We've already installed and loaded the `gerp` package, but sometimes handy to explicitly tell R which function we intend to use from a package. We can do this by entering `package::function()`, and you can see why in the image below: 
+
+<br>
+
+```{r namespacing, echo=FALSE, eval=TRUE, out.width='40%', fig.align='center', fig.cap='All functions and objects in gerp'}
+knitr::include_graphics("../man/figures/namespacing.png")
+```
+
+<br>
+
+Using `package::function()` shows us all the functions and objects in a package. When we select a package item, we can see the documentation in yellow: 
+
+<br>
+
+```{r namespacing-doc, echo=FALSE, eval=TRUE, out.width='80%', fig.align='center', fig.cap='All functions and objects in gerp'}
+knitr::include_graphics("../man/figures/namespacing-doc.png")
+```
+
+<br>
 
 
 

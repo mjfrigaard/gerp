@@ -17,7 +17,11 @@ ger_path(..., ext = NULL, rel = TRUE)
 file path(s) that are either normalized (\code{rel = FALSE}) or relative.
 }
 \description{
-Get good enough file path(s)
+Use \code{ger_path()} to view folder and file paths.
+\describe{
+\item{ext}{An optional file extension argument (i.e., \code{".csv"})}
+\item{rel}{Return the relative or absolute path. The default is a relative path, which is the location of a file or folder \strong{relative to the current working directory (or folder)}. This means that it doesn't start with the root directory, but with the directory that you're currently in. Absolute paths are the exact location of a file or folder in the file system hierarchy. They begin with the root folder and includes all folders and subfolders necessary to locate the file or folder.}
+}
 }
 \examples{
 ger_path(".")
