@@ -109,23 +109,18 @@ likely to contain any practices or habits new R users should adopt when
 beginning their R journey. <code>gerp</code> was written to help guide
 new users towards a set of ‘good enough’ practices that have been shown
 to help “<a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510#sec028" class="external-link"><em>you
-get more done in less time and with less pain.</em></a><em>“</em><a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;The name for this package comes from the excellent
-article, ‘&lt;a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510" class="external-link"&gt;Good
-enough practices in scientific computing&lt;/a&gt;’ by Greg Wilson, Jennifer
-Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt and Tracy K. Teal&lt;/p&gt;'><sup>1</sup></a> New R
-users often struggle to find these habits because they aren’t typically
-covered in textbooks or online documentation (with some great
-exceptions<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;Jenny Bryan and Jim Hester address many of these topics
-in ‘&lt;a href="https://rstats.wtf/" class="external-link"&gt;What they forgot to teach you about
-R&lt;/a&gt;’, and I’ve codified them into this package wherever I could.&lt;/p&gt;'><sup>2</sup></a>), but adopting at least a few of these
-practices will increase your productivity when you’re using R (and your
-computer in general!).</p>
+get more done in less time and with less pain.</em></a><em>“</em>[1] New
+R users often struggle to find these habits because they aren’t
+typically covered in textbooks or online documentation (with some great
+exceptions[2]), but adopting at least a few of these practices will
+increase your productivity when you’re using R (and your computer in
+general!).</p>
 <p>This vignette will go over how to install and load the
 <code>gerp</code> package, navigating your computers folders and files,
 and how to get started with a new R project.</p>
 <div class="section level3">
 <h3 id="practice-prăktĭs">
-<strong>practice (prăk′tĭs)</strong><a class="anchor" aria-label="anchor" href="#practice-pr%C4%83kt%C4%ADs"></a>
+<strong>Practice (prăk′tĭs)</strong><a class="anchor" aria-label="anchor" href="#practice-pr%C4%83kt%C4%ADs"></a>
 </h3>
 <blockquote>
 <p><em>To do or perform habitually or customarily; make a habit
@@ -158,9 +153,14 @@ version of <code>gerp</code> from GitHub:</p>
 <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library()</a></code> function</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mjfrigaard.github.io/gerp/">gerp</a></span><span class="op">)</span></span></code></pre></div>
+<p>All R projects inevitably involve creating some kind of file (and
+usually more than one!), so the first thing to I need to decide is
+<strong>where my projects will live.</strong> The next section will
+cover tools and methods for orienting yourself with your computers’
+folder structure.</p>
 </div>
 <div class="section level3">
-<h3 id="folder-structure-orientation">Folder structure orientation<a class="anchor" aria-label="anchor" href="#folder-structure-orientation"></a>
+<h3 id="folder-orientation">Folder orientation<a class="anchor" aria-label="anchor" href="#folder-orientation"></a>
 </h3>
 <blockquote>
 <p>“<em>If you don’t know where you are going, you’ll end up someplace
@@ -168,11 +168,11 @@ else.</em>” - <a href="https://www.goodreads.com/quotes/23616-if-you-don-t-kno
 Berra</a></p>
 </blockquote>
 <p>An operating system folder structure refers to how files and
-directories are organized on a computer’s hard drive. Folder structures
-can vary depending on the specific operating system being used. However,
-most operating systems have the same basic design, including a
-hierarchical tree-like arrangement of the following directories (or
-folders).</p>
+directories (i.e. folders) are organized on a computer’s hard drive.
+Folder structures can vary depending on the specific operating system
+being used. However, most operating systems have the same basic design,
+including a hierarchical tree-like arrangement with similar common
+folders:</p>
 <ul>
 <li><p><code>Users</code>/<code>usr</code>: user-level programs,
 utilities, libraries, and documentation</p></li>
@@ -190,14 +190,14 @@ and files on a computer. Applications like Windows Explorer and Finder
 present our computer’s folder and file structure in a display we can
 navigate with our mouse and cursor, but behind the scenes they’re
 accessing the system paths (or locations).</p>
-<p>A system folder or file path is a unique address or location on a
-computer operating system. Paths provide the exact location of a file or
-folder in the directory structure of the computer’s file system. Folder
-paths typically consist of a series of names that indicate the
+<p>Folder paths typically consist of a series of names that indicate the
 hierarchical structure of the folder system, separated by a forward
-slash (<code>/</code>) or a backslash (<code>\</code>) (depending on the
-operating system). If it’s a file path, it may also include the file’s
-extension.</p>
+slash (<code>"/"</code>) or a backslash (<code>"\"</code>) (depending on
+the operating system). In Unix-based systems (like macOS or Linux), the
+topmost (or <em>root</em>) folder is usually represented by a forward
+slash (<code>/</code>). In Windows systems, the root folder is assigned
+a ‘drive letter’ followed by a backslash (i.e, <code>C:\</code>). If
+it’s a file path, it may also include the file’s extension.</p>
 <p>For example, a Windows file path might look like this:</p>
 <p><strong><em><code>C:\Users\Username\Documents\file.txt</code></em></strong></p>
 <p>In this case:</p>
@@ -210,16 +210,15 @@ folder, and</p></li>
 <li><p><code>"file.txt"</code> is the name and extension of the
 file</p></li>
 </ul>
+<p>Paths provide the exact location of a file or folder in the directory
+structure of a computer’s file system.</p>
 <div class="section level4">
-<h4 id="paths-in-rstudio">Paths in RStudio<a class="anchor" aria-label="anchor" href="#paths-in-rstudio"></a>
+<h4 id="an-example-project-folder">An example project folder<a class="anchor" aria-label="anchor" href="#an-example-project-folder"></a>
 </h4>
-<p>R projects inevitably involve creating some kind of file (and usually
-more than one!), so the first thing to I need to decide is <strong>where
-my projects will live.</strong> To keep things simple, I’ve chosen to
-place my R projects in a <code>projects/</code> folder.</p>
-<p>I’ve created the <code>projects/</code> folder in my
-<code>Users</code> folder, which I can locate using using Finder (on
-macOS):</p>
+<p>To keep things simple, let’s assume I’ve chosen to place my R
+projects in a <code>projects/</code> folder. I’ve created the
+<code>projects/</code> subfolder under my <code>Users</code> folder,
+which I can locate using using Finder (on macOS):</p>
 <p><br></p>
 <div class="figure" style="text-align: center">
 <img src="../reference/figures/my-projects.png" alt="folder structure on macOS" width="80%"><p class="caption">
@@ -227,8 +226,8 @@ folder structure on macOS
 </p>
 </div>
 <p><br></p>
-<p>If I’m using a PC, a similar <code>Projects/</code> folder might look
-like this in the Windows Explorer:</p>
+<p>If I’m using a Windows system, a similar <code>Projects/</code>
+folder might look like this in the Windows Explorer:</p>
 <p><br></p>
 <div class="figure" style="text-align: center">
 <img src="../reference/figures/my-folders-win.png" alt="folder structure on Windows" width="55%"><p class="caption">
@@ -236,10 +235,9 @@ folder structure on Windows
 </p>
 </div>
 </div>
-</div>
-<div class="section level3">
-<h3 id="rstudios-default-working-directory">RStudio’s default working directory<a class="anchor" aria-label="anchor" href="#rstudios-default-working-directory"></a>
-</h3>
+<div class="section level4">
+<h4 id="rstudios-default-working-directory">RStudio’s default working directory<a class="anchor" aria-label="anchor" href="#rstudios-default-working-directory"></a>
+</h4>
 <p>When I open RStudio (on a PC), the <strong>Files</strong> pane is set
 to my <code>User</code> folder (image below), but it’s displaying more
 folders than Windows Explorer (image above):</p>
@@ -253,7 +251,7 @@ Home folder RStudio (macOS)
 <p>These different displays can be confusing, which is it’s better to
 think of file and folder paths as a location on map–one digit off and
 you’ll end up in wrong place. However, I can confirm my location by
-checking the directory path in the <strong>Files</strong> pane above the
+checking the folder path in the <strong>Files</strong> pane above the
 folders:</p>
 <p><br></p>
 <div class="figure" style="text-align: center">
@@ -262,8 +260,9 @@ Directory path (Windows)
 </p>
 </div>
 <p><br></p>
-<p>The folder RStudio opens with is called the <em>Default working
-directory</em>, and it’s configured when you <a href="https://rstudio-education.github.io/hopr/starting.html" class="external-link">install
+<p>The folder RStudio initially displays in the <strong>Files</strong>
+pane is called the <em>default working directory</em>, and it’s
+configured when you <a href="https://rstudio-education.github.io/hopr/starting.html" class="external-link">install
 RStudio</a>. If you’d like to change it, you can by clicking on
 <strong>Tools</strong> &gt; <strong>Global Options</strong> then
 <strong>Browse</strong> to the folder you’d like to use:</p>
@@ -273,19 +272,23 @@ RStudio</a>. If you’d like to change it, you can by clicking on
 Change default working directory
 </p>
 </div>
-<div class="section level4">
-<h4 id="locating-folder-paths-in-r">Locating folder paths in R<a class="anchor" aria-label="anchor" href="#locating-folder-paths-in-r"></a>
-</h4>
+</div>
+</div>
+<div class="section level3">
+<h3 id="folder-navigation">Folder navigation<a class="anchor" aria-label="anchor" href="#folder-navigation"></a>
+</h3>
 <p>R comes with a helpful function for printing our current working
-directory folder path: <code><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd()</a></code>.</p>
+directory (or folder) path: <code><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd()</a></code>.</p>
+<p>On macOS, if I check my working directory, I see it’s my user account
+folder:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/mjfrigaard"</span></span></code></pre></div>
-<p>Three other helpful functions for view our computers folders and
+<p>Three other helpful functions for viewing your computers’ folders and
 files are: <code><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir()</a></code>, <code><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files()</a></code>, and
-<code><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.dirs()</a></code></p>
-<p>We’re going to focus on <code><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir()</a></code>, but the other two
-function in a similar way. Passing <code><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir()</a></code> to the console
-returns the list of folders in the default working directory:</p>
+<code><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.dirs()</a></code>. I’ll focus on <code><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir()</a></code>, but the
+other two function in a similar way. Passing <code><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir()</a></code> directly
+to the console (with no other arguments) returns the list of folders in
+the default working directory:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>] <span class="st">"Applications"</span>         <span class="st">"Creative Cloud Files"</span> <span class="st">"Desktop"</span>             </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a> [<span class="dv">4</span>] <span class="st">"digital-id"</span>           <span class="st">"Documents"</span>            <span class="st">"Downloads"</span>           </span>
@@ -293,46 +296,77 @@ returns the list of folders in the default working directory:</p>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">10</span>] <span class="st">"Movies"</span>               <span class="st">"Music"</span>                <span class="st">"obs-out"</span>             </span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">13</span>] <span class="st">"Pictures"</span>             <span class="st">"projects"</span>             <span class="st">"Public"</span></span>
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">16</span>] <span class="st">"R"</span>                    <span class="st">"Themes"</span></span></code></pre></div>
-</div>
+<p>If we add the <code>full.names = TRUE</code> argument, we see the
+full path to the files and folders:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>] <span class="st">"./Applications"</span>         <span class="st">"./Creative Cloud Files"</span> <span class="st">"./Desktop"</span>             </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a> [<span class="dv">4</span>] <span class="st">"./digital-id"</span>           <span class="st">"./Documents"</span>            <span class="st">"./Downloads"</span>           </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a> [<span class="dv">7</span>] <span class="st">"./Dropbox"</span>              <span class="st">"./Fonts"</span>                <span class="st">"./Library"</span>             </span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">10</span>] <span class="st">"./Movies"</span>               <span class="st">"./Music"</span>                <span class="st">"./obs-out"</span>             </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">13</span>] <span class="st">"./Pictures"</span>             <span class="st">"./projects"</span>             <span class="st">"./Public"</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">16</span>] <span class="st">"./R"</span>                    <span class="st">"./Themes"</span></span></code></pre></div>
+<p>Adding the <code>full.names</code> returned the folders and files in
+the working directory, but added a <code>./</code> prefix. In computer
+file systems, <code>"."</code> and <code>".."</code> are special
+directory (i.e., folder) names that have specific meanings.
+<code>"."</code> represents the current folder, and <code>".."</code>
+represents the parent folder in a file path. These directory names are
+used to specify relative paths to other files and directories in the
+file system.</p>
 <div class="section level4">
 <h4 id="folder-trees">Folder trees<a class="anchor" aria-label="anchor" href="#folder-trees"></a>
 </h4>
 <p>A handy tool for navigating your computer’s folder structure is the
-folder tree. As noted above, computers organize folders and files in a
-hierarchical tree-like arrangement.</p>
-<p>In both cases, the <em>Home</em> folder in RStudio’s
-<strong>Files</strong> pane is identical to the
-<code>Users/mjfrigaard</code> folder above:</p>
-<p><br></p>
-<p>If I was to view the Finder display as a hierarchical folder tree, it
-would have the following structure:</p>
-<p><br></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">mjfrigaard/</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> Applications</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> Creative Cloud Files</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> Desktop </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> digital-id</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> Documents </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> Downloads </span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> Dropbox </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> Fonts</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> Library</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> Movies</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> Music</span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> Pictures</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> [[projects]] <span class="op">&lt;</span>- my R projects</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> Public</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    <span class="ex">├──</span> R</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="ex">└──</span> Themes </span></code></pre></div>
-<p><br></p>
-<p><img src="../reference/figures/home-user-root.png" width="100%" style="display: block; margin: auto;"></p>
+<a href="https://www.wikiwand.com/en/Directory_structure" class="external-link">folder
+tree</a>. As noted above, computers organize folders and files in a
+hierarchical tree-like arrangement. In most computer systems, the file
+system hierarchy is organized like a tree, with a single root directory
+(or folder) at the top and sub-folders branching off from it. Each
+folder can contain files and additional subfolders and, in turn, can
+have more files and subfolders.</p>
+<p>We’ll use folder trees to describe the special directories implied by
+<code>"."</code> and <code>".."</code>:</p>
+<ul>
+<li>
+<p><code>"."</code> represents the current folder and refers to the
+folder the user is currently in. For example, if I am in the folder
+<code>"/user/jdoe/documents"</code>, the folder tree would look like
+this:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">users/</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">└──</span> jdoe/</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">└──</span> documents/ <span class="op">&lt;</span>- my location</span></code></pre></div>
+<ul>
+<li>In this case, <code>"."</code> refers to same location
+(<code>"/user/jdoe/documents"</code>)</li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">users/</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">└──</span> jdoe/</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">└──</span> documents/ <span class="at">-</span><span class="op">&gt;</span> <span class="st">"."</span></span></code></pre></div>
+</li>
+<li>
+<p><code>".."</code> (dot dot) represents the <em>parent</em>
+folder. It is used to refer to the folder that contains the current
+folder. For example, if I am in the folder
+<code>"/user/jdoe/documents"</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">users/</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">└──</span> jdoe/</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">└──</span> documents/ <span class="op">&lt;</span>- my location</span></code></pre></div>
+<ul>
+<li>Then <code>".."</code> refers to <code>"/user/jdoe"</code>
+</li>
+</ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">users/</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">└──</span> jdoe/ <span class="at">-</span><span class="op">&gt;</span> <span class="st">".."</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">└──</span> documents/ </span></code></pre></div>
+</li>
+</ul>
 </div>
 </div>
 <div class="section level3">
 <h3 id="creating-a-gerp-project">Creating a <code>gerp</code> project<a class="anchor" aria-label="anchor" href="#creating-a-gerp-project"></a>
 </h3>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_proj.html">ger_proj</a></span><span class="op">(</span>parent_dir <span class="op">=</span> <span class="st">"/Users/&lt;username&gt;/&lt;folder?"</span>, proj_name <span class="op">=</span> <span class="st">"my new project"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_proj.html">ger_proj</a></span><span class="op">(</span>parent_dir <span class="op">=</span> <span class="st">"/&lt;Users&gt;/&lt;username&gt;/&lt;folder&gt;"</span>, proj_name <span class="op">=</span> <span class="st">"my new project"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="../reference/figures/gerp-new-proj.gif" width="100%"></p>
 <p><strong>Note</strong>: If you’re already using a cloud platform like
 <a href="https://www.dropbox.com/" class="external-link">Dropbox</a> or <a href="https://www.google.com/drive/" class="external-link">Google Drive</a> to keep track of
@@ -349,8 +383,16 @@ issues</a> when working with R and RStudio.</p>
 <code>code/</code>, <code>data/</code>, and <code>ref/</code>
 folders.</p>
 <p><img src="../reference/figures/gerp-setup.gif" width="100%"></p>
+<hr>
+<ol style="list-style-type: decimal">
+<li><p>The name for this package comes from the excellent article, ‘<a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510" class="external-link">Good
+enough practices in scientific computing</a>’ by Greg Wilson, Jennifer
+Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt and Tracy K.
+Teal</p></li>
+<li><p>Jenny Bryan and Jim Hester address many of these topics in ‘<a href="https://rstats.wtf/" class="external-link">What they forgot to teach you about R</a>’,
+and I’ve codified them into this package wherever I could.</p></li>
+</ol>
 </div>
-
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
 </div>
