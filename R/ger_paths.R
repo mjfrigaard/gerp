@@ -1,17 +1,17 @@
-#' Get good enough file paths
+#' Get good enough file path(s)
 #'
 #' @param ... arguments passed to `dir()`
 #' @param ext optional file extension (with or without the dot (`.`))
 #' @param rel logical, relative or absolute path (default is relative)
 #'
 #' @return file path(s) that are either normalized (`rel = FALSE`) or relative.
-#' @export ger_paths
+#' @export ger_path
 #'
 #' @importFrom tools file_ext
 #'
 #' @examples
-#' ger_paths(".")
-ger_paths <- function(..., ext = NULL, rel = TRUE) {
+#' ger_path(".")
+ger_path <- function(..., ext = NULL, rel = TRUE) {
   # no extension, absolute path
   if (is.null(ext) & isFALSE(rel)) {
     pth <- dir(..., full.names = TRUE)

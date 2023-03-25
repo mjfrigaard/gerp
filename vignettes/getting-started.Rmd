@@ -38,18 +38,14 @@ knitr::opts_chunk$set(
 
 -->
 
-A [Google search](https://bfy.tw/Tx85) for the question above will return a deluge of websites, tutorials, YouTube videos and blog posts. The results probably aren't incorrect, but they're not likely to contain any practices or habits new R users should adopt when beginning their R journey. `gerp` was written to help guide new users towards a set of ‘good enough’ practices that have been shown to help "[*you get more done in less time and with less pain.*](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510#sec028)*"*[^1] New R users often struggle to find these habits because they aren’t typically covered in textbooks or online documentation (with some great exceptions[^2]), but adopting at least a few of these practices will increase your productivity when you’re using R (and your computer in general!).
-
-[^1]: The name for this package comes from the excellent article, '[Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)' by Greg Wilson, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt and Tracy K. Teal
-
-[^2]: Jenny Bryan and Jim Hester address many of these topics in '[What they forgot to teach you about R](https://rstats.wtf/)', and I've codified them into this package wherever I could.
+A [Google search](https://bfy.tw/Tx85) for the question above will return a deluge of websites, tutorials, YouTube videos and blog posts. The results probably aren't incorrect, but they're not likely to contain any practices or habits new R users should adopt when beginning their R journey. `gerp` was written to help guide new users towards a set of ‘good enough’ practices that have been shown to help "[*you get more done in less time and with less pain.*](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510#sec028)*"*[1] New R users often struggle to find these habits because they aren’t typically covered in textbooks or online documentation (with some great exceptions[2]), but adopting at least a few of these practices will increase your productivity when you’re using R (and your computer in general!).
 
 
 This vignette will go over how to install and load the `gerp` package, navigating your computers folders and files, and how to get started with a new R project.
 
 
 
-## **practice (prăk′tĭs)**
+## **Practice (prăk′tĭs)**
 
 > *To do or perform habitually or customarily; make a habit of*
 
@@ -74,11 +70,13 @@ After `gerp` is installed, load the package using the `library()` function
 library(gerp)
 ```
 
-## Folder structure orientation 
+All R projects inevitably involve creating some kind of file (and usually more than one!), so the first thing to I need to decide is **where my projects will live.** The next section will cover tools and methods for orienting yourself with your computers' folder structure. 
+
+## Folder orientation 
 
 > “*If you don't know where you are going, you'll end up someplace else.*” - [Yogi Berra](https://www.goodreads.com/quotes/23616-if-you-don-t-know-where-you-are-going-you-ll-end)
 
-An operating system folder structure refers to how files and directories are organized on a computer's hard drive. Folder structures can vary depending on the specific operating system being used. However, most operating systems have the same basic design, including a hierarchical tree-like arrangement of the following directories (or folders).
+An operating system folder structure refers to how files and directories (i.e. folders) are organized on a computer's hard drive. Folder structures can vary depending on the specific operating system being used. However, most operating systems have the same basic design, including a hierarchical tree-like arrangement with similar common folders:
 
 -   `Users`/`usr`: user-level programs, utilities, libraries, and documentation
 
@@ -92,7 +90,7 @@ An operating system folder structure refers to how files and directories are org
 
 Your computer's operating system folder structure is organized to provide a logical and predictable way of storing and accessing folders and files on a computer. Applications like Windows Explorer and Finder present our computer's folder and file structure in a display we can navigate with our mouse and cursor, but behind the scenes they're accessing the system paths (or locations).
 
-A system folder or file path is a unique address or location on a computer operating system. Paths provide the exact location of a file or folder in the directory structure of the computer's file system. Folder paths typically consist of a series of names that indicate the hierarchical structure of the folder system, separated by a forward slash (`/`) or a backslash (`\`) (depending on the operating system). If it's a file path, it may also include the file's extension.
+Folder paths typically consist of a series of names that indicate the hierarchical structure of the folder system, separated by a forward slash (`"/"`) or a backslash (`"\"`) (depending on the operating system). In Unix-based systems (like macOS or Linux), the topmost (or *root*) folder is usually represented by a forward slash (`/`). In Windows systems, the root folder is assigned a 'drive letter' followed by a backslash (i.e, `C:\`). If it's a file path, it may also include the file's extension.
 
 For example, a Windows file path might look like this:
 
@@ -110,11 +108,11 @@ In this case:
 
 *   `"file.txt"` is the name and extension of the file
 
-### Paths in RStudio
+Paths provide the exact location of a file or folder in the directory structure of a computer's file system. 
 
-R projects inevitably involve creating some kind of file (and usually more than one!), so the first thing to I need to decide is **where my projects will live.** To keep things simple, I've chosen to place my R projects in a `projects/` folder. 
+### An example project folder
 
-I've created the `projects/` folder in my `Users` folder, which I can locate using using Finder (on macOS):
+To keep things simple, let's assume I've chosen to place my R projects in a `projects/` folder. I've created the `projects/` subfolder under my `Users` folder, which I can locate using using Finder (on macOS):
 
 <br>
 
@@ -124,7 +122,7 @@ knitr::include_graphics("../man/figures/my-projects.png")
 
 <br>
 
-If I'm using a PC, a similar `Projects/` folder might look like this in the Windows Explorer:
+If I'm using a Windows system, a similar `Projects/` folder might look like this in the Windows Explorer:
 
 <br>
 
@@ -132,7 +130,7 @@ If I'm using a PC, a similar `Projects/` folder might look like this in the Wind
 knitr::include_graphics("../man/figures/my-folders-win.png")
 ```
 
-## RStudio's default working directory
+### RStudio's default working directory
 
 When I open RStudio (on a PC), the **Files** pane is set to my `User` folder (image below), but it's displaying more folders than Windows Explorer (image above):
 
@@ -144,7 +142,7 @@ knitr::include_graphics("../man/figures/rstudio-files-pane-win.png")
 
 <br>
 
-These different displays can be confusing, which is it's better to think of file and folder paths as a location on map--one digit off and you'll end up in wrong place. However, I can confirm my location by checking the directory path in the **Files** pane above the folders: 
+These different displays can be confusing, which is it's better to think of file and folder paths as a location on map--one digit off and you'll end up in wrong place. However, I can confirm my location by checking the folder path in the **Files** pane above the folders: 
 
 <br>
 
@@ -154,7 +152,7 @@ knitr::include_graphics("../man/figures/rstudio-files-path-win.png")
 
 <br>
 
-The folder RStudio opens with is called the *Default working directory*, and it's configured when you [install RStudio](https://rstudio-education.github.io/hopr/starting.html). If you'd like to change it, you can by clicking on **Tools** > **Global Options** then **Browse** to the folder you'd like to use: 
+The folder RStudio initially displays in the **Files** pane is called the *default working directory*, and it's configured when you [install RStudio](https://rstudio-education.github.io/hopr/starting.html). If you'd like to change it, you can by clicking on **Tools** > **Global Options** then **Browse** to the folder you'd like to use: 
 
 <br>
 
@@ -162,20 +160,18 @@ The folder RStudio opens with is called the *Default working directory*, and it'
 knitr::include_graphics("../man/figures/new-default-wd.png")
 ```
 
+## Folder navigation 
 
+R comes with a helpful function for printing our current working directory (or folder) path: `getwd()`.
 
-### Locating folder paths in R
-
-R comes with a helpful function for printing our current working directory folder path: `getwd()`.
+On macOS, if I check my working directory, I see it's my user account folder:  
 
 ```{r getwd, eval=FALSE}
 getwd()
 [1] "/Users/mjfrigaard"
 ```
 
-Three other helpful functions for view our computers folders and files are: `dir()`, `list.files()`, and `list.dirs()`
-
-We're going to focus on `dir()`, but the other two function in a similar way. Passing `dir()` to the console returns the list of folders in the default working directory:
+Three other helpful functions for viewing your computers' folders and files are: `dir()`, `list.files()`, and `list.dirs()`. I'll focus on `dir()`, but the other two function in a similar way. Passing `dir()` directly to the console (with no other arguments) returns the list of folders in the default working directory:
 
 ```{r dir, eval=FALSE}
 dir()
@@ -187,53 +183,64 @@ dir()
 [16] "R"                    "Themes"
 ```
 
+If we add the `full.names = TRUE` argument, we see the full path to the files and folders: 
+```{r dir-full.names, eval=FALSE}
+dir(full.names = TRUE)
+ [1] "./Applications"         "./Creative Cloud Files" "./Desktop"             
+ [4] "./digital-id"           "./Documents"            "./Downloads"           
+ [7] "./Dropbox"              "./Fonts"                "./Library"             
+[10] "./Movies"               "./Music"                "./obs-out"             
+[13] "./Pictures"             "./projects"             "./Public"
+[16] "./R"                    "./Themes"
+```
+
+Adding the `full.names` returned the folders and files in the working directory, but added a `./` prefix. In computer file systems, `"."` and `".."` are special directory (i.e., folder) names that have specific meanings. `"."` represents the current folder, and `".."` represents the parent folder in a file path. These directory names are used to specify relative paths to other files and directories in the file system.
 
 ### Folder trees
 
-A handy tool for navigating your computer's folder structure is the folder tree. As noted above, computers organize folders and files in a hierarchical tree-like arrangement. 
+A handy tool for navigating your computer's folder structure is the [folder tree](https://www.wikiwand.com/en/Directory_structure). As noted above, computers organize folders and files in a hierarchical tree-like arrangement. In most computer systems, the file system hierarchy is organized like a tree, with a single root directory (or folder) at the top and sub-folders branching off from it. Each folder can contain files and additional subfolders and, in turn, can have more files and subfolders.
 
-In both cases, the *Home* folder in RStudio's **Files** pane is identical to the `Users/mjfrigaard` folder above:
+We'll use folder trees to describe the special directories implied by `"."` and `".."`: 
 
-<br>
+- 	`"."` represents the current folder and refers to the folder the user is currently in. For example, if I am in the folder `"/user/jdoe/documents"`, the folder tree would look like this: 
 
-If I was to view the Finder display as a hierarchical folder tree, it would have the following structure: 
+    ```{bash, eval = FALSE}
+    users/
+      └── jdoe/
+            └── documents/ <- my location
+    ```
 
-<br>
+    -   In this case, `"."` refers to same location (`"/user/jdoe/documents"`)
+    
+    ```{bash, eval = FALSE}
+    users/
+      └── jdoe/
+            └── documents/ -> "."
+    ```
+    
 
-```bash
-mjfrigaard/
-    ├── Applications
-    ├── Creative Cloud Files
-    ├── Desktop 
-    ├── digital-id
-    ├── Documents 
-    ├── Downloads 
-    ├── Dropbox 
-    ├── Fonts
-    ├── Library
-    ├── Movies
-    ├── Music
-    ├── Pictures
-    ├── [[projects]] <- my R projects
-    ├── Public
-    ├── R
-    └── Themes 
-```
+-	`".."` (dot dot) represents the *parent* folder. It is used to refer to the folder that contains the current folder. For example, if I am in the folder `"/user/jdoe/documents"`
 
-<br>
+    ```{bash, eval = FALSE}
+    users/
+      └── jdoe/
+            └── documents/ <- my location
+    ```
 
-```{r home-user-root, echo=FALSE, eval=TRUE, out.width='100%', fig.align='center'}
-knitr::include_graphics("../man/figures/home-user-root.png")
-```
+    -   Then `".."` refers to `"/user/jdoe"`
+    
+    ```{bash, eval = FALSE}
+    users/
+      └── jdoe/ -> ".."
+            └── documents/ 
+    ```
+
 
 
 ## Creating a `gerp` project
 
-
-
-
 ```{r example, eval=FALSE}
-gerp::ger_proj(parent_dir = "/Users/<username>/<folder?", proj_name = "my new project")
+gerp::ger_proj(parent_dir = "/<Users>/<username>/<folder>", proj_name = "my new project")
 ```
 
 ```{r gerp-new-proj, echo=FALSE, eval=TRUE, out.width='100%'}
@@ -252,3 +259,8 @@ For quick setup, run the `ger_setup()` function to create `code/`, `data/`, and 
 knitr::include_graphics("../man/figures/gerp-setup.gif")
 ```
 
+***
+
+1. The name for this package comes from the excellent article, '[Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)' by Greg Wilson, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt and Tracy K. Teal
+
+2. Jenny Bryan and Jim Hester address many of these topics in '[What they forgot to teach you about R](https://rstats.wtf/)', and I've codified them into this package wherever I could.
