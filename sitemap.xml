@@ -22,6 +22,9 @@
     <loc>https://mjfrigaard.github.io/gerp/articles/documents.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/articles/gerp-project-dev.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/articles/getting-started.html</loc>
   </url>
   <url>
@@ -29,6 +32,9 @@
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/articles/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/articles/setup.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/authors.html</loc>
@@ -46,7 +52,13 @@
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_data.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/ger_dev.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_fun_headr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/ger_go.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_headr.html</loc>
@@ -58,7 +70,7 @@
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_proj.html</loc>
   </url>
   <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_ref.html</loc>
+    <loc>https://mjfrigaard.github.io/gerp/reference/ger_report.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_setup.html</loc>

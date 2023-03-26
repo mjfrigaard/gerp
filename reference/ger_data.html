@@ -30,8 +30,10 @@ data.md file"><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/lib
     <a class="dropdown-item" href="../articles/collaborate.html">collaborate</a>
     <a class="dropdown-item" href="../articles/data.html">data</a>
     <a class="dropdown-item" href="../articles/documents.html">documents</a>
+    <a class="dropdown-item" href="../articles/gerp-project-dev.html">Developing gerp() function</a>
     <a class="dropdown-item" href="../articles/getting-started.html">Where do I start learning R?</a>
     <a class="dropdown-item" href="../articles/graphs.html">graphs</a>
+    <a class="dropdown-item" href="../articles/setup.html">setup</a>
   </div>
 </li>
 <li class="nav-item">
@@ -59,15 +61,9 @@ data.md file</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ger_data</span><span class="op">(</span>show_file <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ger_data</span><span class="op">(</span>folder_name <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
-    <div class="section level2">
-    <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>show_file</dt>
-<dd><p>open data.md file?</p></dd>
-
-</dl></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>ger_data() will create the following files and folders:</p><dl><dt>data-raw/</dt>
@@ -88,7 +84,7 @@ data.md file</p>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># in new project</span></span></span>
-<span class="r-in"><span><span class="co"># ger_data(show_file = FALSE)</span></span></span>
+<span class="r-in"><span><span class="co"># ger_data()</span></span></span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>

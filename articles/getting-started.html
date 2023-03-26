@@ -48,8 +48,10 @@
     <a class="dropdown-item" href="../articles/collaborate.html">collaborate</a>
     <a class="dropdown-item" href="../articles/data.html">data</a>
     <a class="dropdown-item" href="../articles/documents.html">documents</a>
+    <a class="dropdown-item" href="../articles/gerp-project-dev.html">Developing gerp() function</a>
     <a class="dropdown-item" href="../articles/getting-started.html">Where do I start learning R?</a>
     <a class="dropdown-item" href="../articles/graphs.html">graphs</a>
+    <a class="dropdown-item" href="../articles/setup.html">setup</a>
   </div>
 </li>
 <li class="nav-item">
@@ -117,12 +119,9 @@ increase your productivity when you’re using R (and your computer in
 general!).</p>
 <p>This vignette will go over how to install and load the
 <code>gerp</code> package, navigating your computers folders and files,
-and how to get started with a new R project.</p>
-<div class="section level3">
-<h3 id="practice-prăktĭs">
-<strong>Practice (prăk′tĭs)</strong><a class="anchor" aria-label="anchor" href="#practice-pr%C4%83kt%C4%ADs"></a>
-</h3>
+and how to get started with a new <code>gerp</code> R project.</p>
 <blockquote>
+<p><strong><em>Practice (prăk′tĭs)</em></strong></p>
 <p><em>To do or perform habitually or customarily; make a habit
 of</em></p>
 </blockquote>
@@ -132,7 +131,6 @@ documentation bundled in a standardized format. R packages are a vital
 part of the R ecosystem and provide users with a wide range of data
 analysis, visualization, and modeling tools. Understanding where and how
 to access them is essential to your early success.</p>
-</div>
 <div class="section level3">
 <h3 id="install-a-package">Install a package<a class="anchor" aria-label="anchor" href="#install-a-package"></a>
 </h3>
@@ -153,12 +151,14 @@ version of <code>gerp</code> from GitHub:</p>
 <code><a href="https://rdrr.io/r/base/library.html" class="external-link">library()</a></code> function</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mjfrigaard.github.io/gerp/">gerp</a></span><span class="op">)</span></span></code></pre></div>
-<p>All R projects inevitably involve creating some kind of file (and
-usually more than one!), so the first thing to I need to decide is
-<strong>where my projects will live.</strong> The next section will
-cover tools and methods for orienting yourself with your computers’
-folder structure.</p>
 </div>
+<div class="section level2">
+<h2 id="r-projects">R projects<a class="anchor" aria-label="anchor" href="#r-projects"></a>
+</h2>
+<p>All R projects inevitably involve creating files, so after installing
+packages, the next thing to decide is <strong>where my projects will
+live.</strong> The next practice we’ll cover tools and methods for
+orienting yourself with your computers’ folder structure.</p>
 <div class="section level3">
 <h3 id="folder-orientation">Folder orientation<a class="anchor" aria-label="anchor" href="#folder-orientation"></a>
 </h3>
@@ -396,39 +396,34 @@ enclosed in quotes (<code>"/"</code>)</p>
 folders available starting at your home directory.</p>
 <p><br></p>
 <div class="figure" style="text-align: center">
-<img src="../reference/figures/ger_path-home.png" alt="help for ger_path()" width="60%"><p class="caption">
-help for ger_path()
+<img src="../reference/figures/ger_path-home.png" alt="Home directory (macOS)" width="60%"><p class="caption">
+Home directory (macOS)
 </p>
 </div>
 <p><br></p>
 <p>You can then continue using your mouse (or the arrow keys) to
-navigate to the folder you want your R project to live in (in my case,
-it’s <code>/Users/mjfrigaard/projects/</code>)</p>
+navigate to the parent folder you want your R project to live in (in my
+case, it’s <code>/Users/mjfrigaard/projects/</code>)</p>
 <p><br></p>
-<p><img src="../reference/figures/ger_path.gif" width="80%"></p>
+<p><img src="../reference/figures/ger_path.gif" width="80%" style="display: block; margin: auto;"></p>
 <p><br></p>
+<p><code><a href="../reference/ger_path.html">ger_path()</a></code> works the same way on Windows:</p>
+<p><br></p>
+<p><img src="../reference/figures/ger_path-win.gif" width="80%" style="display: block; margin: auto;"></p>
 </div>
 <div class="section level3">
 <h3 id="creating-a-gerp-project">Creating a <code>gerp</code> project<a class="anchor" aria-label="anchor" href="#creating-a-gerp-project"></a>
 </h3>
+<p>After locating the R project folder, you can pass it to
+<code><a href="../reference/ger_go.html">gerp::ger_go()</a></code>, and your new ‘good enough’ project will
+open in a new session.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_proj.html">ger_proj</a></span><span class="op">(</span>parent_dir <span class="op">=</span> <span class="st">"/&lt;Users&gt;/&lt;username&gt;/&lt;folder&gt;"</span>, proj_name <span class="op">=</span> <span class="st">"my new project"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="../reference/figures/gerp-new-proj.gif" width="100%"></p>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_go.html">ger_go</a></span><span class="op">(</span>parent_dir <span class="op">=</span> <span class="st">"/&lt;Users&gt;/&lt;username&gt;/&lt;folder&gt;"</span>, proj_name <span class="op">=</span> <span class="st">"my new project"</span><span class="op">)</span></span></code></pre></div>
 <p><strong>Note</strong>: If you’re already using a cloud platform like
 <a href="https://www.dropbox.com/" class="external-link">Dropbox</a> or <a href="https://www.google.com/drive/" class="external-link">Google Drive</a> to keep track of
 your files, choose a different location for your R project folders.
 Cloud storage services are great, but they’ve been known to <a href="https://support.posit.co/hc/en-us/articles/200534477" class="external-link">cause
 issues</a> when working with R and RStudio.</p>
-</div>
-<div class="section level2">
-<h2 id="ger_setup">
-<code>ger_setup()</code><a class="anchor" aria-label="anchor" href="#ger_setup"></a>
-</h2>
-<p>The first</p>
-<p>For quick setup, run the <code><a href="../reference/ger_setup.html">ger_setup()</a></code> function to create
-<code>code/</code>, <code>data/</code>, and <code>ref/</code>
-folders.</p>
-<p><img src="../reference/figures/gerp-setup.gif" width="100%"></p>
 <hr>
 <ol style="list-style-type: decimal">
 <li><p>The name for this package comes from the excellent article, ‘<a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510" class="external-link">Good
@@ -438,6 +433,7 @@ Teal</p></li>
 <li><p>Jenny Bryan and Jim Hester address many of these topics in ‘<a href="https://rstats.wtf/" class="external-link">What they forgot to teach you about R</a>’,
 and I’ve codified them into this package wherever I could.</p></li>
 </ol>
+</div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
