@@ -4,7 +4,6 @@
 #' @importFrom readr write_lines
 #' @export ger_data
 #'
-#' @param show_file open data.md file?
 #'
 #' @description Create data folders, inst/extdata folder, and
 #'     data.md file
@@ -17,18 +16,29 @@
 #' }
 #' @examples
 #' # in new project
-#' # ger_data(show_file = FALSE)
-ger_data <- function(show_file = TRUE) {
-  fs::dir_create("data/")
-  fs::dir_create("data-raw/")
-  fs::dir_create("inst/")
-  fs::dir_create("inst/extdata/")
-  fs::file_create("data.md")
+#' # ger_data()
+ger_data <- function(folder_name = NULL) {
+data_info <- c("# Project Data  \n\nHow to use the data folders:\n\n├── data.md\n├── data/\n├── data-raw/\n└── inst/\n     └── extdata/\n\n\n1. Put the code used to download or create raw data files in the `data-raw/` folder\n\n2. Put processed data in the `data/` folder\n\n3. Put any data used for examples or testing in `inst/extdata/`","\n4. Document your data in `code/data.R`", "\n\nFor guidance on external data, please see: https://r-pkgs.org/data.html#sec-data-extdata\n\nMore Resources\n\n1. Sharing data: http://bit.ly/data-4-sharing\n\n2. Data in spreadsheets: http://bit.ly/data-in-sheets\n\n3. Internal data: https://r-pkgs.org/data.html")
 
-  data_info <- c("# Project Data  \n\nHow to use the data folders:\n\n├── data.md\n├── data/\n├── data-raw/\n└── inst/\n     └── extdata/\n\n\n1. Put the code used to download or create raw data files in the `data-raw/` folder\n\n2. Put processed data in the `data/` folder\n\n3. Put any data used for examples or testing in `inst/extdata/`","\n4. Document your data in `code/data.R`", "\n\nFor guidance on external data, please see: https://r-pkgs.org/data.html#sec-data-extdata\n\nMore Resources\n\n1. Sharing data: http://bit.ly/data-4-sharing\n\n2. Data in spreadsheets: http://bit.ly/data-in-sheets\n\n3. Internal data: https://r-pkgs.org/data.html")
-  fs::file_create("data.md")
-  readr::write_lines(x = data_info, file = "data.md", append = FALSE)
-  if (show_file == TRUE) {
-    fs::file_show("data.md")
+  if (!is.null(folder_name)) {
+
+    fs::dir_create(paste0(folder_name, "/", "data/"))
+    fs::dir_create(paste0(folder_name, "/","data-raw/"))
+    fs::dir_create(paste0(folder_name, "/","inst/"))
+    fs::dir_create(paste0(folder_name, "/","inst/extdata/"))
+    fs::file_create(paste0(folder_name, "/", "data.md"))
+    readr::write_lines(x = data_info,
+      file = paste0(folder_name, "/", "data.md"),
+      append = FALSE)
+
+  } else {
+
+    fs::dir_create("data/")
+    fs::dir_create("data-raw/")
+    fs::dir_create("inst/")
+    fs::dir_create("inst/extdata/")
+    fs::file_create("data.md")
+    readr::write_lines(x = data_info, file = "data.md", append = FALSE)
+
   }
 }

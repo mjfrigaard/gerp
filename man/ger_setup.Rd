@@ -4,17 +4,19 @@
 \alias{ger_setup}
 \title{good enough R setup}
 \usage{
-ger_setup(code = TRUE, data = TRUE, docs = TRUE)
+ger_setup(folder_name = NULL)
 }
 \arguments{
-\item{code}{logical, include results code and files?}
-
-\item{data}{logical, include data folder and files?}
-
-\item{docs}{logical, include docs folder and files?}
+\item{folder_name}{path to project folder}
 }
 \description{
-ger_setup() is a wrapper around the ger_code(), ger_data(),
-and ger_docs() functions. This is intended for an easy setup with a
-new project.
+Create start-up files for project (\code{changelog.md}, \code{CITATION},
+\code{requirements.md}, and \code{LICENSE})
+
+\describe{
+\item{changelog.md}{Manually document changes to the files or folders in your project.}
+\item{CITATION}{Information and example of how to cite your project}
+\item{requirements.md}{Advice on how to manually list the requirements for your project}
+\item{LICENSE}{Downloaded license from \href{https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt}{creativecommons.org}}
+}
 }

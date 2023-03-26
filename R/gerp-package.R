@@ -2,6 +2,9 @@
 #'
 #' @import usethis
 #' @import fs
+#' @import glue
+#' @import cli
+#' @import rlang
 #' @import dplyr
 #' @import readr
 #' @import stringr

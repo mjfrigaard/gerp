@@ -1,42 +1,55 @@
-#' Insert 'good enough' R script header
-#'
-#' @importFrom purrr map
-#' @importFrom rstudioapi insertText
-#' @export ger_headr
-#'
-#'
-#' @description The `ger_headr()` function can be used in a new R script
-#'     to create a header. The header includes sections for:
-#' * what the code creates
-#'
-#' * who the author is
-#'
-#' * an MIT License
-#'
-#' * Version
-#'
-#' @examples # use this to create a script header (with RStudio open)
-#' # ger_headr("import")
-ger_headr <- function() {
-  script_header <- c("#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#\n# This is code to create:\n# Authored by and feedback to:\n# MIT License\n# Version:\n#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#\n")
-  purrr::map(.x = script_header, .f = rstudioapi::insertText)
+#  user_path_prep -----
+#' @noRd
+#' @importFrom fs path_expand
+user_path_prep <- function(path) {
+  ## usethis uses fs's notion of home directory
+  ## this ensures we are consistent about that
+  fs::path_expand(path)
 }
 
-#' Fun script header `<(+_+)>`
+# is_quiet ----
+#' @noRd
+is_quiet <- function() {
+  isTRUE(getOption("usethis.quiet", default = FALSE))
+}
+
+# indent -----
+#' @noRd
+indent <- function(x, first = "  ", indent = first) {
+  x <- gsub("\n", paste0("\n", indent), x)
+  paste0(first, x)
+}
+
+# check_path_is_directory -------------
+#' @noRd
 #'
-#' @param name
+#' @importFrom fs file_exists is_link is_dir
+#' @importFrom glue glue
+check_path_is_directory <- function(path) {
+  if (!fs::file_exists(path)) {
+    ui_stop("Directory {ui_path(path)} does not exist.")
+  }
+  if (fs::is_link(path)) {
+    path <- link_path(path)
+  }
+  if (!fs::is_dir(path)) {
+    ui_stop("{ui_path(path)} is not a directory.")
+  }
+}
+
+# create_directory ----------
+#' @noRd
 #'
-#' @importFrom purrr map
-#' @importFrom rstudioapi insertText
-#' @export ger_fun_headr
-#'
-#' @examples # use this to create a fun section header in any .R file
-#' # with RStudio running...
-#' # gerp::fun_headr("import")
-#'
-#' @description The `fun_headr()` function is similar to the hot keys
-#' 'cmd + shift + R' for creating a section header.
-ger_fun_headr <- function(name) {
-    section_header <- paste0("# <(+_+)> ", name, " ––+––+––+––+––+––+––+––––+––+––+––––+––+ ----")
-  purrr::map(.x = section_header, .f = rstudioapi::insertText)
+#' @importFrom fs dir_exists file_exists dir_create
+create_directory <- function(path) {
+  if (fs::dir_exists(path)) {
+    return(
+      invisible(FALSE)
+      )
+  } else if (fs::file_exists(path)) {
+    ui_stop("{ui_path(path)} exists but is not a directory.")
+  }
+  fs::dir_create(path, recurse = TRUE)
+  ui_done("Creating {ui_path(path)}")
+  invisible(TRUE)
 }

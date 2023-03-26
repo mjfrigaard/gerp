@@ -4,10 +4,7 @@
 \alias{ger_data}
 \title{good enough data folders}
 \usage{
-ger_data(show_file = TRUE)
-}
-\arguments{
-\item{show_file}{open data.md file?}
+ger_data(folder_name = NULL)
 }
 \description{
 Create data folders, inst/extdata folder, and
@@ -24,5 +21,5 @@ ger_data() will create the following files and folders:
 }
 \examples{
 # in new project
-# ger_data(show_file = FALSE)
+# ger_data()
 }

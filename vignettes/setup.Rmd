@@ -1,0 +1,27 @@
+---
+title: "setup"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{setup}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(gerp)
+```
+
+# `ger_setup()`
+
+For quick setup, run the `ger_setup()` function to create `code/`, `data/`, and `ref/` folders.
+
+```{r gerp-setup, echo=FALSE, eval=TRUE, out.width='100%'}
+knitr::include_graphics("../man/figures/gerp-setup.gif")
+```

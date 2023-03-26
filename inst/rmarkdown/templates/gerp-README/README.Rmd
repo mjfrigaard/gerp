@@ -18,11 +18,10 @@ knitr::opts_chunk$set(
 
 # [Your Project] 
 
-Run the functions below in the console to create some handy project files:
+Run the code below in the console to learn about setting up your 'good enough' project files:
 
 ```r
-# create code/, docs/, and results/ 
-ger_setup()
+??gerp
 ```
 
 The goal of [Your Project] is to ...

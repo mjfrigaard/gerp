@@ -22,6 +22,9 @@ VignetteBuilder: knitr
 Imports: 
     collateral,
     usethis,
+    glue,
+    cli,
+    rlang,
     dplyr,
     fs,
     readr,

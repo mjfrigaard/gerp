@@ -41,12 +41,10 @@ knitr::opts_chunk$set(
 A [Google search](https://bfy.tw/Tx85) for the question above will return a deluge of websites, tutorials, YouTube videos and blog posts. The results probably aren't incorrect, but they're not likely to contain any practices or habits new R users should adopt when beginning their R journey. `gerp` was written to help guide new users towards a set of ‘good enough’ practices that have been shown to help "[*you get more done in less time and with less pain.*](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510#sec028)*"*[1] New R users often struggle to find these habits because they aren’t typically covered in textbooks or online documentation (with some great exceptions[2]), but adopting at least a few of these practices will increase your productivity when you’re using R (and your computer in general!).
 
 
-This vignette will go over how to install and load the `gerp` package, navigating your computers folders and files, and how to get started with a new R project.
+This vignette will go over how to install and load the `gerp` package, navigating your computers folders and files, and how to get started with a new `gerp` R project.
 
-
-
-## **Practice (prăk′tĭs)**
-
+> ***Practice (prăk′tĭs)***
+> 
 > *To do or perform habitually or customarily; make a habit of*
 
 One of the first practices we're going to cover is installing and loading packages. R packages are a collection of functions, data, and documentation bundled in a standardized format. R packages are a vital part of the R ecosystem and provide users with a wide range of data analysis, visualization, and modeling tools. Understanding where and how to access them is essential to your early success.
@@ -70,7 +68,10 @@ After `gerp` is installed, load the package using the `library()` function
 library(gerp)
 ```
 
-All R projects inevitably involve creating some kind of file (and usually more than one!), so the first thing to I need to decide is **where my projects will live.** The next section will cover tools and methods for orienting yourself with your computers' folder structure. 
+
+# R projects
+
+All R projects inevitably involve creating files, so after installing packages, the next thing to decide is **where my projects will live.** The next practice we'll cover tools and methods for orienting yourself with your computers' folder structure. 
 
 ## Folder orientation 
 
@@ -268,44 +269,40 @@ If you hit the **Tab** key, you'll see the list of folders available starting at
 
 <br>
 
-```{r ger_path-home, echo=FALSE, eval=TRUE, out.width='60%', fig.align='center', fig.cap='help for ger_path()'}
+```{r ger_path-home, echo=FALSE, eval=TRUE, out.width='60%', fig.align='center', fig.cap='Home directory (macOS)'}
 knitr::include_graphics("../man/figures/ger_path-home.png")
 ```
 
 <br>
 
-You can then continue using your mouse (or the arrow keys) to navigate to the folder you want your R project to live in (in my case, it's `/Users/mjfrigaard/projects/`)
+You can then continue using your mouse (or the arrow keys) to navigate to the parent folder you want your R project to live in (in my case, it's `/Users/mjfrigaard/projects/`)
 
 <br>
 
-```{r ger_path-gif, echo=FALSE, eval=TRUE, out.width='80%'}
+```{r ger_path-gif, echo=FALSE, fig.align='center', eval=TRUE, out.width='80%'}
 knitr::include_graphics("../man/figures/ger_path.gif")
 ```
 
 <br>
 
+`ger_path()` works the same way on Windows: 
+
+<br>
+
+```{r ger_path-win-gif, echo=FALSE, fig.align='center', eval=TRUE, out.width='80%'}
+knitr::include_graphics("../man/figures/ger_path-win.gif")
+```
+
 
 ## Creating a `gerp` project
 
-```{r example, eval=FALSE}
-gerp::ger_proj(parent_dir = "/<Users>/<username>/<folder>", proj_name = "my new project")
-```
+After locating the R project folder, you can pass it to `gerp::ger_go()`, and your new 'good enough' project will open in a new session. 
 
-```{r gerp-new-proj, echo=FALSE, eval=TRUE, out.width='100%'}
-knitr::include_graphics("../man/figures/gerp-new-proj.gif")
+```{r ger_go, eval=FALSE}
+gerp::ger_go(parent_dir = "/<Users>/<username>/<folder>", proj_name = "my new project")
 ```
 
 **Note**: If you're already using a cloud platform like [Dropbox](https://www.dropbox.com/) or [Google Drive](https://www.google.com/drive/) to keep track of your files, choose a different location for your R project folders. Cloud storage services are great, but they've been known to [cause issues](https://support.posit.co/hc/en-us/articles/200534477) when working with R and RStudio. 
-
-# `ger_setup()`
-
-The first 
-
-For quick setup, run the `ger_setup()` function to create `code/`, `data/`, and `ref/` folders.
-
-```{r gerp-setup, echo=FALSE, eval=TRUE, out.width='100%'}
-knitr::include_graphics("../man/figures/gerp-setup.gif")
-```
 
 ***
 

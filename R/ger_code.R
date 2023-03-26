@@ -16,7 +16,7 @@
 #'    can be changed with a character string.
 ger_code <- function(folder_name = NULL, header = TRUE) {
   if (is.null(folder_name)) {
-    code_dir <- paste0("code", "/")
+    code_dir <- paste0("R", "/")
   } else {
     code_dir <- paste0(folder_name, "/")
   }
