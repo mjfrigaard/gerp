@@ -340,7 +340,7 @@ this:</p>
 </ul>
 <div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">users/</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">└──</span> jdoe/</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">└──</span> documents/ <span class="at">-</span><span class="op">&gt;</span> <span class="st">"."</span></span></code></pre></div>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">└──</span> documents/ <span class="at">-</span><span class="op">&gt;</span> <span class="st">"."</span> also my location</span></code></pre></div>
 </li>
 <li>
 <p><code>".."</code> (dot dot) represents the <em>parent</em>
@@ -355,7 +355,7 @@ folder. For example, if I am in the folder
 </li>
 </ul>
 <div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">users/</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">└──</span> jdoe/ <span class="at">-</span><span class="op">&gt;</span> <span class="st">".."</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">└──</span> jdoe/ <span class="at">-</span><span class="op">&gt;</span> <span class="st">".."</span> parent folder</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">└──</span> documents/ </span></code></pre></div>
 </li>
 </ul>
@@ -383,16 +383,35 @@ objects in a package. When we select a package item, we can see the
 documentation in yellow:</p>
 <p><br></p>
 <div class="figure" style="text-align: center">
-<img src="../reference/figures/namespacing-doc.png" alt="All functions and objects in gerp" width="80%"><p class="caption">
-All functions and objects in gerp
+<img src="../reference/figures/namespacing-doc.png" alt="help for ger_path()" width="80%"><p class="caption">
+help for ger_path()
 </p>
 </div>
+<p><br></p>
+<p>To use <code><a href="../reference/ger_path.html">ger_path()</a></code>, start by entering a forward slash
+enclosed in quotes (<code>"/"</code>)</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_path.html">ger_path</a></span><span class="op">(</span><span class="st">"/"</span><span class="op">)</span></span></code></pre></div>
+<p>If you hit the <strong>Tab</strong> key, you’ll see the list of
+folders available starting at your home directory.</p>
+<p><br></p>
+<div class="figure" style="text-align: center">
+<img src="../reference/figures/ger_path-home.png" alt="help for ger_path()" width="60%"><p class="caption">
+help for ger_path()
+</p>
+</div>
+<p><br></p>
+<p>You can then continue using your mouse (or the arrow keys) to
+navigate to the folder you want your R project to live in (in my case,
+it’s <code>/Users/mjfrigaard/projects/</code>)</p>
+<p><br></p>
+<p><img src="../reference/figures/ger_path.gif" width="80%"></p>
 <p><br></p>
 </div>
 <div class="section level3">
 <h3 id="creating-a-gerp-project">Creating a <code>gerp</code> project<a class="anchor" aria-label="anchor" href="#creating-a-gerp-project"></a>
 </h3>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_proj.html">ger_proj</a></span><span class="op">(</span>parent_dir <span class="op">=</span> <span class="st">"/&lt;Users&gt;/&lt;username&gt;/&lt;folder&gt;"</span>, proj_name <span class="op">=</span> <span class="st">"my new project"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="../reference/figures/gerp-new-proj.gif" width="100%"></p>
 <p><strong>Note</strong>: If you’re already using a cloud platform like
