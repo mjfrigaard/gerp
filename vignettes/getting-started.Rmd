@@ -215,7 +215,7 @@ We'll use folder trees to describe the special directories implied by `"."` and 
     ```{bash, eval = FALSE}
     users/
       └── jdoe/
-            └── documents/ -> "."
+            └── documents/ -> "." also my location
     ```
     
 
@@ -231,7 +231,7 @@ We'll use folder trees to describe the special directories implied by `"."` and 
     
     ```{bash, eval = FALSE}
     users/
-      └── jdoe/ -> ".."
+      └── jdoe/ -> ".." parent folder
             └── documents/ 
     ```
 
@@ -252,12 +252,37 @@ Using `package::function()` shows us all the functions and objects in a package.
 
 <br>
 
-```{r namespacing-doc, echo=FALSE, eval=TRUE, out.width='80%', fig.align='center', fig.cap='All functions and objects in gerp'}
+```{r namespacing-doc, echo=FALSE, eval=TRUE, out.width='80%', fig.align='center', fig.cap='help for ger_path()'}
 knitr::include_graphics("../man/figures/namespacing-doc.png")
 ```
 
 <br>
 
+To use `ger_path()`, start by entering a forward slash enclosed in quotes (`"/"`)
+
+```{r , eval=FALSE}
+gerp::ger_path("/")
+```
+
+If you hit the **Tab** key, you'll see the list of folders available starting at your home directory. 
+
+<br>
+
+```{r ger_path-home, echo=FALSE, eval=TRUE, out.width='60%', fig.align='center', fig.cap='help for ger_path()'}
+knitr::include_graphics("../man/figures/ger_path-home.png")
+```
+
+<br>
+
+You can then continue using your mouse (or the arrow keys) to navigate to the folder you want your R project to live in (in my case, it's `/Users/mjfrigaard/projects/`)
+
+<br>
+
+```{r ger_path-gif, echo=FALSE, eval=TRUE, out.width='80%'}
+knitr::include_graphics("../man/figures/ger_path.gif")
+```
+
+<br>
 
 
 ## Creating a `gerp` project
