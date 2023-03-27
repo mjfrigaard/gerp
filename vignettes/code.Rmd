@@ -1,8 +1,8 @@
 ---
-title: "code"
+title: "Good enough code"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{code}
+  %\VignetteIndexEntry{Good enough code}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -18,24 +18,18 @@ knitr::opts_chunk$set(
 library(gerp)
 ```
 
-## Creating a `gerp` project
+# `ger_code()`
 
-Create a new `gerp` project:
+Use `ger_code()` to create the `R/` code folder in your projects: 
 
-```{r example, eval=FALSE}
-gerp::ger_proj(parent_dir = "/Users/<username>/", proj_name = "my new project")
+```{r ger_code, echo=FALSE, out.width='100%', eval=TRUE, fig.align='center'}
+knitr::include_graphics("../man/figures/ger_code.gif")
 ```
-
-```{r gerp-new-proj, echo=FALSE, eval=TRUE, out.width='100%'}
-knitr::include_graphics("../man/figures/gerp-new-proj.gif")
-```
-
-### `ger_code()`
 
 The `ger_code()` creates the following files:
 
 ```{r code, eval=FALSE}
-code
+R/
   ├── data.R
   ├── import.R
   ├── model.R
@@ -74,9 +68,9 @@ You can choose to have regular R script headers or `roxygen2` headers:
 #=====================================================================#
 ```
 
-### `code/data.R`
+### `R/data.R`
 
-The `code/data.R` file should be used for documenting datasets in your project. See example below:
+The `R/data.R` file should be used for documenting datasets in your project. See example below:
 
 ```{r , eval=FALSE}
 #' Title (dataset description)
@@ -94,7 +88,7 @@ The `code/data.R` file should be used for documenting datasets in your project. 
 'wu_df'
 ```
 
-This will create the .Rd document so your dataset is accessible in the **Help** pane.
+This will create the `.Rd` document so your dataset is accessible in the **Help** pane.
 
 <br>
 
@@ -102,4 +96,34 @@ This will create the .Rd document so your dataset is accessible in the **Help** 
 knitr::include_graphics("../man/figures/data-rd.png")
 ```
 
+# Headers 
+
+Even if you're not using [`roxygen2` tags](https://roxygen2.r-lib.org/articles/rd.html), it's a good idea to put a header on your code files. This helps collaborators (and you!) track what the script does.
+
+```{r eval=FALSE}
+gerp::ger_headr()
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+# This is code to create:
+# Authored by and feedback to:
+# MIT License
+# Version:
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+```
+
+## Sections 
+
+`gerp::ger_sect()` will create a code section based on a `name` input:
+
+```{r eval=FALSE}
+gerp::ger_sect(name = 'import')
+# <(+_+)> import ––+––+––+––+––+––+––+––––+––+––+––––+––+ ----
+```
+
+These are handy if you use RStudio's outline feature: 
+
+<br>
+
+```{r ger_sect, echo=FALSE, out.width='100%', eval=TRUE, fig.align='center'}
+knitr::include_graphics("../man/figures/ger_sect.png")
+```
 

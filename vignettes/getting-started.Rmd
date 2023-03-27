@@ -311,6 +311,8 @@ gerp::ger_path("/Users/mjfrigaard/projects/", type = "rel")
 
 The relative path refers to the location of the folder relative to the current working folder (i.e., the folder where the user is currently located). 
 
+<br>
+
 # Creating a `gerp` project
 
 After locating the R project folder, you can store the output and pass it to `gerp::ger_proj()`
@@ -326,6 +328,16 @@ and your new 'good enough' project will open in a new session:
 
 ```{r my_project.gif, echo=FALSE, eval=TRUE, out.width='100%', fig.align='center', fig.cap='New gerp project!'}
 knitr::include_graphics("../man/figures/my_project.gif")
+```
+
+## `.Rproj` files
+
+`gerp` projects use RStudio's project files (with extension `.Rproj`). `.Rproj` files [*"contain project options and can also be used as a shortcut for opening the project directly from the filesystem."*](https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects) 
+
+When I want to re-open my RStudio project, I navigate to the `.Rproj` file and double-click on it to open RStudio: 
+
+```{r open_rproj-gif, echo=FALSE, eval=TRUE, out.width='100%', fig.align='center', fig.cap='Open RStudio gerp project'}
+knitr::include_graphics("../man/figures/open_rproj.gif")
 ```
 
 **Note**: If you're already using a cloud platform like [Dropbox](https://www.dropbox.com/) or [Google Drive](https://www.google.com/drive/) to keep track of your files, choose a different location for your R project folders. Cloud storage services are great, but they've been known to [cause issues](https://support.posit.co/hc/en-us/articles/200534477) when working with R and RStudio. 

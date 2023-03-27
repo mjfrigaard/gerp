@@ -1,8 +1,8 @@
 ---
-title: "documents"
+title: "Good enough documents"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{documents}
+  %\VignetteIndexEntry{Good enough documents}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -18,31 +18,39 @@ knitr::opts_chunk$set(
 library(gerp)
 ```
 
-## Creating a `gerp` project
+# `ger_dev()`
 
-Create a new `gerp` project:
+The `ger_dev()` function creates an R Markdown file for development: `dev/notebook.Rmd`
 
-```{r example, eval=FALSE}
-gerp::ger_proj(parent_dir = "/Users/<username>/", proj_name = "my new project")
+<br>
+
+```{r ger_dev-gif, echo=FALSE, out.width='100%', eval=TRUE, fig.align='center'}
+knitr::include_graphics("../man/figures/ger_dev.gif")
 ```
 
-```{r gerp-new-proj, echo=FALSE, eval=TRUE, out.width='100%'}
-knitr::include_graphics("../man/figures/gerp-new-proj.gif")
-```
+<br>
 
-### `ger_ref()`
-
-The `ger_ref()` function creates three files for documentation: `ref/notebook.Rmd`, `ref/manuscript.Rmd`, and `changelog.md`.
-
-```{r ref, eval=FALSE}
-├── changelog.md
-ref/
-  ├── manuscript.Rmd
+```{r dev, eval=FALSE}
+dev/
   └── notebook.Rmd
 ```
 
--   `ref/notebook.Rmd`: An R Markdown notebook (i.e., lab notebook).
 
--   `ref/manuscript.Rmd`: A more polished R Markdown file for reports or manuscripts.
 
--   `changelog.md`: Manually document changes to the files or folders in your project.
+
+# `ger_report()`
+
+The `ger_report()` function creates polished R Markdown file for finalizing a report: `report/manuscript.Rmd`
+
+<br>
+
+```{r ger_report-gif, echo=FALSE, out.width='100%', eval=TRUE, fig.align='center'}
+knitr::include_graphics("../man/figures/ger_report.gif")
+```
+
+<br>
+
+```{r report, eval=FALSE}
+report/
+  └── manuscript.Rmd
+```

@@ -1,7 +1,7 @@
 Package: gerp
 Type: Package
 Title: Good Enough R (version 2!)
-Version: 0.1.0
+Version: 1.0.0
 Author: Martin Frigaard
 Maintainer: Martin Frigaard <mjfrigaard@pm.me>
 Description: This package helps users adopt a set of good enough computing 

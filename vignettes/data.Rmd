@@ -1,8 +1,8 @@
 ---
-title: "data"
+title: "Good enough data"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{data}
+  %\VignetteIndexEntry{Good enough data}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -18,19 +18,15 @@ knitr::opts_chunk$set(
 library(gerp)
 ```
 
-## Creating a `gerp` project
+# `ger_data()`
 
-Create a new `gerp` project:
+Use `ger_data()` to create the data folders in your R projects: 
 
-```{r example, eval=FALSE}
-gerp::ger_proj(parent_dir = "/Users/<username>/", proj_name = "my new project")
+```{r ger_data-gif, echo=FALSE, out.width='100%', eval=TRUE, fig.align='center'}
+knitr::include_graphics("../man/figures/ger_data.gif")
 ```
 
-```{r gerp-new-proj, echo=FALSE, eval=TRUE, out.width='100%'}
-knitr::include_graphics("../man/figures/gerp-new-proj.gif")
-```
-
-### `ger_data()`
+<br>
 
 The `ger_data()` creates three folders and a `data.md` file.
 

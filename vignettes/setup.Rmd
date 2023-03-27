@@ -1,8 +1,8 @@
 ---
-title: "setup"
+title: "Good enough setup"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{setup}
+  %\VignetteIndexEntry{Good enough setup}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -20,8 +20,8 @@ library(gerp)
 
 # `ger_setup()`
 
-For quick setup, run the `ger_setup()` function to create `code/`, `data/`, and `ref/` folders.
+For quick setup, run the `ger_setup()` function to create `changelog.md`, `LICENSE`, `CITATION` and `requirements.md` files.
 
-```{r gerp-setup, echo=FALSE, eval=TRUE, out.width='100%'}
-knitr::include_graphics("../man/figures/gerp-setup.gif")
+```{r ger_setup, echo=FALSE, eval=TRUE, out.width='100%'}
+knitr::include_graphics("../man/figures/ger_setup.gif")
 ```
