@@ -27,6 +27,7 @@ Imports:
     rlang,
     dplyr,
     fs,
+    snakecase,
     readr,
     rstudioapi,
     stringr,

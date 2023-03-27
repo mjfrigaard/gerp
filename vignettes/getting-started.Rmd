@@ -293,13 +293,37 @@ knitr::include_graphics("../man/figures/ger_path.gif")
 knitr::include_graphics("../man/figures/ger_path-win.gif")
 ```
 
+<br>
+
+The type argument controls whether `ger_path()` returns a relative or absolute folder path:
+
+```{r ger_path-abs, eval=FALSE}
+gerp::ger_path("/Users/mjfrigaard/projects/", type = "abs")
+[1] "/Users/mjfrigaard/projects"
+```
+
+The absolute path returns the complete and specific location of the folder in the file system, starting from the root directory.
+
+```{r ger_path-rel, eval=FALSE}
+gerp::ger_path("/Users/mjfrigaard/projects/", type = "rel")
+[1] "projects"
+```
+
+The relative path refers to the location of the folder relative to the current working folder (i.e., the folder where the user is currently located). 
 
 ## Creating a `gerp` project
 
-After locating the R project folder, you can pass it to `gerp::ger_go()`, and your new 'good enough' project will open in a new session. 
+After locating the R project folder, you can pass it to `gerp::ger_proj()`, and your new 'good enough' project will open in a new session. 
 
 ```{r ger_go, eval=FALSE}
-gerp::ger_go(parent_dir = "/<Users>/<username>/<folder>", proj_name = "my new project")
+pth <- gerp::ger_path("/Users/mjfrigaard/projects/")
+gerp::ger_proj(
+  folder = pth, 
+  name = "my project")
+```
+
+```{r my_project.gif, echo=FALSE, eval=TRUE}
+knitr::include_graphics("../man/figures/my_project.gif")
 ```
 
 **Note**: If you're already using a cloud platform like [Dropbox](https://www.dropbox.com/) or [Google Drive](https://www.google.com/drive/) to keep track of your files, choose a different location for your R project folders. Cloud storage services are great, but they've been known to [cause issues](https://support.posit.co/hc/en-us/articles/200534477) when working with R and RStudio. 

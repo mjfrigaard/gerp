@@ -1,3 +1,4 @@
+#' UI function (from [usethis/R/ui.R](https://github.com/r-lib/usethis/blob/0be0406d14d9816fd7f2457db4f7deaa958ac441/R/ui.R))
 # ui_value -----
 #' @noRd
 #'
