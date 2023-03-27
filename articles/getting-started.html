@@ -48,7 +48,6 @@
     <a class="dropdown-item" href="../articles/collaborate.html">collaborate</a>
     <a class="dropdown-item" href="../articles/data.html">data</a>
     <a class="dropdown-item" href="../articles/documents.html">documents</a>
-    <a class="dropdown-item" href="../articles/gerp-project-dev.html">Developing gerp() function</a>
     <a class="dropdown-item" href="../articles/getting-started.html">Where do I start learning R?</a>
     <a class="dropdown-item" href="../articles/graphs.html">graphs</a>
     <a class="dropdown-item" href="../articles/setup.html">setup</a>
@@ -410,15 +409,31 @@ case, it’s <code>/Users/mjfrigaard/projects/</code>)</p>
 <p><code><a href="../reference/ger_path.html">ger_path()</a></code> works the same way on Windows:</p>
 <p><br></p>
 <p><img src="../reference/figures/ger_path-win.gif" width="80%" style="display: block; margin: auto;"></p>
+<p><br></p>
+<p>The type argument controls whether <code><a href="../reference/ger_path.html">ger_path()</a></code> returns a
+relative or absolute folder path:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">ger_path</span>(<span class="st">"/Users/mjfrigaard/projects/"</span>, <span class="at">type =</span> <span class="st">"abs"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/mjfrigaard/projects"</span></span></code></pre></div>
+<p>The absolute path returns the complete and specific location of the
+folder in the file system, starting from the root directory.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">ger_path</span>(<span class="st">"/Users/mjfrigaard/projects/"</span>, <span class="at">type =</span> <span class="st">"rel"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"projects"</span></span></code></pre></div>
+<p>The relative path refers to the location of the folder relative to
+the current working folder (i.e., the folder where the user is currently
+located).</p>
 </div>
 <div class="section level3">
 <h3 id="creating-a-gerp-project">Creating a <code>gerp</code> project<a class="anchor" aria-label="anchor" href="#creating-a-gerp-project"></a>
 </h3>
 <p>After locating the R project folder, you can pass it to
-<code><a href="../reference/ger_go.html">gerp::ger_go()</a></code>, and your new ‘good enough’ project will
+<code><a href="../reference/ger_proj.html">gerp::ger_proj()</a></code>, and your new ‘good enough’ project will
 open in a new session.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_go.html">ger_go</a></span><span class="op">(</span>parent_dir <span class="op">=</span> <span class="st">"/&lt;Users&gt;/&lt;username&gt;/&lt;folder&gt;"</span>, proj_name <span class="op">=</span> <span class="st">"my new project"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">pth</span> <span class="op">&lt;-</span> <span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_path.html">ger_path</a></span><span class="op">(</span><span class="st">"/Users/mjfrigaard/projects/"</span><span class="op">)</span></span>
+<span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_proj.html">ger_proj</a></span><span class="op">(</span></span>
+<span>  folder <span class="op">=</span> <span class="va">pth</span>, </span>
+<span>  name <span class="op">=</span> <span class="st">"my project"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="../reference/figures/my_project.gif"><!-- --></p>
 <p><strong>Note</strong>: If you’re already using a cloud platform like
 <a href="https://www.dropbox.com/" class="external-link">Dropbox</a> or <a href="https://www.google.com/drive/" class="external-link">Google Drive</a> to keep track of
 your files, choose a different location for your R project folders.
