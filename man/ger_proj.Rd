@@ -4,26 +4,25 @@
 \alias{ger_proj}
 \title{Create a new good enough R project}
 \usage{
-ger_proj(parent_dir, proj_name)
+ger_proj(folder, name)
 }
 \arguments{
-\item{parent_dir}{the parent folder of your project}
+\item{folder}{the parent folder of your project}
 
-\item{proj_name}{name of your project}
+\item{name}{name of your project}
 }
 \description{
 Create and open a new 'good enough' project.
 }
 \details{
-this function will open a new RStudio project. The parent_dir is
-the folder that will contain your new project, and the proj_name will
-be the name of the new sub-folder.
-To navigate folders on your computer, I like to use the dir() function.
-If you start with dir("/"), you should be able to find all the folders
-you have permissions to (probably best to start with "/Users").
+this function will open a new RStudio project. The \code{folder} is
+the parent folder that will contain your new project, and the \code{name} will
+be the name of your project sub-folder.
+To navigate folders on your computer, I like to use \code{ger_path()} function.
+If you start with \code{ger_path("/")}, you should be able to find all the
+folders you have permissions to (probably best to start with \code{"/Users"}).
 }
 \examples{
 # not run
-# use dir() to find the parent folder path.
-# ger_proj(parent_dir = "/Users/mjfrigaard/Documents/", "my new project")
+# ger_proj(folder = tempdir(), "my project 01")
 }

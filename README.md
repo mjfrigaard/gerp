@@ -23,13 +23,7 @@ remotes::install_github("mjfrigaard/gerp")
 Create a new `ger` project:
 
 ``` r
-library(gerp)
-ger::ger_proj(parent_dir = "/Users/mjfrigaard/", 
-  proj_name = "my new project")
+ger::ger_proj("/Users/mjfrigaard/projects/")
 ```
 
-<img src="man/figures/gerp-new-proj.gif" width="100%" />
-
-Run `ger::ger_setup()` and start working!
-
-<img src="man/figures/gerp-setup.gif" width="100%" />
+<img src="man/figures/my_project.gif" width="100%" />

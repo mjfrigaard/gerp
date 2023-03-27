@@ -4,14 +4,13 @@
 \alias{ger_path}
 \title{Get good enough file path(s)}
 \usage{
-ger_path(..., ext = NULL, type = TRUE)
+ger_path(..., type = "abs")
 }
 \arguments{
-\item{...}{arguments passed to \code{dir()}}
+\item{...}{arguments passed to \code{fs::path_abs()}}
 
-\item{ext}{optional file extension (with or without the dot (\code{.}))}
-
-\item{type}{logical, relative or absolute path (default is absolute)}
+\item{type}{logical, relative (\code{"rel"}) or absolute (\code{"abs"}) path (default
+is absolute)}
 }
 \value{
 file path(s) that are either normalized (\code{type = FALSE}) or relative.
@@ -19,7 +18,6 @@ file path(s) that are either normalized (\code{type = FALSE}) or relative.
 \description{
 Use \code{ger_path()} to view folder and file paths.
 \describe{
-\item{ext}{An optional file extension argument (i.e., \code{".csv"})}
 \item{type}{Return the relative or absolute path. The default is a relative path, which is the location of a file or folder \strong{relative to the current working directory (or folder)}. This means that it doesn't start with the root directory, but with the directory that you're currently in. Absolute paths are the exact location of a file or folder in the file system hierarchy. They begin with the root folder and includes all folders and subfolders necessary to locate the file or folder.}
 }
 }

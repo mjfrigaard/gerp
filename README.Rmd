@@ -33,19 +33,15 @@ remotes::install_github("mjfrigaard/gerp")
 
 Create a new `ger` project:
 
+```{r}
+
+```
+
+
 ```{r example, eval=FALSE}
-library(gerp)
-ger::ger_proj(parent_dir = "/Users/mjfrigaard/", 
-  proj_name = "my new project")
+ger::ger_proj("/Users/mjfrigaard/projects/")
 ```
 
-```{r gerp-new-proj, echo=FALSE, eval=TRUE}
-knitr::include_graphics("man/figures/gerp-new-proj.gif")
+```{r my_project.gif, echo=FALSE, eval=TRUE}
+knitr::include_graphics("man/figures/my_project.gif")
 ```
-
-Run `ger::ger_setup()` and start working! 
-
-```{r gerp-setup, echo=FALSE, eval=TRUE}
-knitr::include_graphics("man/figures/gerp-setup.gif")
-```
-
