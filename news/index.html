@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">gerp</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,13 +24,15 @@
 <li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/code.html">code</a>
-    <a class="dropdown-item" href="../articles/collaborate.html">collaborate</a>
-    <a class="dropdown-item" href="../articles/data.html">data</a>
-    <a class="dropdown-item" href="../articles/documents.html">documents</a>
+    <h6 class="dropdown-header" data-toc-skip>Getting Started</h6>
     <a class="dropdown-item" href="../articles/getting-started.html">Where do I start learning R?</a>
-    <a class="dropdown-item" href="../articles/graphs.html">graphs</a>
-    <a class="dropdown-item" href="../articles/setup.html">setup</a>
+    <div class="dropdown-divider"></div>
+    <h6 class="dropdown-header" data-toc-skip>Workflows</h6>
+    <a class="dropdown-item" href="../articles/setup.html">Setup</a>
+    <a class="dropdown-item" href="../articles/code.html">Code</a>
+    <a class="dropdown-item" href="../articles/data.html">Data</a>
+    <a class="dropdown-item" href="../articles/documents.html">Documents</a>
+    <a class="dropdown-item" href="../articles/batch-rename.html">Batch rename files</a>
   </div>
 </li>
 <li class="active nav-item">
@@ -51,17 +53,43 @@
     </div>
 
     <div class="section level2">
+<h2 class="pkg-version" data-toc-text="1.0.0" id="gerp-100">gerp 1.0.0<a class="anchor" aria-label="anchor" href="#gerp-100"></a></h2>
+<ul><li><p>New vignettes (getting-started, setup, code, data, documentation, and batch-rename)</p></li>
+<li>
+<p>Function changes to make them align with R package development:</p>
+<ul><li>
+<p>New <code><a href="../reference/ger_proj.html">ger_proj()</a></code>:</p>
+<ul><li>Uses functions from <code>usethis</code> to create R project</li>
+</ul></li>
+<li>
+<p>New <code><a href="../reference/ger_code.html">ger_code()</a></code>:</p>
+<ul><li>Create <code>R/</code> folder (instead of <code>code/</code>)</li>
+</ul></li>
+<li>
+<p>New <code><a href="../reference/ger_data.html">ger_data()</a></code>:</p>
+<ul><li>Creates <code>data-raw/</code>, <code>data/</code>, and <code>inst/extdata/</code>
+</li>
+</ul></li>
+<li>
+<p><code>ger_docs()</code> has been replaced with <code><a href="../reference/ger_dev.html">ger_dev()</a></code> and <code><a href="../reference/ger_report.html">ger_report()</a></code></p>
+<ul><li><p><code><a href="../reference/ger_dev.html">ger_dev()</a></code> creates <code>dev/</code> folder and adds R Markdown notebook</p></li>
+<li><p><code><a href="../reference/ger_report.html">ger_report()</a></code> creates <code>report/</code> folder and adds R Markdown manuscript file</p></li>
+</ul></li>
+<li><p><code><a href="../reference/ger_setup.html">ger_setup()</a></code> adds <code>changelog.md</code>, <code>LICENSE</code>, <code>CITATION</code> and <code>requirements.md</code> files</p></li>
+</ul></li>
+</ul></div>
+    <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.1.0" id="gerp-010">gerp 0.1.0<a class="anchor" aria-label="anchor" href="#gerp-010"></a></h2>
-<ul><li>Added a <code>NEWS.md</code> file to track changes to the package<br></li>
-<li>Added <code><a href="../reference/ger_proj.html">ger_proj()</a></code>, <code><a href="../reference/ger_code.html">ger_code()</a></code>, <code><a href="../reference/ger_data.html">ger_data()</a></code>, <code>ger_docs()</code>, and <code><a href="../reference/ger_setup.html">ger_setup()</a></code><br></li>
+<ul><li>Added <code><a href="../reference/ger_proj.html">ger_proj()</a></code>, <code><a href="../reference/ger_code.html">ger_code()</a></code>, <code><a href="../reference/ger_data.html">ger_data()</a></code>, <code>ger_docs()</code>, and <code><a href="../reference/ger_setup.html">ger_setup()</a></code><br></li>
 <li>Added <code>data-raw/wu_df.R</code>, <code>data-raw/wu_dt.R</code>, and <code>data-raw/wu_tbl.R</code><br></li>
 <li>Added <code>inst/extdata/wu_data.csv</code><br></li>
 <li>Added <code>inst/rmarkdown/templates/gerp-README/README.Rmd</code> for <code>README.Rmd</code> template</li>
 <li>Updated README<br></li>
-<li>Added <code>vignette/getting-started.Rmd</code>
-</li>
+<li>Added <code>vignette/getting-started.Rmd</code><br></li>
+<li>Added a <code>NEWS.md</code> file to track changes to the package</li>
 </ul></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">

@@ -29,7 +29,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">gerp</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,13 +44,15 @@
 <li class="active nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/code.html">code</a>
-    <a class="dropdown-item" href="../articles/collaborate.html">collaborate</a>
-    <a class="dropdown-item" href="../articles/data.html">data</a>
-    <a class="dropdown-item" href="../articles/documents.html">documents</a>
+    <h6 class="dropdown-header" data-toc-skip>Getting Started</h6>
     <a class="dropdown-item" href="../articles/getting-started.html">Where do I start learning R?</a>
-    <a class="dropdown-item" href="../articles/graphs.html">graphs</a>
-    <a class="dropdown-item" href="../articles/setup.html">setup</a>
+    <div class="dropdown-divider"></div>
+    <h6 class="dropdown-header" data-toc-skip>Workflows</h6>
+    <a class="dropdown-item" href="../articles/setup.html">Setup</a>
+    <a class="dropdown-item" href="../articles/code.html">Code</a>
+    <a class="dropdown-item" href="../articles/data.html">Data</a>
+    <a class="dropdown-item" href="../articles/documents.html">Documents</a>
+    <a class="dropdown-item" href="../articles/batch-rename.html">Batch rename files</a>
   </div>
 </li>
 <li class="nav-item">
@@ -421,19 +423,40 @@ folder in the file system, starting from the root directory.</p>
 <p>The relative path refers to the location of the folder relative to
 the current working folder (i.e., the folder where the user is currently
 located).</p>
+<p><br></p>
 </div>
-<div class="section level3">
-<h3 id="creating-a-gerp-project">Creating a <code>gerp</code> project<a class="anchor" aria-label="anchor" href="#creating-a-gerp-project"></a>
-</h3>
-<p>After locating the R project folder, you can pass it to
-<code><a href="../reference/ger_proj.html">gerp::ger_proj()</a></code>, and your new ‘good enough’ project will
-open in a new session.</p>
+</div>
+<div class="section level2">
+<h2 id="creating-a-gerp-project">Creating a <code>gerp</code> project<a class="anchor" aria-label="anchor" href="#creating-a-gerp-project"></a>
+</h2>
+<p>After locating the R project folder, you can store the output and
+pass it to <code><a href="../reference/ger_proj.html">gerp::ger_proj()</a></code></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">pth</span> <span class="op">&lt;-</span> <span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_path.html">ger_path</a></span><span class="op">(</span><span class="st">"/Users/mjfrigaard/projects/"</span><span class="op">)</span></span>
 <span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_proj.html">ger_proj</a></span><span class="op">(</span></span>
 <span>  folder <span class="op">=</span> <span class="va">pth</span>, </span>
 <span>  name <span class="op">=</span> <span class="st">"my project"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="../reference/figures/my_project.gif"><!-- --></p>
+<p>and your new ‘good enough’ project will open in a new session:</p>
+<div class="figure" style="text-align: center">
+<img src="../reference/figures/my_project.gif" alt="New gerp project!" width="100%"><p class="caption">
+New gerp project!
+</p>
+</div>
+<div class="section level3">
+<h3 id="rproj-files">
+<code>.Rproj</code> files<a class="anchor" aria-label="anchor" href="#rproj-files"></a>
+</h3>
+<p><code>gerp</code> projects use RStudio’s project files (with
+extension <code>.Rproj</code>). <code>.Rproj</code> files <a href="https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects" class="external-link"><em>“contain
+project options and can also be used as a shortcut for opening the
+project directly from the filesystem.”</em></a></p>
+<p>When I want to re-open my RStudio project, I navigate to the
+<code>.Rproj</code> file and double-click on it to open RStudio:</p>
+<div class="figure" style="text-align: center">
+<img src="../reference/figures/open_rproj.gif" alt="Open RStudio gerp project" width="100%"><p class="caption">
+Open RStudio gerp project
+</p>
+</div>
 <p><strong>Note</strong>: If you’re already using a cloud platform like
 <a href="https://www.dropbox.com/" class="external-link">Dropbox</a> or <a href="https://www.google.com/drive/" class="external-link">Google Drive</a> to keep track of
 your files, choose a different location for your R project folders.

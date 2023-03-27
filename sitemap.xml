@@ -10,10 +10,10 @@
     <loc>https://mjfrigaard.github.io/gerp/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://mjfrigaard.github.io/gerp/articles/code.html</loc>
+    <loc>https://mjfrigaard.github.io/gerp/articles/batch-rename.html</loc>
   </url>
   <url>
-    <loc>https://mjfrigaard.github.io/gerp/articles/collaborate.html</loc>
+    <loc>https://mjfrigaard.github.io/gerp/articles/code.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/articles/data.html</loc>
@@ -23,9 +23,6 @@
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/articles/getting-started.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/articles/graphs.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/articles/index.html</loc>
@@ -43,6 +40,9 @@
     <loc>https://mjfrigaard.github.io/gerp/news/index.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/ger_batch_rename.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_code.html</loc>
   </url>
   <url>
@@ -50,9 +50,6 @@
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_dev.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_fun_headr.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_headr.html</loc>
@@ -67,13 +64,28 @@
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_report.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/ger_sect.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_setup.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/gerp-package.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/get_clean_file_names.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/get_date_prefix.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/get_files_tbl.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/rename_all_files.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/wu_df.html</loc>
