@@ -13,3 +13,27 @@ template:
       google: Fira Sans Condensed
     code_font:
       google: Ubuntu Mono
+
+navbar:
+ components:
+   articles:
+    text: Articles
+    menu:
+    - text: Getting Started
+    - text: "Where do I start learning R?"
+      href: articles/getting-started.html
+    - text: -------
+    - text: "Workflows"
+    - text: Setup
+      href: articles/setup.html
+    - text: Code
+      href: articles/code.html
+    - text: Data
+      href: articles/data.html
+    - text: Documents
+      href: articles/documents.html
+    - text: Batch rename files
+      href: articles/batch-rename.html
+
+development:
+  mode: auto

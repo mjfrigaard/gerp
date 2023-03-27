@@ -31,12 +31,12 @@ remotes::install_github("mjfrigaard/gerp")
 
 ## Example
 
-Create a new `gerp` project:
+Creating a new `gerp` project:
 
 ```{r example, eval=FALSE}
 gerp::ger_proj(folder = "/Users/mjfrigaard/projects/", name = "my project")
 ```
 
-```{r my_project.gif, echo=FALSE, eval=TRUE}
+```{r my_project.gif, echo=FALSE, eval=TRUE, out.width='100%', fig.align='center', fig.cap='New gerp project!'}
 knitr::include_graphics("man/figures/my_project.gif")
 ```

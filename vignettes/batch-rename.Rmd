@@ -1,0 +1,231 @@
+---
+title: "Batch-rename files"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Batch-rename files}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r pkgs, message=FALSE, warning=FALSE}
+library(gerp)
+library(purrr)
+library(fs)
+library(dplyr)
+```
+
+This vignette covers the `ger_batch_rename()`--a function that gives you the ability to rename a folder of files in [standardized format.](https://www.slideshare.net/milkers/naming-things) 
+
+## Test files
+
+A folder of `filenames` are available in the `gerp` package to demonstrate (below we'll copy them to a temporary folder)
+
+```{r dir_copy-tmp_files, eval=TRUE}
+tmp_dir <- tempdir()
+tmp_files <- fs::as_fs_path(paste0(tmp_dir, "/", "filenames"))
+# copy
+fs::dir_copy(
+  path = system.file("filenames", package = "gerp"), 
+  new_path = tmp_files)
+```
+
+Confirm this with `fs::dir_tree()`
+
+```{r}
+# confirm
+fs::dir_tree(tmp_dir)
+```
+
+## `ger_batch_rename()`
+
+The files in the temporary `filenames/` folder are a mess, and I want to rename them using a [standardized format](https://www.slideshare.net/milkers/naming-things). Renaming files manually can be time-consuming, so I've written a handy function that will get you 90% there (and pull all the files in a standardized format): 
+
+* all file names are converted to [lower snakecase](https://www.wikiwand.com/en/Snake_case)  
+
+* all punctuation and special characters have been removed from file names  
+
+* file names have a date prefix (the `birth` date, but other options include `"modification"`, `"access"`, or `"change"`)
+
+I'll demonstrate below:
+
+```{r ger_batch_rename}
+gerp::ger_batch_rename(path = tmp_files, prefix = "birth")
+```
+
+And confirm with `fs::dir_tree()` 
+
+```{r confirm-ger_batch_rename}
+# confirm
+fs::dir_tree(tmp_dir)
+```
+
+```{r , echo=FALSE}
+unlink(tmp_dir, recursive = TRUE, force = TRUE)
+```
+
+The following sections of this vignette walk through each step to give a better picture of how `ger_batch_rename()` works.
+
+<br>
+
+# Step by step
+
+I'll create another `tmp_files` path with the original (messy) file names:
+
+```{r dir_copy-tmp_files-again, eval=TRUE}
+tmp_dir <- tempdir()
+tmp_files <- fs::as_fs_path(paste0(tmp_dir, "/", "filenames"))
+# copy
+fs::dir_copy(
+  path = system.file("filenames", package = "gerp"), 
+  new_path = tmp_files)
+```
+
+And confirm this with `fs::dir_tree()`
+
+```{r confirm-tmp_dir-again}
+# confirm
+fs::dir_tree(tmp_dir)
+```
+
+## Get tibble of file names
+
+`get_files_tbl()` creates a tibble of file paths, names, and date variables:
+
+```{r get_files_tbl, echo=FALSE}
+get_files_tbl <- function(path, ...) {
+  
+  all_files <- fs::dir_info(path = path, ..., type = "file")
+  
+  file_tbl <- dplyr::mutate(all_files, 
+    file_path = as.character(path),
+    file_folder = as.character(fs::path_dir(path)),
+    file_full_name = as.character(basename(path)),
+    file_extension = paste0(".", tools::file_ext(file_full_name)),
+    file_name = tools::file_path_sans_ext(file_full_name))
+  
+  date_tbl <- dplyr::mutate(file_tbl, 
+    dplyr::across(dplyr::contains('time'), lubridate::as_date))
+  
+  files_tbl <- dplyr::select(date_tbl, dplyr::starts_with('file'),
+    modification = modification_time, 
+    access = access_time, 
+    change = change_time, 
+    birth = birth_time)
+  
+  return(files_tbl)
+  
+}
+```
+
+```{r files_tmp}
+files_tmp <- get_files_tbl(path = tmp_files)
+glimpse(files_tmp)
+```
+
+```{r}
+files_tmp$file_full_name[1]
+```
+
+## Date prefix
+
+Decide which date to use (`"modification"`, `"access"`, `"change"`, or `"birth"`)
+
+```{r get_date_prefix, echo=FALSE}
+get_date_prefix <- function(files, time_prefix = "birth") {
+  prefixes <- c("modification", "access", "change", "birth")
+  if (time_prefix %in% prefixes) {
+    
+    time_col <- rlang::sym(time_prefix)
+    date_prefix_col <- dplyr::mutate(.data = files,
+      date_prefix = paste0(!!time_col, "_")
+  )
+    date_prefix_tbl <- dplyr::select(date_prefix_col, 
+      file_path, file_folder, file_full_name, file_extension, file_name, date_prefix)
+    return(date_prefix_tbl)
+  } else {
+    cli::cli_abort(glue::glue("{time_prefix} is not one of the available options"))
+  }
+
+}
+```
+
+The `date_prefix` column will be added to the cleaned column names. 
+
+```{r file_date_tmp}
+file_date_tmp <- get_date_prefix(files = files_tmp)
+glimpse(file_date_tmp)
+```
+
+```{r}
+file_date_tmp$date_prefix[1]
+```
+
+
+## Clean file name 
+
+The `clean_file_name` has been formatted to include the `date_prefix`, lower-snakecase, and all punctuation/special characters have been removed.
+
+```{r get_clean_file_names, echo=FALSE}
+get_clean_file_names <- function(df, column) {
+  clean_file_names_cols <- dplyr::mutate(df,
+    snakes := snakecase::to_snake_case({{column}}),
+    hyphens = stringr::str_replace_all(snakes, "[^[:alnum:].]+", "-"),
+    clean_file_name = paste0(date_prefix, hyphens, file_extension),
+    clean_file_path = paste0(file_folder, "/", clean_file_name)
+    # "clean_{{column}}_path" := paste0(date_prefix, hyphens, file_extension)
+    )
+  
+  clean_file_names_tbl <- dplyr::select(clean_file_names_cols, 
+    clean_file_name, clean_file_path, file_full_name, file_path)
+}
+```
+
+```{r clean_tbl}
+clean_tbl <- get_clean_file_names(file_date_tmp, file_name)
+glimpse(clean_tbl)
+```
+
+```{r}
+clean_tbl$clean_file_name[1]
+clean_tbl$file_full_name[1]
+```
+
+**NOTE:** `ger_batch_rename()` can't file the ***content*** of the file names (and you wouldn't want it to).
+
+## Rename all files
+
+Now we place the new and old names in their own vectors and pass them to `rename_all_files()`:
+
+```{r new_names-old_names}
+new_names <- clean_tbl[['clean_file_path']]
+old_names <- clean_tbl[['file_path']]
+```
+
+```{r rename_all_files, echo=FALSE}
+rename_all_files <- function(old, new) {
+  purrr::walk2(.x = old, .y = new, .f = file.rename)
+}
+```
+
+```{r use-rename_all_files}
+rename_all_files(old = old_names, new = new_names)
+```
+
+We can confirm a final time with `fs::dir_tree()`: 
+
+```{r}
+fs::dir_tree(tmp_files)
+```
+
+
+```{r , echo=FALSE}
+unlink(tmp_dir, recursive = TRUE, force = TRUE)
+```
+

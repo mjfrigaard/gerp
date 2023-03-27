@@ -311,9 +311,9 @@ gerp::ger_path("/Users/mjfrigaard/projects/", type = "rel")
 
 The relative path refers to the location of the folder relative to the current working folder (i.e., the folder where the user is currently located). 
 
-## Creating a `gerp` project
+# Creating a `gerp` project
 
-After locating the R project folder, you can pass it to `gerp::ger_proj()`, and your new 'good enough' project will open in a new session. 
+After locating the R project folder, you can store the output and pass it to `gerp::ger_proj()`
 
 ```{r ger_go, eval=FALSE}
 pth <- gerp::ger_path("/Users/mjfrigaard/projects/")
@@ -322,7 +322,9 @@ gerp::ger_proj(
   name = "my project")
 ```
 
-```{r my_project.gif, echo=FALSE, eval=TRUE}
+and your new 'good enough' project will open in a new session:
+
+```{r my_project.gif, echo=FALSE, eval=TRUE, out.width='100%', fig.align='center', fig.cap='New gerp project!'}
 knitr::include_graphics("../man/figures/my_project.gif")
 ```
 
