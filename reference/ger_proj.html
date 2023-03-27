@@ -58,34 +58,33 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ger_proj</span><span class="op">(</span><span class="va">parent_dir</span>, <span class="va">proj_name</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ger_proj</span><span class="op">(</span><span class="va">folder</span>, <span class="va">name</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>parent_dir</dt>
+    <dl><dt>folder</dt>
 <dd><p>the parent folder of your project</p></dd>
 
 
-<dt>proj_name</dt>
+<dt>name</dt>
 <dd><p>name of your project</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>this function will open a new RStudio project. The parent_dir is
-the folder that will contain your new project, and the proj_name will
-be the name of the new sub-folder.
-To navigate folders on your computer, I like to use the dir() function.
-If you start with dir("/"), you should be able to find all the folders
-you have permissions to (probably best to start with "/Users").</p>
+    <p>this function will open a new RStudio project. The <code>folder</code> is
+the parent folder that will contain your new project, and the <code>name</code> will
+be the name of your project sub-folder.
+To navigate folders on your computer, I like to use <code><a href="ger_path.html">ger_path()</a></code> function.
+If you start with <code>ger_path("/")</code>, you should be able to find all the
+folders you have permissions to (probably best to start with <code>"/Users"</code>).</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># not run</span></span></span>
-<span class="r-in"><span><span class="co"># use dir() to find the parent folder path.</span></span></span>
-<span class="r-in"><span><span class="co"># ger_proj(parent_dir = "/Users/mjfrigaard/Documents/", "my new project")</span></span></span>
+<span class="r-in"><span><span class="co"># ger_proj(folder = tempdir(), "my project 01")</span></span></span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>
