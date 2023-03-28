@@ -1,5 +1,9 @@
 #' Create `files_tbl` table
 #'
+#' @noRd
+#'
+#' @keywords internal
+#'
 #' @param path path to files to be renamed
 #' @param ... additional args passed to `fs::dir_info()`
 #'
@@ -35,6 +39,10 @@ get_files_tbl <- function(path, ...) {
 
 #' Create `date_prefix` column (utility)
 #'
+#' @noRd
+#'
+#' @keywords internal
+#'
 #' @param files data.frame or tibble from `get_files_tbl()` function
 #' @param prefix date prefix (`"modification"`, `"access"`, `"change"`, or
 #'  `"birth"`)
@@ -63,6 +71,10 @@ get_date_prefix <- function(files, prefix = "birth") {
 
 #' Clean `file_name` column (utility)
 #'
+#' @noRd
+#'
+#' @keywords internal
+#'
 #' @param df data.frame or tibble
 #' @param column file name column (without extension)
 #'
@@ -89,6 +101,10 @@ get_clean_file_names <- function(df, column) {
 
 
 #' Rename all files (utility)
+#'
+#' @noRd
+#'
+#' @keywords internal
 #'
 #' @param old previous names
 #' @param new new names

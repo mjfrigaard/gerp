@@ -1,12 +1,17 @@
-#' Percents (`%`) to abbreviation (`'perc'`)
+#' And (`&`) to abbreviation (`'and'`)
 #'
 #' @param x string
 #'
-#' @return abbreviated percent symbols
+#' @noRd
 #'
-perc2abbr <- function(x) {
-  if (grepl(pattern = "(\\%)+", x = x)) {
-    sub(pattern = "(\\%)+", "perc_", x = x)
+#'
+#'
+#' @return abbreviated and symbols
+#'
+and2abbr <- function(x) {
+  symb <- gsub("[[:space:]]| |\\s", "", x = x)
+  if (grepl(pattern = "(\\&)+", x = symb)) {
+    sub(pattern = "(\\&)+", "and_", x = symb)
   } else {
     x
   }
@@ -16,25 +21,189 @@ perc2abbr <- function(x) {
 #'
 #' @param x string
 #'
+#' @noRd
+#'
+#'
+#'
 #' @return abbreviated at symbols
 #'
 at2abbr <- function(x) {
-  if (grepl(pattern = "(\\@)+", x = x)) {
-    sub(pattern = "(\\@)+", "at_", x = x)
+  symb <- gsub("[[:space:]]| |\\s", "", x = x)
+  if (grepl(pattern = "(\\@)+", x = symb)) {
+    sub(pattern = "(\\@)+", "at_", x = symb)
   } else {
     x
   }
 }
 
-#' And (`&`) to abbreviation (`'and'`)
+#' Asterisk (`*`) to abbreviation (`'ast'`)
 #'
 #' @param x string
 #'
-#' @return abbreviated and symbols
+#' @noRd
 #'
-and2abbr <- function(x) {
-  if (grepl(pattern = "(\\&)+", x = x)) {
-    sub(pattern = "(\\&)+", "and_", x = x)
+#'
+#'
+#' @return abbreviated asterisk symbols
+#'
+asterisk2abbr <- function(x) {
+  symb <- gsub("[[:space:]]| |\\s", "", x = x)
+  if (grepl(pattern = "(\\*)+", x = symb)) {
+    sub(pattern = "(\\*)+", "ast_", x = symb)
+  } else {
+    x
+  }
+}
+
+#' Exclamation (`!`) to abbreviation (`'bang'`)
+#'
+#' @param x string
+#'
+#' @noRd
+#'
+#'
+#'
+#' @return abbreviated exclamation symbols
+#'
+exclamation2abbr <- function(x) {
+  symb <- gsub("[[:space:]]| |\\s", "", x = x)
+  if (grepl(pattern = "(\\!)+", x = symb)) {
+    sub(pattern = "(\\!)+", "bang_", x = symb)
+  } else {
+    x
+  }
+}
+
+#' Dollar (`$`) to abbreviation (`'dollar'`)
+#'
+#' @param x string
+#'
+#' @noRd
+#'
+#'
+#'
+#' @return abbreviated dollar sign symbols
+#'
+dollar2abbr <- function(x) {
+  symb <- gsub("[[:space:]]| |\\s", "", x = x)
+  if (grepl(pattern = "(\\$)+", x = symb)) {
+    sub(pattern = "(\\$)+", "dollar_", x = symb)
+  } else {
+    x
+  }
+}
+
+#' Period (`.`) to abbreviation (`'dot'`)
+#'
+#' @param x string
+#'
+#' @noRd
+#'
+#'
+#'
+#' @return abbreviated period symbols
+#'
+period2abbr <- function(x) {
+  symb <- gsub("[[:space:]]| |\\s", "", x = x)
+  if (grepl(pattern = "(\\.)+", x = symb)) {
+    sub(pattern = "(\\.)+", "dot_", x = symb)
+  } else {
+    x
+  }
+}
+
+#' Caret (hat) (`^`) to abbreviation (`'hat'`)
+#'
+#' @param x string
+#'
+#' @noRd
+#'
+#'
+#'
+#' @return abbreviated caret symbols
+#'
+caret2abbr <- function(x) {
+  symb <- gsub("[[:space:]]| |\\s", "", x = x)
+  if (grepl(pattern = "(\\^)+", x = symb)) {
+    sub(pattern = "(\\^)+", "hat_", x = symb)
+  } else {
+    x
+  }
+}
+
+
+
+#' Em dash (`—`) to abbreviation (`'emdash'`)
+#'
+#' @param x string
+#'
+#' @noRd
+#'
+#'
+#'
+#' @return abbreviated em dash symbols
+#'
+emdash2abbr <- function(x) {
+  symb <- gsub("[[:space:]]| |\\s", "", x = x)
+  if (grepl(pattern = "(\\—)+", x = symb)) {
+    sub(pattern = "(\\—)+", "emdash_", x = symb)
+  } else {
+    x
+  }
+}
+
+#' Equals (`=`) to abbreviation (`'equals'`)
+#'
+#' @param x string
+#'
+#' @noRd
+#'
+#'
+#'
+#' @return abbreviated equals symbols
+#'
+equal2abbr <- function(x) {
+  symb <- gsub("[[:space:]]| |\\s", "", x = x)
+  if (grepl(pattern = "(\\=)+", x = symb)) {
+    sub(pattern = "(\\=)+", "equals_", x = symb)
+  } else {
+    x
+  }
+}
+
+#' Hyphen (`-`) to abbreviation (`'hyphen'`)
+#'
+#' @param x string
+#'
+#' @noRd
+#'
+#'
+#'
+#' @return abbreviated hyphen symbols
+#'
+hyphen2abbr <- function(x) {
+  symb <- gsub("[[:space:]]| |\\s", "", x = x)
+  if (grepl(pattern = "(\\-)+", x = symb)) {
+    sub(pattern = "(\\-)+", "hyphen_", x = symb)
+  } else {
+    x
+  }
+}
+
+#' Percents (`%`) to abbreviation (`'perc'`)
+#'
+#' @param x string
+#'
+#' @noRd
+#'
+#'
+#'
+#' @return abbreviated percent symbols
+#'
+percents2abbr <- function(x) {
+  symb <- gsub("[[:space:]]| |\\s", "", x = x)
+  if (grepl(pattern = "(\\%)+", x = symb)) {
+    sub(pattern = "(\\%)+", "perc_", x = symb)
   } else {
     x
   }
@@ -44,25 +213,54 @@ and2abbr <- function(x) {
 #'
 #' @param x string
 #'
+#' @noRd
+#'
+#'
+#'
 #' @return abbreviated plus symbols
 #'
 plus2abbr <- function(x) {
-  if (grepl(pattern = "(\\+)+", x = x)) {
-    sub(pattern = "(\\+)+", "plus_", x = x)
+  symb <- gsub("[[:space:]]| |\\s", "", x = x)
+  if (grepl(pattern = "(\\+)+", x = symb)) {
+    sub(pattern = "(\\+)+", "plus_", x = symb)
   } else {
     x
   }
 }
 
-#' Bang (`!`) to abbreviation (`'bang'`)
+#' Number symbol (`#`) to abbreviation (`'num'`)
 #'
 #' @param x string
 #'
-#' @return abbreviated bang symbols
+#' @noRd
 #'
-bang2abbr <- function(x) {
-  if (grepl(pattern = "(\\!)+", x = x)) {
-    sub(pattern = "(\\!)+", "bang_", x = x)
+#'
+#'
+#' @return abbreviated plus symbols
+#'
+num2abbr <- function(x) {
+  symb <- gsub("[[:space:]]| |\\s", "", x = x)
+  if (grepl(pattern = "(\\#)+", x = symb)) {
+    sub(pattern = "(\\#)+", "num_", x = symb)
+  } else {
+    x
+  }
+}
+
+#' Tilde symbol (`#`) to abbreviation (`'tilde'`)
+#'
+#' @param x string
+#'
+#' @noRd
+#'
+#'
+#'
+#' @return abbreviated tilde symbols
+#'
+tilde2abbr <- function(x) {
+  symb <- gsub("[[:space:]]| |\\s", "", x = x)
+  if (grepl(pattern = "(\\~)+", x = symb)) {
+    sub(pattern = "(\\~)+", "tilde_", x = symb)
   } else {
     x
   }
@@ -72,17 +270,32 @@ bang2abbr <- function(x) {
 #'
 #' @param input string
 #'
+#' @noRd
+#'
 #' @return abbreviated symbols
 #'
 symb2abbr <- function(input) {
-  percs <- perc2abbr(x = input)
-  ats <- at2abbr(x = percs)
-  ands <- and2abbr(x = ats)
-  snakes <- plus2abbr(x = ands)
-  bangs <- bang2abbr(snakes)
+  ands <- and2abbr(x = input)
+  asterisks <- asterisk2abbr(ands)
+  ats <- at2abbr(x = asterisks)
+  carets <- caret2abbr(x = ats)
+  dollars <- dollar2abbr(carets)
+  emdashes <- emdash2abbr(x = dollars)
+  equals <- equal2abbr(x = emdashes)
+  bangs <- exclamation2abbr(equals)
+  # hyphens <- hyphen2abbr(x = bangs)
+  nums <- num2abbr(x = bangs)
+  percs <- percents2abbr(x = nums)
+  periods <- period2abbr(x = percs)
+  pluses <- plus2abbr(x = periods)
+  snakes <- tilde2abbr(x = pluses)
+  # remove white space
+  posix_ws <- gsub("[[:space:]]", "", snakes)
+  # raw space
+  raw_ws <- gsub(" ", "", posix_ws)
   # remove any trailing underscores
-  abbrevs <- gsub("_$", "", bangs)
-  return(abbrevs)
+  abbrs <- gsub("_$", "", raw_ws)
+  return(abbrs)
 }
 
 #' Good enough name
@@ -96,8 +309,12 @@ symb2abbr <- function(input) {
 #' ger_name("2022-10-12-Alpha-20%")
 #' ger_name("Alpha & Beta")
 ger_name <- function(x) {
-  input <- symb2abbr(x)
+  # remove white space
+  posix_ws <- gsub("[[:space:]]", "_", x)
+  # remove raw white space
+  raw_ws <- gsub(" ", "_", posix_ws)
   # replace symbols with abbreviations
+  input <- symb2abbr(raw_ws)
   if (grepl(x = input, pattern = "^\\d", ignore.case = TRUE)) {
     # extract preceding numbers or special characters from string
     bad_prefix <- gsub("[a-zA-Z].*", "\\1", input)
@@ -109,20 +326,20 @@ ger_name <- function(x) {
   } else {
     start_nm <- input
   }
-  # replace all punctuation with underscores
-  snakes <- gsub("[[:punct:]]", "_", start_nm)
+  # replace remaining punctuation with underscores
+  no_punct <- gsub("[[:punct:]]", "_", start_nm)
   # remove any trailing underscores
-  no_trailing_snakes <- gsub("_$", "", snakes)
-  # replace all whitespace with underscores
-  white_snakes <- gsub(" ", "_", no_trailing_snakes)
-  # replace all double underscores with underscores
-  single_snakes <- gsub("__", "_", white_snakes)
-  # replace all double underscores with underscores
-  no_trailing_dbl_snakes <- gsub("__$", "", single_snakes)
-  # remove all single trailing underscores
-  no_trailing_single_snakes <- gsub("_$", "", no_trailing_dbl_snakes)
+  no_trailing_snakes <- gsub("_$", "", no_punct)
+  # replace all double underscores with single underscores
+  no_dbl_snakes <- gsub("__", "_", no_trailing_snakes)
+  # remove any trailing double underscores
+  no_trailing_dbl_snakes <- gsub("__$", "", no_dbl_snakes)
   # lowercase
-  ger_name <- tolower(no_trailing_single_snakes)
-  return(ger_name)
+  ger_name <- tolower(no_trailing_dbl_snakes)
+
+  ger_encode <- encodeString(ger_name, quote = "'")
+  ger_blue <- crayon::green(ger_encode)
+  ger_name_out <- glue::glue_collapse(ger_blue, sep = ", ")
+  return(ger_name_out)
 }
 

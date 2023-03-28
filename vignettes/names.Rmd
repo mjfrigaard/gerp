@@ -7,7 +7,7 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE}
+```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
@@ -21,15 +21,40 @@ library(gerp)
 
 # `ger_name()`
 
-```{r}
-ger_name("1986-10-12-file.txt")
+> "*It ain't what they call you, it's what you answer to.*" - [W.C. Fields](https://www.goodreads.com/quotes/130631-it-ain-t-what-they-call-you-it-s-what-you-answer) 
+
+
+`ger_name()` is designed to return a [tidyverse style](https://style.tidyverse.org/syntax.html#object-names) name for an object (i.e. variable). It works well for file names that have a date prefix: 
+
+```{r date-prefix}
+ger_name("1986-10-12_file.txt")
 ```
 
-```{r}
-ger_name("2022-10-12-Alpha @ 20 %")
+`ger_name()` replaces some symbols with abbreviations:
+
+```{r all-abbreviations}
+gerp::ger_name("~ ! @ # $ % ^ & * — = +")
 ```
 
-```{r}
+But keeps the characters and words:
+
+```{r abbreviations}
+ger_name("20 % of this & that")
+```
+
+It will also reorganize crazy file names into something that can be assigned to R variables.
+
+```{r crazy-names}
 ger_name("123456 ! bingo + bongo")
 ```
+
+To ensure the names aren't too long or repeat terms, `ger_name()` doesn't repeat symbols. 
+
+```{r no-repeat}
+gerp::ger_name("... !! ++")
+```
+
+
+
+
 

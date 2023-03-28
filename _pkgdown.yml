@@ -20,7 +20,7 @@ navbar:
     text: Articles
     menu:
     - text: Getting Started
-    - text: "Where do I start learning R?"
+    - text: "Where do I start?"
       href: articles/getting-started.html
     - text: -------
     - text: "Workflows"
@@ -32,10 +32,35 @@ navbar:
       href: articles/data.html
     - text: Documents
       href: articles/documents.html
+    - text: -------
+    - text: "Utility Functions"
     - text: Names
       href: articles/names.html
     - text: Batch rename files
       href: articles/batch-rename.html
+
+reference:
+- title: "Function reference"
+  desc: >
+    Functions for developing good enough R practices.
+  contents:
+  - ger_proj
+  - ger_path
+  - ger_setup
+  - ger_code
+  - ger_data
+  - ger_dev
+  - ger_report
+- title: "Code functions"
+  desc: "Functions for writing code."
+  contents:
+  - ger_headr
+  - ger_sect
+- title: "Naming functions"
+  desc: "Functions for naming things."
+  contents:
+  - ger_name
+  - ger_batch_rename
 
 development:
   mode: auto

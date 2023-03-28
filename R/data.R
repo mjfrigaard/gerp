@@ -1,5 +1,7 @@
 #' Title (dataset description)
 #'
+#' @keywords internal
+#'
 #' @format A dataset with variables:
 #' \describe{
 #'   \item{member}{Wu-Tang Clan Member Name}
