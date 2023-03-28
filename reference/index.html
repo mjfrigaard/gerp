@@ -25,13 +25,15 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <h6 class="dropdown-header" data-toc-skip>Getting Started</h6>
-    <a class="dropdown-item" href="../articles/getting-started.html">Where do I start learning R?</a>
+    <a class="dropdown-item" href="../articles/getting-started.html">Where do I start?</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>Workflows</h6>
     <a class="dropdown-item" href="../articles/setup.html">Setup</a>
     <a class="dropdown-item" href="../articles/code.html">Code</a>
     <a class="dropdown-item" href="../articles/data.html">Data</a>
     <a class="dropdown-item" href="../articles/documents.html">Documents</a>
+    <div class="dropdown-divider"></div>
+    <h6 class="dropdown-header" data-toc-skip>Utility Functions</h6>
     <a class="dropdown-item" href="../articles/names.html">Names</a>
     <a class="dropdown-item" href="../articles/batch-rename.html">Batch rename files</a>
   </div>
@@ -53,9 +55,9 @@
     </div>
 
     <div class="section level2">
-      <h2 id="all-functions">All functions<a class="anchor" aria-label="anchor" href="#all-functions"></a></h2>
+      <h2 id="function-reference">Function reference<a class="anchor" aria-label="anchor" href="#function-reference"></a></h2>
       
-      
+      <p class="section-desc"></p><p>Functions for developing good enough R practices.</p>
 
       
     </div><div id="" class="section level2">
@@ -65,24 +67,19 @@
 
       <dl><dt>
           
-          <code><a href="and2abbr.html">and2abbr()</a></code> 
+          <code><a href="ger_proj.html">ger_proj()</a></code> 
         </dt>
-        <dd>And (<code>&amp;</code>) to abbreviation (<code>'and'</code>)</dd>
+        <dd>Create a new good enough R project</dd>
       </dl><dl><dt>
           
-          <code><a href="at2abbr.html">at2abbr()</a></code> 
+          <code><a href="ger_path.html">ger_path()</a></code> 
         </dt>
-        <dd>At (<code>@</code>) to abbreviation (<code>'at'</code>)</dd>
+        <dd>Get good enough file path(s)</dd>
       </dl><dl><dt>
           
-          <code><a href="bang2abbr.html">bang2abbr()</a></code> 
+          <code><a href="ger_setup.html">ger_setup()</a></code> 
         </dt>
-        <dd>Bang (<code>!</code>) to abbreviation (<code>'bang'</code>)</dd>
-      </dl><dl><dt>
-          
-          <code><a href="ger_batch_rename.html">ger_batch_rename()</a></code> 
-        </dt>
-        <dd>Rename all files in a folder</dd>
+        <dd>good enough R setup</dd>
       </dl><dl><dt>
           
           <code><a href="ger_code.html">ger_code()</a></code> 
@@ -100,81 +97,54 @@
         <dd>good enough R development folder</dd>
       </dl><dl><dt>
           
+          <code><a href="ger_report.html">ger_report()</a></code> 
+        </dt>
+        <dd>good enough R report folder</dd>
+      </dl></div><div class="section level2">
+      <h2 id="code-functions">Code functions<a class="anchor" aria-label="anchor" href="#code-functions"></a></h2>
+      
+      <p class="section-desc"></p><p>Functions for writing code.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
           <code><a href="ger_headr.html">ger_headr()</a></code> 
         </dt>
         <dd>Insert 'good enough' R script header</dd>
       </dl><dl><dt>
+          
+          <code><a href="ger_sect.html">ger_sect()</a></code> <code><a href="ger_sect.html">ger_sect()</a></code> 
+        </dt>
+        <dd>R script section header <code>&lt;(+_+)&gt;</code></dd>
+      </dl></div><div class="section level2">
+      <h2 id="naming-functions">Naming functions<a class="anchor" aria-label="anchor" href="#naming-functions"></a></h2>
+      
+      <p class="section-desc"></p><p>Functions for naming things.</p>
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
           
           <code><a href="ger_name.html">ger_name()</a></code> 
         </dt>
         <dd>Good enough name</dd>
       </dl><dl><dt>
           
-          <code><a href="ger_path.html">ger_path()</a></code> 
+          <code><a href="ger_batch_rename.html">ger_batch_rename()</a></code> 
         </dt>
-        <dd>Get good enough file path(s)</dd>
-      </dl><dl><dt>
-          
-          <code><a href="ger_proj.html">ger_proj()</a></code> 
-        </dt>
-        <dd>Create a new good enough R project</dd>
-      </dl><dl><dt>
-          
-          <code><a href="ger_report.html">ger_report()</a></code> 
-        </dt>
-        <dd>good enough R report folder</dd>
-      </dl><dl><dt>
-          
-          <code><a href="ger_sect.html">ger_sect()</a></code> <code><a href="ger_sect.html">ger_sect()</a></code> 
-        </dt>
-        <dd>R script section header <code>&lt;(+_+)&gt;</code></dd>
-      </dl><dl><dt>
-          
-          <code><a href="ger_setup.html">ger_setup()</a></code> 
-        </dt>
-        <dd>good enough R setup</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_clean_file_names.html">get_clean_file_names()</a></code> 
-        </dt>
-        <dd>Clean <code>file_name</code> column (utility)</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_date_prefix.html">get_date_prefix()</a></code> 
-        </dt>
-        <dd>Create <code>date_prefix</code> column (utility)</dd>
-      </dl><dl><dt>
-          
-          <code><a href="get_files_tbl.html">get_files_tbl()</a></code> 
-        </dt>
-        <dd>Create <code>files_tbl</code> table</dd>
-      </dl><dl><dt>
-          
-          <code><a href="perc2abbr.html">perc2abbr()</a></code> 
-        </dt>
-        <dd>Percents (<code>%</code>) to abbreviation (<code>'perc'</code>)</dd>
-      </dl><dl><dt>
-          
-          <code><a href="plus2abbr.html">plus2abbr()</a></code> 
-        </dt>
-        <dd>Pluses (<code>+</code>) to abbreviation (<code>'plus'</code>)</dd>
-      </dl><dl><dt>
-          
-          <code><a href="rename_all_files.html">rename_all_files()</a></code> 
-        </dt>
-        <dd>Rename all files (utility)</dd>
-      </dl><dl><dt>
-          
-          <code><a href="symb2abbr.html">symb2abbr()</a></code> 
-        </dt>
-        <dd>Symbol to abbreviations</dd>
-      </dl><dl><dt>
-          
-          <code><a href="wu_df.html">wu_df</a></code> 
-        </dt>
-        <dd>Title (dataset description)</dd>
+        <dd>Rename all files in a folder</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">

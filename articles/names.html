@@ -45,13 +45,15 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <h6 class="dropdown-header" data-toc-skip>Getting Started</h6>
-    <a class="dropdown-item" href="../articles/getting-started.html">Where do I start learning R?</a>
+    <a class="dropdown-item" href="../articles/getting-started.html">Where do I start?</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>Workflows</h6>
     <a class="dropdown-item" href="../articles/setup.html">Setup</a>
     <a class="dropdown-item" href="../articles/code.html">Code</a>
     <a class="dropdown-item" href="../articles/data.html">Data</a>
     <a class="dropdown-item" href="../articles/documents.html">Documents</a>
+    <div class="dropdown-divider"></div>
+    <h6 class="dropdown-header" data-toc-skip>Utility Functions</h6>
     <a class="dropdown-item" href="../articles/names.html">Names</a>
     <a class="dropdown-item" href="../articles/batch-rename.html">Batch rename files</a>
   </div>
@@ -91,15 +93,34 @@
 <h2 id="ger_name">
 <code>ger_name()</code><a class="anchor" aria-label="anchor" href="#ger_name"></a>
 </h2>
+<blockquote>
+<p>“<em>It ain’t what they call you, it’s what you answer to.</em>” - <a href="https://www.goodreads.com/quotes/130631-it-ain-t-what-they-call-you-it-s-what-you-answer" class="external-link">W.C.
+Fields</a></p>
+</blockquote>
+<p><code><a href="../reference/ger_name.html">ger_name()</a></code> is designed to return a <a href="https://style.tidyverse.org/syntax.html#object-names" class="external-link">tidyverse
+style</a> name for an object (i.e. variable). It works well for file
+names that have a date prefix:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"1986-10-12-file.txt"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "file_txt_1986_10_12"</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"1986-10-12_file.txt"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">'filedot_txt_1986_10_12'</span></span></span></code></pre></div>
+<p><code><a href="../reference/ger_name.html">ger_name()</a></code> replaces some symbols with abbreviations:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"2022-10-12-Alpha @ 20 %"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "alpha_at_20_perc_2022_10_12"</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"~ ! @ # $ % ^ &amp; * — = +"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">'tilde_bang_at_num_dollar_perc_hat_and_ast_emdash_equals_plus'</span></span></span></code></pre></div>
+<p>But keeps the characters and words:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"20 % of this &amp; that"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">'perc_of_this_and_that_20'</span></span></span></code></pre></div>
+<p>It will also reorganize crazy file names into something that can be
+assigned to R variables.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"123456 ! bingo + bongo"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; [1] "bang_bingo_plus_bongo_123456"</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #00BB00;">'bang_bingo_plus_bongo_123456'</span></span></span></code></pre></div>
+<p>To ensure the names aren’t too long or repeat terms,
+<code><a href="../reference/ger_name.html">ger_name()</a></code> doesn’t repeat symbols.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"... !! ++"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">'dot_bang_plus'</span></span></span></code></pre></div>
 </div>
   </main>
 </div>
