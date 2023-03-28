@@ -32,6 +32,8 @@ navbar:
       href: articles/data.html
     - text: Documents
       href: articles/documents.html
+    - text: Names
+      href: articles/names.html
     - text: Batch rename files
       href: articles/batch-rename.html
 
