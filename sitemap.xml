@@ -28,6 +28,9 @@
     <loc>https://mjfrigaard.github.io/gerp/articles/index.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/articles/names.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/articles/setup.html</loc>
   </url>
   <url>
@@ -38,6 +41,15 @@
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/and2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/at2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/bang2abbr.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_batch_rename.html</loc>
@@ -53,6 +65,9 @@
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_headr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/ger_name.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_path.html</loc>
@@ -85,7 +100,16 @@
     <loc>https://mjfrigaard.github.io/gerp/reference/index.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/perc2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/plus2abbr.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/rename_all_files.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/symb2abbr.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/wu_df.html</loc>
