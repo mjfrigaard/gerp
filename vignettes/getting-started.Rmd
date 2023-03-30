@@ -68,6 +68,15 @@ After `gerp` is installed, load the package using the `library()` function
 library(gerp)
 ```
 
+# Quick start
+
+If you'd like to get up and running with a new `gerp` project quickly, you can enter the following code in your RStudio **Console** pane 
+
+```{r}
+
+```
+
+
 
 # R projects
 
@@ -315,11 +324,11 @@ The relative path refers to the location of the folder relative to the current w
 
 # Creating a `gerp` project
 
-After locating the R project folder, you can store the output and pass it to `gerp::ger_proj()`
+After locating the R project folder, you can store the output and pass it to `gerp::ger_create()`
 
-```{r ger_go, eval=FALSE}
+```{r ger_create, eval=FALSE}
 pth <- gerp::ger_path("/Users/mjfrigaard/projects/")
-gerp::ger_proj(
+gerp::ger_create(
   folder = pth, 
   name = "my project")
 ```

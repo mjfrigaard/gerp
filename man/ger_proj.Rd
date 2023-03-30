@@ -2,27 +2,16 @@
 % Please edit documentation in R/ger_proj.R
 \name{ger_proj}
 \alias{ger_proj}
-\title{Create a new good enough R project}
+\title{Quickly create new gerp project}
 \usage{
-ger_proj(folder, name)
+ger_proj()
 }
-\arguments{
-\item{folder}{the parent folder of your project}
-
-\item{name}{name of your project}
+\value{
+downloaded \code{gerp} project (named \code{new_project})
 }
 \description{
-Create and open a new 'good enough' project.
-}
-\details{
-this function will open a new RStudio project. The \code{folder} is
-the parent folder that will contain your new project, and the \code{name} will
-be the name of your project sub-folder.
-To navigate folders on your computer, I like to use \code{ger_path()} function.
-If you start with \code{ger_path("/")}, you should be able to find all the
-folders you have permissions to (probably best to start with \code{"/Users"}).
+Wrapper around \code{usethis::use_course()} (for downloading a new \code{gerp} project)
 }
 \examples{
-# not run
-# ger_proj(folder = tempdir(), "my project 01")
+# ger_proj()
 }

@@ -45,6 +45,7 @@ reference:
     Functions for developing good enough R practices.
   contents:
   - ger_proj
+  - ger_create
   - ger_path
   - ger_setup
   - ger_code

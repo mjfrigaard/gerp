@@ -2,6 +2,7 @@
 
 export(ger_batch_rename)
 export(ger_code)
+export(ger_create)
 export(ger_data)
 export(ger_dev)
 export(ger_fname)
