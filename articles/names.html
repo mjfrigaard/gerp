@@ -48,6 +48,7 @@
     <a class="dropdown-item" href="../articles/getting-started.html">Where do I start?</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>Workflows</h6>
+    <a class="dropdown-item" href="../articles/create.html">Create gerp projects</a>
     <a class="dropdown-item" href="../articles/setup.html">Setup</a>
     <a class="dropdown-item" href="../articles/code.html">Code</a>
     <a class="dropdown-item" href="../articles/data.html">Data</a>
@@ -101,26 +102,26 @@ Fields</a></p>
 style</a> name for an object (i.e. variable). It works well for file
 names that have a date prefix:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"1986-10-12_file.txt"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">'filedot_txt_1986_10_12'</span></span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"1986-10-12_file.txt"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>✔ 'filedot_txt_1986_10_12' is copied to the clipboard!</code></pre>
 <p><code><a href="../reference/ger_name.html">ger_name()</a></code> replaces some symbols with abbreviations:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"~ ! @ # $ % ^ &amp; * — = +"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">'tilde_bang_at_num_dollar_perc_hat_and_ast_emdash_equals_plus'</span></span></span></code></pre></div>
-<p>But keeps the characters and words:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"20 % of this &amp; that"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">'perc_of_this_and_that_20'</span></span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"~ ! @ # $ % ^ &amp; * — = +"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>✔ 'tilde_bang_at_num_dollar_perc_hat_and_ast_emdash_equals_plus' is copied to the clipboard!</code></pre>
+<p>But keeps the characters and words:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"20 % of this &amp; that"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>✔ 'perc_of_this_and_that_20' is copied to the clipboard!</code></pre>
 <p>It will also reorganize crazy file names into something that can be
 assigned to R variables.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"123456 ! bingo + bongo"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">'bang_bingo_plus_bongo_123456'</span></span></span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"123456 ! bingo + bongo"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>✔ 'bang_bingo_plus_bongo_123456' is copied to the clipboard!</code></pre>
 <p>To ensure the names aren’t too long or repeat terms,
 <code><a href="../reference/ger_name.html">ger_name()</a></code> doesn’t repeat symbols.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"... !! ++"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">'dot_bang_plus'</span></span></span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"... !! ++"</span><span class="op">)</span></span></code></pre></div>
+<pre><code>✔ 'dot_bang_plus' is copied to the clipboard!</code></pre>
 </div>
   </main>
 </div>

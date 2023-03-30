@@ -16,6 +16,9 @@
     <loc>https://mjfrigaard.github.io/gerp/articles/code.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/articles/create.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/articles/data.html</loc>
   </url>
   <url>
@@ -43,16 +46,46 @@
     <loc>https://mjfrigaard.github.io/gerp/news/index.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/and2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/asterisk2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/at2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/caret2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/dollar2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/emdash2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/equal2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/exclamation2abbr.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_batch_rename.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_code.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/ger_create.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_data.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_dev.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/ger_fname.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_headr.html</loc>
@@ -79,7 +112,28 @@
     <loc>https://mjfrigaard.github.io/gerp/reference/gerp-package.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/hyphen2abbr.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/num2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/percents2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/period2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/plus2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/symb2abbr.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/tilde2abbr.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/wu_df.html</loc>

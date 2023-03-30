@@ -48,6 +48,7 @@
     <a class="dropdown-item" href="../articles/getting-started.html">Where do I start?</a>
     <div class="dropdown-divider"></div>
     <h6 class="dropdown-header" data-toc-skip>Workflows</h6>
+    <a class="dropdown-item" href="../articles/create.html">Create gerp projects</a>
     <a class="dropdown-item" href="../articles/setup.html">Setup</a>
     <a class="dropdown-item" href="../articles/code.html">Code</a>
     <a class="dropdown-item" href="../articles/data.html">Data</a>
@@ -87,27 +88,6 @@
 
     
     
-<!--
-[ChatGPT](https://www.wikiwand.com/en/ChatGPT): 'how to I start learning R?'
-
-> *Great question! R is a popular programming language that is widely used for data analysis and statistical computing. Here are some steps to get started learning R:*
->
-> -   ***Install R:** The first step is to download and install R on your computer. You can download R for free from the Comprehensive R Archive Network (CRAN) website.*
->
->
-> -   ***Install RStudio**: RStudio is a popular integrated development environment (IDE) for R. It provides a user-friendly interface and makes it easy to write and run R code. You can download RStudio for free from their website.*
->
-> -   ***Learn the basics**: Once you have installed R and RStudio, it's time to start learning the basics of R. You can start by learning about data types, variables, functions, and basic programming concepts like loops and conditionals.*
->
-> -   ***Practice coding**: The best way to learn R is by practicing coding. Try to write small programs to solve simple problems. You can find practice problems and coding challenges online or in books.*
->
-> -   ***Learn data analysis**: R is widely used for data analysis, so it's important to learn how to use R for data manipulation, cleaning, and visualization. There are many online resources and courses that can help you learn these skills.*
->
-> -   ***Join the R community**: There is a large community of R users and developers online. You can join forums, attend meetups, and follow blogs and social media accounts to learn from other R users and get help with your coding questions.*
->
-> *Remember, learning R takes time and practice, so don't get discouraged if you don't understand everything at once. Just keep practicing and you'll get better over time!*
-
--->
 <p>A <a href="https://bfy.tw/Tx85" class="external-link">Google search</a> for the question
 above will return a deluge of websites, tutorials, YouTube videos and
 blog posts. The results probably aren’t incorrect, but they’re not
@@ -157,323 +137,59 @@ version of <code>gerp</code> from GitHub:</p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mjfrigaard.github.io/gerp/">gerp</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="r-projects">R projects<a class="anchor" aria-label="anchor" href="#r-projects"></a>
+<h2 id="quick-start">Quick start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
-<p>All R projects inevitably involve creating files, so after installing
-packages, the next thing to decide is <strong>where my projects will
-live.</strong> The next practice we’ll cover tools and methods for
-orienting yourself with your computers’ folder structure.</p>
-<div class="section level3">
-<h3 id="folder-orientation">Folder orientation<a class="anchor" aria-label="anchor" href="#folder-orientation"></a>
-</h3>
-<blockquote>
-<p>“<em>If you don’t know where you are going, you’ll end up someplace
-else.</em>” - <a href="https://www.goodreads.com/quotes/23616-if-you-don-t-know-where-you-are-going-you-ll-end" class="external-link">Yogi
-Berra</a></p>
-</blockquote>
-<p>An operating system folder structure refers to how files and
-directories (i.e. folders) are organized on a computer’s hard drive.
-Folder structures can vary depending on the specific operating system
-being used. However, most operating systems have the same basic design,
-including a hierarchical tree-like arrangement with similar common
-folders:</p>
-<ul>
-<li><p><code>Users</code>/<code>usr</code>: user-level programs,
-utilities, libraries, and documentation</p></li>
-<li><p><code>Library</code>/<code>lib</code>: the shared library files
-that are used by all applications</p></li>
-<li><p><code>bin</code>: holds necessary system binary files and
-programs</p></li>
-<li><p><code>etc</code>: contains system configuration files</p></li>
-<li><p><code>Home</code>/<code>home</code>: user-specific files and
-directories</p></li>
-</ul>
-<p>Your computer’s operating system folder structure is organized to
-provide a logical and predictable way of storing and accessing folders
-and files on a computer. Applications like Windows Explorer and Finder
-present our computer’s folder and file structure in a display we can
-navigate with our mouse and cursor, but behind the scenes they’re
-accessing the system paths (or locations).</p>
-<p>Folder paths typically consist of a series of names that indicate the
-hierarchical structure of the folder system, separated by a forward
-slash (<code>"/"</code>) or a backslash (<code>"\"</code>) (depending on
-the operating system). In Unix-based systems (like macOS or Linux), the
-topmost (or <em>root</em>) folder is usually represented by a forward
-slash (<code>/</code>). In Windows systems, the root folder is assigned
-a ‘drive letter’ followed by a backslash (i.e, <code>C:\</code>). If
-it’s a file path, it may also include the file’s extension.</p>
-<p>For example, a Windows file path might look like this:</p>
-<p><strong><em><code>C:\Users\Username\Documents\file.txt</code></em></strong></p>
-<p>In this case:</p>
-<ul>
-<li><p><code>"C:"</code> represents the computer’s hard drive</p></li>
-<li><p><code>"Users"</code> is a folder name</p></li>
-<li><p><code>"Username"</code> is the user account folder</p></li>
-<li><p><code>"Documents"</code> is a sub-folder within that user’s home
-folder, and</p></li>
-<li><p><code>"file.txt"</code> is the name and extension of the
-file</p></li>
-</ul>
-<p>Paths provide the exact location of a file or folder in the directory
-structure of a computer’s file system.</p>
-<div class="section level4">
-<h4 id="an-example-project-folder">An example project folder<a class="anchor" aria-label="anchor" href="#an-example-project-folder"></a>
-</h4>
-<p>To keep things simple, let’s assume I’ve chosen to place my R
-projects in a <code>projects/</code> folder. I’ve created the
-<code>projects/</code> subfolder under my <code>Users</code> folder,
-which I can locate using using Finder (on macOS):</p>
+<p>If you’d like to get up and running with a new <code>gerp</code>
+project quickly, you can enter the following code in your RStudio
+<strong>Console</strong> pane (in a fresh RStudio session)</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_proj.html">ger_proj</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>You’ll see the following:</p>
 <p><br></p>
 <div class="figure" style="text-align: center">
-<img src="../reference/figures/my-projects.png" alt="folder structure on macOS" width="70%"><p class="caption">
-folder structure on macOS
+<img src="../reference/figures/new_ger_proj.gif" alt="new gerp project on Windows" width="90%"><p class="caption">
+new gerp project on Windows
 </p>
 </div>
 <p><br></p>
-<p>If I’m using a Windows system, a similar <code>Projects/</code>
-folder might look like this in the Windows Explorer:</p>
+<p><code><a href="../reference/ger_proj.html">gerp::ger_proj()</a></code> will default to the your Desktop folder
+(or some other conspicuous place). It’s unlikely you’ll want your
+project named, ‘<code>new_project</code>’. I’ll demonstrate how to
+change the name of a new <code>gerp</code> project on macOS below:</p>
+<p><br></p>
+<p>Close the RStudio project:</p>
 <p><br></p>
 <div class="figure" style="text-align: center">
-<img src="../reference/figures/my-folders-win.png" alt="folder structure on Windows" width="50%"><p class="caption">
-folder structure on Windows
-</p>
-</div>
-</div>
-<div class="section level4">
-<h4 id="rstudios-default-working-directory">RStudio’s default working directory<a class="anchor" aria-label="anchor" href="#rstudios-default-working-directory"></a>
-</h4>
-<p>When I open RStudio (on a PC), the <strong>Files</strong> pane is set
-to my <code>User</code> folder (image below), but it’s displaying more
-folders than Windows Explorer (image above):</p>
-<p><br></p>
-<div class="figure" style="text-align: center">
-<img src="../reference/figures/rstudio-files-pane-win.png" alt="Home folder RStudio (macOS)" width="70%"><p class="caption">
-Home folder RStudio (macOS)
+<img src="../reference/figures/close_new_proj.gif" alt="Close gerp project" width="90%"><p class="caption">
+Close gerp project
 </p>
 </div>
 <p><br></p>
-<p>These different displays can be confusing, which is it’s better to
-think of file and folder paths as a location on map–one digit off and
-you’ll end up in wrong place. However, I can confirm my location by
-checking the folder path in the <strong>Files</strong> pane above the
-folders:</p>
+<p>Navigate the the <code>new_project</code> folder (it should be in
+your <strong>Desktop</strong> folder) and give it a new name:</p>
 <p><br></p>
 <div class="figure" style="text-align: center">
-<img src="../reference/figures/rstudio-files-path-win.png" alt="Directory path (Windows)" width="95%"><p class="caption">
-Directory path (Windows)
+<img src="../reference/figures/rename_new_proj_folder.gif" alt="Rename gerp project folder" width="90%"><p class="caption">
+Rename gerp project folder
 </p>
 </div>
 <p><br></p>
-<p>The folder RStudio initially displays in the <strong>Files</strong>
-pane is called the <em>default working directory</em>, and it’s
-configured when you <a href="https://rstudio-education.github.io/hopr/starting.html" class="external-link">install
-RStudio</a>. If you’d like to change it, you can by clicking on
-<strong>Tools</strong> &gt; <strong>Global Options</strong> then
-<strong>Browse</strong> to the folder you’d like to use:</p>
+<p>You’ll also need to rename the <code>.Rproj</code> file (inside your
+project folder)</p>
 <p><br></p>
 <div class="figure" style="text-align: center">
-<img src="../reference/figures/new-default-wd.png" alt="Change default working directory" width="95%"><p class="caption">
-Change default working directory
-</p>
-</div>
-</div>
-</div>
-<div class="section level3">
-<h3 id="folder-navigation">Folder navigation<a class="anchor" aria-label="anchor" href="#folder-navigation"></a>
-</h3>
-<p>R comes with a helpful function for printing our current working
-directory (or folder) path: <code><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd()</a></code>.</p>
-<p>On macOS, if I check my working directory, I see it’s my user account
-folder:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/mjfrigaard"</span></span></code></pre></div>
-<p>Three other helpful functions for viewing your computers’ folders and
-files are: <code><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir()</a></code>, <code><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.files()</a></code>, and
-<code><a href="https://rdrr.io/r/base/list.files.html" class="external-link">list.dirs()</a></code>. I’ll focus on <code><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir()</a></code>, but the
-other two function in a similar way. Passing <code><a href="https://rdrr.io/r/base/list.files.html" class="external-link">dir()</a></code> directly
-to the console (with no other arguments) returns the list of folders in
-the default working directory:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>()</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>] <span class="st">"Applications"</span>         <span class="st">"Creative Cloud Files"</span> <span class="st">"Desktop"</span>             </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a> [<span class="dv">4</span>] <span class="st">"digital-id"</span>           <span class="st">"Documents"</span>            <span class="st">"Downloads"</span>           </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a> [<span class="dv">7</span>] <span class="st">"Dropbox"</span>              <span class="st">"Fonts"</span>                <span class="st">"Library"</span>             </span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">10</span>] <span class="st">"Movies"</span>               <span class="st">"Music"</span>                <span class="st">"opt"</span>             </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">13</span>] <span class="st">"Pictures"</span>             <span class="st">"projects"</span>             <span class="st">"Public"</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">16</span>] <span class="st">"R"</span>                    <span class="st">"Themes"</span></span></code></pre></div>
-<p>If we add the <code>full.names = TRUE</code> argument, we see the
-full path to the files and folders:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dir</span>(<span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> [<span class="dv">1</span>] <span class="st">"./Applications"</span>         <span class="st">"./Creative Cloud Files"</span> <span class="st">"./Desktop"</span>             </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a> [<span class="dv">4</span>] <span class="st">"./digital-id"</span>           <span class="st">"./Documents"</span>            <span class="st">"./Downloads"</span>           </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a> [<span class="dv">7</span>] <span class="st">"./Dropbox"</span>              <span class="st">"./Fonts"</span>                <span class="st">"./Library"</span>             </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">10</span>] <span class="st">"./Movies"</span>               <span class="st">"./Music"</span>                <span class="st">"./opt"</span>             </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>[<span class="dv">13</span>] <span class="st">"./Pictures"</span>             <span class="st">"./projects"</span>             <span class="st">"./Public"</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>[<span class="dv">16</span>] <span class="st">"./R"</span>                    <span class="st">"./Themes"</span></span></code></pre></div>
-<p>Adding the <code>full.names</code> returned the folders and files in
-the working directory, but added a <code>./</code> prefix. In computer
-file systems, <code>"."</code> and <code>".."</code> are special
-directory (i.e., folder) names that have specific meanings.
-<code>"."</code> represents the current folder, and <code>".."</code>
-represents the parent folder in a file path. These directory names are
-used to specify relative paths to other files and directories in the
-file system.</p>
-<div class="section level4">
-<h4 id="folder-trees">Folder trees<a class="anchor" aria-label="anchor" href="#folder-trees"></a>
-</h4>
-<p><a href="https://www.wikiwand.com/en/Directory_structure" class="external-link">folder
-tree’s</a> are handy tools for navigating a computer’s folder structure.
-As noted above, operating systems organize folders and files in a
-hierarchical, tree-like arrangement, with a single root directory (or
-folder) at the top, and sub-folders branching off from it. Each folder
-can contain files and additional subfolders and, in turn, can have more
-files and subfolders.</p>
-<p>We’ll use folder trees to describe the special directories implied by
-<code>"."</code> and <code>".."</code>:</p>
-<ul>
-<li>
-<p><code>"."</code> represents the current folder and refers to the
-folder the user is currently in. For example, if I am in the folder
-<code>"/user/jdoe/documents"</code>, the folder tree would look like
-this:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">users/</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">└──</span> jdoe/</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">└──</span> documents/ <span class="op">&lt;</span>- my location</span></code></pre></div>
-<ul>
-<li>In this case, <code>"."</code> refers to same location
-(<code>"/user/jdoe/documents"</code>)</li>
-</ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">users/</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">└──</span> jdoe/</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">└──</span> documents/ <span class="at">-</span><span class="op">&gt;</span> <span class="st">"."</span> also my location</span></code></pre></div>
-</li>
-<li>
-<p><code>".."</code> (dot dot) represents the <em>parent</em>
-folder. It is used to refer to the folder that contains the current
-folder. For example, if I am in the folder
-<code>"/user/jdoe/documents"</code></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">users/</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">└──</span> jdoe/</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">└──</span> documents/ <span class="op">&lt;</span>- my location</span></code></pre></div>
-<ul>
-<li>Then <code>".."</code> refers to <code>"/user/jdoe"</code>
-</li>
-</ul>
-<div class="sourceCode" id="cb9"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">users/</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">└──</span> jdoe/ <span class="at">-</span><span class="op">&gt;</span> <span class="st">".."</span> parent folder</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>        <span class="ex">└──</span> documents/ </span></code></pre></div>
-</li>
-</ul>
-</div>
-</div>
-<div class="section level3">
-<h3 id="ger_path">
-<code>ger_path()</code><a class="anchor" aria-label="anchor" href="#ger_path"></a>
-</h3>
-<p>The first function we’ll cover is one to get comfortable using,
-<code><a href="../reference/ger_path.html">ger_path()</a></code>. We’ve already installed and loaded the
-<code>gerp</code> package, but sometimes handy to explicitly tell R
-which function we intend to use from a package. We can do this by
-entering <code>package::function()</code>, and you can see why in the
-image below:</p>
-<p><br></p>
-<div class="figure" style="text-align: center">
-<img src="../reference/figures/namespacing.png" alt="All functions and objects in gerp" width="40%"><p class="caption">
-All functions and objects in gerp
+<img src="../reference/figures/rename_new_proj_file.gif" alt="Rename gerp project file" width="90%"><p class="caption">
+Rename gerp project file
 </p>
 </div>
 <p><br></p>
-<p>Using <code>package::function()</code> shows us all the functions and
-objects in a package. When we select a package item, we can see the
-documentation in yellow:</p>
+<p>To re-open my project, I navigate to the <code>.Rproj</code> file and
+double-click on it to open RStudio.</p>
 <p><br></p>
 <div class="figure" style="text-align: center">
-<img src="../reference/figures/namespacing-doc.png" alt="help for ger_path()" width="80%"><p class="caption">
-help for ger_path()
+<img src="../reference/figures/open_new_proj.gif" alt="Rename gerp project file" width="90%"><p class="caption">
+Rename gerp project file
 </p>
-</div>
-<p><br></p>
-<p>To use <code><a href="../reference/ger_path.html">ger_path()</a></code>, start by entering a forward slash
-enclosed in quotes (<code>"/"</code>)</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_path.html">ger_path</a></span><span class="op">(</span><span class="st">"/"</span><span class="op">)</span></span></code></pre></div>
-<p>If you hit the <strong>Tab</strong> key, you’ll see the list of
-folders available starting at your home directory.</p>
-<p><br></p>
-<div class="figure" style="text-align: center">
-<img src="../reference/figures/ger_path-home.png" alt="Home directory (macOS)" width="60%"><p class="caption">
-Home directory (macOS)
-</p>
-</div>
-<p><br></p>
-<p>You can then continue using your mouse (or the arrow keys) to
-navigate to the parent folder you want your R project to live in (in my
-case, it’s <code>/Users/mjfrigaard/projects/</code>)</p>
-<p><br></p>
-<p><img src="../reference/figures/ger_path.gif" width="80%" style="display: block; margin: auto;"></p>
-<p><br></p>
-<p><code><a href="../reference/ger_path.html">ger_path()</a></code> works the same way on Windows:</p>
-<p><br></p>
-<p><img src="../reference/figures/ger_path-win.gif" width="80%" style="display: block; margin: auto;"></p>
-<p><br></p>
-<p>The type argument controls whether <code><a href="../reference/ger_path.html">ger_path()</a></code> returns a
-relative or absolute folder path:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">ger_path</span>(<span class="st">"/Users/mjfrigaard/projects/"</span>, <span class="at">type =</span> <span class="st">"abs"</span>)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/mjfrigaard/projects"</span></span></code></pre></div>
-<p>The absolute path returns the complete and specific location of the
-folder in the file system, starting from the root directory.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">ger_path</span>(<span class="st">"/Users/mjfrigaard/projects/"</span>, <span class="at">type =</span> <span class="st">"rel"</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"projects"</span></span></code></pre></div>
-<p>The relative path refers to the location of the folder relative to
-the current working folder (i.e., the folder where the user is currently
-located).</p>
-<p><br></p>
-</div>
-</div>
-<div class="section level2">
-<h2 id="creating-a-gerp-project">Creating a <code>gerp</code> project<a class="anchor" aria-label="anchor" href="#creating-a-gerp-project"></a>
-</h2>
-<p>After locating the R project folder, you can store the output and
-pass it to <code><a href="../reference/ger_proj.html">gerp::ger_proj()</a></code></p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">pth</span> <span class="op">&lt;-</span> <span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_path.html">ger_path</a></span><span class="op">(</span><span class="st">"/Users/mjfrigaard/projects/"</span><span class="op">)</span></span>
-<span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_proj.html">ger_proj</a></span><span class="op">(</span></span>
-<span>  folder <span class="op">=</span> <span class="va">pth</span>, </span>
-<span>  name <span class="op">=</span> <span class="st">"my project"</span><span class="op">)</span></span></code></pre></div>
-<p>and your new ‘good enough’ project will open in a new session:</p>
-<div class="figure" style="text-align: center">
-<img src="../reference/figures/my_project.gif" alt="New gerp project!" width="100%"><p class="caption">
-New gerp project!
-</p>
-</div>
-<div class="section level3">
-<h3 id="rproj-files">
-<code>.Rproj</code> files<a class="anchor" aria-label="anchor" href="#rproj-files"></a>
-</h3>
-<p><code>gerp</code> projects use RStudio’s project files (with
-extension <code>.Rproj</code>). <code>.Rproj</code> files <a href="https://support.posit.co/hc/en-us/articles/200526207-Using-RStudio-Projects" class="external-link"><em>“contain
-project options and can also be used as a shortcut for opening the
-project directly from the filesystem.”</em></a></p>
-<p>When I want to re-open my RStudio project, I navigate to the
-<code>.Rproj</code> file and double-click on it to open RStudio:</p>
-<div class="figure" style="text-align: center">
-<img src="../reference/figures/open_rproj.gif" alt="Open RStudio gerp project" width="100%"><p class="caption">
-Open RStudio gerp project
-</p>
-</div>
-<p><strong>Note</strong>: If you’re already using a cloud platform like
-<a href="https://www.dropbox.com/" class="external-link">Dropbox</a> or <a href="https://www.google.com/drive/" class="external-link">Google Drive</a> to keep track of
-your files, choose a different location for your R project folders.
-Cloud storage services are great, but they’ve been known to <a href="https://support.posit.co/hc/en-us/articles/200534477" class="external-link">cause
-issues</a> when working with R and RStudio.</p>
-<hr>
-<ol style="list-style-type: decimal">
-<li><p>The name for this package comes from the excellent article, ‘<a href="https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510" class="external-link">Good
-enough practices in scientific computing</a>’ by Greg Wilson, Jennifer
-Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt and Tracy K.
-Teal</p></li>
-<li><p>Jenny Bryan and Jim Hester address many of these topics in ‘<a href="https://rstats.wtf/" class="external-link">What they forgot to teach you about R</a>’,
-and I’ve codified them into this package wherever I could.</p></li>
-</ol>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
