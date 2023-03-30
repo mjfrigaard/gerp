@@ -2,8 +2,7 @@
 #'
 #' @param x string
 #'
-#' @noRd
-#'
+#' @keywords internal
 #'
 #'
 #' @return abbreviated and symbols
@@ -21,8 +20,7 @@ and2abbr <- function(x) {
 #'
 #' @param x string
 #'
-#' @noRd
-#'
+#' @keywords internal
 #'
 #'
 #' @return abbreviated at symbols
@@ -40,9 +38,8 @@ at2abbr <- function(x) {
 #'
 #' @param x string
 #'
-#' @noRd
 #'
-#'
+#' @keywords internal
 #'
 #' @return abbreviated asterisk symbols
 #'
@@ -59,9 +56,8 @@ asterisk2abbr <- function(x) {
 #'
 #' @param x string
 #'
-#' @noRd
 #'
-#'
+#' @keywords internal
 #'
 #' @return abbreviated exclamation symbols
 #'
@@ -78,9 +74,8 @@ exclamation2abbr <- function(x) {
 #'
 #' @param x string
 #'
-#' @noRd
 #'
-#'
+#' @keywords internal
 #'
 #' @return abbreviated dollar sign symbols
 #'
@@ -97,9 +92,8 @@ dollar2abbr <- function(x) {
 #'
 #' @param x string
 #'
-#' @noRd
 #'
-#'
+#' @keywords internal
 #'
 #' @return abbreviated period symbols
 #'
@@ -116,9 +110,8 @@ period2abbr <- function(x) {
 #'
 #' @param x string
 #'
-#' @noRd
 #'
-#'
+#' @keywords internal
 #'
 #' @return abbreviated caret symbols
 #'
@@ -137,9 +130,8 @@ caret2abbr <- function(x) {
 #'
 #' @param x string
 #'
-#' @noRd
 #'
-#'
+#' @keywords internal
 #'
 #' @return abbreviated em dash symbols
 #'
@@ -156,9 +148,8 @@ emdash2abbr <- function(x) {
 #'
 #' @param x string
 #'
-#' @noRd
 #'
-#'
+#' @keywords internal
 #'
 #' @return abbreviated equals symbols
 #'
@@ -175,9 +166,8 @@ equal2abbr <- function(x) {
 #'
 #' @param x string
 #'
-#' @noRd
 #'
-#'
+#' @keywords internal
 #'
 #' @return abbreviated hyphen symbols
 #'
@@ -194,9 +184,8 @@ hyphen2abbr <- function(x) {
 #'
 #' @param x string
 #'
-#' @noRd
 #'
-#'
+#' @keywords internal
 #'
 #' @return abbreviated percent symbols
 #'
@@ -213,9 +202,8 @@ percents2abbr <- function(x) {
 #'
 #' @param x string
 #'
-#' @noRd
 #'
-#'
+#' @keywords internal
 #'
 #' @return abbreviated plus symbols
 #'
@@ -232,9 +220,7 @@ plus2abbr <- function(x) {
 #'
 #' @param x string
 #'
-#' @noRd
-#'
-#'
+#' @keywords internal
 #'
 #' @return abbreviated plus symbols
 #'
@@ -251,9 +237,7 @@ num2abbr <- function(x) {
 #'
 #' @param x string
 #'
-#' @noRd
-#'
-#'
+#' @keywords internal
 #'
 #' @return abbreviated tilde symbols
 #'
@@ -270,7 +254,7 @@ tilde2abbr <- function(x) {
 #'
 #' @param input string
 #'
-#' @noRd
+#' @keywords internal
 #'
 #' @return abbreviated symbols
 #'
@@ -301,7 +285,7 @@ symb2abbr <- function(input) {
 #'
 #' @param x string
 #'
-#' @return good enough name (for an R object)
+#' @return A good enough R object name
 #' @export ger_name
 #'
 #' @examples
@@ -338,8 +322,61 @@ ger_name <- function(x) {
   ger_name <- tolower(no_trailing_dbl_snakes)
   # pretty printing
   ger_encode <- encodeString(ger_name, quote = "'")
-  ger_blue <- crayon::green(ger_encode)
-  ger_name_out <- glue::glue_collapse(ger_blue, sep = ", ")
-  return(ger_name_out)
+  ger_green <- crayon::green(ger_encode)
+  clipr::write_clip(content = ger_name, allow_non_interactive = TRUE)
+  cli::cli_alert_success(text =
+      glue::glue_collapse("{ger_green} is copied to the clipboard!"))
 }
+
+#' Good enough file name
+#'
+#' @param x string
+#'
+#' @return good enough file name
+#' @export ger_fname
+#'
+#' @examples
+#' ger_fname(x = "November profits (monday)-Carl's copy")
+#' ger_fname(x = "%file & with @_gArbage NAME.txt")
+ger_fname <- function(x) {
+    # create date string
+    tday <- as.character(Sys.Date())
+    # create date prefix
+    tday_prefix <- paste0(tday, "_")
+    file_nm_pth <- tools::file_path_sans_ext(x)
+    extsn <- tools::file_ext(x)
+    if (nchar(extsn) > 0) {
+      file_extsn <- paste0(".", extsn)
+    } else {
+      file_extsn <- NULL
+    }
+    file_nm_extsn <- base::basename(x)
+    # lowercase
+    nm_lower <- tolower(file_nm_pth)
+    # remove single apostrophe
+    nm_no_apostrophe <- gsub("'", "", nm_lower)
+    # replace punctuation with space
+    no_punct <- gsub("[[:punct:]]", " ", nm_no_apostrophe)
+    # extract words
+    nm_wrds <- word(no_punct, start = 1L, end = 1:nchar(no_punct),
+                sep = fixed(' '))
+    # get longest set of words
+    long_nm <- max(purrr::map_vec(nm_wrds, nchar), na.rm = TRUE)
+    longest_nm <- nm_wrds[nchar(nm_wrds) == long_nm][1]
+    # remove extra whitespace
+    single_ws <- gsub("\\s+", "-", longest_nm)
+    # replace whitespace with hyphens
+    hyphens_no_ws <- gsub("[[:space:]]| ", "-", single_ws)
+    # replace double hyphens with single
+    no_dbl_hyphens <- gsub("--", "-", hyphens_no_ws)
+    # remove prefix hyphen
+    no_prefix_hyphen <- gsub("^-", "", no_dbl_hyphens)
+    ger_fname <- paste0(tday_prefix, no_prefix_hyphen, file_extsn)
+    ger_encode <- encodeString(ger_fname, quote = "'")
+    ger_green <- crayon::green(ger_encode)
+      clipr::write_clip(content = ger_fname, allow_non_interactive = TRUE)
+      cli::cli_alert_success(text =
+          glue::glue_collapse("{ger_green} is copied to the clipboard!"))
+}
+
 

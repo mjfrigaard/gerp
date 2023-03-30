@@ -13,6 +13,7 @@
 #' @import hexSticker
 #' @import magick
 #' @import hexSticker
+#' @import clipr
 #'
 
 "_PACKAGE"

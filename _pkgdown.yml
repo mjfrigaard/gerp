@@ -60,6 +60,7 @@ reference:
   desc: "Functions for naming things."
   contents:
   - ger_name
+  - ger_fname
   - ger_batch_rename
 
 development:

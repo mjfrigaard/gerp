@@ -24,6 +24,7 @@ Imports:
     usethis,
     glue,
     cli,
+    clipr,
     rlang,
     dplyr,
     lubridate,

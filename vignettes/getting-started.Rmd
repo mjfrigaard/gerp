@@ -143,7 +143,7 @@ knitr::include_graphics("../man/figures/rstudio-files-pane-win.png")
 
 <br>
 
-These different displays can be confusing, which is it's better to think of file and folder paths as a location on map--one digit off and you'll end up in wrong place. However, I can confirm my location by checking the folder path in the **Files** pane above the folders: 
+These different displays can be confusing, which is why it's better to think of file and folder paths like a location on map--a single incorrect character or digit in the address and you'll end up in wrong place. Fortunately, RStudio helps me confirm my location by displaying the folder path in the **Files** pane above the folders: 
 
 <br>
 
