@@ -1,0 +1,94 @@
+---
+title: "Hex sticker"
+output: 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 4
+vignette: >
+  %\VignetteIndexEntry{Hex sticker}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE, results='hide'}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  dev = "ragg_png",
+  dpi = 320,
+  fig.asp = 0.718,
+  # fig.asp = 0.618,
+  fig.retina = 0.4,
+  out.width = "100%",
+  fig.width = 8,
+  fig.path = "../",
+  eval = TRUE,
+  warning = FALSE,
+  message = FALSE
+)
+# colourpicker install
+# devtools::install_github("daattali/colourpicker", force = TRUE, quiet = TRUE)
+# import font ----
+library(extrafont)
+extrafont::loadfonts(quiet = TRUE)
+extrafont::font_import(
+    paths = "../inst/assets/Ubuntu/",
+    prompt = FALSE)
+# add font ----
+sysfonts::font_add(
+    family =  "Ubuntu", 
+    regular = "../inst/assets/Ubuntu/Ubuntu-Regular.ttf")
+# if necessary: 
+# remotes::install_github("yixuan/showtext", force = TRUE)
+library(showtext)
+# add Arial
+# sysfonts::font_add("Arial", "/Library/Fonts/Arial.ttf")
+showtext::showtext_auto()
+# my_files <- c("file.Rmd", "doc.Rmd", "report.rmd", "_draft.Rmd")
+# stringr::str_view_all(my_files, "^_.*", match = TRUE)
+```
+
+```{r pkgs, message=FALSE, warning=FALSE}
+library(gerp)
+library(dplyr)
+library(ggplot2)
+library(hexSticker)
+library(magick)
+```
+
+
+## Create hex sticker 
+
+Import the image and makes the customizations for the hex sticker image
+
+```{r}
+img_path <- "../man/figures/gerp-icon-raw.png"
+hexSticker::sticker(
+  img_path,
+  u_family = "Ubuntu",
+  # colors 
+  h_fill = "#FFFFFF", # fill
+  p_color = "#00AD00", # package name
+  h_color = "#008000", # hexagon border
+  u_color = "#009400", # color for url
+  
+  package = "gerp!",
+  p_size = 24,
+  
+  p_x = 1,
+  p_y = 1.61,
+  
+  s_x = 1,
+  s_y = .92,
+  s_width = .80,
+  s_height = .54,
+  url = "mjfrigaard.github.io/gerp",
+  white_around_sticker = FALSE,
+  filename = "../man/figures/package_hex.png",
+  u_size = 5.5,
+)
+```
+
+```{r package_hex, echo=FALSE}
+knitr::include_graphics("../man/figures/package_hex.png")
+```

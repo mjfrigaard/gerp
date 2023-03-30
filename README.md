@@ -1,7 +1,11 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# `gerp`: Good Enough R Practices
+<br>
+
+<img src="man/figures/package_hex.png" width="20%" style="display: block; margin: auto 0 auto auto;" />
+
+# Good Enough R Practices (`gerp`)
 
 <!-- badges: start -->
 <!-- badges: end -->

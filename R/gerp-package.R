@@ -10,6 +10,9 @@
 #' @import stringr
 #' @import rstudioapi
 #' @import tidyr
+#' @import hexSticker
+#' @import magick
+#' @import hexSticker
 #'
 
 "_PACKAGE"

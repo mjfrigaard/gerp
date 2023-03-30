@@ -4,7 +4,7 @@
 \name{gerp-package}
 \alias{gerp}
 \alias{gerp-package}
-\title{gerp: Good Enough R (version 2!)}
+\title{gerp: Good Enough R Practices}
 \description{
 This package helps users adopt a set of good enough computing practices when working with data. The methods are largely based on the paper, 'Good enough practices in scientific computing' by Wilson et al (2017). DOI: https://doi.org/10.1371/journal.pcbi.1005510
 }

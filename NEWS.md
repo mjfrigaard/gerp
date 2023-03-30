@@ -1,3 +1,9 @@
+# gerp 1.1.0
+
+* added `ger_name()` function for creating R object names (and vignette)  
+
+* added hex sticker for package
+
 # gerp 1.0.0
 
 * New vignettes (getting-started, setup, code, data, documentation, and batch-rename) 

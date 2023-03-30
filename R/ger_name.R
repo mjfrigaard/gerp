@@ -283,7 +283,6 @@ symb2abbr <- function(input) {
   emdashes <- emdash2abbr(x = dollars)
   equals <- equal2abbr(x = emdashes)
   bangs <- exclamation2abbr(equals)
-  # hyphens <- hyphen2abbr(x = bangs)
   nums <- num2abbr(x = bangs)
   percs <- percents2abbr(x = nums)
   periods <- period2abbr(x = percs)
@@ -291,7 +290,7 @@ symb2abbr <- function(input) {
   snakes <- tilde2abbr(x = pluses)
   # remove white space
   posix_ws <- gsub("[[:space:]]", "", snakes)
-  # raw space
+  # remove raw white space
   raw_ws <- gsub(" ", "", posix_ws)
   # remove any trailing underscores
   abbrs <- gsub("_$", "", raw_ws)
@@ -315,6 +314,7 @@ ger_name <- function(x) {
   raw_ws <- gsub(" ", "_", posix_ws)
   # replace symbols with abbreviations
   input <- symb2abbr(raw_ws)
+  # move starting numbers to end
   if (grepl(x = input, pattern = "^\\d", ignore.case = TRUE)) {
     # extract preceding numbers or special characters from string
     bad_prefix <- gsub("[a-zA-Z].*", "\\1", input)
@@ -336,7 +336,7 @@ ger_name <- function(x) {
   no_trailing_dbl_snakes <- gsub("__$", "", no_dbl_snakes)
   # lowercase
   ger_name <- tolower(no_trailing_dbl_snakes)
-
+  # pretty printing
   ger_encode <- encodeString(ger_name, quote = "'")
   ger_blue <- crayon::green(ger_encode)
   ger_name_out <- glue::glue_collapse(ger_blue, sep = ", ")

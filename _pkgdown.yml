@@ -4,9 +4,9 @@ template:
   bootswatch: united
   theme: github-light
   bslib:
-    primary: "#02577A"
-    code-color: "#007bff"
-    code-bg: "#EAE9EA"
+    primary: "#009E00"
+    code-color: "#008C00"
+    code-bg: "#EDEDED"
     base_font:
       google: Ubuntu
     heading_font:
