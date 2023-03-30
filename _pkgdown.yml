@@ -24,6 +24,8 @@ navbar:
       href: articles/getting-started.html
     - text: -------
     - text: "Workflows"
+    - text: Create gerp projects
+      href: articles/create.html
     - text: Setup
       href: articles/setup.html
     - text: Code
