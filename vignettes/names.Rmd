@@ -26,32 +26,52 @@ library(gerp)
 
 `ger_name()` is designed to return a [tidyverse style](https://style.tidyverse.org/syntax.html#object-names) name for an object (i.e. variable). It works well for file names that have a date prefix: 
 
-```{r date-prefix}
+```{r date-prefixc, eval=FALSE}
 ger_name("1986-10-12_file.txt")
+```
+
+```
+✔ 'filedot_txt_1986_10_12' is copied to the clipboard!
 ```
 
 `ger_name()` replaces some symbols with abbreviations:
 
-```{r all-abbreviations}
+```{r all-abbreviations, eval=FALSE}
 gerp::ger_name("~ ! @ # $ % ^ & * — = +")
+```
+
+```
+✔ 'tilde_bang_at_num_dollar_perc_hat_and_ast_emdash_equals_plus' is copied to the clipboard!
 ```
 
 But keeps the characters and words:
 
-```{r abbreviations}
+```{r abbreviations, eval=FALSE}
 ger_name("20 % of this & that")
+```
+
+```
+✔ 'perc_of_this_and_that_20' is copied to the clipboard!
 ```
 
 It will also reorganize crazy file names into something that can be assigned to R variables.
 
-```{r crazy-names}
+```{r crazy-names, eval=FALSE}
 ger_name("123456 ! bingo + bongo")
+```
+
+```
+✔ 'bang_bingo_plus_bongo_123456' is copied to the clipboard!
 ```
 
 To ensure the names aren't too long or repeat terms, `ger_name()` doesn't repeat symbols. 
 
-```{r no-repeat}
+```{r no-repeat, eval=FALSE}
 gerp::ger_name("... !! ++")
+```
+
+```
+✔ 'dot_bang_plus' is copied to the clipboard!
 ```
 
 

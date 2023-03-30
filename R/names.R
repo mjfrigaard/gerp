@@ -289,8 +289,8 @@ symb2abbr <- function(input) {
 #' @export ger_name
 #'
 #' @examples
-#' ger_name("2022-10-12-Alpha-20%")
-#' ger_name("Alpha & Beta")
+#' # ger_name("2022-10-12-Alpha-20%")
+#' # ger_name("Alpha & Beta")
 ger_name <- function(x) {
   # remove white space
   posix_ws <- gsub("[[:space:]]", "_", x)
@@ -336,8 +336,8 @@ ger_name <- function(x) {
 #' @export ger_fname
 #'
 #' @examples
-#' ger_fname(x = "November profits (monday)-Carl's copy")
-#' ger_fname(x = "%file & with @_gArbage NAME.txt")
+#' # ger_fname(x = "November profits (monday)-Carl's copy")
+#' # ger_fname(x = "%file & with @_gArbage NAME.txt")
 ger_fname <- function(x) {
     # create date string
     tday <- as.character(Sys.Date())

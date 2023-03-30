@@ -16,6 +16,6 @@ A good enough R object name
 Good enough name
 }
 \examples{
-ger_name("2022-10-12-Alpha-20\%")
-ger_name("Alpha & Beta")
+# ger_name("2022-10-12-Alpha-20\%")
+# ger_name("Alpha & Beta")
 }

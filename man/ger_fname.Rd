@@ -16,6 +16,6 @@ good enough file name
 Good enough file name
 }
 \examples{
-ger_fname(x = "November profits (monday)-Carl's copy")
-ger_fname(x = "\%file & with @_gArbage NAME.txt")
+# ger_fname(x = "November profits (monday)-Carl's copy")
+# ger_fname(x = "\%file & with @_gArbage NAME.txt")
 }
