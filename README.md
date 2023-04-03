@@ -27,12 +27,12 @@ remotes::install_github("mjfrigaard/gerp")
 Creating a new `gerp` project:
 
 ``` r
-gerp::ger_create(folder = "/Users/mjfrigaard/projects/", name = "my project")
+gerp::ger_proj()
 ```
 
 <div class="figure" style="text-align: center">
 
-<img src="man/figures/my_project.gif" alt="New gerp project!" width="100%" />
+<img src="man/figures/new_ger_proj.gif" alt="New gerp project!" width="100%" />
 <p class="caption">
 New gerp project!
 </p>

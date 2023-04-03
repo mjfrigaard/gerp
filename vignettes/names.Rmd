@@ -10,14 +10,92 @@ vignette: >
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  eval = FALSE
 )
 # source("../R/ger_name.R")
 ```
 
-```{r pkg, message=FALSE, warning=FALSE}
+
+```{r pkg, message=FALSE, warning=FALSE, eval=TRUE}
 library(gerp)
+date_formats <- tolower(c("2023-01-01",
+                  "2023/01/01",
+                  "20230101",
+                  "2023.01.01",
+                  "Jan 01, 2023",
+                  "January 01, 2023",
+                  "February 01, 2023",
+                  "March 01, 1923",
+                  "May 01, 1823",
+                  "June 01, 2013",
+                  "July 01, 1943",
+                  "01 Jan 2023",
+                  "01 January 2023",
+                  "01-01-2023",
+                  "01/01/2023",
+                  "01.01.2023"))
 ```
+
+```{r , eval=TRUE}
+stringr::str_view_all(date_formats, "january\\s\\d{2},\\s\\d{4}|february\\s\\d{2},\\s\\d{4}|march\\s\\d{2},\\s\\d{4}|april\\s\\d{2},\\s\\d{4}|may\\s\\d{2},\\s\\d{4}|june\\s\\d{2},\\s\\d{4}|july\\s\\d{2},\\s\\d{4}|august\\s\\d{2},\\s\\d{4}|september\\s\\d{2},\\s\\d{4}|october\\s\\d{2},\\s\\d{4}|november\\s\\d{2},\\s\\d{4}|december\\s\\d{2},\\s\\d{4}")
+```
+
+
+```{r yyyy_mm_dd_regex, eval=TRUE}
+yyyy_mm_dd_regex <- "^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$"
+stringr::str_view_all(date_formats, yyyy_mm_dd_regex)
+```
+
+
+```{r prefix_mon_regex, eval=TRUE}
+prefix_mon_regex <- "^january|^february|^march|^april|^may|^june|^july|^august|^september|^october|^november|^december|^jan|^feb|^febr|^mar|^apr|^jun|^jul|^aug|^sept|^sep|^oct|^nov|^dec|^jan\\.|^feb\\.|^febr\\.|^mar\\.|^apr\\.|^jun\\.|^jul\\.|^aug\\.|^sept\\.|^sep\\.|^oct\\.|^nov\\.|^dec\\."
+stringr::str_view_all(date_formats, prefix_mon_regex)
+```
+
+```{r mm_dd_yyyy_regex, eval=TRUE}
+mm_dd_yyyy_regex <- "(?:\\d{1,2}\\s*[/.-]\\s*\\d{1,2}\\s*[/.-]\\s*\\d{4})"
+stringr::str_view_all(date_formats, mm_dd_yyyy_regex)
+```
+
+```{r prefix_4y_regex, eval=TRUE}
+prefix_4y_regex <- "(^\\s*\\d{4}[/.-])|(^\\s*\\d{4})"
+stringr::str_view_all(date_formats, prefix_4y_regex)
+```
+
+```{r eval=TRUE}
+prefix_2y_regex <- "(^\\s*\\d{2}[/.-])"
+stringr::str_view_all(date_formats, prefix_2y_regex)
+```
+
+```{r abbr_dd_mm_prefix_regex, eval=TRUE}
+abbr_dd_mm_prefix_regex <- "(\\d{1,2}\\s*[/.-]?\\s*(?:january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|febr|mar|apr|jun|jul|aug|sept|sep|oct|nov|dec|jan\\.|feb\\.|febr\\.|mar\\.|apr\\.|jun\\.|jul\\.|aug\\.|sept\\.|sep\\.|oct\\.|nov\\.|dec\\.))"
+stringr::str_view_all(date_formats, abbr_dd_mm_prefix_regex)
+```
+
+
+```{r abbr_mon_regex, eval=TRUE}
+abbr_mon_regex <- "(?:january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|febr|mar|apr|jun|jul|aug|sept|sep|oct|nov|dec|jan\\.|feb\\.|febr\\.|mar\\.|apr\\.|jun\\.|jul\\.|aug\\.|sept\\.|sep\\.|oct\\.|nov\\.|dec\\.)"
+stringr::str_view_all(date_formats, abbr_mon_regex)
+```
+
+(?:\\d{1,2}\\s*[/.-]\\s*\\d{1,2}\\s*[/.-]\\s*\\d{4})
+
+```{r , eval=TRUE}
+stringr::str_view_all(date_formats, "(?:\\d{4}[/.-]|[/.-]\\d{4}|\\s\\d{4}|^\\d{4})")
+```
+
+
+
+```{r eval=TRUE}
+abbr_yyyy_mm_dd_regex_all <- "^\\s*(?:\\d{4}$)|(?:\\d{1,2}\\s*[/.-]\\s*\\d{1,2}\\s*[/.-]\\s*\\d{4})|(\\d{1,2}\\s*[/.-]?\\s*(?:January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Febr|Mar|Apr|Jun|Jul|Aug|Sept|Sep|Oct|Nov|Dec|Jan\\.|Feb\\.|Febr\\.|Mar\\.|Apr\\.|Jun\\.|Jul\\.|Aug\\.|Sept\\.|Sep\\.|Oct\\.|Nov\\.|Dec\\.)\\s*[/.-]?\\s*(?:'?\\d{2}|\\d{4}))\\s*$"
+stringr::str_view_all(date_formats, abbr_yyyy_mm_dd_regex_all)
+```
+
+```{r eval=TRUE}
+stringr::str_view_all(date_formats, "(?:january|february|march|april|may|june|july|august|september|october|november|december|jan|feb|febr|mar|apr|jun|jul|aug|sept|sep|oct|nov|dec|jan\\.|feb\\.|febr\\.|mar\\.|apr\\.|jun\\.|jul\\.|aug\\.|sept\\.|sep\\.|oct\\.|nov\\.|dec\\.)")
+```
+
 
 # `ger_name()`
 
@@ -31,10 +109,12 @@ ger_name("1986-10-12_file.txt")
 ```
 
 ```
-✔ 'filedot_txt_1986_10_12' is copied to the clipboard!
+✔ 'file_txt_1986_10_12' is copied to the clipboard!
 ```
 
-`ger_name()` replaces some symbols with abbreviations:
+As you can see, `ger_name()` places the R object name on the clipboard (making it easier to use). 
+
+`ger_name()` replaces the following symbols with abbreviations:
 
 ```{r all-abbreviations, eval=FALSE}
 gerp::ger_name("~ ! @ # $ % ^ & * — = +")
@@ -44,7 +124,7 @@ gerp::ger_name("~ ! @ # $ % ^ & * — = +")
 ✔ 'tilde_bang_at_num_dollar_perc_hat_and_ast_emdash_equals_plus' is copied to the clipboard!
 ```
 
-But keeps the characters and words:
+And reorganizes names that start with numbers:
 
 ```{r abbreviations, eval=FALSE}
 ger_name("20 % of this & that")
@@ -54,7 +134,7 @@ ger_name("20 % of this & that")
 ✔ 'perc_of_this_and_that_20' is copied to the clipboard!
 ```
 
-It will also reorganize crazy file names into something that can be assigned to R variables.
+`ger_name()` converts just about any string of characters into something that can be assigned to R variables.
 
 ```{r crazy-names, eval=FALSE}
 ger_name("123456 ! bingo + bongo")
@@ -74,7 +154,34 @@ gerp::ger_name("... !! ++")
 ✔ 'dot_bang_plus' is copied to the clipboard!
 ```
 
+# `ger_fname()`
 
+`ger_fname()` is similar, but works for file names. 
 
+```{r}
+ger_fname("file.txt")
+```
 
+```
+✔ '2023-03-30_file.txt' is copied to the clipboard!
+```
 
+It handle's extra white space:
+
+```{r}
+ger_fname("01 report .xlsx")
+```
+
+```
+✔ '2023-03-30_01-report.xlsx' is copied to the clipboard!
+```
+
+And whatever else you can come up with: 
+
+```{r}
+ger_fname("%! Joe's crazy *!$# file name.xlsx")
+```
+
+```
+✔ '2023-03-30_joes-crazy-file-name.xlsx' is copied to the clipboard!
+```

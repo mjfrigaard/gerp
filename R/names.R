@@ -88,6 +88,22 @@ dollar2abbr <- function(x) {
   }
 }
 
+#' Check if name has file extension
+#'
+#' @param x character string
+#'
+#' @keywords internal
+#'
+#' @return logical (`TRUE` = has file extension, `FALSE` = no file extension)
+#'
+#' @examples
+#' check_file_extensions("file name with extension.ext")
+#' check_file_extensions("long file name without extension")
+check_file_extensions <- function(x) {
+  ifelse(grepl(pattern = "\\.[a-zA-Z0-9]+", x = x),
+    yes = TRUE, no = FALSE)
+}
+
 #' Period (`.`) to abbreviation (`'dot'`)
 #'
 #' @param x string
@@ -98,9 +114,14 @@ dollar2abbr <- function(x) {
 #' @return abbreviated period symbols
 #'
 period2abbr <- function(x) {
-  symb <- gsub("[[:space:]]| |\\s", "", x = x)
-  if (grepl(pattern = "(\\.)+", x = symb)) {
-    sub(pattern = "(\\.)+", "dot_", x = symb)
+  if (!check_file_extensions(x)) {
+    # clear white space
+    symb <- gsub("[[:space:]]| |\\s", "", x = x)
+    if (grepl(pattern = "(\\.)+", x = symb)) {
+      sub(pattern = "(\\.)+", "dot_", x = symb)
+    } else {
+      x
+    }
   } else {
     x
   }
@@ -369,9 +390,11 @@ ger_fname <- function(x) {
     hyphens_no_ws <- gsub("[[:space:]]| ", "-", single_ws)
     # replace double hyphens with single
     no_dbl_hyphens <- gsub("--", "-", hyphens_no_ws)
-    # remove prefix hyphen
-    no_prefix_hyphen <- gsub("^-", "", no_dbl_hyphens)
-    ger_fname <- paste0(tday_prefix, no_prefix_hyphen, file_extsn)
+    # remove any trailing hyphens
+    no_trailing_hyphens <- gsub("-$", "", no_dbl_hyphens)
+    # remove any prefix hyphens
+    no_prefix_hyphens <- gsub("^-", "", no_trailing_hyphens)
+    ger_fname <- paste0(tday_prefix, no_prefix_hyphens, file_extsn)
     ger_encode <- encodeString(ger_fname, quote = "'")
     ger_green <- crayon::green(ger_encode)
       clipr::write_clip(content = ger_fname, allow_non_interactive = TRUE)
@@ -380,3 +403,6 @@ ger_fname <- function(x) {
 }
 
 
+check_date_prefix <- function(x) {
+
+}
