@@ -46,7 +46,8 @@ Return the relative or absolute path. The default is a relative path, which is t
     <a class="dropdown-item" href="../articles/data.html">Data</a>
     <a class="dropdown-item" href="../articles/documents.html">Documents</a>
     <div class="dropdown-divider"></div>
-    <h6 class="dropdown-header" data-toc-skip>Utility Functions</h6>
+    <h6 class="dropdown-header" data-toc-skip>Good Enough Practices</h6>
+    <a class="dropdown-item" href="../articles/paths.html">Folder paths</a>
     <a class="dropdown-item" href="../articles/names.html">Names</a>
     <a class="dropdown-item" href="../articles/batch-rename.html">Batch rename files</a>
   </div>
@@ -78,13 +79,17 @@ Return the relative or absolute path. The default is a relative path, which is t
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ger_path</span><span class="op">(</span><span class="va">...</span>, type <span class="op">=</span> <span class="st">"abs"</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">ger_path</span><span class="op">(</span><span class="va">...</span>, tree <span class="op">=</span> <span class="cn">FALSE</span>, type <span class="op">=</span> <span class="st">"abs"</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>...</dt>
 <dd><p>arguments passed to <code><a href="https://fs.r-lib.org/reference/path_math.html" class="external-link">fs::path_abs()</a></code></p></dd>
+
+
+<dt>tree</dt>
+<dd><p>logical, return a folder tree (via <code>fs::dir_path()</code>)?</p></dd>
 
 
 <dt>type</dt>
@@ -101,8 +106,8 @@ is absolute)</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">ger_path</span><span class="op">(</span><span class="st">"."</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "/home/runner/work/gerp/gerp/docs/reference"</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># ger_path(".")</span></span></span>
+<span class="r-in"></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
