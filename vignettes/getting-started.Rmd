@@ -1,8 +1,8 @@
 ---
-title: "Where do I start learning R?"
+title: "Where do I start?"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Where do I start learning R?}
+  %\VignetteIndexEntry{Where do I start?}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -15,14 +15,19 @@ knitr::opts_chunk$set(
 )
 ```
 
+A [Google search](https://bfy.tw/Tx85) for the question "*where should I start learning R?*" will return a deluge of websites, tutorials, YouTube videos and blog posts. These results probably aren't incorrect, but they're not likely to list any of the important practices and habits new R users should adopt when beginning their R journey. 
 
-A [Google search](https://bfy.tw/Tx85) for the question above will return a deluge of websites, tutorials, YouTube videos and blog posts. The results probably aren't incorrect, but they're not likely to contain any practices or habits new R users should adopt when beginning their R journey. `gerp` was written to help guide new users towards a set of ‘good enough’ practices that have been shown to help "[*you get more done in less time and with less pain.*](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510#sec028)*"*[1] New R users often struggle to find these habits because they aren’t typically covered in textbooks or online documentation (with some great exceptions[2]), but adopting at least a few of these practices will increase your productivity when you’re using R (and your computer in general!).
 
+`gerp` was written to help guide new users towards a set of 'good enough' practices that have been shown to help "*you get more done in less time and with less pain.*"([1](https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/)) New R users often struggle needlessly before discovering  these practices because they're scattered across multiple textbooks and online documentation (with some excellent exceptions ([2](https://rstats.wtf/)).
 
-This vignette will go over how to install and load the `gerp` package, navigating your computers folders and files, and how to get started with a new `gerp` R project.
+Adopting at least a few of these practices will increase your productivity when you're using R (or any other programming language!).
+
+## Outline
+
+This vignette will go over how to install and load the `gerp` package, and how to get started with a new `gerp` R project.
 
 > ***Practice (prăk′tĭs)***
-> 
+>
 > *To do or perform habitually or customarily; make a habit of*
 
 One of the first practices we're going to cover is installing and loading packages. R packages are a collection of functions, data, and documentation bundled in a standardized format. R packages are a vital part of the R ecosystem and provide users with a wide range of data analysis, visualization, and modeling tools. Understanding where and how to access them is essential to your early success.
@@ -64,7 +69,7 @@ knitr::include_graphics("../man/figures/new_ger_proj.gif")
 
 <br>
 
-`gerp::ger_proj()` will default to the your Desktop folder  (or some other conspicuous place). It's unlikely you'll want your project named, '`new_project`'. I'll demonstrate how to change the name of a new `gerp` project on macOS below:
+`gerp::ger_proj()` will default to the your Desktop folder (or some other conspicuous place). It's unlikely you'll want your project named, '`new_project`'. I'll demonstrate how to change the name of a new `gerp` project on macOS below:
 
 <br>
 
@@ -78,7 +83,7 @@ knitr::include_graphics("../man/figures/close_new_proj.gif")
 
 <br>
 
-Navigate the the `new_project` folder (it should be in your **Desktop** folder) and give it a new name: 
+Navigate the the `new_project` folder (it should be in your **Desktop** folder) and give it a new name:
 
 <br>
 
@@ -105,3 +110,9 @@ To re-open my project, I navigate to the `.Rproj` file and double-click on it to
 ```{r open_new_proj-gif, echo=FALSE, eval=TRUE, out.width='90%', fig.align='center', fig.cap='Rename gerp project file'}
 knitr::include_graphics("../man/figures/open_new_proj.gif")
 ```
+
+***
+
+1. [Good enough practices in scientific computing.](https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/) Wilson G, Bryan J, Cranston K, Kitzes J, Nederbragt L, et al. (2017) PLOS Computational Biology 13(6): e1005510. https://doi.org/10.1371/journal.pcbi.1005510
+
+2. [What They Forgot to Teach You About R](https://rstats.wtf). Jennifer Bryan, Jim Hester 

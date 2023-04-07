@@ -35,7 +35,9 @@ navbar:
     - text: Documents
       href: articles/documents.html
     - text: -------
-    - text: "Utility Functions"
+    - text: "Good Enough Practices"
+    - text: Folder paths
+      href: articles/paths.html
     - text: Names
       href: articles/names.html
     - text: Batch rename files

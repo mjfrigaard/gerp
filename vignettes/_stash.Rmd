@@ -1,0 +1,92 @@
+---
+title: "Stash"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Stash}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "# ",
+  eval = TRUE,
+  message = FALSE,
+  warning = FALSE
+)
+# source("../R/ger_name.R")
+```
+
+
+```{r pkg}
+library(gerp)
+date_formats <- gerp::date_formats
+name_matches <- gerp::name_matches
+```
+
+## Month prefix (no abbreviations)
+
+```{r month_dd_yyyy}
+stringr::str_view_all(
+  string = date_formats, 
+  pattern = name_matches[['month_dd_yyyy']], 
+  match = TRUE
+  )
+```
+
+## MM/DD/YYYY (numeric)
+
+```{r mm_dd_yyyy_regex}
+stringr::str_view_all(
+  string = date_formats,
+  pattern = name_matches[['mm_dd_yyyy_regex']],
+  match = TRUE
+  )
+```
+
+## Match month prefix (full name and abbreviated)
+
+```{r month_prefix_regex}
+stringr::str_view_all(
+  string = date_formats, 
+  pattern = name_matches[['month_prefix_regex']],
+  match = TRUE
+  )
+```
+
+## Match 4-digit year prefix
+
+```{r yyyy_prefix_regex}
+stringr::str_view_all(
+  string = date_formats, 
+  pattern = name_matches[['yyyy_prefix_regex']],
+  match = TRUE
+  )
+```
+
+## Match all months (full-name and abbreviations)
+
+```{r abbr_month_regex}
+stringr::str_view_all(
+  string = date_formats, 
+  pattern = name_matches[['abbr_month_regex']],
+  match = TRUE
+  )
+```
+
+## Match all 4-digit years
+
+```{r yyyy_all_regex}
+stringr::str_view_all(
+  string = date_formats, 
+  pattern = name_matches[['yyyy_all_regex']],
+  match = TRUE
+  )
+```
+
+
+
+
+
+

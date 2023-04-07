@@ -4,10 +4,12 @@
 \alias{ger_path}
 \title{Get good enough file path(s)}
 \usage{
-ger_path(..., type = "abs")
+ger_path(..., tree = FALSE, type = "abs")
 }
 \arguments{
 \item{...}{arguments passed to \code{fs::path_abs()}}
+
+\item{tree}{logical, return a folder tree (via \code{fs::dir_path()})?}
 
 \item{type}{logical, relative (\code{"rel"}) or absolute (\code{"abs"}) path (default
 is absolute)}
@@ -22,5 +24,5 @@ Use \code{ger_path()} to view folder and file paths.
 }
 }
 \examples{
-ger_path(".")
+# ger_path(".")
 }
