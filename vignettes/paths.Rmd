@@ -475,6 +475,9 @@ gerp::ger_path_lkp(x = "README.Rmd")
 ```
 
 
+
+
+
 ***
 
 1. The name for this package comes from the excellent article, '[Good enough practices in scientific computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)' by Greg Wilson, Jennifer Bryan, Karen Cranston, Justin Kitzes, Lex Nederbragt and Tracy K. Teal
