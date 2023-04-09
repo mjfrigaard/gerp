@@ -64,7 +64,7 @@ reference:
   contents:
   - ger_root
   - ger_fpath
-  - ger_path_lkp
+  - ger_lkp_path
 - title: "Code functions"
   desc: "Functions for writing code."
   contents:

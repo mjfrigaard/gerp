@@ -103,13 +103,13 @@ make_lk4_trees <- function(lk4_pths) {
 #' @param x file or folder to search for
 #'
 #' @return file tree(s)
-#' @export ger_path_lkp
+#' @export ger_lkp_path
 #'
 #'
 #' @examples
-#' gerp::ger_path_lkp("inst")
-#' gerp::ger_path_lkp("README.Rmd")
-ger_path_lkp <- function(x) {
+#' gerp::ger_lkp_path("inst")
+#' gerp::ger_lkp_path("README.Rmd")
+ger_lkp_path <- function(x) {
   lk4_pths <- get_lk4_paths(look_for_file = x)
   make_lk4_trees(lk4_pths = lk4_pths)
 }

@@ -454,20 +454,20 @@ ger_fpath(tree = TRUE)
 ```
 
 
-### `ger_path_lkp()`
+### `ger_lkp_path()`
 
-`ger_path_lkp()` will return the folder tree (or trees) of the provided file or folder to `x`:
+`ger_lkp_path()` will return the folder tree (or trees) of the provided file or folder to `x`:
 
-```{r ger_path_lkp_dir, eval=FALSE}
+```{r ger_lkp_path_dir, eval=FALSE}
 # check for inst/ folder
-gerp::ger_path_lkp("inst")
+gerp::ger_lkp_path("inst")
 /Users/mjfrigaard/projects/pkgs/gerp
 └── inst
 ```
 
-```{r ger_path_lkp_dirs, eval=FALSE}
+```{r ger_lkp_path_dirs, eval=FALSE}
 # check for README.Rmd files
-gerp::ger_path_lkp(x = "README.Rmd")
+gerp::ger_lkp_path(x = "README.Rmd")
 /Users/mjfrigaard/projects/pkgs/gerp
 └── README.Rmd
 /Users/mjfrigaard/projects/pkgs/gerp/inst/rmarkdown/templates/gerp-README
