@@ -4,7 +4,7 @@
 \alias{ger_root}
 \title{Get the root folder of your project}
 \usage{
-ger_root(tree = FALSE)
+ger_root(tree = TRUE)
 }
 \arguments{
 \item{tree}{logical, return a folder tree?}

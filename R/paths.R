@@ -34,15 +34,15 @@ ger_fpath <- function(tree = FALSE) {
 #' @examples
 #' ger_root()
 #' ger_root(tree = TRUE)
-ger_root <- function(tree = FALSE) {
-  if (isTRUE(tree)) {
-  root_proj_pth <- rprojroot::find_root_file(
-                          criterion = is_rstudio_project, path = ".")
-  fs::dir_tree(root_proj_pth, recurse = FALSE)
-  } else {
+ger_root <- function(tree = TRUE) {
+  if (isFALSE(tree)) {
     root_proj_pth <- rprojroot::find_root_file(
                           criterion = is_rstudio_project, path = ".")
     cat(noquote(as.character(root_proj_pth)))
+  } else {
+    root_proj_pth <- rprojroot::find_root_file(
+                            criterion = is_rstudio_project, path = ".")
+    fs::dir_tree(root_proj_pth, recurse = FALSE)
   }
 }
 
