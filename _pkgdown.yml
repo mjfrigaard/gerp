@@ -19,13 +19,13 @@ navbar:
    articles:
     text: Articles
     menu:
-    - text: Getting Started
-    - text: "Where do I start?"
+    - text: "Getting Started"
+    - text: Where do I start?
       href: articles/getting-started.html
-    - text: -------
-    - text: "Workflows"
     - text: Create gerp projects
       href: articles/create.html
+    - text: -------
+    - text: "Workflows"
     - text: Setup
       href: articles/setup.html
     - text: Code
@@ -38,24 +38,33 @@ navbar:
     - text: "Good Enough Practices"
     - text: Folder paths
       href: articles/paths.html
-    - text: Names
+    - text: Naming objects & files
       href: articles/names.html
-    - text: Batch rename files
+    - text: Batch renaming files
       href: articles/batch-rename.html
 
 reference:
 - title: "Function reference"
   desc: >
-    Functions for developing good enough R practices.
+    Functions for creating gerp projects.
   contents:
   - ger_proj
-  - ger_create
   - ger_path
+  - ger_create
+- title: "Folder functions"
+  desc: "Functions for creating gerp folders & files."
+  contents:
   - ger_setup
   - ger_code
   - ger_data
   - ger_dev
   - ger_report
+- title: "Path functions"
+  desc: "Functions for folder & file paths."
+  contents:
+  - ger_root
+  - ger_fpath
+  - ger_path_lkp
 - title: "Code functions"
   desc: "Functions for writing code."
   contents:

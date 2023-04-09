@@ -309,9 +309,13 @@ We'll use folder trees to describe the special directories implied by `"."` and 
     ```
 
 
-### `ger_path()`
+## Path functions
 
-The first `gerp` function we'll cover is designed to help you become familiar with folder paths: `ger_path()`. 
+`gerp` has three functions designed to help you become familiar with folder paths: `ger_path()`, `ger_root()`, and `ger_fpath()`
+
+First we'll cover `ger_path()`, because it comes in handy when you're setting up a new `gerp` project. 
+
+### `ger_path()`
 
 We've already installed and loaded the `gerp` package, but sometimes handy to explicitly tell R which function we intend to use from a package. We can do this by entering `package::function()`, and you can see why in the image below: 
 
@@ -399,6 +403,76 @@ gerp::ger_path("/Users/mjfrigaard/projects/", tree = TRUE)
 └── pkgs
 ```
 
+### `ger_root()`
+
+The `ger_root()` function will return the 'root' folder path for your project. This comes in handy if you're looking for a certain file. 
+
+```{r ger_root, eval=FALSE}
+ger_root()
+/Users/mjfrigaard/projects/pkgs/gerp
+```
+
+```{r ger_root_tree, eval=FALSE}
+ger_root(tree = TRUE)
+/Users/mjfrigaard/projects/pkgs/gerp
+├── DESCRIPTION
+├── LICENSE
+├── LICENSE.md
+├── NAMESPACE
+├── NEWS.md
+├── R
+├── README.Rmd
+├── README.md
+├── _dev.R
+├── _pkgdown.yml
+├── data
+├── data-raw
+├── docs
+├── gerp.Rproj
+├── inst
+├── man
+├── ref
+└── vignettes
+```
+
+
+### `ger_fpath()`
+
+`ger_fpath()` will return path to the current file in the **Source** pane.
+
+```{r ger_fpath, eval=FALSE}
+ger_fpath()
+/Users/mjfrigaard/projects/pkgs/gerp/vignettes/paths.Rmd
+```
+
+If `tree` is set to `TRUE`, a folder tree is returned:
+
+```{r ger_fpath_tree, eval=FALSE}
+ger_fpath(tree = TRUE)
+/Users/mjfrigaard/projects/pkgs/gerp/vignettes
+└── paths.Rmd
+```
+
+
+### `ger_path_lkp()`
+
+`ger_path_lkp()` will return the folder tree (or trees) of the provided file or folder to `x`:
+
+```{r ger_path_lkp_dir, eval=FALSE}
+# check for inst/ folder
+gerp::ger_path_lkp("inst")
+/Users/mjfrigaard/projects/pkgs/gerp
+└── inst
+```
+
+```{r ger_path_lkp_dirs, eval=FALSE}
+# check for README.Rmd files
+gerp::ger_path_lkp(x = "README.Rmd")
+/Users/mjfrigaard/projects/pkgs/gerp
+└── README.Rmd
+/Users/mjfrigaard/projects/pkgs/gerp/inst/rmarkdown/templates/gerp-README
+└── README.Rmd
+```
 
 
 ***
