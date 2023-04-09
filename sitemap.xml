@@ -94,6 +94,9 @@
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_fname.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/ger_fpath.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_headr.html</loc>
   </url>
   <url>
@@ -103,10 +106,16 @@
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_path.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/ger_path_lkp.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_proj.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_report.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/ger_root.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/ger_sect.html</loc>
