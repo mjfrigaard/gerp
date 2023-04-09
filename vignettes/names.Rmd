@@ -1,8 +1,8 @@
 ---
-title: "Good enough names"
+title: "Names"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Good enough names}
+  %\VignetteIndexEntry{Names}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -13,28 +13,79 @@ knitr::opts_chunk$set(
   comment = "#>",
   eval = FALSE
 )
-# source("../R/ger_name.R")
 ```
 
 ```{r pkg, message=FALSE, warning=FALSE, eval=TRUE}
 library(gerp)
 ```
 
+```{r src, eval=TRUE, include=FALSE}
+# source("../R/names.R")
+```
+
+
 # `ger_name()`
 
 > "*It ain't what they call you, it's what you answer to.*" - [W.C. Fields](https://www.goodreads.com/quotes/130631-it-ain-t-what-they-call-you-it-s-what-you-answer) 
 
-`ger_name()` is designed to return a [tidyverse style](https://style.tidyverse.org/syntax.html#object-names) name for an object (i.e. variable). It works well for file names that have a date prefix: 
+The naming functions in `gerp` are modeled around two resources. The names for files and folders come from Jenny Bryan's excellent ['Naming things' slides](https://www.slideshare.net/milkers/naming-things). Names for R objects come from the [`tidyverse` style guide](https://style.tidyverse.org/).
 
-```{r date-prefixc, eval=FALSE}
-ger_name("1986-10-12_file.txt")
+The principles for naming files include: 
+
+1. All file names should be [lower kebab-case](https://en.wikipedia.org/wiki/Naming_convention_(programming)#Delimiter-separated_words), with no white space 
+
+2. A date prefix should be appended to all files for provenance and separated from the file name with an underscore
+
+3. Special characters and punctuation should not be used (but their meanings should be preserved)
+
+Both functions copy the R object name to the clipboard (making it easier to use). 
+
+
+# `ger_fname()`
+
+`ger_fname()` will convert the text to lower kebab-case and add a date prefix. 
+
+```{r}
+ger_fname("My File.txt")
 ```
 
 ```
-✔ 'file_txt_1986_10_12' is copied to the clipboard!
+✔ '2023-04-09_my-file.txt' is copied to the clipboard!
 ```
 
-As you can see, `ger_name()` places the R object name on the clipboard (making it easier to use). 
+It handle's file version numbers and punctuation:
+
+```{r}
+ger_fname("01 joe's report .xlsx")
+```
+
+```
+✔ '2023-04-09_01-joes-report.xlsx' is copied to the clipboard!
+```
+
+And special characters:
+
+```{r}
+ger_fname("%! Joe's crazy *!$# file name.xlsx")
+```
+
+```
+✔ '2023-04-09_joes-crazy-file-name.xlsx' is copied to the clipboard!
+```
+
+# `ger_name()`
+
+`ger_name()` is designed to return a [tidyverse style](https://style.tidyverse.org/syntax.html#object-names) name for an object (i.e. `vector`, `data.frame`, `tibble`, etc.). 
+
+It works well for file names that have been created with `ger_fname()`:
+
+```{r date-prefix, eval=FALSE}
+ger_name("2023-04-09_my-file.txt")
+```
+
+```
+✔ 'my_file_txt_2023_04_09' is copied to the clipboard!
+```
 
 `ger_name()` replaces the following symbols with abbreviations:
 
@@ -46,7 +97,7 @@ gerp::ger_name("~ ! @ # $ % ^ & * — = +")
 ✔ 'tilde_bang_at_num_dollar_perc_hat_and_ast_emdash_equals_plus' is copied to the clipboard!
 ```
 
-And reorganizes names that start with numbers:
+And reorganizes names with numbers prefixes:
 
 ```{r abbreviations, eval=FALSE}
 ger_name("20 % of this & that")
@@ -66,7 +117,7 @@ ger_name("123456 ! bingo + bongo")
 ✔ 'bang_bingo_plus_bongo_123456' is copied to the clipboard!
 ```
 
-To ensure the names aren't too long or repeat terms, `ger_name()` doesn't repeat symbols. 
+To ensure the names aren't too long or repeat terms, `ger_name()` won't repeat symbols. 
 
 ```{r no-repeat, eval=FALSE}
 gerp::ger_name("... !! ++")
@@ -76,34 +127,3 @@ gerp::ger_name("... !! ++")
 ✔ 'dot_bang_plus' is copied to the clipboard!
 ```
 
-# `ger_fname()`
-
-`ger_fname()` is similar, but works for file names. 
-
-```{r}
-ger_fname("file.txt")
-```
-
-```
-✔ '2023-03-30_file.txt' is copied to the clipboard!
-```
-
-It handle's extra white space:
-
-```{r}
-ger_fname("01 report .xlsx")
-```
-
-```
-✔ '2023-03-30_01-report.xlsx' is copied to the clipboard!
-```
-
-And whatever else you can come up with: 
-
-```{r}
-ger_fname("%! Joe's crazy *!$# file name.xlsx")
-```
-
-```
-✔ '2023-03-30_joes-crazy-file-name.xlsx' is copied to the clipboard!
-```

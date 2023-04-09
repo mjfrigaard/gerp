@@ -307,6 +307,12 @@ symb2abbr <- function(input) {
 #' @param x string
 #'
 #' @return A good enough R object name
+#'
+#' @importFrom crayon green
+#' @importFrom clipr write_clip
+#' @importFrom cli cli_alert_success
+#' @importFrom glue glue_collapse
+#'
 #' @export ger_name
 #'
 #' @examples
@@ -354,6 +360,15 @@ ger_name <- function(x) {
 #' @param x string
 #'
 #' @return good enough file name
+#'
+#' @importFrom stringr word fixed
+#' @importFrom tools file_path_sans_ext file_ext
+#' @importFrom purrr map_vec
+#' @importFrom crayon green
+#' @importFrom clipr write_clip
+#' @importFrom cli cli_alert_success
+#' @importFrom glue glue_collapse
+#'
 #' @export ger_fname
 #'
 #' @examples
@@ -379,8 +394,8 @@ ger_fname <- function(x) {
     # replace punctuation with space
     no_punct <- gsub("[[:punct:]]", " ", nm_no_apostrophe)
     # extract words
-    nm_wrds <- word(no_punct, start = 1L, end = 1:nchar(no_punct),
-                sep = fixed(' '))
+    nm_wrds <- stringr::word(no_punct, start = 1L, end = 1:nchar(no_punct),
+                sep = stringr::fixed(' '))
     # get longest set of words
     long_nm <- max(purrr::map_vec(nm_wrds, nchar), na.rm = TRUE)
     longest_nm <- nm_wrds[nchar(nm_wrds) == long_nm][1]
