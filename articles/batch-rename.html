@@ -114,17 +114,17 @@ temporary folder)</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># confirm</span></span>
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_tree.html" class="external-link">dir_tree</a></span><span class="op">(</span><span class="va">tmp_dir</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/RtmpyeD6j3</span></span></span>
-<span><span class="co">#&gt; ├── file196842624c56</span></span>
-<span><span class="co">#&gt; ├── file19685c236c8b</span></span>
-<span><span class="co">#&gt; ├── file19687c0b7814</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/RtmpWmqlkr</span></span></span>
+<span><span class="co">#&gt; ├── file19a72c26e2a5</span></span>
+<span><span class="co">#&gt; ├── file19a730ed9fe5</span></span>
+<span><span class="co">#&gt; ├── file19a76d5d20d1</span></span>
 <span><span class="co">#&gt; ├── <span style="color: #0000BB; font-weight: bold;">filenames</span></span></span>
 <span><span class="co">#&gt; │   ├── JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt</span></span>
 <span><span class="co">#&gt; │   ├── Joe's Filenames Use Space and Punctuation.xlsx</span></span>
 <span><span class="co">#&gt; │   ├── <span style="color: #BB00BB; font-weight: bold;">fig 2.png</span></span></span>
 <span><span class="co">#&gt; │   ├── <span style="color: #BB00BB; font-weight: bold;">figure 1.png</span></span></span>
 <span><span class="co">#&gt; │   └── myabstract.docx</span></span>
-<span><span class="co">#&gt; ├── rmarkdown-str1968275d6105.html</span></span>
+<span><span class="co">#&gt; ├── rmarkdown-str19a762ee6864.html</span></span>
 <span><span class="co">#&gt; └── wqy-microhei.ttc</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -152,19 +152,19 @@ other options include <code>"modification"</code>,
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># confirm</span></span>
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_tree.html" class="external-link">dir_tree</a></span><span class="op">(</span><span class="va">tmp_dir</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/RtmpyeD6j3</span></span></span>
-<span><span class="co">#&gt; ├── file1968112555d0</span></span>
-<span><span class="co">#&gt; ├── file19681796cbe7</span></span>
-<span><span class="co">#&gt; ├── file196842624c56</span></span>
-<span><span class="co">#&gt; ├── file19685c236c8b</span></span>
-<span><span class="co">#&gt; ├── file19687c0b7814</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/RtmpWmqlkr</span></span></span>
+<span><span class="co">#&gt; ├── file19a716c25b33</span></span>
+<span><span class="co">#&gt; ├── file19a71e7c632a</span></span>
+<span><span class="co">#&gt; ├── file19a72c26e2a5</span></span>
+<span><span class="co">#&gt; ├── file19a730ed9fe5</span></span>
+<span><span class="co">#&gt; ├── file19a76d5d20d1</span></span>
 <span><span class="co">#&gt; ├── <span style="color: #0000BB; font-weight: bold;">filenames</span></span></span>
 <span><span class="co">#&gt; │   ├── <span style="color: #BB00BB; font-weight: bold;">2023-04-09_fig-2.png</span></span></span>
 <span><span class="co">#&gt; │   ├── <span style="color: #BB00BB; font-weight: bold;">2023-04-09_figure-1.png</span></span></span>
 <span><span class="co">#&gt; │   ├── 2023-04-09_joe-s-filenames-use-space-and-punctuation.xlsx</span></span>
 <span><span class="co">#&gt; │   ├── 2023-04-09_jw-7-d-2-sl-deletethisandyourcareerisover-wx-2.txt</span></span>
 <span><span class="co">#&gt; │   └── 2023-04-09_myabstract.docx</span></span>
-<span><span class="co">#&gt; ├── rmarkdown-str1968275d6105.html</span></span>
+<span><span class="co">#&gt; ├── rmarkdown-str19a762ee6864.html</span></span>
 <span><span class="co">#&gt; └── wqy-microhei.ttc</span></span></code></pre></div>
 <p>The following sections of this vignette walk through each step to
 give a better picture of how <code><a href="../reference/ger_batch_rename.html">ger_batch_rename()</a></code> works.</p>
@@ -186,8 +186,8 @@ give a better picture of how <code><a href="../reference/ger_batch_rename.html">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># confirm</span></span>
 <span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_tree.html" class="external-link">dir_tree</a></span><span class="op">(</span><span class="va">tmp_dir</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/RtmpyeD6j3</span></span></span>
-<span><span class="co">#&gt; ├── file1968424cf79e</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/RtmpWmqlkr</span></span></span>
+<span><span class="co">#&gt; ├── file19a71eb3992</span></span>
 <span><span class="co">#&gt; └── <span style="color: #0000BB; font-weight: bold;">filenames</span></span></span>
 <span><span class="co">#&gt;     ├── JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt</span></span>
 <span><span class="co">#&gt;     ├── Joe's Filenames Use Space and Punctuation.xlsx</span></span>
@@ -204,8 +204,8 @@ and date variables:</p>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">files_tmp</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 5</span></span>
 <span><span class="co">#&gt; Columns: 9</span></span>
-<span><span class="co">#&gt; $ file_path      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "/tmp/RtmpyeD6j3/filenames/JW7d^(2sl@deletethisandyourc…</span></span>
-<span><span class="co">#&gt; $ file_folder    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "/tmp/RtmpyeD6j3/filenames", "/tmp/RtmpyeD6j3/filenames…</span></span>
+<span><span class="co">#&gt; $ file_path      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "/tmp/RtmpWmqlkr/filenames/JW7d^(2sl@deletethisandyourc…</span></span>
+<span><span class="co">#&gt; $ file_folder    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "/tmp/RtmpWmqlkr/filenames", "/tmp/RtmpWmqlkr/filenames…</span></span>
 <span><span class="co">#&gt; $ file_full_name <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt", "Joe…</span></span>
 <span><span class="co">#&gt; $ file_extension <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> ".txt", ".xlsx", ".png", ".png", ".docx"</span></span>
 <span><span class="co">#&gt; $ file_name      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "JW7d^(2sl@deletethisandyourcareerisoverWx2*", "Joe's F…</span></span>
@@ -230,8 +230,8 @@ column names.</p>
 <span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html" class="external-link">glimpse</a></span><span class="op">(</span><span class="va">file_date_tmp</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Rows: 5</span></span>
 <span><span class="co">#&gt; Columns: 6</span></span>
-<span><span class="co">#&gt; $ file_path      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "/tmp/RtmpyeD6j3/filenames/JW7d^(2sl@deletethisandyourc…</span></span>
-<span><span class="co">#&gt; $ file_folder    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "/tmp/RtmpyeD6j3/filenames", "/tmp/RtmpyeD6j3/filenames…</span></span>
+<span><span class="co">#&gt; $ file_path      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "/tmp/RtmpWmqlkr/filenames/JW7d^(2sl@deletethisandyourc…</span></span>
+<span><span class="co">#&gt; $ file_folder    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "/tmp/RtmpWmqlkr/filenames", "/tmp/RtmpWmqlkr/filenames…</span></span>
 <span><span class="co">#&gt; $ file_full_name <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt", "Joe…</span></span>
 <span><span class="co">#&gt; $ file_extension <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> ".txt", ".xlsx", ".png", ".png", ".docx"</span></span>
 <span><span class="co">#&gt; $ file_name      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "JW7d^(2sl@deletethisandyourcareerisoverWx2*", "Joe's F…</span></span>
@@ -252,9 +252,9 @@ characters have been removed.</p>
 <span><span class="co">#&gt; Rows: 5</span></span>
 <span><span class="co">#&gt; Columns: 4</span></span>
 <span><span class="co">#&gt; $ clean_file_name <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "2023-04-09_jw-7-d-2-sl-deletethisandyourcareerisover-…</span></span>
-<span><span class="co">#&gt; $ clean_file_path <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "/tmp/RtmpyeD6j3/filenames/2023-04-09_jw-7-d-2-sl-dele…</span></span>
+<span><span class="co">#&gt; $ clean_file_path <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "/tmp/RtmpWmqlkr/filenames/2023-04-09_jw-7-d-2-sl-dele…</span></span>
 <span><span class="co">#&gt; $ file_full_name  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "JW7d^(2sl@deletethisandyourcareerisoverWx2*.txt", "Jo…</span></span>
-<span><span class="co">#&gt; $ file_path       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "/tmp/RtmpyeD6j3/filenames/JW7d^(2sl@deletethisandyour…</span></span></code></pre></div>
+<span><span class="co">#&gt; $ file_path       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> "/tmp/RtmpWmqlkr/filenames/JW7d^(2sl@deletethisandyour…</span></span></code></pre></div>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">clean_tbl</span><span class="op">$</span><span class="va">clean_file_name</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span></span>
 <span><span class="co">#&gt; [1] "2023-04-09_jw-7-d-2-sl-deletethisandyourcareerisover-wx-2.txt"</span></span>
@@ -277,7 +277,7 @@ to <code>rename_all_files()</code>:</p>
 <p>We can confirm a final time with <code><a href="https://fs.r-lib.org/reference/dir_tree.html" class="external-link">fs::dir_tree()</a></code>:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">fs</span><span class="fu">::</span><span class="fu"><a href="https://fs.r-lib.org/reference/dir_tree.html" class="external-link">dir_tree</a></span><span class="op">(</span><span class="va">tmp_files</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/RtmpyeD6j3/filenames</span></span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/RtmpWmqlkr/filenames</span></span></span>
 <span><span class="co">#&gt; ├── <span style="color: #BB00BB; font-weight: bold;">2023-04-09_fig-2.png</span></span></span>
 <span><span class="co">#&gt; ├── <span style="color: #BB00BB; font-weight: bold;">2023-04-09_figure-1.png</span></span></span>
 <span><span class="co">#&gt; ├── 2023-04-09_joe-s-filenames-use-space-and-punctuation.xlsx</span></span>

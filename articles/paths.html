@@ -530,17 +530,17 @@ returned:</p>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>└── paths.Rmd</span></code></pre></div>
 </div>
 <div class="section level4">
-<h4 id="ger_path_lkp">
-<code>ger_path_lkp()</code><a class="anchor" aria-label="anchor" href="#ger_path_lkp"></a>
+<h4 id="ger_lkp_path">
+<code>ger_lkp_path()</code><a class="anchor" aria-label="anchor" href="#ger_lkp_path"></a>
 </h4>
-<p><code><a href="../reference/ger_path_lkp.html">ger_path_lkp()</a></code> will return the folder tree (or trees) of
+<p><code><a href="../reference/ger_lkp_path.html">ger_lkp_path()</a></code> will return the folder tree (or trees) of
 the provided file or folder to <code>x</code>:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check for inst/ folder</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">ger_path_lkp</span>(<span class="st">"inst"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">ger_lkp_path</span>(<span class="st">"inst"</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>Users<span class="sc">/</span>mjfrigaard<span class="sc">/</span>projects<span class="sc">/</span>pkgs<span class="sc">/</span>gerp</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>└── inst</span></code></pre></div>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># check for README.Rmd files</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">ger_path_lkp</span>(<span class="at">x =</span> <span class="st">"README.Rmd"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">ger_lkp_path</span>(<span class="at">x =</span> <span class="st">"README.Rmd"</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>Users<span class="sc">/</span>mjfrigaard<span class="sc">/</span>projects<span class="sc">/</span>pkgs<span class="sc">/</span>gerp</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>└── README.Rmd</span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="sc">/</span>Users<span class="sc">/</span>mjfrigaard<span class="sc">/</span>projects<span class="sc">/</span>pkgs<span class="sc">/</span>gerp<span class="sc">/</span>inst<span class="sc">/</span>rmarkdown<span class="sc">/</span>templates<span class="sc">/</span>gerp<span class="sc">-</span>README</span>
