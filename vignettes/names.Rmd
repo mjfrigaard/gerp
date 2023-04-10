@@ -179,53 +179,6 @@ gerp::ger_name("first_day_of_the_month", abbr = TRUE)
 ✔ 'first_dy_f_th_mnth' is copied to the clipboard!
 ```
 
-# Workflow 
-
-`ger_name()` works well for file names that have been located with `ger_path()` and created with `ger_fname()`. 
-
-Assume I have a file named `99$bad%FILE%nAme.xlsx` in my `inst/extdata` folder. I can create a new `bad_file_name.R` script in the `data-raw/` folder: 
-
-```{r}
-file.create("data-raw/bad_file_name.R")
-```
-
-```
-[1] TRUE
-```
-
-The follow contents are placed in `bad_file_name.R`
-
-```{r}
-# get absolute path
-abs_pth <- gerp::ger_path("inst/extdata/99%bad%%FILE%name.csv")
-# get relative path for file name
-gerp::ger_path("inst/extdata/99%bad%%FILE%name.csv", type = 'rel') |> gerp::ger_fname()
-```
-
-```
-✔ '2023-04-10_99-bad-file-name.csv' is copied to the clipboard!
-```
-
-```{r}
-# paste and store file name
-exprt_nm <- "2023-04-10_99-bad-file-name.csv"
-# get object name 
-"2023-04-10_99-bad-file-name.csv" |> gerp::ger_name()
-```
-
-```
-✔ 'bad_file_name_csv_2023_04_10_99' is copied to the clipboard!
-```
-
-```{r}
-# paste and import using absolute path
-library(readr)
-bad_file_name_csv_2023_04_10_99 <- readr::read_csv(file = abs_pth)
-# export to new location using file name
-readr::write_csv(x = bad_file_name_csv_2023_04_10_99, file = paste0("data-raw/", exprt_nm))
-```
-
-
 # Additional features 
 
 *`ger_name()` replaces the following symbols with abbreviations:*
@@ -237,7 +190,7 @@ gerp::ger_name("~ ! @ # $ % ^ & * — = +")
 ```
 ✔ 'tilde_bang_at_num_dollar_perc_hat_and_ast_emdash_equals_plus' is copied to the clipboard!
 ```
-
+pk
 > *It also reorganizes names with numbers prefixes:*
 
 ```{r abbreviations, eval=FALSE}

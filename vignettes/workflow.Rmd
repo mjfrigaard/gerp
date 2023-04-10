@@ -1,0 +1,136 @@
+---
+title: "Naming workflow"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Naming workflow}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE
+)
+```
+
+```{r pkgs, eval=TRUE}
+library(gerp)
+library(tibble)
+library(readr)
+```
+
+# Naming workflow 
+
+`ger_path()`, `ger_fname()`, and `ger_name()` all work as a team to 1) create reliable names for files and objects, and 2) make it easier to maintain the connection between project files and object names.
+
+## Example 1
+
+`ger_name()` works well for file names that have been located with `ger_path()` and created with `ger_fname()`. 
+
+Assume I have a file named `99$bad%FILE%nAme.xlsx` in my `inst/extdata` folder. I can create a new `bad_file_name.R` script in the `data-raw/` folder: 
+
+```{r}
+file.create("data-raw/bad_file_name.R")
+```
+
+```
+[1] TRUE
+```
+
+The follow contents are placed in `bad_file_name.R`
+
+```{r}
+# get absolute path
+abs_pth <- gerp::ger_path("inst/extdata/99%bad%%FILE%name.csv")
+# get relative path for file name
+gerp::ger_path("inst/extdata/99%bad%%FILE%name.csv", type = 'rel') |> gerp::ger_fname()
+```
+
+```
+✔ '2023-04-10_99-bad-file-name.csv' is copied to the clipboard!
+```
+
+```{r}
+# paste and store file name
+exprt_nm <- "2023-04-10_99-bad-file-name.csv"
+# get object name 
+"2023-04-10_99-bad-file-name.csv" |> gerp::ger_name()
+```
+
+```
+✔ 'bad_file_name_csv_2023_04_10_99' is copied to the clipboard!
+```
+
+```{r}
+# paste and import using absolute path
+library(readr)
+bad_file_name_csv_2023_04_10_99 <- readr::read_csv(file = abs_pth)
+# export to new location using file name
+readr::write_csv(x = bad_file_name_csv_2023_04_10_99, file = paste0("data-raw/", exprt_nm))
+ger_path("data", tree = TRUE)
+```
+
+```
+/Users/mjfrigaard/projects/my_project/data-raw
+└── 2023-04-10_99-bad-file-name.csv
+```
+
+## Example 2 
+
+In the event I've created an object in R and need to export it, the workflow is slightly different. 
+
+Assume I've created `new_data`, which I want to store in the `data/` folder:
+
+```{r new_data, eval=TRUE}
+new_data <- tibble::tribble(
+   ~x,                 ~y,    ~z,
+  "J",   3.78788225133507, FALSE,
+  "N",   6.79125214331172,  TRUE,
+  "T",   3.70527803343078,  TRUE,
+  "A",   5.43565140930839,  TRUE,
+  "Y",   8.13565077574797, FALSE,
+  "M",   6.10749813415254, FALSE,
+  "G",    8.2922407776683,  TRUE,
+  "B",   2.78855879559163, FALSE,
+  "X",   4.36696377700339, FALSE,
+  "O",   2.34682208415642,  TRUE
+  )
+new_data
+```
+
+```{r , eval=FALSE}
+# store name
+exrt_nm <- gerp::ger_fname("new_data")
+```
+
+```
+✔ '2023-04-10_new-data' is copied to the clipboard!
+```
+
+```{r , eval=FALSE}
+# paste to check export path
+paste0("data/", "2023-04-10_new-data", ".rds")
+```
+
+```
+[1] "data/2023-04-10_new-data.rds"
+```
+
+```{r , eval=FALSE}
+# store 
+exrt_pth <- paste0("data/", "2023-04-10_new-data", ".rds")
+```
+
+```{r export_my_data, eval=FALSE}
+# export
+readr::write_rds(x = new_data, file = exrt_pth)
+ger_path("data", tree = TRUE)
+```
+
+```
+/Users/mjfrigaard/projects/my_project/data
+└── 2023-04-10_new-data.rds
+```
+

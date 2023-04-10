@@ -34,6 +34,8 @@ navbar:
       href: articles/data.html
     - text: Documents
       href: articles/documents.html
+    - text: Naming workflow
+      href: articles/workflow.html
     - text: -------
     - text: "Good Enough Practices"
     - text: Folder paths
