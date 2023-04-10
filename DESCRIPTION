@@ -34,6 +34,7 @@ Imports:
     snakecase,
     readr,
     stringr,
+    htmlwidgets,
     tidyr,
     magick,
     hexSticker
