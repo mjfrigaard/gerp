@@ -40,6 +40,9 @@
     <loc>https://mjfrigaard.github.io/gerp/articles/setup.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/articles/workflow.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/authors.html</loc>
   </url>
   <url>
@@ -61,7 +64,16 @@
     <loc>https://mjfrigaard.github.io/gerp/reference/caret2abbr.html</loc>
   </url>
   <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/check_chr.html</loc>
+  </url>
+  <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/check_file_extensions.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/check_num_prefix.html</loc>
+  </url>
+  <url>
+    <loc>https://mjfrigaard.github.io/gerp/reference/convert_symbols.html</loc>
   </url>
   <url>
     <loc>https://mjfrigaard.github.io/gerp/reference/dollar2abbr.html</loc>
