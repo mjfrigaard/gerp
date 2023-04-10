@@ -36,11 +36,13 @@ fs::dir_copy(
   new_path = tmp_files)
 ```
 
-Confirm this with `fs::dir_tree()`
+Confirm this with `gerp::ger_path()`
 
 ```{r}
 # confirm
-fs::dir_tree(tmp_dir)
+gerp::ger_path(
+  path = paste0(tmp_dir, "/", "filenames"), 
+  tree = TRUE)
 ```
 
 ## `ger_batch_rename()`
@@ -59,11 +61,13 @@ I'll demonstrate below:
 gerp::ger_batch_rename(path = tmp_files, prefix = "birth")
 ```
 
-And confirm with `fs::dir_tree()` 
+And confirm with `gerp::ger_path()` 
 
 ```{r confirm-ger_batch_rename}
 # confirm
-fs::dir_tree(tmp_dir)
+gerp::ger_path(
+  path = paste0(tmp_dir, "/", "filenames"), 
+  tree = TRUE)
 ```
 
 ```{r , echo=FALSE}
@@ -197,7 +201,7 @@ clean_tbl$clean_file_name[1]
 clean_tbl$file_full_name[1]
 ```
 
-**NOTE:** `ger_batch_rename()` can't file the ***content*** of the file names (and you wouldn't want it to).
+**NOTE:** `ger_batch_rename()` can't change the ***content*** of the file names (and you wouldn't want it to).
 
 ## Rename all files
 
@@ -218,10 +222,12 @@ rename_all_files <- function(old, new) {
 rename_all_files(old = old_names, new = new_names)
 ```
 
-We can confirm a final time with `fs::dir_tree()`: 
+We can confirm a final time with `gerp::ger_path()`: 
 
 ```{r}
-fs::dir_tree(tmp_files)
+gerp::ger_path(
+  path = paste0(tmp_dir, "/", "filenames"), 
+  tree = TRUE)
 ```
 
 

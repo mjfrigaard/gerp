@@ -2,7 +2,7 @@
 
 * Added `ger_root()` (project root folder), `ger_fpath()` ('find' path), and `ger_path_lkp()` ('look up' paths).
 
-* Updated documwntation with examples from `ger_root()`, `ger_path_lkp()`, and `ger_ftype()`
+* Updated documentation with examples from `ger_root()`, `ger_path_lkp()`, and `ger_ftype()`
 
 # gerp 2.3.0
 
