@@ -4,10 +4,12 @@
 \alias{ger_name}
 \title{Good enough name}
 \usage{
-ger_name(x)
+ger_name(x, abbr = FALSE)
 }
 \arguments{
 \item{x}{string}
+
+\item{abbr}{logical, abbreviate? (default is \code{FALSE})}
 }
 \value{
 A good enough R object name

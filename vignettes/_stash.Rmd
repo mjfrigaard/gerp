@@ -16,6 +16,59 @@ knitr::opts_chunk$set(
   warning = FALSE
 )
 # source("../R/ger_name.R")
+ger_name <- function(x, abbr = FALSE) {
+  # remove white space
+  posix_ws <- gsub("[[:space:]]", "_", x)
+  # remove raw white space
+  raw_ws <- gsub(" ", "_", posix_ws)
+  # replace symbols with abbreviations
+  no_symbols <- symb2abbr(raw_ws)
+  # remove starting or trailing punctuation
+  no_outer_punc <- gsub("^[[:punct:]]*|[[:punct:]]*$", "", no_symbols)
+  # replace double underscores with single
+  no_dbl_underscores_01 <- gsub("__", "_", no_outer_punc)
+  # is the remaining string a number?
+  if (isFALSE(is.na(suppressWarnings(as.numeric(no_dbl_underscores_01))))) {
+    input <- "num_var"
+  } else {
+    input <- no_dbl_underscores_01
+  }
+  return(input)
+
+  # move starting numbers to end
+  if (grepl(x = input, pattern = "^\\d", ignore.case = TRUE)) {
+    # extract preceding numbers or special characters from string
+    bad_prefix <- gsub("[a-zA-Z].*", "\\1", input)
+    # remove num_prefix
+    chrs <- sub(bad_prefix,"\\1", input)
+    # reverse order
+    start_nm <- paste0(chrs, "_", bad_prefix)
+  } else {
+    start_nm <- input
+  }
+  # replace remaining punctuation with underscores
+  no_punct <- gsub("[[:punct:]]", "_", start_nm)
+  # replace all double underscores with single underscores
+  # lowercase
+  lower_name <- tolower(no_dbl_snakes)
+  # attempt to abbreviate long names
+  if (isTRUE(abbr)) {
+    short_name <- abbreviate(names.arg = lower_name,
+                    method = "both",
+                    strict = FALSE,
+                    minlength = 18)
+  } else {
+    short_name <- lower_name
+  }
+  # remove any trailing underscores
+  ger_name <- gsub("[_]*$", "", short_name)
+  # pretty printing
+  ger_encode <- encodeString(ger_name, quote = "'")
+  ger_green <- crayon::green(ger_encode)
+  clipr::write_clip(content = ger_name, allow_non_interactive = TRUE)
+  cli::cli_alert_success(text =
+      glue::glue_collapse("{ger_green} is copied to the clipboard!"))
+}
 ```
 
 

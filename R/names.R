@@ -302,9 +302,82 @@ symb2abbr <- function(input) {
   return(abbrs)
 }
 
+#' Covert symbols to strings
+#'
+#' @param x string
+#'
+#' @keywords internal
+#'
+#' @return selected converted symbols
+#'
+convert_symbols <- function(x) {
+  # remove white space
+  posix_ws <- gsub("[[:space:]]", "_", x)
+  # remove raw white space
+  raw_ws <- gsub(" ", "_", posix_ws)
+  # replace symbols with abbreviations
+  no_symbols <- symb2abbr(raw_ws)
+  # remove starting or trailing punctuation
+  no_outer_punc <- gsub("^[[:punct:]]*|[[:punct:]]*$", "", no_symbols)
+  # replace double underscores with single
+  converted_symbols <- gsub("__", "_", no_outer_punc)
+  return(converted_symbols)
+}
+
+
+#' Check R object name is a character string
+#'
+#' @param x string
+#'
+#' @keywords internal
+#'
+#' @return character input
+#'
+check_chr <- function(x) {
+  # is the remaining string a number?
+  if (isFALSE(is.na(suppressWarnings(as.numeric(x))))) {
+    chr_input <- "num_var"
+  } else {
+    chr_input <- x
+  }
+  return(chr_input)
+}
+
+
+#' Check R object name for numeric prefix
+#'
+#' @param x string
+#'
+#' @keywords internal
+#'
+#' @return character string with numeric values moved to end
+#'
+check_num_prefix <- function(input) {
+  # move starting numbers to end
+  if (grepl(x = input, pattern = "^\\d", ignore.case = TRUE)) {
+    # extract preceding numbers or special characters from string
+    bad_prefix <- gsub("[a-zA-Z].*", "\\1", input)
+    # remove num_prefix
+    chrs <- sub(bad_prefix,"\\1", input)
+    # reverse order
+    start_nm <- paste0(chrs, "_", bad_prefix)
+  } else {
+    start_nm <- input
+  }
+  # replace remaining punctuation with underscores
+  no_punct <- gsub("[[:punct:]]", "_", start_nm)
+  # replace all double underscores with single underscores
+  no_dbl_snakes <- gsub("__", "_", no_punct)
+  # lowercase
+  no_num_prefix <- tolower(no_dbl_snakes)
+  return(no_num_prefix)
+}
+
+
 #' Good enough name
 #'
 #' @param x string
+#' @param abbr logical, abbreviate? (default is `FALSE`)
 #'
 #' @return A good enough R object name
 #'
@@ -318,35 +391,25 @@ symb2abbr <- function(input) {
 #' @examples
 #' # ger_name("2022-10-12-Alpha-20%")
 #' # ger_name("Alpha & Beta")
-ger_name <- function(x) {
-  # remove white space
-  posix_ws <- gsub("[[:space:]]", "_", x)
-  # remove raw white space
-  raw_ws <- gsub(" ", "_", posix_ws)
-  # replace symbols with abbreviations
-  input <- symb2abbr(raw_ws)
-  # move starting numbers to end
-  if (grepl(x = input, pattern = "^\\d", ignore.case = TRUE)) {
-    # extract preceding numbers or special characters from string
-    bad_prefix <- gsub("[a-zA-Z].*", "\\1", input)
-    # remove num_prefix
-    chrs <- sub(bad_prefix,"\\1", input)
-    # reverse order
-    start_nm <- paste0(chrs, "_", bad_prefix)
-    # combine with
+ger_name <- function(x, abbr = FALSE) {
+
+  converted_symbols <- convert_symbols(x = x)
+
+  chr_input <- check_chr(x = converted_symbols)
+
+  no_num_prefix <- check_num_prefix(input = chr_input)
+
+  # attempt to abbreviate long names
+  if (isTRUE(abbr)) {
+    short_name <- abbreviate(names.arg = no_num_prefix,
+                    method = "both",
+                    strict = FALSE,
+                    minlength = 18)
   } else {
-    start_nm <- input
+    short_name <- no_num_prefix
   }
-  # replace remaining punctuation with underscores
-  no_punct <- gsub("[[:punct:]]", "_", start_nm)
   # remove any trailing underscores
-  no_trailing_snakes <- gsub("_$", "", no_punct)
-  # replace all double underscores with single underscores
-  no_dbl_snakes <- gsub("__", "_", no_trailing_snakes)
-  # remove any trailing double underscores
-  no_trailing_dbl_snakes <- gsub("__$", "", no_dbl_snakes)
-  # lowercase
-  ger_name <- tolower(no_trailing_dbl_snakes)
+  ger_name <- gsub("[_]*$", "", short_name)
   # pretty printing
   ger_encode <- encodeString(ger_name, quote = "'")
   ger_green <- crayon::green(ger_encode)
@@ -354,6 +417,7 @@ ger_name <- function(x) {
   cli::cli_alert_success(text =
       glue::glue_collapse("{ger_green} is copied to the clipboard!"))
 }
+
 
 #' Good enough file name
 #'
