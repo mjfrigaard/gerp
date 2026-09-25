@@ -1,168 +1,39 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/404.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/articles/batch-rename.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/articles/code.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/articles/create.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/articles/data.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/articles/documents.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/articles/getting-started.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/articles/names.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/articles/paths.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/articles/setup.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/articles/workflow.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/index.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/and2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/asterisk2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/at2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/caret2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/check_chr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/check_file_extensions.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/check_num_prefix.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/convert_symbols.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/dollar2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/emdash2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/equal2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/exclamation2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_batch_rename.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_code.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_create.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_data.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_dev.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_fname.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_fpath.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_headr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_lkp_path.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_name.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_path.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_proj.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_report.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_root.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_sect.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/ger_setup.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/gerp-package.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/hyphen2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/num2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/percents2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/period2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/plus2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/symb2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/tilde2abbr.html</loc>
-  </url>
-  <url>
-    <loc>https://mjfrigaard.github.io/gerp/reference/wu_df.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://mjfrigaard.github.io/gerp/404.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/LICENSE-text.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/LICENSE.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/articles/batch-rename.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/articles/code.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/articles/create.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/articles/data.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/articles/documents.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/articles/getting-started.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/articles/index.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/articles/names.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/articles/paths.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/articles/setup.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/articles/workflow.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/authors.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/index.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/news/index.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/date_formats.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_batch_rename.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_code.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_create.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_data.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_dev.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_fname.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_fpath.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_headr.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_lkp_path.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_name.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_path.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_report.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_root.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_sect.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/ger_setup.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/gerp-package.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/index.html</loc></url>
+<url><loc>https://mjfrigaard.github.io/gerp/reference/wu_df.html</loc></url>
 </urlset>
+

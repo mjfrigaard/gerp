@@ -1,5 +1,5 @@
-pandoc: 2.19.2
-pkgdown: 2.0.7
+pandoc: 3.8.3
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
   batch-rename: batch-rename.html
@@ -12,8 +12,7 @@ articles:
   paths: paths.html
   setup: setup.html
   workflow: workflow.html
-last_built: 2023-04-10T17:40Z
+last_built: 2026-09-25T20:26Z
 urls:
   reference: https://mjfrigaard.github.io/gerp/reference
   article: https://mjfrigaard.github.io/gerp/articles
-
