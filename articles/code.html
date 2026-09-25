@@ -84,13 +84,13 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mjfrigaard.github.io/gerp/">gerp</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
-<h2 id="ger_code">
-<code>ger_code()</code><a class="anchor" aria-label="anchor" href="#ger_code"></a>
+<h2 id="grp_code">
+<code>grp_code()</code><a class="anchor" aria-label="anchor" href="#grp_code"></a>
 </h2>
-<p>Use <code><a href="../reference/ger_code.html">ger_code()</a></code> to create the <code>R/</code> code folder
+<p>Use <code><a href="../reference/grp_code.html">grp_code()</a></code> to create the <code>R/</code> code folder
 in your projects:</p>
-<p><img src="../reference/figures/ger_code.gif" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
-<p>The <code><a href="../reference/ger_code.html">ger_code()</a></code> creates the following files:</p>
+<p><img src="../reference/figures/grp_code.png" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
+<p>The <code><a href="../reference/grp_code.html">grp_code()</a></code> creates the following files:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>R<span class="sc">/</span></span>
 <span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a>  ├── data.R</span>
 <span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a>  ├── import.R</span>
@@ -163,7 +163,7 @@ accessible in the <strong>Help</strong> pane.</p>
 tags</a>, it’s a good idea to put a header on your code files. This
 helps collaborators (and you!) track what the script does.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_headr.html">ger_headr</a></span><span class="op">(</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_headr.html">grp_headr</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#</span></span>
 <span><span class="co"># This is code to create:</span></span>
 <span><span class="co"># Authored by and feedback to:</span></span>
@@ -173,14 +173,17 @@ helps collaborators (and you!) track what the script does.</p>
 <div class="section level3">
 <h3 id="sections">Sections<a class="anchor" aria-label="anchor" href="#sections"></a>
 </h3>
-<p><code><a href="../reference/ger_sect.html">gerp::ger_sect()</a></code> will create a code section based on a
-<code>name</code> input:</p>
+<p><code><a href="../reference/grp_sect.html">gerp::grp_sect()</a></code> will create a code section based on a
+<code>name</code> input. Use <code>level</code> to create nested
+sections (<code>#</code> is level 1, <code>##</code> is level 2,
+etc.):</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_sect.html">ger_sect</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">'import'</span><span class="op">)</span></span>
-<span><span class="co"># &lt;(+_+)&gt; import ––+––+––+––+––+––+––+––––+––+––+––––+––+ ----</span></span></code></pre></div>
-<p>These are handy if you use RStudio’s outline feature:</p>
-<p><br></p>
-<p><img src="../reference/figures/ger_sect.png" class="r-plt" alt="" width="100%" style="display: block; margin: auto;"></p>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_sect.html">grp_sect</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"import"</span><span class="op">)</span></span>
+<span><span class="co"># import -----------------------------------------------------------------------</span></span>
+<span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_sect.html">grp_sect</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"read csv files"</span>, level <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="co">## read csv files --------------------------------------------------------------</span></span></code></pre></div>
+<p>These are handy if you use the document outline in RStudio or
+Positron.</p>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

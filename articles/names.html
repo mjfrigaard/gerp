@@ -96,16 +96,16 @@ slides</a></p>
 <h3 id="naming-files">Naming files<a class="anchor" aria-label="anchor" href="#naming-files"></a>
 </h3>
 <p>Below I’ll cover how these principles are implemented in
-<code><a href="../reference/ger_fname.html">ger_fname()</a></code></p>
+<code><a href="../reference/grp_fname.html">grp_fname()</a></code></p>
 <div class="section level4">
 <h4 id="machine-readable-file-names-should-be-useful-to-program-with-i-e--easy-to-search-and-filter-avoid-reliance-on-case-accented-characters-white-space-etc-">1. <strong>Machine readable</strong>: file names should be useful to
 program with, i.e., easy to search and filter, avoid reliance on case,
 accented characters, white space, etc.<a class="anchor" aria-label="anchor" href="#machine-readable-file-names-should-be-useful-to-program-with-i-e--easy-to-search-and-filter-avoid-reliance-on-case-accented-characters-white-space-etc-"></a>
 </h4>
-<p><em><code><a href="../reference/ger_fname.html">ger_fname()</a></code> will convert all names to lower
+<p><em><code><a href="../reference/grp_fname.html">grp_fname()</a></code> will convert all names to lower
 kebab-case and add a date prefix.</em></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_fname.html">ger_fname</a></span><span class="op">(</span><span class="st">"My File.txt"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/grp_fname.html">grp_fname</a></span><span class="op">(</span><span class="st">"My File.txt"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ '2023-04-09_my-file.txt' is copied to the clipboard!</code></pre>
 </div>
 <div class="section level4">
@@ -117,10 +117,10 @@ the basename in a filename or the title of a page</em>” is referred to
 as the <a href="https://en.wikipedia.org/w/index.php?title=Clean_URL#Slug" class="external-link">slug</a>
 for brief description of file contents).<a class="anchor" aria-label="anchor" href="#human-readable-file-names-should-be-named-similar-to-urls--specifically-the-portion-of-the-url-that-is-usually-the-end-part-of-the-url-specifically-of-the-path-pathinfo-part-which-can-be-interpreted-as-the-name-of-the-resource-similar-to-the-basename-in-a-filename-or-the-title-of-a-page-is-referred-to-as-the-slug-for-brief-description-of-file-contents-"></a>
 </h4>
-<p><em><code><a href="../reference/ger_fname.html">ger_fname()</a></code> removes special characters (but keeps
+<p><em><code><a href="../reference/grp_fname.html">grp_fname()</a></code> removes special characters (but keeps
 words):</em></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_fname.html">ger_fname</a></span><span class="op">(</span><span class="st">"%Joe's%crazy*!$#FILE%name.xlsx"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/grp_fname.html">grp_fname</a></span><span class="op">(</span><span class="st">"%Joe's%crazy*!$#FILE%name.xlsx"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ '2023-04-09_joes-crazy-file-name.xlsx' is copied to the clipboard!</code></pre>
 </div>
 <div class="section level4">
@@ -130,10 +130,10 @@ prefix that contains the inherent order, with sufficient left-side
 padding (i.e., <code>01-import.R</code>, <code>02-wrangle.R</code>,
 <code>03-model.R</code>, etc.).<a class="anchor" aria-label="anchor" href="#easily-sortedordered-if-a-logical-order-for-the-files-in-a-directory-exists-the-filenames-should-include-a-numeric-prefix-that-contains-the-inherent-order-with-sufficient-left-side-padding-i-e--01-import-r-02-wrangle-r-03-model-r-etc--"></a>
 </h4>
-<p><em><code><a href="../reference/ger_fname.html">ger_fname()</a></code> conserves numeric prefixes (and appends
+<p><em><code><a href="../reference/grp_fname.html">grp_fname()</a></code> conserves numeric prefixes (and appends
 a date prefix):</em></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_fname.html">ger_fname</a></span><span class="op">(</span><span class="st">"01-report.xlsx"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/grp_fname.html">grp_fname</a></span><span class="op">(</span><span class="st">"01-report.xlsx"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ '2023-04-09_01-report.xlsx' is copied to the clipboard!</code></pre>
 </div>
 </div>
@@ -155,7 +155,7 @@ distinguishable from rest file name:</p></li>
 removed</li>
 </ol>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_fname.html">ger_fname</a></span><span class="op">(</span><span class="st">"Some===crazy???long:::file;name.csv"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_fname.html">grp_fname</a></span><span class="op">(</span><span class="st">"Some===crazy???long:::file;name.csv"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ '2023-04-09_some-crazy-long-file-name.csv' is copied to the clipboard!</code></pre>
 </div>
 </div>
@@ -173,30 +173,30 @@ principles can’t be applied to R objects.</p>
 </h3>
 <p>Below I’ll cover the style guide’s <a href="https://style.tidyverse.org/syntax.html#object-names" class="external-link">advice on
 object names</a> and how they are implemented in
-<code><a href="../reference/ger_name.html">ger_name()</a></code>.</p>
+<code><a href="../reference/grp_name.html">grp_name()</a></code>.</p>
 <div class="section level4">
 <h4 id="only-use-lowercase-letters-numbers-and-underscores-i-e--snake_case">1. Only use lowercase letters, numbers, and underscores
 (i.e. <code>snake_case</code>)<a class="anchor" aria-label="anchor" href="#only-use-lowercase-letters-numbers-and-underscores-i-e--snake_case"></a>
 </h4>
-<p><em><code><a href="../reference/ger_name.html">ger_name()</a></code> converts all characters to
+<p><em><code><a href="../reference/grp_name.html">grp_name()</a></code> converts all characters to
 <code>snake_case</code></em></p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"MY DATA"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_name.html">grp_name</a></span><span class="op">(</span><span class="st">"MY DATA"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ 'my_data' is copied to the clipboard!</code></pre>
 <p><em>In the event the object name starts with a number,
-<code><a href="../reference/ger_name.html">ger_name()</a></code> places these at the end of the name</em></p>
+<code><a href="../reference/grp_name.html">grp_name()</a></code> places these at the end of the name</em></p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"2022 DATA"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_name.html">grp_name</a></span><span class="op">(</span><span class="st">"2022 DATA"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ 'data_2022' is copied to the clipboard!</code></pre>
 <p><em>Pure numbers will automatically converted to
 <code>num_var</code></em></p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"2022"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_name.html">grp_name</a></span><span class="op">(</span><span class="st">"2022"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ 'num_var' is copied to the clipboard!</code></pre>
 <p><em>Any object names that start with special characters or
 punctuation are also altered to be accetable</em></p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"__my data__"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_name.html">grp_name</a></span><span class="op">(</span><span class="st">"__my data__"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ 'my_data' is copied to the clipboard!</code></pre>
 </div>
 <div class="section level4">
@@ -205,12 +205,12 @@ punctuation are also altered to be accetable</em></p>
 <p><em>dots are assumed to contain some inherent meaning to the object
 name, so dots are replaced with underscores</em></p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"patient.data"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_name.html">grp_name</a></span><span class="op">(</span><span class="st">"patient.data"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ 'patient_data' is copied to the clipboard!</code></pre>
 <p><em>Unless the name has trailing dots (these are preserved in the
 event they belong to a meaningful file extension)</em></p>
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"---patient/data.csv"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_name.html">grp_name</a></span><span class="op">(</span><span class="st">"---patient/data.csv"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ 'patient_data_csv' is copied to the clipboard!</code></pre>
 </div>
 <div class="section level4">
@@ -221,7 +221,7 @@ event they belong to a meaningful file extension)</em></p>
 <p><em>If the object has a long name, set <code>abbr</code> to
 <code>TRUE</code> to reduce it’s length to 18 characters</em></p>
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"first_day_of_the_month"</span>, abbr <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_name.html">grp_name</a></span><span class="op">(</span><span class="st">"first_day_of_the_month"</span>, abbr <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ 'first_dy_f_th_mnth' is copied to the clipboard!</code></pre>
 </div>
 </div>
@@ -229,28 +229,28 @@ event they belong to a meaningful file extension)</em></p>
 <div class="section level2">
 <h2 id="additional-features">Additional features<a class="anchor" aria-label="anchor" href="#additional-features"></a>
 </h2>
-<p><em><code><a href="../reference/ger_name.html">ger_name()</a></code> replaces the following symbols with
+<p><em><code><a href="../reference/grp_name.html">grp_name()</a></code> replaces the following symbols with
 abbreviations:</em></p>
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"~ ! @ # $ % ^ &amp; * — = +"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_name.html">grp_name</a></span><span class="op">(</span><span class="st">"~ ! @ # $ % ^ &amp; * — = +"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ 'tilde_bang_at_num_dollar_perc_hat_and_ast_emdash_equals_plus' is copied to the clipboard!</code></pre>
 <p>pk &gt; <em>It also reorganizes names with numbers prefixes:</em></p>
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"20 % of this &amp; that"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/grp_name.html">grp_name</a></span><span class="op">(</span><span class="st">"20 % of this &amp; that"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ 'perc_of_this_and_that_20' is copied to the clipboard!</code></pre>
 <blockquote>
-<p><em><code><a href="../reference/ger_name.html">ger_name()</a></code> converts just about any string of
+<p><em><code><a href="../reference/grp_name.html">grp_name()</a></code> converts just about any string of
 characters into something that can be assigned to R variables.</em></p>
 </blockquote>
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"123456 ! bingo + bongo"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/grp_name.html">grp_name</a></span><span class="op">(</span><span class="st">"123456 ! bingo + bongo"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ 'bang_bingo_plus_bongo_123456' is copied to the clipboard!</code></pre>
 <blockquote>
 <p><em>To ensure the names aren’t too long or repeat terms,
-<code><a href="../reference/ger_name.html">ger_name()</a></code> won’t repeat symbols</em></p>
+<code><a href="../reference/grp_name.html">grp_name()</a></code> won’t repeat symbols</em></p>
 </blockquote>
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="st">"... !! ++"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_name.html">grp_name</a></span><span class="op">(</span><span class="st">"... !! ++"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ 'bang_plus' is copied to the clipboard!</code></pre>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

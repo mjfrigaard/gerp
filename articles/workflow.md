@@ -9,21 +9,21 @@ library(readr)
 
 ## Naming workflow
 
-[`ger_path()`](https://mjfrigaard.github.io/gerp/reference/ger_path.md),
-[`ger_fname()`](https://mjfrigaard.github.io/gerp/reference/ger_fname.md),
+[`grp_path()`](https://mjfrigaard.github.io/gerp/reference/grp_path.md),
+[`grp_fname()`](https://mjfrigaard.github.io/gerp/reference/grp_fname.md),
 and
-[`ger_name()`](https://mjfrigaard.github.io/gerp/reference/ger_name.md)
+[`grp_name()`](https://mjfrigaard.github.io/gerp/reference/grp_name.md)
 all work as a team to 1) create reliable names for files and objects,
 and 2) make it easier to maintain the connection between project files
 and object names.
 
 ### Example 1
 
-[`ger_name()`](https://mjfrigaard.github.io/gerp/reference/ger_name.md)
+[`grp_name()`](https://mjfrigaard.github.io/gerp/reference/grp_name.md)
 works well for file names that have been located with
-[`ger_path()`](https://mjfrigaard.github.io/gerp/reference/ger_path.md)
+[`grp_path()`](https://mjfrigaard.github.io/gerp/reference/grp_path.md)
 and created with
-[`ger_fname()`](https://mjfrigaard.github.io/gerp/reference/ger_fname.md).
+[`grp_fname()`](https://mjfrigaard.github.io/gerp/reference/grp_fname.md).
 
 Assume I have a file named `99$bad%FILE%nAme.xlsx` in my `inst/extdata`
 folder. I can create a new `bad_file_name.R` script in the `data-raw/`
@@ -41,9 +41,9 @@ The follow contents are placed in `bad_file_name.R`
 ``` r
 
 # get absolute path
-abs_pth <- gerp::ger_path("inst/extdata/99%bad%%FILE%name.csv")
+abs_pth <- gerp::grp_path("inst/extdata/99%bad%%FILE%name.csv")
 # get relative path for file name
-gerp::ger_path("inst/extdata/99%bad%%FILE%name.csv", type = 'rel') |> gerp::ger_fname()
+gerp::grp_path("inst/extdata/99%bad%%FILE%name.csv", type = 'rel') |> gerp::grp_fname()
 ```
 
     ✔ '2023-04-10_99-bad-file-name.csv' is copied to the clipboard!
@@ -53,7 +53,7 @@ gerp::ger_path("inst/extdata/99%bad%%FILE%name.csv", type = 'rel') |> gerp::ger_
 # paste and store file name
 exprt_nm <- "2023-04-10_99-bad-file-name.csv"
 # get object name 
-"2023-04-10_99-bad-file-name.csv" |> gerp::ger_name()
+"2023-04-10_99-bad-file-name.csv" |> gerp::grp_name()
 ```
 
     ✔ 'bad_file_name_csv_2023_04_10_99' is copied to the clipboard!
@@ -65,7 +65,7 @@ library(readr)
 bad_file_name_csv_2023_04_10_99 <- readr::read_csv(file = abs_pth)
 # export to new location using file name
 readr::write_csv(x = bad_file_name_csv_2023_04_10_99, file = paste0("data-raw/", exprt_nm))
-ger_path("data", tree = TRUE)
+grp_path("data", tree = TRUE)
 ```
 
     /Users/mjfrigaard/projects/my_project/data-raw
@@ -113,7 +113,7 @@ new_data
 ``` r
 
 # store name
-exrt_nm <- gerp::ger_fname("new_data")
+exrt_nm <- gerp::grp_fname("new_data")
 ```
 
     ✔ '2023-04-10_new-data' is copied to the clipboard!
@@ -136,7 +136,7 @@ exrt_pth <- paste0("data/", "2023-04-10_new-data", ".rds")
 
 # export
 readr::write_rds(x = new_data, file = exrt_pth)
-ger_path("data", tree = TRUE)
+grp_path("data", tree = TRUE)
 ```
 
     /Users/mjfrigaard/projects/my_project/data

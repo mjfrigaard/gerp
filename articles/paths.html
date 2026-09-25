@@ -394,13 +394,13 @@ folder. <code>..</code> is used to refer to the folder that
 <h3 id="path-functions">Path functions<a class="anchor" aria-label="anchor" href="#path-functions"></a>
 </h3>
 <p><code>gerp</code> has three functions designed to help you become
-familiar with folder paths: <code><a href="../reference/ger_path.html">ger_path()</a></code>,
-<code><a href="../reference/ger_root.html">ger_root()</a></code>, and <code><a href="../reference/ger_fpath.html">ger_fpath()</a></code></p>
-<p>First we’ll cover <code><a href="../reference/ger_path.html">ger_path()</a></code>, because it comes in handy
+familiar with folder paths: <code><a href="../reference/grp_path.html">grp_path()</a></code>,
+<code><a href="../reference/grp_root.html">grp_root()</a></code>, and <code><a href="../reference/grp_fpath.html">grp_fpath()</a></code></p>
+<p>First we’ll cover <code><a href="../reference/grp_path.html">grp_path()</a></code>, because it comes in handy
 when you’re setting up a new <code>gerp</code> project.</p>
 <div class="section level4">
-<h4 id="ger_path">
-<code>ger_path()</code><a class="anchor" aria-label="anchor" href="#ger_path"></a>
+<h4 id="grp_path">
+<code>grp_path()</code><a class="anchor" aria-label="anchor" href="#grp_path"></a>
 </h4>
 <p>We’ve already installed and loaded the <code>gerp</code> package, but
 sometimes handy to explicitly tell R which function we intend to use
@@ -419,57 +419,49 @@ objects in a package. When we select a package item, we can see the
 documentation in yellow:</p>
 <p><br></p>
 <div class="figure" style="text-align: center">
-<img src="../reference/figures/namespacing-doc.png" class="r-plt" alt="help for ger_path()" width="80%"><p class="caption">
-help for ger_path()
+<img src="../reference/figures/namespacing-doc.png" class="r-plt" alt="help for grp_path()" width="80%"><p class="caption">
+help for grp_path()
 </p>
 </div>
 <p><br></p>
-<p>To use <code><a href="../reference/ger_path.html">ger_path()</a></code>, start by entering a forward slash
+<p>To use <code><a href="../reference/grp_path.html">grp_path()</a></code>, start by entering a forward slash
 enclosed in quotes (<code>"/"</code>)</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_path.html">ger_path</a></span><span class="op">(</span><span class="st">"/"</span><span class="op">)</span></span></code></pre></div>
-<p>If you hit the <strong>Tab</strong> key, you’ll see the list of
-folders available starting at your home directory.</p>
-<p><br></p>
-<div class="figure" style="text-align: center">
-<img src="../reference/figures/ger_path-home.png" class="r-plt" alt="Home directory (macOS)" width="60%"><p class="caption">
-Home directory (macOS)
-</p>
-</div>
-<p><br></p>
-<p>You can then continue using your mouse (or the arrow keys) to
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_path.html">grp_path</a></span><span class="op">(</span><span class="st">"/"</span><span class="op">)</span></span></code></pre></div>
+<p>If you hit the <strong>Tab</strong> key inside the quotes, RStudio
+and Positron will list the folders available (starting at the root
+folder). You can then continue using your mouse (or the arrow keys) to
 navigate to the parent folder you want your R project to live in (in my
-case, it’s <code>/Users/mjfrigaard/projects/</code>)</p>
+case, it’s <code>~/projects/</code>).</p>
+<p>Use <code>tree = TRUE</code> to see what’s inside a folder, and
+<code>type = "rel"</code> to get a path relative to your working
+directory:</p>
 <p><br></p>
-<p><img src="../reference/figures/ger_path.gif" class="r-plt" alt="" width="80%" style="display: block; margin: auto;"></p>
-<p><br></p>
-<p><code><a href="../reference/ger_path.html">ger_path()</a></code> works the same way on Windows:</p>
-<p><br></p>
-<p><img src="../reference/figures/ger_path-win.gif" class="r-plt" alt="" width="80%" style="display: block; margin: auto;"></p>
+<p><img src="../reference/figures/grp_path.png" class="r-plt" alt="" width="80%" style="display: block; margin: auto;"></p>
 <p><br></p>
 </div>
 <div class="section level4">
 <h4 id="absolute-vs--relative-paths">Absolute vs. relative paths<a class="anchor" aria-label="anchor" href="#absolute-vs--relative-paths"></a>
 </h4>
 <p>The <code>type</code> argument controls whether
-<code><a href="../reference/ger_path.html">gerp::ger_path()</a></code> returns a relative or absolute folder
+<code><a href="../reference/grp_path.html">gerp::grp_path()</a></code> returns a relative or absolute folder
 path. An absolute path returns the complete and specific location of the
 folder in the file system, starting from the root directory.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">ger_path</span>(<span class="st">"/Users/mjfrigaard/projects/"</span>, <span class="at">type =</span> <span class="st">"abs"</span>)</span>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">grp_path</span>(<span class="st">"/Users/mjfrigaard/projects/"</span>, <span class="at">type =</span> <span class="st">"abs"</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"/Users/mjfrigaard/projects"</span></span></code></pre></div>
 <p>A relative path refers to the location of the folder relative to the
 current working folder (i.e., the folder where the user is currently
 located).</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">ger_path</span>(<span class="st">"/Users/mjfrigaard/projects/"</span>, <span class="at">type =</span> <span class="st">"rel"</span>)</span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">grp_path</span>(<span class="st">"/Users/mjfrigaard/projects/"</span>, <span class="at">type =</span> <span class="st">"rel"</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a>[<span class="dv">1</span>] <span class="st">"projects"</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="return-a-tree">Return a <code>tree</code><a class="anchor" aria-label="anchor" href="#return-a-tree"></a>
 </h4>
 <p>If you’d like to see a folder tree for the path in
-<code><a href="../reference/ger_path.html">gerp::ger_path()</a></code>, you can set <code>tree</code> to
+<code><a href="../reference/grp_path.html">gerp::grp_path()</a></code>, you can set <code>tree</code> to
 <code>TRUE</code></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">ger_path</span>(<span class="st">"/Users/mjfrigaard/projects/"</span>, <span class="at">tree =</span> <span class="cn">TRUE</span>)</span>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">grp_path</span>(<span class="st">"/Users/mjfrigaard/projects/"</span>, <span class="at">tree =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a><span class="sc">/</span>Users<span class="sc">/</span>mjfrigaard<span class="sc">/</span>projects</span>
 <span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>├── apps</span>
 <span id="cb16-4"><a href="#cb16-4" tabindex="-1"></a>├── blogs</span>
@@ -478,15 +470,15 @@ located).</p>
 <span id="cb16-7"><a href="#cb16-7" tabindex="-1"></a>└── pkgs</span></code></pre></div>
 </div>
 <div class="section level4">
-<h4 id="ger_root">
-<code>ger_root()</code><a class="anchor" aria-label="anchor" href="#ger_root"></a>
+<h4 id="grp_root">
+<code>grp_root()</code><a class="anchor" aria-label="anchor" href="#grp_root"></a>
 </h4>
-<p>The <code><a href="../reference/ger_root.html">ger_root()</a></code> function will return the ‘root’ folder
+<p>The <code><a href="../reference/grp_root.html">grp_root()</a></code> function will return the ‘root’ folder
 path for your project. This comes in handy if you’re looking for a
 certain file.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">ger_root</span>()</span>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a><span class="fu">grp_root</span>()</span>
 <span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a><span class="sc">/</span>Users<span class="sc">/</span>mjfrigaard<span class="sc">/</span>projects<span class="sc">/</span>pkgs<span class="sc">/</span>gerp</span></code></pre></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">ger_root</span>(<span class="at">tree =</span> <span class="cn">TRUE</span>)</span>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a><span class="fu">grp_root</span>(<span class="at">tree =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a><span class="sc">/</span>Users<span class="sc">/</span>mjfrigaard<span class="sc">/</span>projects<span class="sc">/</span>pkgs<span class="sc">/</span>gerp</span>
 <span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>├── DESCRIPTION</span>
 <span id="cb18-4"><a href="#cb18-4" tabindex="-1"></a>├── LICENSE</span>
@@ -508,31 +500,31 @@ certain file.</p>
 <span id="cb18-20"><a href="#cb18-20" tabindex="-1"></a>└── vignettes</span></code></pre></div>
 </div>
 <div class="section level4">
-<h4 id="ger_fpath">
-<code>ger_fpath()</code><a class="anchor" aria-label="anchor" href="#ger_fpath"></a>
+<h4 id="grp_fpath">
+<code>grp_fpath()</code><a class="anchor" aria-label="anchor" href="#grp_fpath"></a>
 </h4>
-<p><code><a href="../reference/ger_fpath.html">ger_fpath()</a></code> will return path to the current file in the
+<p><code><a href="../reference/grp_fpath.html">grp_fpath()</a></code> will return path to the current file in the
 <strong>Source</strong> pane.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">ger_fpath</span>()</span>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a><span class="fu">grp_fpath</span>()</span>
 <span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a><span class="sc">/</span>Users<span class="sc">/</span>mjfrigaard<span class="sc">/</span>projects<span class="sc">/</span>pkgs<span class="sc">/</span>gerp<span class="sc">/</span>vignettes<span class="sc">/</span>paths.Rmd</span></code></pre></div>
 <p>If <code>tree</code> is set to <code>TRUE</code>, a folder tree is
 returned:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="fu">ger_fpath</span>(<span class="at">tree =</span> <span class="cn">TRUE</span>)</span>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a><span class="fu">grp_fpath</span>(<span class="at">tree =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a><span class="sc">/</span>Users<span class="sc">/</span>mjfrigaard<span class="sc">/</span>projects<span class="sc">/</span>pkgs<span class="sc">/</span>gerp<span class="sc">/</span>vignettes</span>
 <span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>└── paths.Rmd</span></code></pre></div>
 </div>
 <div class="section level4">
-<h4 id="ger_lkp_path">
-<code>ger_lkp_path()</code><a class="anchor" aria-label="anchor" href="#ger_lkp_path"></a>
+<h4 id="grp_lkp_path">
+<code>grp_lkp_path()</code><a class="anchor" aria-label="anchor" href="#grp_lkp_path"></a>
 </h4>
-<p><code><a href="../reference/ger_lkp_path.html">ger_lkp_path()</a></code> will return the folder tree (or trees) of
+<p><code><a href="../reference/grp_lkp_path.html">grp_lkp_path()</a></code> will return the folder tree (or trees) of
 the provided file or folder to <code>x</code>:</p>
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a><span class="co"># check for inst/ folder</span></span>
-<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">ger_lkp_path</span>(<span class="st">"inst"</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">grp_lkp_path</span>(<span class="st">"inst"</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" tabindex="-1"></a><span class="sc">/</span>Users<span class="sc">/</span>mjfrigaard<span class="sc">/</span>projects<span class="sc">/</span>pkgs<span class="sc">/</span>gerp</span>
 <span id="cb21-4"><a href="#cb21-4" tabindex="-1"></a>└── inst</span></code></pre></div>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" tabindex="-1"></a><span class="co"># check for README.Rmd files</span></span>
-<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">ger_lkp_path</span>(<span class="at">x =</span> <span class="st">"README.Rmd"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" tabindex="-1"></a>gerp<span class="sc">::</span><span class="fu">grp_lkp_path</span>(<span class="at">x =</span> <span class="st">"README.Rmd"</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" tabindex="-1"></a><span class="sc">/</span>Users<span class="sc">/</span>mjfrigaard<span class="sc">/</span>projects<span class="sc">/</span>pkgs<span class="sc">/</span>gerp</span>
 <span id="cb22-4"><a href="#cb22-4" tabindex="-1"></a>└── README.Rmd</span>
 <span id="cb22-5"><a href="#cb22-5" tabindex="-1"></a><span class="sc">/</span>Users<span class="sc">/</span>mjfrigaard<span class="sc">/</span>projects<span class="sc">/</span>pkgs<span class="sc">/</span>gerp<span class="sc">/</span>inst<span class="sc">/</span>rmarkdown<span class="sc">/</span>templates<span class="sc">/</span>gerp<span class="sc">-</span>README</span>

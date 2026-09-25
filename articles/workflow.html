@@ -88,16 +88,16 @@
 <div class="section level2">
 <h2 id="naming-workflow">Naming workflow<a class="anchor" aria-label="anchor" href="#naming-workflow"></a>
 </h2>
-<p><code><a href="../reference/ger_path.html">ger_path()</a></code>, <code><a href="../reference/ger_fname.html">ger_fname()</a></code>, and
-<code><a href="../reference/ger_name.html">ger_name()</a></code> all work as a team to 1) create reliable names
+<p><code><a href="../reference/grp_path.html">grp_path()</a></code>, <code><a href="../reference/grp_fname.html">grp_fname()</a></code>, and
+<code><a href="../reference/grp_name.html">grp_name()</a></code> all work as a team to 1) create reliable names
 for files and objects, and 2) make it easier to maintain the connection
 between project files and object names.</p>
 <div class="section level3">
 <h3 id="example-1">Example 1<a class="anchor" aria-label="anchor" href="#example-1"></a>
 </h3>
-<p><code><a href="../reference/ger_name.html">ger_name()</a></code> works well for file names that have been
-located with <code><a href="../reference/ger_path.html">ger_path()</a></code> and created with
-<code><a href="../reference/ger_fname.html">ger_fname()</a></code>.</p>
+<p><code><a href="../reference/grp_name.html">grp_name()</a></code> works well for file names that have been
+located with <code><a href="../reference/grp_path.html">grp_path()</a></code> and created with
+<code><a href="../reference/grp_fname.html">grp_fname()</a></code>.</p>
 <p>Assume I have a file named <code>99$bad%FILE%nAme.xlsx</code> in my
 <code>inst/extdata</code> folder. I can create a new
 <code>bad_file_name.R</code> script in the <code>data-raw/</code>
@@ -108,15 +108,15 @@ folder:</p>
 <p>The follow contents are placed in <code>bad_file_name.R</code></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># get absolute path</span></span>
-<span><span class="va">abs_pth</span> <span class="op">&lt;-</span> <span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_path.html">ger_path</a></span><span class="op">(</span><span class="st">"inst/extdata/99%bad%%FILE%name.csv"</span><span class="op">)</span></span>
+<span><span class="va">abs_pth</span> <span class="op">&lt;-</span> <span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_path.html">grp_path</a></span><span class="op">(</span><span class="st">"inst/extdata/99%bad%%FILE%name.csv"</span><span class="op">)</span></span>
 <span><span class="co"># get relative path for file name</span></span>
-<span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_path.html">ger_path</a></span><span class="op">(</span><span class="st">"inst/extdata/99%bad%%FILE%name.csv"</span>, type <span class="op">=</span> <span class="st">'rel'</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_fname.html">ger_fname</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_path.html">grp_path</a></span><span class="op">(</span><span class="st">"inst/extdata/99%bad%%FILE%name.csv"</span>, type <span class="op">=</span> <span class="st">'rel'</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_fname.html">grp_fname</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ '2023-04-10_99-bad-file-name.csv' is copied to the clipboard!</code></pre>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># paste and store file name</span></span>
 <span><span class="va">exprt_nm</span> <span class="op">&lt;-</span> <span class="st">"2023-04-10_99-bad-file-name.csv"</span></span>
 <span><span class="co"># get object name </span></span>
-<span><span class="st">"2023-04-10_99-bad-file-name.csv"</span> <span class="op">|&gt;</span> <span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_name.html">ger_name</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<span><span class="st">"2023-04-10_99-bad-file-name.csv"</span> <span class="op">|&gt;</span> <span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_name.html">grp_name</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ 'bad_file_name_csv_2023_04_10_99' is copied to the clipboard!</code></pre>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># paste and import using absolute path</span></span>
@@ -124,7 +124,7 @@ folder:</p>
 <span><span class="va">bad_file_name_csv_2023_04_10_99</span> <span class="op">&lt;-</span> <span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html" class="external-link">read_csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="va">abs_pth</span><span class="op">)</span></span>
 <span><span class="co"># export to new location using file name</span></span>
 <span><span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html" class="external-link">write_csv</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">bad_file_name_csv_2023_04_10_99</span>, file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"data-raw/"</span>, <span class="va">exprt_nm</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/ger_path.html">ger_path</a></span><span class="op">(</span><span class="st">"data"</span>, tree <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/grp_path.html">grp_path</a></span><span class="op">(</span><span class="st">"data"</span>, tree <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>/Users/mjfrigaard/projects/my_project/data-raw
 └── 2023-04-10_99-bad-file-name.csv</code></pre>
 </div>
@@ -165,7 +165,7 @@ the <code>data/</code> folder:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> O      2.35 TRUE</span></span></code></pre></div>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># store name</span></span>
-<span><span class="va">exrt_nm</span> <span class="op">&lt;-</span> <span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_fname.html">ger_fname</a></span><span class="op">(</span><span class="st">"new_data"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="va">exrt_nm</span> <span class="op">&lt;-</span> <span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_fname.html">grp_fname</a></span><span class="op">(</span><span class="st">"new_data"</span><span class="op">)</span></span></code></pre></div>
 <pre><code>✔ '2023-04-10_new-data' is copied to the clipboard!</code></pre>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># paste to check export path</span></span>
@@ -177,7 +177,7 @@ the <code>data/</code> folder:</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># export</span></span>
 <span><span class="fu">readr</span><span class="fu">::</span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html" class="external-link">write_rds</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">new_data</span>, file <span class="op">=</span> <span class="va">exrt_pth</span><span class="op">)</span></span>
-<span><span class="fu"><a href="../reference/ger_path.html">ger_path</a></span><span class="op">(</span><span class="st">"data"</span>, tree <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/grp_path.html">grp_path</a></span><span class="op">(</span><span class="st">"data"</span>, tree <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 <pre><code>/Users/mjfrigaard/projects/my_project/data
 └── 2023-04-10_new-data.rds</code></pre>
 </div>

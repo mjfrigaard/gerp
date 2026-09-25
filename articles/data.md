@@ -5,18 +5,18 @@
 library(gerp)
 ```
 
-## `ger_data()`
+## `grp_data()`
 
 Use
-[`ger_data()`](https://mjfrigaard.github.io/gerp/reference/ger_data.md)
+[`grp_data()`](https://mjfrigaard.github.io/gerp/reference/grp_data.md)
 to create the data folders in your R projects:
 
-![](../reference/figures/ger_data.gif)
+![](../reference/figures/grp_data.png)
 
   
 
 The
-[`ger_data()`](https://mjfrigaard.github.io/gerp/reference/ger_data.md)
+[`grp_data()`](https://mjfrigaard.github.io/gerp/reference/grp_data.md)
 creates three folders and a `data.md` file.
 
 ``` r

@@ -68,12 +68,12 @@ To create a new `gerp` project, enter the following code in your
 
 ``` r
 
-gerp::ger_create("~/projects/my-project")
+gerp::grp_create("~/projects/my-project")
 ```
 
   
 
-[`ger_create()`](https://mjfrigaard.github.io/gerp/reference/ger_create.md)
+[`grp_create()`](https://mjfrigaard.github.io/gerp/reference/grp_create.md)
 creates the project folder, adds the `gerp` files and folders, and opens
 the project in a new session. See the [Create gerp projects
 vignette](https://mjfrigaard.github.io/gerp/articles/create.html) for

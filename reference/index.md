@@ -4,58 +4,55 @@
 
 Functions for creating gerp projects.
 
-- [`ger_create()`](https://mjfrigaard.github.io/gerp/reference/ger_create.md)
+- [`grp_create()`](https://mjfrigaard.github.io/gerp/reference/grp_create.md)
   : Create a new good enough R project
 
 ## Folder functions
 
 Functions for creating gerp folders & files.
 
-- [`ger_setup()`](https://mjfrigaard.github.io/gerp/reference/ger_setup.md)
+- [`grp_setup()`](https://mjfrigaard.github.io/gerp/reference/grp_setup.md)
   : Good enough R setup files
-- [`ger_code()`](https://mjfrigaard.github.io/gerp/reference/ger_code.md)
+- [`grp_code()`](https://mjfrigaard.github.io/gerp/reference/grp_code.md)
   : Good enough code files
-- [`ger_data()`](https://mjfrigaard.github.io/gerp/reference/ger_data.md)
+- [`grp_data()`](https://mjfrigaard.github.io/gerp/reference/grp_data.md)
   : Good enough data folders
-- [`ger_dev()`](https://mjfrigaard.github.io/gerp/reference/ger_dev.md)
+- [`grp_dev()`](https://mjfrigaard.github.io/gerp/reference/grp_dev.md)
   : Good enough R development folder
-- [`ger_report()`](https://mjfrigaard.github.io/gerp/reference/ger_report.md)
+- [`grp_report()`](https://mjfrigaard.github.io/gerp/reference/grp_report.md)
   : Good enough R report folder
 
 ## Path functions
 
 Functions for folder & file paths.
 
-- [`ger_path()`](https://mjfrigaard.github.io/gerp/reference/ger_path.md)
+- [`grp_path()`](https://mjfrigaard.github.io/gerp/reference/grp_path.md)
   : Get file path(s)
-- [`ger_root()`](https://mjfrigaard.github.io/gerp/reference/ger_root.md)
+- [`grp_root()`](https://mjfrigaard.github.io/gerp/reference/grp_root.md)
   : Get the root folder of your project
-- [`ger_fpath()`](https://mjfrigaard.github.io/gerp/reference/ger_fpath.md)
+- [`grp_fpath()`](https://mjfrigaard.github.io/gerp/reference/grp_fpath.md)
   : Get the path of the current file
-- [`ger_lkp_path()`](https://mjfrigaard.github.io/gerp/reference/ger_lkp_path.md)
+- [`grp_lkp_path()`](https://mjfrigaard.github.io/gerp/reference/grp_lkp_path.md)
   : Look up a file or folder in your project
 
 ## Code functions
 
 Functions for writing code.
 
-- [`ger_headr()`](https://mjfrigaard.github.io/gerp/reference/ger_headr.md)
+- [`grp_headr()`](https://mjfrigaard.github.io/gerp/reference/grp_headr.md)
   : Insert a 'good enough' R script header
-
-- [`ger_sect()`](https://mjfrigaard.github.io/gerp/reference/ger_sect.md)
-  :
-
-  Insert a fun R script section header `<(+_+)>`
+- [`grp_sect()`](https://mjfrigaard.github.io/gerp/reference/grp_sect.md)
+  : Insert an R script section header
 
 ## Naming functions
 
 Functions for naming things.
 
-- [`ger_name()`](https://mjfrigaard.github.io/gerp/reference/ger_name.md)
+- [`grp_name()`](https://mjfrigaard.github.io/gerp/reference/grp_name.md)
   : Good enough R object name
-- [`ger_fname()`](https://mjfrigaard.github.io/gerp/reference/ger_fname.md)
+- [`grp_fname()`](https://mjfrigaard.github.io/gerp/reference/grp_fname.md)
   : Good enough file name
-- [`ger_batch_rename()`](https://mjfrigaard.github.io/gerp/reference/ger_batch_rename.md)
+- [`grp_batch_rename()`](https://mjfrigaard.github.io/gerp/reference/grp_batch_rename.md)
   : Rename all files in a folder
 
 ## Data

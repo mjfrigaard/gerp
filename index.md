@@ -23,9 +23,9 @@ Creating a new `gerp` project:
 
 ``` r
 
-gerp::ger_create("~/projects/my-project")
+gerp::grp_create("~/projects/my-project")
 ```
 
-![New gerp project!](reference/figures/my_project.gif)
+![New gerp project!](reference/figures/grp_create.png)
 
 New gerp project!

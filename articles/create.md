@@ -8,7 +8,7 @@ library(gerp)
 ## Creating a `gerp` projects
 
 Use
-[`ger_create()`](https://mjfrigaard.github.io/gerp/reference/ger_create.md)
+[`grp_create()`](https://mjfrigaard.github.io/gerp/reference/grp_create.md)
 to create a new `gerp` project.
 
 1.  First you need to install the package from GitHub.
@@ -20,7 +20,7 @@ pak::pak("mjfrigaard/gerp")
 ```
 
 2.  Pass the path to your new project folder to
-    [`ger_create()`](https://mjfrigaard.github.io/gerp/reference/ger_create.md).
+    [`grp_create()`](https://mjfrigaard.github.io/gerp/reference/grp_create.md).
     The folder must not exist yet. If you need help locating a home for
     your R projects, check out the [Folder paths
     vignette](https://mjfrigaard.github.io/gerp/articles/paths.html).
@@ -29,20 +29,20 @@ pak::pak("mjfrigaard/gerp")
 
 ``` r
 
-gerp::ger_create("~/projects/my-project")
+gerp::grp_create("~/projects/my-project")
 ```
 
   
 
 3.  After running
-    [`gerp::ger_create()`](https://mjfrigaard.github.io/gerp/reference/ger_create.md),
+    [`gerp::grp_create()`](https://mjfrigaard.github.io/gerp/reference/grp_create.md),
     the new ‘good enough’ R project will open in a new RStudio or
     Positron session (set `open = FALSE` to stay in your current
     session):
 
   
 
-![New gerp project!](../reference/figures/my_project.gif)
+![New gerp project!](../reference/figures/grp_create.png)
 
 New gerp project!
 

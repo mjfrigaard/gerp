@@ -17,40 +17,40 @@ slides](https://www.slideshare.net/milkers/naming-things)
 ### Naming files
 
 Below I’ll cover how these principles are implemented in
-[`ger_fname()`](https://mjfrigaard.github.io/gerp/reference/ger_fname.md)
+[`grp_fname()`](https://mjfrigaard.github.io/gerp/reference/grp_fname.md)
 
 #### 1. **Machine readable**: file names should be useful to program with, i.e., easy to search and filter, avoid reliance on case, accented characters, white space, etc.
 
-*[`ger_fname()`](https://mjfrigaard.github.io/gerp/reference/ger_fname.md)
+*[`grp_fname()`](https://mjfrigaard.github.io/gerp/reference/grp_fname.md)
 will convert all names to lower kebab-case and add a date prefix.*
 
 ``` r
 
-ger_fname("My File.txt")
+grp_fname("My File.txt")
 ```
 
     ✔ '2023-04-09_my-file.txt' is copied to the clipboard!
 
 #### 2. **Human readable**: File names should be named similar to URLs. Specifically, the portion of the URL that “*is usually the end part of the URL (specifically of the path / pathinfo part), which can be interpreted as the name of the resource, similar to the basename in a filename or the title of a page*” is referred to as the [slug](https://en.wikipedia.org/w/index.php?title=Clean_URL#Slug) for brief description of file contents).
 
-*[`ger_fname()`](https://mjfrigaard.github.io/gerp/reference/ger_fname.md)
+*[`grp_fname()`](https://mjfrigaard.github.io/gerp/reference/grp_fname.md)
 removes special characters (but keeps words):*
 
 ``` r
 
-ger_fname("%Joe's%crazy*!$#FILE%name.xlsx")
+grp_fname("%Joe's%crazy*!$#FILE%name.xlsx")
 ```
 
     ✔ '2023-04-09_joes-crazy-file-name.xlsx' is copied to the clipboard!
 
 #### 3. **Easily sorted/ordered**: If a logical order for the files in a directory exists, the filenames should include a numeric prefix that contains the inherent order, with sufficient left-side padding (i.e., `01-import.R`, `02-wrangle.R`, `03-model.R`, etc.).
 
-*[`ger_fname()`](https://mjfrigaard.github.io/gerp/reference/ger_fname.md)
+*[`grp_fname()`](https://mjfrigaard.github.io/gerp/reference/grp_fname.md)
 conserves numeric prefixes (and appends a date prefix):*
 
 ``` r
 
-ger_fname("01-report.xlsx")
+grp_fname("01-report.xlsx")
 ```
 
     ✔ '2023-04-09_01-report.xlsx' is copied to the clipboard!
@@ -77,7 +77,7 @@ ger_fname("01-report.xlsx")
 
 ``` r
 
-gerp::ger_fname("Some===crazy???long:::file;name.csv")
+gerp::grp_fname("Some===crazy???long:::file;name.csv")
 ```
 
     ✔ '2023-04-09_some-crazy-long-file-name.csv' is copied to the clipboard!
@@ -97,27 +97,27 @@ objects.
 Below I’ll cover the style guide’s [advice on object
 names](https://style.tidyverse.org/syntax.html#object-names) and how
 they are implemented in
-[`ger_name()`](https://mjfrigaard.github.io/gerp/reference/ger_name.md).
+[`grp_name()`](https://mjfrigaard.github.io/gerp/reference/grp_name.md).
 
 #### 1. Only use lowercase letters, numbers, and underscores (i.e. `snake_case`)
 
-*[`ger_name()`](https://mjfrigaard.github.io/gerp/reference/ger_name.md)
+*[`grp_name()`](https://mjfrigaard.github.io/gerp/reference/grp_name.md)
 converts all characters to `snake_case`*
 
 ``` r
 
-gerp::ger_name("MY DATA")
+gerp::grp_name("MY DATA")
 ```
 
     ✔ 'my_data' is copied to the clipboard!
 
 *In the event the object name starts with a number,
-[`ger_name()`](https://mjfrigaard.github.io/gerp/reference/ger_name.md)
+[`grp_name()`](https://mjfrigaard.github.io/gerp/reference/grp_name.md)
 places these at the end of the name*
 
 ``` r
 
-gerp::ger_name("2022 DATA")
+gerp::grp_name("2022 DATA")
 ```
 
     ✔ 'data_2022' is copied to the clipboard!
@@ -126,7 +126,7 @@ gerp::ger_name("2022 DATA")
 
 ``` r
 
-gerp::ger_name("2022")
+gerp::grp_name("2022")
 ```
 
     ✔ 'num_var' is copied to the clipboard!
@@ -136,7 +136,7 @@ also altered to be accetable*
 
 ``` r
 
-gerp::ger_name("__my data__")
+gerp::grp_name("__my data__")
 ```
 
     ✔ 'my_data' is copied to the clipboard!
@@ -148,7 +148,7 @@ so dots are replaced with underscores*
 
 ``` r
 
-gerp::ger_name("patient.data")
+gerp::grp_name("patient.data")
 ```
 
     ✔ 'patient_data' is copied to the clipboard!
@@ -158,7 +158,7 @@ they belong to a meaningful file extension)*
 
 ``` r
 
-gerp::ger_name("---patient/data.csv")
+gerp::grp_name("---patient/data.csv")
 ```
 
     ✔ 'patient_data_csv' is copied to the clipboard!
@@ -170,19 +170,19 @@ length to 18 characters*
 
 ``` r
 
-gerp::ger_name("first_day_of_the_month", abbr = TRUE)
+gerp::grp_name("first_day_of_the_month", abbr = TRUE)
 ```
 
     ✔ 'first_dy_f_th_mnth' is copied to the clipboard!
 
 ## Additional features
 
-*[`ger_name()`](https://mjfrigaard.github.io/gerp/reference/ger_name.md)
+*[`grp_name()`](https://mjfrigaard.github.io/gerp/reference/grp_name.md)
 replaces the following symbols with abbreviations:*
 
 ``` r
 
-gerp::ger_name("~ ! @ # $ % ^ & * — = +")
+gerp::grp_name("~ ! @ # $ % ^ & * — = +")
 ```
 
     ✔ 'tilde_bang_at_num_dollar_perc_hat_and_ast_emdash_equals_plus' is copied to the clipboard!
@@ -191,29 +191,29 @@ pk \> *It also reorganizes names with numbers prefixes:*
 
 ``` r
 
-ger_name("20 % of this & that")
+grp_name("20 % of this & that")
 ```
 
     ✔ 'perc_of_this_and_that_20' is copied to the clipboard!
 
-> *[`ger_name()`](https://mjfrigaard.github.io/gerp/reference/ger_name.md)
+> *[`grp_name()`](https://mjfrigaard.github.io/gerp/reference/grp_name.md)
 > converts just about any string of characters into something that can
 > be assigned to R variables.*
 
 ``` r
 
-ger_name("123456 ! bingo + bongo")
+grp_name("123456 ! bingo + bongo")
 ```
 
     ✔ 'bang_bingo_plus_bongo_123456' is copied to the clipboard!
 
 > *To ensure the names aren’t too long or repeat terms,
-> [`ger_name()`](https://mjfrigaard.github.io/gerp/reference/ger_name.md)
+> [`grp_name()`](https://mjfrigaard.github.io/gerp/reference/grp_name.md)
 > won’t repeat symbols*
 
 ``` r
 
-gerp::ger_name("... !! ++")
+gerp::grp_name("... !! ++")
 ```
 
     ✔ 'bang_plus' is copied to the clipboard!

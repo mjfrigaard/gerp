@@ -5,11 +5,11 @@
 library(gerp)
 ```
 
-## `ger_setup()`
+## `grp_setup()`
 
 For quick setup, run the
-[`ger_setup()`](https://mjfrigaard.github.io/gerp/reference/ger_setup.md)
+[`grp_setup()`](https://mjfrigaard.github.io/gerp/reference/grp_setup.md)
 function to create `changelog.md`, `LICENSE`, `CITATION` and
 `requirements.md` files.
 
-![](../reference/figures/ger_setup.gif)
+![](../reference/figures/grp_setup.png)

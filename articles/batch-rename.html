@@ -83,7 +83,7 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mjfrigaard.github.io/gerp/">gerp</a></span><span class="op">)</span></span></code></pre></div>
-<p>This vignette covers <code><a href="../reference/ger_batch_rename.html">ger_batch_rename()</a></code>, a function that
+<p>This vignette covers <code><a href="../reference/grp_batch_rename.html">grp_batch_rename()</a></code>, a function that
 gives you the ability to rename a folder of files in a <a href="https://www.slideshare.net/milkers/naming-things" class="external-link">standardized
 format.</a></p>
 <div class="section level2">
@@ -103,10 +103,10 @@ folder.</p>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.create</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">tmp_files</span>, <span class="va">messy</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] TRUE TRUE TRUE TRUE TRUE</span></span></code></pre></div>
-<p>Confirm this with <code><a href="../reference/ger_path.html">gerp::ger_path()</a></code></p>
+<p>Confirm this with <code><a href="../reference/grp_path.html">gerp::grp_path()</a></code></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_path.html">ger_path</a></span><span class="op">(</span><span class="va">tmp_files</span>, tree <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/Rtmp3BCLW0/filenames</span></span></span>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_path.html">grp_path</a></span><span class="op">(</span><span class="va">tmp_files</span>, tree <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/Rtmp85NEFu/filenames</span></span></span>
 <span><span class="co">#&gt; ├── JW7d^(2sl@deletethisandyourcareerisoverWx2.txt</span></span>
 <span><span class="co">#&gt; ├── Joe's Filenames Use Space and Punctuation.xlsx</span></span>
 <span><span class="co">#&gt; ├── <span style="color: #BB00BB; font-weight: bold;">fig 2.png</span></span></span>
@@ -114,16 +114,16 @@ folder.</p>
 <span><span class="co">#&gt; └── myabstract.docx</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="ger_batch_rename">
-<code>ger_batch_rename()</code><a class="anchor" aria-label="anchor" href="#ger_batch_rename"></a>
+<h2 id="grp_batch_rename">
+<code>grp_batch_rename()</code><a class="anchor" aria-label="anchor" href="#grp_batch_rename"></a>
 </h2>
 <p>The files in the temporary <code>filenames/</code> folder are a mess,
 and I want to rename them using a <a href="https://www.slideshare.net/milkers/naming-things" class="external-link">standardized
 format</a>. Renaming files manually can be time-consuming, so
-<code><a href="../reference/ger_batch_rename.html">ger_batch_rename()</a></code> will get you 90% there:</p>
+<code><a href="../reference/grp_batch_rename.html">grp_batch_rename()</a></code> will get you 90% there:</p>
 <ul>
 <li><p>all file names are converted to lowercase words separated by
-hyphens (the same rules as <code><a href="../reference/ger_fname.html">ger_fname()</a></code>)</p></li>
+hyphens (the same rules as <code><a href="../reference/grp_fname.html">grp_fname()</a></code>)</p></li>
 <li><p>all punctuation and special characters are removed from file
 names</p></li>
 <li><p>file names have a date prefix (the <code>"modification"</code>
@@ -133,7 +133,7 @@ date, but other options include <code>"birth"</code>,
 </ul>
 <p>Preview the new names with <code>dry_run = TRUE</code>:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">preview</span> <span class="op">&lt;-</span> <span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_batch_rename.html">ger_batch_rename</a></span><span class="op">(</span><span class="va">tmp_files</span>, dry_run <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">preview</span> <span class="op">&lt;-</span> <span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_batch_rename.html">grp_batch_rename</a></span><span class="op">(</span><span class="va">tmp_files</span>, dry_run <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/basename.html" class="external-link">basename</a></span><span class="op">(</span><span class="va">preview</span><span class="op">$</span><span class="va">new</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "2026-09-25_jw7d-2sl-deletethisandyourcareerisoverwx2.txt"</span></span>
 <span><span class="co">#&gt; [2] "2026-09-25_joes-filenames-use-space-and-punctuation.xlsx"</span></span>
@@ -142,18 +142,18 @@ date, but other options include <code>"birth"</code>,
 <span><span class="co">#&gt; [5] "2026-09-25_myabstract.docx"</span></span></code></pre></div>
 <p>Then rename the files:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_batch_rename.html">ger_batch_rename</a></span><span class="op">(</span><span class="va">tmp_files</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Renamed 5 files in <span style="color: #0000BB;">/tmp/Rtmp3BCLW0/filenames</span></span></span></code></pre></div>
-<p>And confirm with <code><a href="../reference/ger_path.html">gerp::ger_path()</a></code></p>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_batch_rename.html">grp_batch_rename</a></span><span class="op">(</span><span class="va">tmp_files</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> Renamed 5 files in <span style="color: #0000BB;">/tmp/Rtmp85NEFu/filenames</span></span></span></code></pre></div>
+<p>And confirm with <code><a href="../reference/grp_path.html">gerp::grp_path()</a></code></p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_path.html">ger_path</a></span><span class="op">(</span><span class="va">tmp_files</span>, tree <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/Rtmp3BCLW0/filenames</span></span></span>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_path.html">grp_path</a></span><span class="op">(</span><span class="va">tmp_files</span>, tree <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #0000BB; font-weight: bold;">/tmp/Rtmp85NEFu/filenames</span></span></span>
 <span><span class="co">#&gt; ├── <span style="color: #BB00BB; font-weight: bold;">2026-09-25_fig-2.png</span></span></span>
 <span><span class="co">#&gt; ├── <span style="color: #BB00BB; font-weight: bold;">2026-09-25_figure-1.png</span></span></span>
 <span><span class="co">#&gt; ├── 2026-09-25_joes-filenames-use-space-and-punctuation.xlsx</span></span>
 <span><span class="co">#&gt; ├── 2026-09-25_jw7d-2sl-deletethisandyourcareerisoverwx2.txt</span></span>
 <span><span class="co">#&gt; └── 2026-09-25_myabstract.docx</span></span></code></pre></div>
-<p><strong>NOTE:</strong> <code><a href="../reference/ger_batch_rename.html">ger_batch_rename()</a></code> can’t change
+<p><strong>NOTE:</strong> <code><a href="../reference/grp_batch_rename.html">grp_batch_rename()</a></code> can’t change
 the <strong><em>content</em></strong> of the files (and you wouldn’t
 want it to).</p>
 </div>

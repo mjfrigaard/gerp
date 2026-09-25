@@ -86,7 +86,7 @@
 <div class="section level2">
 <h2 id="creating-a-gerp-projects">Creating a <code>gerp</code> projects<a class="anchor" aria-label="anchor" href="#creating-a-gerp-projects"></a>
 </h2>
-<p>Use <code><a href="../reference/ger_create.html">ger_create()</a></code> to create a new <code>gerp</code>
+<p>Use <code><a href="../reference/grp_create.html">grp_create()</a></code> to create a new <code>gerp</code>
 project.</p>
 <ol style="list-style-type: decimal">
 <li>First you need to install the package from GitHub.</li>
@@ -96,22 +96,22 @@ project.</p>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"mjfrigaard/gerp"</span><span class="op">)</span></span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li>Pass the path to your new project folder to
-<code><a href="../reference/ger_create.html">ger_create()</a></code>. The folder must not exist yet. If you need
+<code><a href="../reference/grp_create.html">grp_create()</a></code>. The folder must not exist yet. If you need
 help locating a home for your R projects, check out the <a href="https://mjfrigaard.github.io/gerp/articles/paths.html">Folder
 paths vignette</a>.</li>
 </ol>
 <p><br></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/ger_create.html">ger_create</a></span><span class="op">(</span><span class="st">"~/projects/my-project"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">gerp</span><span class="fu">::</span><span class="fu"><a href="../reference/grp_create.html">grp_create</a></span><span class="op">(</span><span class="st">"~/projects/my-project"</span><span class="op">)</span></span></code></pre></div>
 <p><br></p>
 <ol start="3" style="list-style-type: decimal">
-<li>After running <code><a href="../reference/ger_create.html">gerp::ger_create()</a></code>, the new ‘good enough’
+<li>After running <code><a href="../reference/grp_create.html">gerp::grp_create()</a></code>, the new ‘good enough’
 R project will open in a new RStudio or Positron session (set
 <code>open = FALSE</code> to stay in your current session):</li>
 </ol>
 <p><br></p>
 <div class="figure" style="text-align: center">
-<img src="../reference/figures/my_project.gif" class="r-plt" alt="New gerp project!" width="100%"><p class="caption">
+<img src="../reference/figures/grp_create.png" class="r-plt" alt="New gerp project!" width="100%"><p class="caption">
 New gerp project!
 </p>
 </div>

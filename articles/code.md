@@ -5,16 +5,16 @@
 library(gerp)
 ```
 
-## `ger_code()`
+## `grp_code()`
 
 Use
-[`ger_code()`](https://mjfrigaard.github.io/gerp/reference/ger_code.md)
+[`grp_code()`](https://mjfrigaard.github.io/gerp/reference/grp_code.md)
 to create the `R/` code folder in your projects:
 
-![](../reference/figures/ger_code.gif)
+![](../reference/figures/grp_code.png)
 
 The
-[`ger_code()`](https://mjfrigaard.github.io/gerp/reference/ger_code.md)
+[`grp_code()`](https://mjfrigaard.github.io/gerp/reference/grp_code.md)
 creates the following files:
 
 ``` r
@@ -97,7 +97,7 @@ track what the script does.
 
 ``` r
 
-gerp::ger_headr()
+gerp::grp_headr()
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # This is code to create:
 # Authored by and feedback to:
@@ -108,17 +108,16 @@ gerp::ger_headr()
 
 ### Sections
 
-[`gerp::ger_sect()`](https://mjfrigaard.github.io/gerp/reference/ger_sect.md)
-will create a code section based on a `name` input:
+[`gerp::grp_sect()`](https://mjfrigaard.github.io/gerp/reference/grp_sect.md)
+will create a code section based on a `name` input. Use `level` to
+create nested sections (`#` is level 1, `##` is level 2, etc.):
 
 ``` r
 
-gerp::ger_sect(name = 'import')
-# <(+_+)> import ––+––+––+––+––+––+––+––––+––+––+––––+––+ ----
+gerp::grp_sect(name = "import")
+# import -----------------------------------------------------------------------
+gerp::grp_sect(name = "read csv files", level = 2)
+## read csv files --------------------------------------------------------------
 ```
 
-These are handy if you use RStudio’s outline feature:
-
-  
-
-![](../reference/figures/ger_sect.png)
+These are handy if you use the document outline in RStudio or Positron.

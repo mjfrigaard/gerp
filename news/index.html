@@ -53,29 +53,32 @@
 <h2 class="pkg-version" data-toc-text="3.0.0" id="gerp-300">gerp 3.0.0<a class="anchor" aria-label="anchor" href="#gerp-300"></a></h2>
 <div class="section level3">
 <h3 id="breaking-changes-3-0-0">Breaking changes<a class="anchor" aria-label="anchor" href="#breaking-changes-3-0-0"></a></h3>
-<ul><li>Removed <code>ger_proj()</code>. Use <code><a href="../reference/ger_create.html">ger_create()</a></code> instead.</li>
+<ul><li>All functions are renamed from the <code>ger_</code> prefix to <code>grp_</code> (e.g., <code>ger_create()</code> is now <code><a href="../reference/grp_create.html">grp_create()</a></code>).</li>
 <li>
-<code>ger_create(folder, name)</code> is now <code>ger_create(path, open)</code>.</li>
+<code><a href="../reference/grp_sect.html">grp_sect()</a></code> drops the <code>&lt;(+_+)&gt;</code> decoration and gains <code>level</code> (<code>#</code> is level 1, <code>##</code> is level 2, etc.).</li>
+<li>Removed <code>grp_proj()</code>. Use <code><a href="../reference/grp_create.html">grp_create()</a></code> instead.</li>
 <li>
-<code><a href="../reference/ger_setup.html">ger_setup()</a></code>, <code><a href="../reference/ger_code.html">ger_code()</a></code>, <code><a href="../reference/ger_data.html">ger_data()</a></code>, <code><a href="../reference/ger_dev.html">ger_dev()</a></code>, and <code><a href="../reference/ger_report.html">ger_report()</a></code> take <code>path</code> (was <code>folder_name</code>) and never overwrite existing files.</li>
+<code>grp_create(folder, name)</code> is now <code>grp_create(path, open)</code>.</li>
 <li>
-<code>ger_code(header)</code> is now <code>ger_code(roxygen)</code>.</li>
+<code><a href="../reference/grp_setup.html">grp_setup()</a></code>, <code><a href="../reference/grp_code.html">grp_code()</a></code>, <code><a href="../reference/grp_data.html">grp_data()</a></code>, <code><a href="../reference/grp_dev.html">grp_dev()</a></code>, and <code><a href="../reference/grp_report.html">grp_report()</a></code> take <code>path</code> (was <code>folder_name</code>) and never overwrite existing files.</li>
 <li>
-<code>ger_path(...)</code> is now <code>ger_path(path, type, tree)</code>; <code>type = "rel"</code> returns the path relative to the working directory.</li>
+<code>grp_code(header)</code> is now <code>grp_code(roxygen)</code>.</li>
 <li>
-<code><a href="../reference/ger_root.html">ger_root()</a></code> defaults to <code>tree = FALSE</code> and returns the root path.</li>
+<code>grp_path(...)</code> is now <code>grp_path(path, type, tree)</code>; <code>type = "rel"</code> returns the path relative to the working directory.</li>
 <li>
-<code><a href="../reference/ger_batch_rename.html">ger_batch_rename()</a></code> defaults to the <code>"modification"</code> date and uses the <code><a href="../reference/ger_fname.html">ger_fname()</a></code> naming rules.</li>
+<code><a href="../reference/grp_root.html">grp_root()</a></code> defaults to <code>tree = FALSE</code> and returns the root path.</li>
 <li>
-<code><a href="../reference/ger_name.html">ger_name()</a></code> replaces every symbol (not just the first) and separates abbreviations with underscores.</li>
+<code><a href="../reference/grp_batch_rename.html">grp_batch_rename()</a></code> defaults to the <code>"modification"</code> date and uses the <code><a href="../reference/grp_fname.html">grp_fname()</a></code> naming rules.</li>
+<li>
+<code><a href="../reference/grp_name.html">grp_name()</a></code> replaces every symbol (not just the first) and separates abbreviations with underscores.</li>
 </ul></div>
 <div class="section level3">
 <h3 id="new-features-3-0-0">New features<a class="anchor" aria-label="anchor" href="#new-features-3-0-0"></a></h3>
-<ul><li>Works in RStudio and Positron. <code><a href="../reference/ger_root.html">ger_root()</a></code> finds projects with an <code>.Rproj</code> file, <code>DESCRIPTION</code>, <code>.git</code>, or <code>.here</code>.</li>
+<ul><li>Works in RStudio and Positron. <code><a href="../reference/grp_root.html">grp_root()</a></code> finds projects with an <code>.Rproj</code> file, <code>DESCRIPTION</code>, <code>.git</code>, or <code>.here</code>.</li>
 <li>
-<code><a href="../reference/ger_name.html">ger_name()</a></code> and <code><a href="../reference/ger_fname.html">ger_fname()</a></code> are vectorized, return their result, and gain <code>clip</code> (and <code>date</code> for <code><a href="../reference/ger_fname.html">ger_fname()</a></code>).</li>
+<code><a href="../reference/grp_name.html">grp_name()</a></code> and <code><a href="../reference/grp_fname.html">grp_fname()</a></code> are vectorized, return their result, and gain <code>clip</code> (and <code>date</code> for <code><a href="../reference/grp_fname.html">grp_fname()</a></code>).</li>
 <li>
-<code><a href="../reference/ger_batch_rename.html">ger_batch_rename()</a></code> gains <code>dry_run</code>, skips already dated files, and returns the old and new paths.</li>
+<code><a href="../reference/grp_batch_rename.html">grp_batch_rename()</a></code> gains <code>dry_run</code>, skips already dated files, and returns the old and new paths.</li>
 <li>Project templates ship in <code>inst/templates/</code> (no downloads required).</li>
 </ul></div>
 <div class="section level3">
@@ -86,8 +89,8 @@
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="2.3.1" id="gerp-231">gerp 2.3.1<a class="anchor" aria-label="anchor" href="#gerp-231"></a></h2>
-<ul><li><p>Added <code><a href="../reference/ger_root.html">ger_root()</a></code> (project root folder), <code><a href="../reference/ger_fpath.html">ger_fpath()</a></code> (‘find’ path), and <code>ger_path_lkp()</code> (‘look up’ paths).</p></li>
-<li><p>Updated documentation with examples from <code><a href="../reference/ger_root.html">ger_root()</a></code>, <code>ger_path_lkp()</code>, and <code>ger_ftype()</code></p></li>
+<ul><li><p>Added <code>ger_root()</code> (project root folder), <code>ger_fpath()</code> (‘find’ path), and <code>ger_path_lkp()</code> (‘look up’ paths).</p></li>
+<li><p>Updated documentation with examples from <code>ger_root()</code>, <code>ger_path_lkp()</code>, and <code>ger_ftype()</code></p></li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="2.3.0" id="gerp-230">gerp 2.3.0<a class="anchor" aria-label="anchor" href="#gerp-230"></a></h2>
@@ -96,7 +99,7 @@
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="2.2.0" id="gerp-220">gerp 2.2.0<a class="anchor" aria-label="anchor" href="#gerp-220"></a></h2>
-<ul><li><p>added <code><a href="../reference/ger_name.html">ger_name()</a></code> function for creating R object names (and vignette)</p></li>
+<ul><li><p>added <code>ger_name()</code> function for creating R object names (and vignette)</p></li>
 <li><p>added hex sticker for package</p></li>
 </ul></div>
     <div class="section level2">
@@ -109,25 +112,25 @@
 <ul><li>Uses functions from <code>usethis</code> to create R project</li>
 </ul></li>
 <li>
-<p>New <code><a href="../reference/ger_code.html">ger_code()</a></code>:</p>
+<p>New <code>ger_code()</code>:</p>
 <ul><li>Create <code>R/</code> folder (instead of <code>code/</code>)</li>
 </ul></li>
 <li>
-<p>New <code><a href="../reference/ger_data.html">ger_data()</a></code>:</p>
+<p>New <code>ger_data()</code>:</p>
 <ul><li>Creates <code>data-raw/</code>, <code>data/</code>, and <code>inst/extdata/</code>
 </li>
 </ul></li>
 <li>
-<p><code>ger_docs()</code> has been replaced with <code><a href="../reference/ger_dev.html">ger_dev()</a></code> and <code><a href="../reference/ger_report.html">ger_report()</a></code></p>
-<ul><li><p><code><a href="../reference/ger_dev.html">ger_dev()</a></code> creates <code>dev/</code> folder and adds R Markdown notebook</p></li>
-<li><p><code><a href="../reference/ger_report.html">ger_report()</a></code> creates <code>report/</code> folder and adds R Markdown manuscript file</p></li>
+<p><code>ger_docs()</code> has been replaced with <code>ger_dev()</code> and <code>ger_report()</code></p>
+<ul><li><p><code>ger_dev()</code> creates <code>dev/</code> folder and adds R Markdown notebook</p></li>
+<li><p><code>ger_report()</code> creates <code>report/</code> folder and adds R Markdown manuscript file</p></li>
 </ul></li>
-<li><p><code><a href="../reference/ger_setup.html">ger_setup()</a></code> adds <code>changelog.md</code>, <code>LICENSE</code>, <code>CITATION</code> and <code>requirements.md</code> files</p></li>
+<li><p><code>ger_setup()</code> adds <code>changelog.md</code>, <code>LICENSE</code>, <code>CITATION</code> and <code>requirements.md</code> files</p></li>
 </ul></li>
 </ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="2.0.0" id="gerp-200">gerp 2.0.0<a class="anchor" aria-label="anchor" href="#gerp-200"></a></h2>
-<ul><li>Added <code>ger_proj()</code>, <code><a href="../reference/ger_code.html">ger_code()</a></code>, <code><a href="../reference/ger_data.html">ger_data()</a></code>, <code>ger_docs()</code>, and <code><a href="../reference/ger_setup.html">ger_setup()</a></code><br></li>
+<ul><li>Added <code>ger_proj()</code>, <code>ger_code()</code>, <code>ger_data()</code>, <code>ger_docs()</code>, and <code>ger_setup()</code><br></li>
 <li>Added <code>data-raw/wu_df.R</code>, <code>data-raw/wu_dt.R</code>, and <code>data-raw/wu_tbl.R</code><br></li>
 <li>Added <code>inst/extdata/wu_data.csv</code><br></li>
 <li>Added <code>inst/rmarkdown/templates/gerp-README/README.Rmd</code> for <code>README.Rmd</code> template</li>

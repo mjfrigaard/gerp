@@ -5,15 +5,15 @@
 library(gerp)
 ```
 
-## `ger_dev()`
+## `grp_dev()`
 
 The
-[`ger_dev()`](https://mjfrigaard.github.io/gerp/reference/ger_dev.md)
+[`grp_dev()`](https://mjfrigaard.github.io/gerp/reference/grp_dev.md)
 function creates an R Markdown file for development: `dev/notebook.Rmd`
 
   
 
-![](../reference/figures/ger_dev.gif)
+![](../reference/figures/grp_dev.png)
 
   
 
@@ -22,16 +22,16 @@ dev/
   └── notebook.Rmd
 ```
 
-## `ger_report()`
+## `grp_report()`
 
 The
-[`ger_report()`](https://mjfrigaard.github.io/gerp/reference/ger_report.md)
+[`grp_report()`](https://mjfrigaard.github.io/gerp/reference/grp_report.md)
 function creates polished R Markdown file for finalizing a report:
 `report/manuscript.Rmd`
 
   
 
-![](../reference/figures/ger_report.gif)
+![](../reference/figures/grp_report.png)
 
   
 
