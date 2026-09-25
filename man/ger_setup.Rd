@@ -2,21 +2,28 @@
 % Please edit documentation in R/ger_setup.R
 \name{ger_setup}
 \alias{ger_setup}
-\title{good enough R setup}
+\title{Good enough R setup files}
 \usage{
-ger_setup(folder_name = NULL)
+ger_setup(path = ".")
 }
 \arguments{
-\item{folder_name}{path to project folder}
+\item{path}{path to project folder}
+}
+\value{
+\code{path} (invisibly)
 }
 \description{
-Create start-up files for project (\code{changelog.md}, \code{CITATION},
-\code{requirements.md}, and \code{LICENSE})
+Create start-up files for a project (\code{changelog.md}, \code{CITATION},
+\code{requirements.md}, and \code{LICENSE}). Existing files are not overwritten.
 
 \describe{
 \item{changelog.md}{Manually document changes to the files or folders in your project.}
-\item{CITATION}{Information and example of how to cite your project}
-\item{requirements.md}{Advice on how to manually list the requirements for your project}
-\item{LICENSE}{Downloaded license from \href{https://creativecommons.org/publicdomain/zero/1.0/legalcode.txt}{creativecommons.org}}
+\item{CITATION}{Information and example of how to cite your project.}
+\item{requirements.md}{Advice on how to manually list the requirements for your project.}
+\item{LICENSE}{The \href{https://creativecommons.org/publicdomain/zero/1.0/}{CC0 1.0} license.}
 }
+}
+\examples{
+tmp <- file.path(tempdir(), "setup-example")
+ger_setup(tmp)
 }

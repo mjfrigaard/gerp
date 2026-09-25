@@ -22,6 +22,7 @@ knitr::include_graphics("man/figures/package_hex.png")
 # Good Enough R Practices (`gerp`)
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/mjfrigaard/gerp/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/mjfrigaard/gerp/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of `gerp` is to get you up and running with '[good enough R  practices!](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510)'
@@ -31,8 +32,8 @@ The goal of `gerp` is to get you up and running with '[good enough R  practices!
 You can install the development version of `gerp` like so:
 
 ``` r
-install.packages("remotes")
-remotes::install_github("mjfrigaard/gerp")
+install.packages("pak")
+pak::pak("mjfrigaard/gerp")
 ```
 
 ## Example
@@ -40,9 +41,9 @@ remotes::install_github("mjfrigaard/gerp")
 Creating a new `gerp` project:
 
 ```{r example, eval=FALSE}
-gerp::ger_proj()
+gerp::ger_create("~/projects/my-project")
 ```
 
 ```{r my_project.gif, echo=FALSE, eval=TRUE, out.width='100%', fig.align='center', fig.cap='New gerp project!'}
-knitr::include_graphics("man/figures/new_ger_proj.gif")
+knitr::include_graphics("man/figures/my_project.gif")
 ```

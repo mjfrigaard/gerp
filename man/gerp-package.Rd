@@ -6,12 +6,21 @@
 \alias{gerp-package}
 \title{gerp: Good Enough R Practices}
 \description{
-This package helps users adopt a set of good enough computing practices when working with data. The methods are largely based on the paper, 'Good enough practices in scientific computing' by Wilson et al (2017). DOI: https://doi.org/10.1371/journal.pcbi.1005510
+This package helps users adopt a set of good enough computing practices when working with data. The methods are largely based on the paper, 'Good enough practices in scientific computing' by Wilson et al (2017) \doi{10.1371/journal.pcbi.1005510}.
 }
 \seealso{
 Useful links:
 \itemize{
   \item \url{https://mjfrigaard.github.io/gerp/}
+}
+
+}
+\author{
+\strong{Maintainer}: Martin Frigaard \email{mjfrigaard@pm.me}
+
+Authors:
+\itemize{
+  \item Martin Frigaard \email{mjfrigaard@pm.me}
 }
 
 }

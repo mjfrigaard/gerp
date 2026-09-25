@@ -1,30 +1,76 @@
 #' Create a new good enough R project
 #'
-#' @importFrom snakecase to_snake_case
-#' @importFrom rstudioapi initializeProject openProject
-#' @importFrom fs path_expand
-#' @export ger_create
-#'
 #' @description
-#' Create and open a new 'good enough' project.
+#' Create a new 'good enough' project folder with all the gerp files and
+#' folders ([ger_setup()], [ger_code()], [ger_data()], [ger_dev()],
+#' [ger_report()]), a `README.Rmd`, and an `.Rproj` file. The project is
+#' opened in RStudio or Positron when `open = TRUE`.
 #'
-#' @param folder the parent folder of your project
-#' @param name name of your project
+#' @param path path to the new project folder (must not exist)
+#' @param open logical, open the new project?
 #'
-#' @details this function will open a new RStudio project. The `folder` is
-#' the parent folder that will contain your new project, and the `name` will
-#' be the name of your project sub-folder.
-#' To navigate folders on your computer, I like to use `ger_path()` function.
-#' If you start with `ger_path("/")`, you should be able to find all the
-#' folders you have permissions to (probably best to start with `"/Users"`).
+#' @return `path` (invisibly)
 #'
+#' @export
 #'
-#' @examples # not run
-#' # ger_create(folder = tempdir(), "my project 01")
-ger_create <- function(folder, name) {
-  proj_dir <- fs::path_expand(path = folder)
-  proj_name <- snakecase::to_snake_case(name)
-  proj_path <- fs::path_expand(paste0(proj_dir, "/", proj_name))
-  ger_go(path = proj_path)
+#' @examples
+#' tmp <- file.path(tempdir(), "my-project")
+#' ger_create(tmp, open = FALSE)
+ger_create <- function(path, open = interactive()) {
+  path <- fs::path_abs(fs::path_expand(path))
+  if (fs::file_exists(path)) {
+    cli::cli_abort("{.path {path}} already exists.")
+  }
+  check_home_dir(path)
+  check_nested_proj(fs::path_dir(path))
+
+  fs::dir_create(path)
+  cli::cli_alert_success("Creating {.path {path}}")
+  ger_setup(path)
+  ger_code(path)
+  ger_data(path)
+  ger_dev(path)
+  ger_report(path)
+  use_ger_template("README.Rmd", fs::path(path, "README.Rmd"))
+  use_ger_template("project-rproj",
+    fs::path(path, fs::path_ext_set(fs::path_file(path), "Rproj")))
+
+  if (isTRUE(open)) {
+    opened <- ide_call(rstudioapi::openProject, path = path, newSession = TRUE)
+    if (is.null(opened)) {
+      cli::cli_alert_info("Open {.path {path}} in your IDE to start working.")
+    }
+  }
+  invisible(path)
 }
 
+#' @noRd
+check_home_dir <- function(path) {
+  homes <- unique(c(fs::path_home(), fs::path_home_r()))
+  if (path %in% homes && !ger_confirm(
+    "{.path {path}} is your home directory. Create a project here anyway?")) {
+    cli::cli_abort("Cancelling project creation.")
+  }
+  invisible(path)
+}
+
+#' @noRd
+check_nested_proj <- function(parent) {
+  root <- tryCatch(
+    rprojroot::find_root(proj_criteria(), path = parent),
+    error = function(e) NULL
+  )
+  if (!is.null(root) && !ger_confirm(
+    "{.path {parent}} is inside the project {.path {root}}. Create a nested project anyway?")) {
+    cli::cli_abort("Cancelling project creation.")
+  }
+  invisible(parent)
+}
+
+#' @noRd
+proj_criteria <- function() {
+  rprojroot::is_rstudio_project |
+    rprojroot::is_r_package |
+    rprojroot::is_git_root |
+    rprojroot::has_file(".here")
+}

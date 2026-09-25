@@ -2,20 +2,23 @@
 % Please edit documentation in R/paths.R
 \name{ger_lkp_path}
 \alias{ger_lkp_path}
-\title{Get look-up file/folder tree path}
+\title{Look up a file or folder in your project}
 \usage{
-ger_lkp_path(x)
+ger_lkp_path(x, path = ger_root())
 }
 \arguments{
-\item{x}{file or folder to search for}
+\item{x}{file or folder name to search for (e.g., \code{"README.Rmd"})}
+
+\item{path}{path to search (defaults to the project root)}
 }
 \value{
-file tree(s)
+matching path(s) (invisibly)
 }
 \description{
-Get look-up file/folder tree path
+Search the project (from \code{\link[=ger_root]{ger_root()}}) for files or folders named \code{x} and
+print a folder tree for each match.
 }
 \examples{
-gerp::ger_lkp_path("inst")
-gerp::ger_lkp_path("README.Rmd")
+# ger_lkp_path("README.Rmd")
+# ger_lkp_path("inst")
 }

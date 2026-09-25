@@ -2,21 +2,25 @@
 % Please edit documentation in R/ger_code.R
 \name{ger_code}
 \alias{ger_code}
-\title{good enough code files}
+\title{Good enough code files}
 \usage{
-ger_code(folder_name = NULL, header = TRUE)
+ger_code(path = ".", roxygen = TRUE)
 }
 \arguments{
-\item{folder_name}{name of folder for code files (string)}
+\item{path}{path to project folder}
 
-\item{header}{include roxygen2 headers?}
+\item{roxygen}{logical, use a roxygen2 header (\code{TRUE}) or a standard script
+header (\code{FALSE})?}
+}
+\value{
+\code{path} (invisibly)
 }
 \description{
-Create the code folder for the import, tidy, wrangle, visualize,
-model, and data .R files.
+Create the \verb{R/} folder with \code{import.R}, \code{tidy.R}, \code{wrangle.R},
+\code{visualize.R}, \code{model.R}, and \code{data.R} files. Existing files are not
+overwritten.
 }
-\details{
-If header is FALSE, code files are created with a standard script
-header. By default, the code files are placed in a code/ folder, but this
-can be changed with a character string.
+\examples{
+tmp <- file.path(tempdir(), "code-example")
+ger_code(tmp)
 }

@@ -1,144 +1,55 @@
-#' Create `files_tbl` table
-#'
-#' @noRd
-#'
-#' @keywords internal
-#'
-#' @param path path to files to be renamed
-#' @param ... additional args passed to `fs::dir_info()`
-#'
-#' @return tibble with file and date info
-#'
-#' @importFrom fs dir_info path_dir
-#' @importFrom lubridate as_date
-#' @importFrom tools file_ext file_path_sans_ext
-#' @importFrom dplyr mutate select starts_with contains across
-get_files_tbl <- function(path, ...) {
-
-  all_files <- fs::dir_info(path = path, ..., type = "file")
-
-  file_tbl <- dplyr::mutate(all_files,
-    file_path = as.character(path),
-    file_folder = as.character(fs::path_dir(path)),
-    file_full_name = as.character(basename(path)),
-    file_extension = paste0(".", tools::file_ext(file_full_name)),
-    file_name = tools::file_path_sans_ext(file_full_name))
-
-  date_tbl <- dplyr::mutate(file_tbl,
-    dplyr::across(dplyr::contains('time'), lubridate::as_date))
-
-  files_tbl <- dplyr::select(date_tbl, dplyr::starts_with('file'),
-    modification = modification_time,
-    access = access_time,
-    change = change_time,
-    birth = birth_time)
-
-  return(files_tbl)
-
-}
-
-#' Create `date_prefix` column (utility)
-#'
-#' @noRd
-#'
-#' @keywords internal
-#'
-#' @param files data.frame or tibble from `get_files_tbl()` function
-#' @param prefix date prefix (`"modification"`, `"access"`, `"change"`, or
-#'  `"birth"`)
-#'
-#' @return tibble with date prefix column
-#'
-#' @importFrom rlang sym
-#' @importFrom glue glue
-#' @importFrom cli cli_abort
-#' @importFrom dplyr mutate select
-get_date_prefix <- function(files, prefix = "birth") {
-  prefixes <- c("modification", "access", "change", "birth")
-  if (prefix %in% prefixes) {
-    time_col <- rlang::sym(prefix)
-    date_prefix_col <- dplyr::mutate(.data = files,
-      date_prefix = paste0(!!time_col, "_")
-  )
-    date_prefix_tbl <- dplyr::select(date_prefix_col,
-      file_path, file_folder, file_full_name,
-      file_extension, file_name, date_prefix)
-    return(date_prefix_tbl)
-  } else {
-    cli::cli_abort(glue::glue("{prefix} is not one of the available options"))
-  }
-}
-
-#' Clean `file_name` column (utility)
-#'
-#' @noRd
-#'
-#' @keywords internal
-#'
-#' @param df data.frame or tibble
-#' @param column file name column (without extension)
-#'
-#' @return tibble with clean file names
-#'
-#' @importFrom snakecase to_snake_case
-#' @importFrom stringr str_replace_all
-#' @importFrom dplyr mutate select
-get_clean_file_names <- function(df, column) {
-  clean_file_names_cols <- dplyr::mutate(df,
-    snakes := snakecase::to_snake_case({{column}}),
-    hyphens = stringr::str_replace_all(snakes, "[^[:alnum:].]+", "-"),
-    clean_file_name = paste0(date_prefix, hyphens, file_extension),
-    clean_file_path = paste0(file_folder, "/", clean_file_name)
-    # "clean_{{column}}_path" := paste0(date_prefix, hyphens, file_extension)
-    )
-
-  clean_file_names_tbl <- dplyr::select(clean_file_names_cols,
-    clean_file_name, clean_file_path, file_full_name, file_path)
-
-  return(clean_file_names_tbl)
-}
-
-
-
-#' Rename all files (utility)
-#'
-#' @noRd
-#'
-#' @keywords internal
-#'
-#' @param old previous names
-#' @param new new names
-#'
-#' @return quietly returns the output from `purrr::walk2`
-#'
-#' @importFrom purrr walk2
-rename_all_files <- function(old, new) {
-  purrr::walk2(.x = old, .y = new, .f = file.rename, .progress = TRUE)
-}
-
 #' Rename all files in a folder
 #'
+#' @description
+#' Rename every file in `path` with a date prefix (`YYYY-MM-DD_`) and a clean,
+#' lowercase, hyphenated name (see [ger_fname()]). Files that already start
+#' with a date prefix are skipped.
+#'
 #' @param path path to folder
-#' @param prefix date prefix (`"modification"`, `"access"`, `"change"`, or
-#'  `"birth"`)
+#' @param prefix which file date to use for the prefix (`"modification"`,
+#'    `"birth"`, `"access"`, or `"change"`). `"birth"` falls back to
+#'    `"modification"` on systems that don't record it.
+#' @param dry_run logical, preview the new names without renaming?
 #'
-#' @return returns the output from `purrr::walk2`
-#' @export ger_batch_rename
+#' @return a data.frame with the `old` and `new` file paths (invisibly unless
+#'    `dry_run = TRUE`)
 #'
-#' @importFrom fs dir_tree
-ger_batch_rename <- function(path, prefix) {
+#' @export
+#'
+#' @examples
+#' tmp <- file.path(tempdir(), "rename-example")
+#' dir.create(tmp)
+#' file.create(file.path(tmp, c("My File.txt", "Joe's DATA (final).csv")))
+#' ger_batch_rename(tmp, dry_run = TRUE)
+ger_batch_rename <- function(path,
+                             prefix = c("modification", "birth", "access", "change"),
+                             dry_run = FALSE) {
+  prefix <- match.arg(prefix)
+  if (!fs::dir_exists(path)) {
+    cli::cli_abort("{.path {path}} is not a folder.")
+  }
+  info <- fs::dir_info(path, type = "file")
+  info <- info[!grepl("^\\d{4}-\\d{2}-\\d{2}_", fs::path_file(info$path)), ]
+  if (nrow(info) == 0) {
+    cli::cli_alert_info("No files to rename in {.path {path}}")
+    return(invisible(data.frame(old = character(), new = character())))
+  }
 
-  pth <- fs::as_fs_path(path)
+  dates <- info[[paste0(prefix, "_time")]]
+  if (prefix == "birth" && anyNA(dates)) {
+    cli::cli_warn("Birth times unavailable, using modification times.")
+    dates <- info$modification_time
+  }
 
-  files_tbl <- get_files_tbl(path = pth)
+  old <- as.character(info$path)
+  new_nm <- ger_fname(fs::path_file(old), date = as.Date(dates), clip = FALSE)
+  new <- as.character(fs::path(fs::path_dir(old), new_nm))
+  out <- data.frame(old = old, new = new)
 
-  file_date <- get_date_prefix(files = files_tbl)
-
-  clean_tbl <- get_clean_file_names(file_date, file_name)
-
-  new_names <- clean_tbl[['clean_file_path']]
-  old_names <- clean_tbl[['file_path']]
-
-  rename_all_files(old = old_names, new = new_names)
-
+  if (isTRUE(dry_run)) {
+    return(out)
+  }
+  fs::file_move(old, new)
+  cli::cli_alert_success("Renamed {length(old)} file{?s} in {.path {path}}")
+  invisible(out)
 }

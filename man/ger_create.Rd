@@ -4,25 +4,23 @@
 \alias{ger_create}
 \title{Create a new good enough R project}
 \usage{
-ger_create(folder, name)
+ger_create(path, open = interactive())
 }
 \arguments{
-\item{folder}{the parent folder of your project}
+\item{path}{path to the new project folder (must not exist)}
 
-\item{name}{name of your project}
+\item{open}{logical, open the new project?}
+}
+\value{
+\code{path} (invisibly)
 }
 \description{
-Create and open a new 'good enough' project.
-}
-\details{
-this function will open a new RStudio project. The \code{folder} is
-the parent folder that will contain your new project, and the \code{name} will
-be the name of your project sub-folder.
-To navigate folders on your computer, I like to use \code{ger_path()} function.
-If you start with \code{ger_path("/")}, you should be able to find all the
-folders you have permissions to (probably best to start with \code{"/Users"}).
+Create a new 'good enough' project folder with all the gerp files and
+folders (\code{\link[=ger_setup]{ger_setup()}}, \code{\link[=ger_code]{ger_code()}}, \code{\link[=ger_data]{ger_data()}}, \code{\link[=ger_dev]{ger_dev()}},
+\code{\link[=ger_report]{ger_report()}}), a \code{README.Rmd}, and an \code{.Rproj} file. The project is
+opened in RStudio or Positron when \code{open = TRUE}.
 }
 \examples{
-# not run
-# ger_create(folder = tempdir(), "my project 01")
+tmp <- file.path(tempdir(), "my-project")
+ger_create(tmp, open = FALSE)
 }

@@ -4,18 +4,23 @@
 \alias{ger_fname}
 \title{Good enough file name}
 \usage{
-ger_fname(x)
+ger_fname(x, date = Sys.Date(), clip = TRUE)
 }
 \arguments{
-\item{x}{string}
+\item{x}{character vector of file names}
+
+\item{date}{date prefix (\code{NULL} for no prefix)}
+
+\item{clip}{logical, copy the name to the clipboard (single names only)?}
 }
 \value{
-good enough file name
+a good enough file name (invisibly if copied to the clipboard)
 }
 \description{
-Good enough file name
+Convert a string into a lowercase, hyphenated file name with a date
+prefix (\code{YYYY-MM-DD_}). File extensions are kept.
 }
 \examples{
-# ger_fname(x = "November profits (monday)-Carl's copy")
-# ger_fname(x = "\%file & with @_gArbage NAME.txt")
+ger_fname("November profits (monday)-Carl's copy", clip = FALSE)
+ger_fname("\%file & with @_gArbage NAME.txt", date = NULL, clip = FALSE)
 }

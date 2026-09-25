@@ -1,0 +1,14 @@
+---
+# ...a running lab notebook describing various ideas for the project
+# and how these were implemented
+title: "Notebook"
+output: "html_notebook"
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code.
+
+```{r}
+plot(cars)
+```
+
+Source: https://swcarpentry.github.io/good-enough-practices-in-scientific-computing/

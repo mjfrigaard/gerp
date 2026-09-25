@@ -4,17 +4,33 @@
 \alias{ger_batch_rename}
 \title{Rename all files in a folder}
 \usage{
-ger_batch_rename(path, prefix)
+ger_batch_rename(
+  path,
+  prefix = c("modification", "birth", "access", "change"),
+  dry_run = FALSE
+)
 }
 \arguments{
 \item{path}{path to folder}
 
-\item{prefix}{date prefix (\code{"modification"}, \code{"access"}, \code{"change"}, or
-\code{"birth"})}
+\item{prefix}{which file date to use for the prefix (\code{"modification"},
+\code{"birth"}, \code{"access"}, or \code{"change"}). \code{"birth"} falls back to
+\code{"modification"} on systems that don't record it.}
+
+\item{dry_run}{logical, preview the new names without renaming?}
 }
 \value{
-returns the output from \code{purrr::walk2}
+a data.frame with the \code{old} and \code{new} file paths (invisibly unless
+\code{dry_run = TRUE})
 }
 \description{
-Rename all files in a folder
+Rename every file in \code{path} with a date prefix (\code{YYYY-MM-DD_}) and a clean,
+lowercase, hyphenated name (see \code{\link[=ger_fname]{ger_fname()}}). Files that already start
+with a date prefix are skipped.
+}
+\examples{
+tmp <- file.path(tempdir(), "rename-example")
+dir.create(tmp)
+file.create(file.path(tmp, c("My File.txt", "Joe's DATA (final).csv")))
+ger_batch_rename(tmp, dry_run = TRUE)
 }

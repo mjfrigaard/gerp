@@ -39,8 +39,8 @@ R is an open-source programming language, so anyone can create an R package. The
 Enter the code below in your R console to download the most recent version of `gerp` from GitHub:
 
 ```{r eval=FALSE}
-install.packages("remotes")
-remotes::install_github("mjfrigaard/gerp")
+install.packages("pak")
+pak::pak("mjfrigaard/gerp")
 ```
 
 ## Load a package
@@ -53,61 +53,23 @@ library(gerp)
 
 # Quick start
 
-If you'd like to get up and running with a new `gerp` project quickly, you can enter the following code in your RStudio **Console** pane (in a fresh RStudio session)
+To create a new `gerp` project, enter the following code in your **Console** (RStudio or Positron):
 
-```{r ger_proj, eval=FALSE}
-gerp::ger_proj()
-```
-
-You'll see the following:
-
-<br>
-
-```{r new_ger_proj-gif, echo=FALSE, eval=TRUE, out.width='90%', fig.align='center', fig.cap='new gerp project on Windows'}
-knitr::include_graphics("../man/figures/new_ger_proj.gif")
+```{r ger_create, eval=FALSE}
+gerp::ger_create("~/projects/my-project")
 ```
 
 <br>
 
-`gerp::ger_proj()` will default to the your Desktop folder (or some other conspicuous place). It's unlikely you'll want your project named, '`new_project`'. I'll demonstrate how to change the name of a new `gerp` project on macOS below:
+`ger_create()` creates the project folder, adds the `gerp` files and folders, and opens the project in a new session. See the [Create gerp projects vignette](https://mjfrigaard.github.io/gerp/articles/create.html) for more details.
 
 <br>
 
-Close the RStudio project:
+To re-open my project in RStudio, I navigate to the `.Rproj` file and double-click on it. In Positron, use **File > Open Folder**.
 
 <br>
 
-```{r close_new_proj-gif-gif, echo=FALSE, eval=TRUE, out.width='90%', fig.align='center', fig.cap='Close gerp project'}
-knitr::include_graphics("../man/figures/close_new_proj.gif")
-```
-
-<br>
-
-Navigate the the `new_project` folder (it should be in your **Desktop** folder) and give it a new name:
-
-<br>
-
-```{r rename_new_proj_folder-gif, echo=FALSE, eval=TRUE, out.width='90%', fig.align='center', fig.cap='Rename gerp project folder'}
-knitr::include_graphics("../man/figures/rename_new_proj_folder.gif")
-```
-
-<br>
-
-You'll also need to rename the `.Rproj` file (inside your project folder)
-
-<br>
-
-```{r rename_new_proj_file-gif, echo=FALSE, eval=TRUE, out.width='90%', fig.align='center', fig.cap='Rename gerp project file'}
-knitr::include_graphics("../man/figures/rename_new_proj_file.gif")
-```
-
-<br>
-
-To re-open my project, I navigate to the `.Rproj` file and double-click on it to open RStudio.
-
-<br>
-
-```{r open_new_proj-gif, echo=FALSE, eval=TRUE, out.width='90%', fig.align='center', fig.cap='Rename gerp project file'}
+```{r open_new_proj-gif, echo=FALSE, eval=TRUE, out.width='90%', fig.align='center', fig.cap='Open gerp project'}
 knitr::include_graphics("../man/figures/open_new_proj.gif")
 ```
 

@@ -1,55 +1,47 @@
-#  user_path_prep -----
-#' @noRd
-#' @importFrom fs path_expand
-user_path_prep <- function(path) {
-  ## usethis uses fs's notion of home directory
-  ## this ensures we are consistent about that
-  fs::path_expand(path)
-}
-
-# is_quiet ----
-#' @noRd
-is_quiet <- function() {
-  isTRUE(getOption("usethis.quiet", default = FALSE))
-}
-
-# indent -----
-#' @noRd
-indent <- function(x, first = "  ", indent = first) {
-  x <- gsub("\n", paste0("\n", indent), x)
-  paste0(first, x)
-}
-
-# check_path_is_directory -------------
-#' @noRd
+#' Write a gerp template to a project
 #'
-#' @importFrom fs file_exists is_link is_dir
-#' @importFrom glue glue
-check_path_is_directory <- function(path) {
-  if (!fs::file_exists(path)) {
-    ui_stop("Directory {ui_path(path)} does not exist.")
-  }
-  if (fs::is_link(path)) {
-    path <- link_path(path)
-  }
-  if (!fs::is_dir(path)) {
-    ui_stop("{ui_path(path)} is not a directory.")
-  }
-}
-
-# create_directory ----------
-#' @noRd
+#' @param template file name in `inst/templates/`
+#' @param dest destination file path
+#' @param data named list of values replacing `{{name}}` in the template
 #'
-#' @importFrom fs dir_exists file_exists dir_create
-create_directory <- function(path) {
-  if (fs::dir_exists(path)) {
-    return(
-      invisible(FALSE)
-      )
-  } else if (fs::file_exists(path)) {
-    ui_stop("{ui_path(path)} exists but is not a directory.")
+#' @return `TRUE` (invisibly) if written, `FALSE` if `dest` already exists
+#'
+#' @noRd
+use_ger_template <- function(template, dest, data = list()) {
+  if (fs::file_exists(dest)) {
+    cli::cli_alert_info("Skipping {.path {dest}} (already exists)")
+    return(invisible(FALSE))
   }
-  fs::dir_create(path, recurse = TRUE)
-  ui_done("Creating {ui_path(path)}")
+  src <- system.file("templates", template, package = "gerp", mustWork = TRUE)
+  txt <- readLines(src, warn = FALSE, encoding = "UTF-8")
+  for (nm in names(data)) {
+    txt <- gsub(paste0("{{", nm, "}}"), data[[nm]], txt, fixed = TRUE)
+  }
+  fs::dir_create(fs::path_dir(dest))
+  writeLines(txt, dest, useBytes = TRUE)
+  cli::cli_alert_success("Writing {.path {dest}}")
   invisible(TRUE)
+}
+
+#' Ask the user a yes/no question (aborts when not interactive)
+#'
+#' @noRd
+ger_confirm <- function(msg, .envir = parent.frame()) {
+  if (!interactive()) {
+    cli::cli_abort(
+      c(msg, "i" = "User input required, but session is not interactive."),
+      .envir = .envir
+    )
+  }
+  cli::cli_inform(msg, .envir = .envir)
+  utils::menu(c("Yes", "No")) == 1L
+}
+
+#' Call an rstudioapi function (works in RStudio and Positron)
+#'
+#' @return `list(value = fun(...))`, or `NULL` if no IDE is available
+#'
+#' @noRd
+ide_call <- function(fun, ...) {
+  tryCatch(list(value = fun(...)), error = function(e) NULL)
 }

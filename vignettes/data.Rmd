@@ -55,7 +55,7 @@ inst/extdata/
 
 The code to download `wu_data.csv` from Github in `data-raw/wu_df.R` (see below)
 
-```{r data-raw-wu_df}
+```{r data-raw-wu_df, eval=FALSE}
 ## code to prepare `wu_df` dataset goes here
 wu_df <- utils::read.csv(
   "https://raw.githubusercontent.com/mjfrigaard/gerp/main/inst/extdata/wu_data.csv")

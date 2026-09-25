@@ -1,41 +1,35 @@
 Package: gerp
 Type: Package
 Title: Good Enough R Practices
-Version: 1.1.0
-Author: Martin Frigaard
-Maintainer: Martin Frigaard <mjfrigaard@pm.me>
-Description: This package helps users adopt a set of good enough computing 
-    practices when working with data. The methods are largely based on the 
-    paper, 'Good enough practices in scientific computing' by Wilson et al 
-    (2017). DOI: https://doi.org/10.1371/journal.pcbi.1005510
+Version: 3.0.0
+Authors@R:
+    person("Martin", "Frigaard", , "mjfrigaard@pm.me", role = c("aut", "cre"))
+Description: This package helps users adopt a set of good enough computing
+    practices when working with data. The methods are largely based on the
+    paper, 'Good enough practices in scientific computing' by Wilson et al
+    (2017) <doi:10.1371/journal.pcbi.1005510>.
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
-RoxygenNote: 7.2.3
-Roxygen: list(markdown = TRUE)
-Depends: 
-    R (>= 2.10)
-Suggests: 
-    knitr,
-    rmarkdown
-VignetteBuilder: knitr
-Imports: 
-    collateral,
-    usethis,
-    glue,
-    rprojroot,
-    rstudioapi,
+URL: https://mjfrigaard.github.io/gerp/
+Depends:
+    R (>= 4.1.0)
+Imports:
     cli,
     clipr,
-    rlang,
-    dplyr,
-    lubridate,
     fs,
-    snakecase,
+    rprojroot,
+    rstudioapi,
+    tools,
+    utils
+Suggests:
+    knitr,
     readr,
-    stringr,
-    htmlwidgets,
-    tidyr,
-    magick,
-    hexSticker
-URL: https://mjfrigaard.github.io/gerp/
+    rmarkdown,
+    testthat (>= 3.0.0),
+    tibble,
+    withr
+VignetteBuilder: knitr
+Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+Config/roxygen2/version: 8.1.0

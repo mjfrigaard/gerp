@@ -3,25 +3,35 @@
 \docType{data}
 \name{wu_df}
 \alias{wu_df}
-\title{Title (dataset description)}
+\alias{wu_dt}
+\alias{wu_tbl}
+\title{Wu-Tang Clan members}
 \format{
-A dataset with variables:
+A dataset with 10 rows and 5 variables:
 \describe{
 \item{member}{Wu-Tang Clan Member Name}
 \item{name}{Wu-Tang Clan Given Name}
 \item{born}{Birth Year}
 \item{city}{Birth City}
-\item{alive}{Stil Alive?}
+\item{alive}{Still Alive?}
 }
+
+An object of class \code{data.table} (inherits from \code{data.frame}) with 10 rows and 5 columns.
+
+An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 10 rows and 5 columns.
 }
 \source{
-Link to data: https://en.wikipedia.org/wiki/Wu-Tang_Clan
-(downloaded YYYY-MM-DD)
+\url{https://en.wikipedia.org/wiki/Wu-Tang_Clan}
 }
 \usage{
 wu_df
+
+wu_dt
+
+wu_tbl
 }
 \description{
-Title (dataset description)
+Example data stored as a \code{data.frame} (\code{wu_df}), \code{data.table} (\code{wu_dt}),
+and \code{tibble} (\code{wu_tbl}). The raw data is in \code{inst/extdata/wu_data.csv}.
 }
 \keyword{internal}

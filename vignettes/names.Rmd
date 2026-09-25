@@ -19,10 +19,6 @@ knitr::opts_chunk$set(
 library(gerp)
 ```
 
-```{r src, eval=TRUE, include=FALSE}
-# source("../R/names.R")
-```
-
 
 > "*It ain't what they call you, it's what you answer to.*" - [W.C. Fields](https://www.goodreads.com/quotes/130631-it-ain-t-what-they-call-you-it-s-what-you-answer) 
 
@@ -78,8 +74,9 @@ ger_fname("01-report.xlsx")
 
   2. A date prefix is appended to all files for provenance, with a trailing underscore (`YYYY-MM-DD_`). The underscore makes it distinguishable from rest file name: 
   
-```{r , warning=FALSE, message=FALSE, eval=TRUE, echo=FALSE}
-stringr::str_view_all("2023-04-09_my-file.txt", "_", html = TRUE)
+```
+2023-04-09_my-file.txt
+          ^
 ```
 
   3. Special characters and punctuation (outside the file extension) are removed
@@ -218,6 +215,6 @@ gerp::ger_name("... !! ++")
 ```
 
 ```
-✔ 'dot_bang_plus' is copied to the clipboard!
+✔ 'bang_plus' is copied to the clipboard!
 ```
 

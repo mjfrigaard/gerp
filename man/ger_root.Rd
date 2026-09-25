@@ -4,18 +4,22 @@
 \alias{ger_root}
 \title{Get the root folder of your project}
 \usage{
-ger_root(tree = TRUE)
+ger_root(path = ".", tree = FALSE)
 }
 \arguments{
-\item{tree}{logical, return a folder tree?}
+\item{path}{path to start searching from}
+
+\item{tree}{logical, print a folder tree?}
 }
 \value{
-path or path + folder tree
+root path (invisibly if \code{tree = TRUE})
 }
 \description{
-Get the root folder of your project
+Find the project root by looking upwards for an \code{.Rproj} file, an R
+package \code{DESCRIPTION}, a \code{.git} folder, or a \code{.here} file (so it works in
+both RStudio and Positron).
 }
 \examples{
-ger_root()
-ger_root(tree = TRUE)
+# ger_root()
+# ger_root(tree = TRUE)
 }

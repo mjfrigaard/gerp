@@ -2,22 +2,26 @@
 % Please edit documentation in R/names.R
 \name{ger_name}
 \alias{ger_name}
-\title{Good enough name}
+\title{Good enough R object name}
 \usage{
-ger_name(x, abbr = FALSE)
+ger_name(x, abbr = FALSE, clip = TRUE)
 }
 \arguments{
-\item{x}{string}
+\item{x}{character vector}
 
-\item{abbr}{logical, abbreviate? (default is \code{FALSE})}
+\item{abbr}{logical, abbreviate long names?}
+
+\item{clip}{logical, copy the name to the clipboard (single names only)?}
 }
 \value{
-A good enough R object name
+a good enough R object name (invisibly if copied to the clipboard)
 }
 \description{
-Good enough name
+Convert a string into a \code{snake_case} R object name. Symbols are replaced
+with abbreviations (e.g., \verb{\%} becomes \code{perc}), leading numbers are moved
+to the end of the name, and strings without letters become \code{"num_var"}.
 }
 \examples{
-# ger_name("2022-10-12-Alpha-20\%")
-# ger_name("Alpha & Beta")
+ger_name("2022-10-12-Alpha-20\%", clip = FALSE)
+ger_name("Alpha & Beta", clip = FALSE)
 }

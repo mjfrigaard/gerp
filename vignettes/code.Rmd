@@ -40,7 +40,7 @@ R/
 
 You can choose to have regular R script headers or `roxygen2` headers:
 
-#### `header = TRUE` (default)
+#### `roxygen = TRUE` (default)
 
 ```{r , eval=FALSE}
 #' @title 
@@ -57,7 +57,7 @@ You can choose to have regular R script headers or `roxygen2` headers:
 #'
 ```
 
-#### `header = FALSE`
+#### `roxygen = FALSE`
 
 ```{r , eval=FALSE}
 #=====================================================================#

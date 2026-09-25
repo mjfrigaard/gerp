@@ -2,14 +2,21 @@
 % Please edit documentation in R/ger_report.R
 \name{ger_report}
 \alias{ger_report}
-\title{good enough R report folder}
+\title{Good enough R report folder}
 \usage{
-ger_report(folder_name = NULL)
+ger_report(path = ".")
+}
+\arguments{
+\item{path}{path to project folder}
+}
+\value{
+\code{path} (invisibly)
 }
 \description{
-Create report folder with \code{report/manuscript.Rmd}
-
-\describe{
-\item{report/manuscript.Rmd}{A more polished R Markdown file for reports or manuscripts.}
+Create a \verb{report/} folder with \code{report/manuscript.Rmd} (a more polished R
+Markdown file for reports or manuscripts).
 }
+\examples{
+tmp <- file.path(tempdir(), "report-example")
+ger_report(tmp)
 }

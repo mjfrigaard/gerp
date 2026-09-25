@@ -2,24 +2,27 @@
 % Please edit documentation in R/ger_data.R
 \name{ger_data}
 \alias{ger_data}
-\title{good enough data folders}
+\title{Good enough data folders}
 \usage{
-ger_data(folder_name = NULL)
+ger_data(path = ".")
+}
+\arguments{
+\item{path}{path to project folder}
+}
+\value{
+\code{path} (invisibly)
 }
 \description{
-Create data folders, inst/extdata folder, and
-data.md file
-}
-\details{
-ger_data() will create the following files and folders:
+Create the data folders and a \code{data.md} file:
+
 \describe{
-\item{data-raw/}{should contain any code used to import, download and include data in your project}
-\item{data/}{should contain processed, intermediate, or otherwise altered data in your project}
-\item{inst/exdata/}{should have any external data used for examples or testing}
-\item{data.md}{Document your data here and in code/data.R}
+\item{data-raw/}{code used to import, download and include data in your project}
+\item{data/}{processed, intermediate, or otherwise altered data in your project}
+\item{inst/extdata/}{external data used for examples or testing}
+\item{data.md}{document your data here and in \code{R/data.R}}
 }
 }
 \examples{
-# in new project
-# ger_data()
+tmp <- file.path(tempdir(), "data-example")
+ger_data(tmp)
 }

@@ -1,12 +1,18 @@
 url: https://mjfrigaard.github.io/gerp/
 template:
   bootstrap: 5
-  bootswatch: united
-  theme: github-light
+  theme: arrow-dark
   bslib:
-    primary: "#009E00"
-    code-color: "#008C00"
-    code-bg: "#EDEDED"
+    bg: "#011627"           # Atomic Age dark navy, page background
+    fg: "#cbcbcb"           # Atomic Age brushed aluminum, page text
+    primary:   "#ff6f3c"   # Atomic Age rocket orange, links, buttons, navbar
+    secondary: "#cbcbcb"   # Atomic Age brushed aluminum, neutral text emphasis
+    success:   "#2ec4b6"   # Atomic Age teal
+    info:      "#cbcbcb"   # Atomic Age brushed aluminum
+    warning:   "#ffd23f"   # Atomic Age yellow
+    danger:    "#ff6f3c"   # Atomic Age rocket orange, palette has no dedicated red
+    code-color: "#cbcbcb"  # Atomic Age brushed aluminum, inline & block code text
+    code-bg:    "#011627"  # Atomic Age dark navy, inline & block code background
     base_font:
       google: Ubuntu
     heading_font:
@@ -15,6 +21,8 @@ template:
       google: Ubuntu Mono
 
 navbar:
+ bg: primary
+ type: dark
  components:
    articles:
     text: Articles
@@ -50,8 +58,6 @@ reference:
   desc: >
     Functions for creating gerp projects.
   contents:
-  - ger_proj
-  - ger_path
   - ger_create
 - title: "Folder functions"
   desc: "Functions for creating gerp folders & files."
@@ -64,6 +70,7 @@ reference:
 - title: "Path functions"
   desc: "Functions for folder & file paths."
   contents:
+  - ger_path
   - ger_root
   - ger_fpath
   - ger_lkp_path
@@ -78,6 +85,11 @@ reference:
   - ger_name
   - ger_fname
   - ger_batch_rename
+- title: "Data"
+  desc: "Example datasets."
+  contents:
+  - wu_df
+  - date_formats
 
 development:
   mode: auto

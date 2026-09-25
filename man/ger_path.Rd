@@ -4,25 +4,24 @@
 \alias{ger_path}
 \title{Get file path(s)}
 \usage{
-ger_path(..., tree = FALSE, type = "abs")
+ger_path(path = ".", type = c("abs", "rel"), tree = FALSE)
 }
 \arguments{
-\item{...}{arguments passed to \code{fs::path_abs()}}
+\item{path}{file or folder path}
 
-\item{tree}{logical, return a folder tree (via \code{fs::dir_path()})?}
+\item{type}{absolute (\code{"abs"}) or relative (\code{"rel"}) path}
 
-\item{type}{logical, relative (\code{"rel"}) or absolute (\code{"abs"}) path (default
-is absolute)}
+\item{tree}{logical, print a folder tree?}
 }
 \value{
-file path(s) that are either normalized (\code{type = FALSE}) or relative.
+path(s) (invisibly if \code{tree = TRUE})
 }
 \description{
-Use \code{ger_path()} to view folder and file paths.
-\describe{
-\item{type}{Return the relative or absolute path. The default is a relative path, which is the location of a file or folder \strong{relative to the current working directory (or folder)}. This means that it doesn't start with the root directory, but with the directory that you're currently in. Absolute paths are the exact location of a file or folder in the file system hierarchy. They begin with the root folder and includes all folders and subfolders necessary to locate the file or folder.}
-}
+Use \code{ger_path()} to view folder and file paths. Absolute paths are the
+exact location of a file or folder in the file system (they start with the
+root folder). Relative paths start from the current working directory.
 }
 \examples{
-# ger_path(".")
+ger_path(".")
+ger_path(tempdir(), type = "rel")
 }

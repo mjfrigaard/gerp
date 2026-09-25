@@ -2,19 +2,20 @@
 % Please edit documentation in R/paths.R
 \name{ger_fpath}
 \alias{ger_fpath}
-\title{Get current file path}
+\title{Get the path of the current file}
 \usage{
 ger_fpath(tree = FALSE)
 }
 \arguments{
-\item{tree}{logical, return a folder tree?}
+\item{tree}{logical, print a folder tree?}
 }
 \value{
-current file path or current file path + folder tree
+file path (invisibly if \code{tree = TRUE})
 }
 \description{
-Get current file path
+Return the path to the file open in the RStudio or Positron editor.
 }
 \examples{
+# with RStudio or Positron running:
 # ger_fpath()
 }

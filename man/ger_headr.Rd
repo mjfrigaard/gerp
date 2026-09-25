@@ -2,21 +2,19 @@
 % Please edit documentation in R/headers.R
 \name{ger_headr}
 \alias{ger_headr}
-\title{Insert 'good enough' R script header}
+\title{Insert a 'good enough' R script header}
 \usage{
 ger_headr()
 }
-\description{
-The \code{ger_headr()} function can be used in a new R script
-to create a header. The header includes sections for:
-\itemize{
-\item what the code creates
-\item who the author is
-\item an MIT License
-\item Version
+\value{
+the header text (invisibly)
 }
+\description{
+Insert a script header at the cursor in RStudio or Positron. The header
+includes sections for what the code creates, who the author is, the
+license, and the version.
 }
 \examples{
-# use this to create a script header (with RStudio open)
-# ger_headr("import")
+# with RStudio or Positron running:
+# ger_headr()
 }

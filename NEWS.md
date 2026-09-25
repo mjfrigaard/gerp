@@ -1,3 +1,28 @@
+# gerp 3.0.0
+
+## Breaking changes
+
+* Removed `ger_proj()`. Use `ger_create()` instead.
+* `ger_create(folder, name)` is now `ger_create(path, open)`.
+* `ger_setup()`, `ger_code()`, `ger_data()`, `ger_dev()`, and `ger_report()` take `path` (was `folder_name`) and never overwrite existing files.
+* `ger_code(header)` is now `ger_code(roxygen)`.
+* `ger_path(...)` is now `ger_path(path, type, tree)`; `type = "rel"` returns the path relative to the working directory.
+* `ger_root()` defaults to `tree = FALSE` and returns the root path.
+* `ger_batch_rename()` defaults to the `"modification"` date and uses the `ger_fname()` naming rules.
+* `ger_name()` replaces every symbol (not just the first) and separates abbreviations with underscores.
+
+## New features
+
+* Works in RStudio and Positron. `ger_root()` finds projects with an `.Rproj` file, `DESCRIPTION`, `.git`, or `.here`.
+* `ger_name()` and `ger_fname()` are vectorized, return their result, and gain `clip` (and `date` for `ger_fname()`).
+* `ger_batch_rename()` gains `dry_run`, skips already dated files, and returns the old and new paths.
+* Project templates ship in `inst/templates/` (no downloads required).
+
+## Internal
+
+* Dependencies reduced to cli, clipr, fs, rprojroot, and rstudioapi.
+* Added testthat tests and an R CMD check workflow.
+
 # gerp 2.3.1
 
 * Added `ger_root()` (project root folder), `ger_fpath()` ('find' path), and `ger_path_lkp()` ('look up' paths).

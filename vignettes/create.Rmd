@@ -21,55 +21,26 @@ library(gerp)
 
 # Creating a `gerp` projects
 
-There are two functions for creating a new `gerp` project: `ger_proj()` and `ger_create()`.
+Use `ger_create()` to create a new `gerp` project.
 
-## `ger_proj()`
+1. First you need to install the package from GitHub.
 
-The quickest way to create a new `gerp` project is with `gerp::ger_proj()`. 
-
-1. First you need to install the package from GitHub. 
-
-```{r instal-remotes, eval=FALSE}
-install.packages("remotes")
-remotes::install_github("mjfrigaard/gerp")
+```{r instal-pak, eval=FALSE}
+install.packages("pak")
+pak::pak("mjfrigaard/gerp")
 ```
 
-2. Then enter the following in your R **Console** pane:
-
-```{r example, eval=FALSE}
-gerp::ger_proj()
-```
-
-You'll see the following: 
-
-<br>
-
-```{r new_ger_proj-gif, echo=FALSE, eval=TRUE, out.width='100%', fig.align='center', fig.cap='New gerp project with gerp::ger_proj()'}
-knitr::include_graphics("../man/figures/new_ger_proj.gif")
-```
-
-<br>
-
-New `gerp` projects created with `gerp::ger_proj()` will automatically place the new project on your Desktop or some other conspicuous location. ([1](https://usethis.r-lib.org/reference/zip-utils.html#arguments))
-
-## `ger_create()`
-
-The `ger_create()` function assumes you've navigated to your project folder and have the path in a quoted text string (i.e, `"/Users/mjfrigaard/projects/"`). If you need help locating a home for your R projects, check out the [Folder paths vignette](https://mjfrigaard.github.io/gerp/articles/paths.html). 
-
-1. Locate or create your R projects folder. You can store the output in a variable (`pth`) and pass it to the `folder` argument in `gerp::ger_create()` (or pass the full path in quotes).
+2. Pass the path to your new project folder to `ger_create()`. The folder must not exist yet. If you need help locating a home for your R projects, check out the [Folder paths vignette](https://mjfrigaard.github.io/gerp/articles/paths.html).
 
 <br>
 
 ```{r ger_create, eval=FALSE}
-pth <- gerp::ger_path("/Users/mjfrigaard/projects/")
-gerp::ger_create(
-  folder = pth, 
-  name = "my project")
+gerp::ger_create("~/projects/my-project")
 ```
 
 <br>
 
-2. After running `gerp::ger_create()`, a new 'good enough' R project will open in a new session:
+3. After running `gerp::ger_create()`, the new 'good enough' R project will open in a new RStudio or Positron session (set `open = FALSE` to stay in your current session):
 
 <br>
 
@@ -83,7 +54,7 @@ knitr::include_graphics("../man/figures/my_project.gif")
 
 <br>
 
-When I want to re-open my RStudio project, I navigate to the `.Rproj` file and double-click on it to open RStudio: 
+In Positron, use **File > Open Folder** to re-open a project. When I want to re-open my RStudio project, I navigate to the `.Rproj` file and double-click on it to open RStudio: 
 
 <br>
 
@@ -93,6 +64,6 @@ knitr::include_graphics("../man/figures/open_rproj.gif")
 
 ***
 
-1. `gerp::ger_proj()` use the [`usethis::use_course()` function](https://usethis.r-lib.org/reference/zip-utils.html) to download the zip file. 
+1. Positron doesn't need the `.Rproj` file (open the project folder instead), but it's harmless to keep it.
 
 2. If you're already using a cloud platform like [Dropbox](https://www.dropbox.com/) or [Google Drive](https://www.google.com/drive/) to keep track of your files, choose a different location for your R project folders. Cloud storage services are great, but they've been known to [cause issues](https://support.posit.co/hc/en-us/articles/200534477) when working with R and RStudio. 

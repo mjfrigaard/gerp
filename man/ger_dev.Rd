@@ -2,14 +2,20 @@
 % Please edit documentation in R/ger_dev.R
 \name{ger_dev}
 \alias{ger_dev}
-\title{good enough R development folder}
+\title{Good enough R development folder}
 \usage{
-ger_dev(folder_name = NULL)
+ger_dev(path = ".")
+}
+\arguments{
+\item{path}{path to project folder}
+}
+\value{
+\code{path} (invisibly)
 }
 \description{
-Create \verb{dev/} folder with \code{dev/notebook.Rmd} and \code{changelog.md} files.
-
-\describe{
-\item{dev/notebook.Rmd}{An R Markdown notebook (i.e., lab notebook).}
+Create a \verb{dev/} folder with \code{dev/notebook.Rmd} (a running lab notebook).
 }
+\examples{
+tmp <- file.path(tempdir(), "dev-example")
+ger_dev(tmp)
 }
