@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 library(gerp)
 ```
 
-This vignette covers `ger_batch_rename()`, a function that gives you the ability to rename a folder of files in a [standardized format.](https://www.slideshare.net/milkers/naming-things)
+This vignette covers `grp_batch_rename()`, a function that gives you the ability to rename a folder of files in a [standardized format.](https://www.slideshare.net/milkers/naming-things)
 
 ## Test files
 
@@ -37,17 +37,17 @@ messy <- c(
 file.create(file.path(tmp_files, messy))
 ```
 
-Confirm this with `gerp::ger_path()`
+Confirm this with `gerp::grp_path()`
 
 ```{r confirm-files}
-gerp::ger_path(tmp_files, tree = TRUE)
+gerp::grp_path(tmp_files, tree = TRUE)
 ```
 
-## `ger_batch_rename()`
+## `grp_batch_rename()`
 
-The files in the temporary `filenames/` folder are a mess, and I want to rename them using a [standardized format](https://www.slideshare.net/milkers/naming-things). Renaming files manually can be time-consuming, so `ger_batch_rename()` will get you 90% there:
+The files in the temporary `filenames/` folder are a mess, and I want to rename them using a [standardized format](https://www.slideshare.net/milkers/naming-things). Renaming files manually can be time-consuming, so `grp_batch_rename()` will get you 90% there:
 
-* all file names are converted to lowercase words separated by hyphens (the same rules as `ger_fname()`)
+* all file names are converted to lowercase words separated by hyphens (the same rules as `grp_fname()`)
 
 * all punctuation and special characters are removed from file names
 
@@ -58,23 +58,23 @@ The files in the temporary `filenames/` folder are a mess, and I want to rename 
 Preview the new names with `dry_run = TRUE`:
 
 ```{r dry-run}
-preview <- gerp::ger_batch_rename(tmp_files, dry_run = TRUE)
+preview <- gerp::grp_batch_rename(tmp_files, dry_run = TRUE)
 basename(preview$new)
 ```
 
 Then rename the files:
 
 ```{r rename}
-gerp::ger_batch_rename(tmp_files)
+gerp::grp_batch_rename(tmp_files)
 ```
 
-And confirm with `gerp::ger_path()`
+And confirm with `gerp::grp_path()`
 
 ```{r confirm-rename}
-gerp::ger_path(tmp_files, tree = TRUE)
+gerp::grp_path(tmp_files, tree = TRUE)
 ```
 
-**NOTE:** `ger_batch_rename()` can't change the ***content*** of the files (and you wouldn't want it to).
+**NOTE:** `grp_batch_rename()` can't change the ***content*** of the files (and you wouldn't want it to).
 
 ```{r cleanup, include=FALSE}
 unlink(tmp_files, recursive = TRUE)

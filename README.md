@@ -29,12 +29,12 @@ pak::pak("mjfrigaard/gerp")
 Creating a new `gerp` project:
 
 ``` r
-gerp::ger_create("~/projects/my-project")
+gerp::grp_create("~/projects/my-project")
 ```
 
 <div class="figure" style="text-align: center">
 
-<img src="man/figures/my_project.gif" alt="New gerp project!" width="100%" />
+<img src="man/figures/grp_create.png" alt="New gerp project!" width="100%" />
 <p class="caption">
 
 New gerp project!

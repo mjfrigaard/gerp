@@ -1,7 +1,7 @@
 #' Get file path(s)
 #'
 #' @description
-#' Use `ger_path()` to view folder and file paths. Absolute paths are the
+#' Use `grp_path()` to view folder and file paths. Absolute paths are the
 #' exact location of a file or folder in the file system (they start with the
 #' root folder). Relative paths start from the current working directory.
 #'
@@ -14,9 +14,9 @@
 #' @export
 #'
 #' @examples
-#' ger_path(".")
-#' ger_path(tempdir(), type = "rel")
-ger_path <- function(path = ".", type = c("abs", "rel"), tree = FALSE) {
+#' grp_path(".")
+#' grp_path(tempdir(), type = "rel")
+grp_path <- function(path = ".", type = c("abs", "rel"), tree = FALSE) {
   type <- match.arg(type)
   out <- switch(type,
     abs = fs::path_abs(path),
@@ -44,9 +44,9 @@ ger_path <- function(path = ".", type = c("abs", "rel"), tree = FALSE) {
 #' @export
 #'
 #' @examples
-#' # ger_root()
-#' # ger_root(tree = TRUE)
-ger_root <- function(path = ".", tree = FALSE) {
+#' # grp_root()
+#' # grp_root(tree = TRUE)
+grp_root <- function(path = ".", tree = FALSE) {
   root <- fs::path(rprojroot::find_root(proj_criteria(), path = path))
   if (isTRUE(tree)) {
     fs::dir_tree(root, recurse = FALSE)
@@ -68,8 +68,8 @@ ger_root <- function(path = ".", tree = FALSE) {
 #'
 #' @examples
 #' # with RStudio or Positron running:
-#' # ger_fpath()
-ger_fpath <- function(tree = FALSE) {
+#' # grp_fpath()
+grp_fpath <- function(tree = FALSE) {
   ctx <- ide_call(rstudioapi::getSourceEditorContext)
   if (is.null(ctx) || !isTRUE(nzchar(ctx$value$path))) {
     cli::cli_abort("No saved file is open in RStudio or Positron.")
@@ -85,7 +85,7 @@ ger_fpath <- function(tree = FALSE) {
 #' Look up a file or folder in your project
 #'
 #' @description
-#' Search the project (from [ger_root()]) for files or folders named `x` and
+#' Search the project (from [grp_root()]) for files or folders named `x` and
 #' print a folder tree for each match.
 #'
 #' @param x file or folder name to search for (e.g., `"README.Rmd"`)
@@ -96,9 +96,9 @@ ger_fpath <- function(tree = FALSE) {
 #' @export
 #'
 #' @examples
-#' # ger_lkp_path("README.Rmd")
-#' # ger_lkp_path("inst")
-ger_lkp_path <- function(x, path = ger_root()) {
+#' # grp_lkp_path("README.Rmd")
+#' # grp_lkp_path("inst")
+grp_lkp_path <- function(x, path = grp_root()) {
   found <- fs::dir_ls(path, recurse = TRUE, all = FALSE)
   found <- found[fs::path_file(found) == x]
   if (length(found) == 0) {

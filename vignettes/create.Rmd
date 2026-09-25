@@ -21,7 +21,7 @@ library(gerp)
 
 # Creating a `gerp` projects
 
-Use `ger_create()` to create a new `gerp` project.
+Use `grp_create()` to create a new `gerp` project.
 
 1. First you need to install the package from GitHub.
 
@@ -30,22 +30,22 @@ install.packages("pak")
 pak::pak("mjfrigaard/gerp")
 ```
 
-2. Pass the path to your new project folder to `ger_create()`. The folder must not exist yet. If you need help locating a home for your R projects, check out the [Folder paths vignette](https://mjfrigaard.github.io/gerp/articles/paths.html).
+2. Pass the path to your new project folder to `grp_create()`. The folder must not exist yet. If you need help locating a home for your R projects, check out the [Folder paths vignette](https://mjfrigaard.github.io/gerp/articles/paths.html).
 
 <br>
 
-```{r ger_create, eval=FALSE}
-gerp::ger_create("~/projects/my-project")
+```{r grp_create, eval=FALSE}
+gerp::grp_create("~/projects/my-project")
 ```
 
 <br>
 
-3. After running `gerp::ger_create()`, the new 'good enough' R project will open in a new RStudio or Positron session (set `open = FALSE` to stay in your current session):
+3. After running `gerp::grp_create()`, the new 'good enough' R project will open in a new RStudio or Positron session (set `open = FALSE` to stay in your current session):
 
 <br>
 
-```{r my_project.gif, echo=FALSE, eval=TRUE, out.width='100%', fig.align='center', fig.cap='New gerp project!'}
-knitr::include_graphics("../man/figures/my_project.gif")
+```{r grp_create.png, echo=FALSE, eval=TRUE, out.width='100%', fig.align='center', fig.cap='New gerp project!'}
+knitr::include_graphics("../man/figures/grp_create.png")
 ```
 
 ## `.Rproj` files

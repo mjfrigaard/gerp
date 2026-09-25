@@ -2,8 +2,8 @@
 #'
 #' @description
 #' Create a new 'good enough' project folder with all the gerp files and
-#' folders ([ger_setup()], [ger_code()], [ger_data()], [ger_dev()],
-#' [ger_report()]), a `README.Rmd`, and an `.Rproj` file. The project is
+#' folders ([grp_setup()], [grp_code()], [grp_data()], [grp_dev()],
+#' [grp_report()]), a `README.Rmd`, and an `.Rproj` file. The project is
 #' opened in RStudio or Positron when `open = TRUE`.
 #'
 #' @param path path to the new project folder (must not exist)
@@ -15,8 +15,8 @@
 #'
 #' @examples
 #' tmp <- file.path(tempdir(), "my-project")
-#' ger_create(tmp, open = FALSE)
-ger_create <- function(path, open = interactive()) {
+#' grp_create(tmp, open = FALSE)
+grp_create <- function(path, open = interactive()) {
   path <- fs::path_abs(fs::path_expand(path))
   if (fs::file_exists(path)) {
     cli::cli_abort("{.path {path}} already exists.")
@@ -26,13 +26,13 @@ ger_create <- function(path, open = interactive()) {
 
   fs::dir_create(path)
   cli::cli_alert_success("Creating {.path {path}}")
-  ger_setup(path)
-  ger_code(path)
-  ger_data(path)
-  ger_dev(path)
-  ger_report(path)
-  use_ger_template("README.Rmd", fs::path(path, "README.Rmd"))
-  use_ger_template("project-rproj",
+  grp_setup(path)
+  grp_code(path)
+  grp_data(path)
+  grp_dev(path)
+  grp_report(path)
+  use_grp_template("README.Rmd", fs::path(path, "README.Rmd"))
+  use_grp_template("project-rproj",
     fs::path(path, fs::path_ext_set(fs::path_file(path), "Rproj")))
 
   if (isTRUE(open)) {
@@ -47,7 +47,7 @@ ger_create <- function(path, open = interactive()) {
 #' @noRd
 check_home_dir <- function(path) {
   homes <- unique(c(fs::path_home(), fs::path_home_r()))
-  if (path %in% homes && !ger_confirm(
+  if (path %in% homes && !grp_confirm(
     "{.path {path}} is your home directory. Create a project here anyway?")) {
     cli::cli_abort("Cancelling project creation.")
   }
@@ -60,7 +60,7 @@ check_nested_proj <- function(parent) {
     rprojroot::find_root(proj_criteria(), path = parent),
     error = function(e) NULL
   )
-  if (!is.null(root) && !ger_confirm(
+  if (!is.null(root) && !grp_confirm(
     "{.path {parent}} is inside the project {.path {root}}. Create a nested project anyway?")) {
     cli::cli_abort("Cancelling project creation.")
   }

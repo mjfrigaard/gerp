@@ -58,33 +58,33 @@ reference:
   desc: >
     Functions for creating gerp projects.
   contents:
-  - ger_create
+  - grp_create
 - title: "Folder functions"
   desc: "Functions for creating gerp folders & files."
   contents:
-  - ger_setup
-  - ger_code
-  - ger_data
-  - ger_dev
-  - ger_report
+  - grp_setup
+  - grp_code
+  - grp_data
+  - grp_dev
+  - grp_report
 - title: "Path functions"
   desc: "Functions for folder & file paths."
   contents:
-  - ger_path
-  - ger_root
-  - ger_fpath
-  - ger_lkp_path
+  - grp_path
+  - grp_root
+  - grp_fpath
+  - grp_lkp_path
 - title: "Code functions"
   desc: "Functions for writing code."
   contents:
-  - ger_headr
-  - ger_sect
+  - grp_headr
+  - grp_sect
 - title: "Naming functions"
   desc: "Functions for naming things."
   contents:
-  - ger_name
-  - ger_fname
-  - ger_batch_rename
+  - grp_name
+  - grp_fname
+  - grp_batch_rename
 - title: "Data"
   desc: "Example datasets."
   contents:

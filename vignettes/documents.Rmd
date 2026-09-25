@@ -18,14 +18,14 @@ knitr::opts_chunk$set(
 library(gerp)
 ```
 
-# `ger_dev()`
+# `grp_dev()`
 
-The `ger_dev()` function creates an R Markdown file for development: `dev/notebook.Rmd`
+The `grp_dev()` function creates an R Markdown file for development: `dev/notebook.Rmd`
 
 <br>
 
-```{r ger_dev-gif, echo=FALSE, out.width='100%', eval=TRUE, fig.align='center'}
-knitr::include_graphics("../man/figures/ger_dev.gif")
+```{r grp_dev-gif, echo=FALSE, out.width='100%', eval=TRUE, fig.align='center'}
+knitr::include_graphics("../man/figures/grp_dev.png")
 ```
 
 <br>
@@ -38,14 +38,14 @@ dev/
 
 
 
-# `ger_report()`
+# `grp_report()`
 
-The `ger_report()` function creates polished R Markdown file for finalizing a report: `report/manuscript.Rmd`
+The `grp_report()` function creates polished R Markdown file for finalizing a report: `report/manuscript.Rmd`
 
 <br>
 
-```{r ger_report-gif, echo=FALSE, out.width='100%', eval=TRUE, fig.align='center'}
-knitr::include_graphics("../man/figures/ger_report.gif")
+```{r grp_report-gif, echo=FALSE, out.width='100%', eval=TRUE, fig.align='center'}
+knitr::include_graphics("../man/figures/grp_report.png")
 ```
 
 <br>

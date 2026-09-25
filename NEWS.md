@@ -2,20 +2,22 @@
 
 ## Breaking changes
 
-* Removed `ger_proj()`. Use `ger_create()` instead.
-* `ger_create(folder, name)` is now `ger_create(path, open)`.
-* `ger_setup()`, `ger_code()`, `ger_data()`, `ger_dev()`, and `ger_report()` take `path` (was `folder_name`) and never overwrite existing files.
-* `ger_code(header)` is now `ger_code(roxygen)`.
-* `ger_path(...)` is now `ger_path(path, type, tree)`; `type = "rel"` returns the path relative to the working directory.
-* `ger_root()` defaults to `tree = FALSE` and returns the root path.
-* `ger_batch_rename()` defaults to the `"modification"` date and uses the `ger_fname()` naming rules.
-* `ger_name()` replaces every symbol (not just the first) and separates abbreviations with underscores.
+* All functions are renamed from the `ger_` prefix to `grp_` (e.g., `ger_create()` is now `grp_create()`).
+* `grp_sect()` drops the `<(+_+)>` decoration and gains `level` (`#` is level 1, `##` is level 2, etc.).
+* Removed `grp_proj()`. Use `grp_create()` instead.
+* `grp_create(folder, name)` is now `grp_create(path, open)`.
+* `grp_setup()`, `grp_code()`, `grp_data()`, `grp_dev()`, and `grp_report()` take `path` (was `folder_name`) and never overwrite existing files.
+* `grp_code(header)` is now `grp_code(roxygen)`.
+* `grp_path(...)` is now `grp_path(path, type, tree)`; `type = "rel"` returns the path relative to the working directory.
+* `grp_root()` defaults to `tree = FALSE` and returns the root path.
+* `grp_batch_rename()` defaults to the `"modification"` date and uses the `grp_fname()` naming rules.
+* `grp_name()` replaces every symbol (not just the first) and separates abbreviations with underscores.
 
 ## New features
 
-* Works in RStudio and Positron. `ger_root()` finds projects with an `.Rproj` file, `DESCRIPTION`, `.git`, or `.here`.
-* `ger_name()` and `ger_fname()` are vectorized, return their result, and gain `clip` (and `date` for `ger_fname()`).
-* `ger_batch_rename()` gains `dry_run`, skips already dated files, and returns the old and new paths.
+* Works in RStudio and Positron. `grp_root()` finds projects with an `.Rproj` file, `DESCRIPTION`, `.git`, or `.here`.
+* `grp_name()` and `grp_fname()` are vectorized, return their result, and gain `clip` (and `date` for `grp_fname()`).
+* `grp_batch_rename()` gains `dry_run`, skips already dated files, and returns the old and new paths.
 * Project templates ship in `inst/templates/` (no downloads required).
 
 ## Internal

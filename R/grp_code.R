@@ -15,13 +15,13 @@
 #'
 #' @examples
 #' tmp <- file.path(tempdir(), "code-example")
-#' ger_code(tmp)
-ger_code <- function(path = ".", roxygen = TRUE) {
+#' grp_code(tmp)
+grp_code <- function(path = ".", roxygen = TRUE) {
   header <- if (isTRUE(roxygen)) "header-roxygen.R" else "header-script.R"
   code_files <- c("import.R", "tidy.R", "wrangle.R", "visualize.R", "model.R")
   for (f in code_files) {
-    use_ger_template(header, fs::path(path, "R", f))
+    use_grp_template(header, fs::path(path, "R", f))
   }
-  use_ger_template("data.R", fs::path(path, "R", "data.R"))
+  use_grp_template("data.R", fs::path(path, "R", "data.R"))
   invisible(path)
 }

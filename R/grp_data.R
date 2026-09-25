@@ -18,9 +18,9 @@
 #'
 #' @examples
 #' tmp <- file.path(tempdir(), "data-example")
-#' ger_data(tmp)
-ger_data <- function(path = ".") {
+#' grp_data(tmp)
+grp_data <- function(path = ".") {
   fs::dir_create(fs::path(path, c("data", "data-raw", "inst/extdata")))
-  use_ger_template("data.md", fs::path(path, "data.md"))
+  use_grp_template("data.md", fs::path(path, "data.md"))
   invisible(path)
 }

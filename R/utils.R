@@ -7,7 +7,7 @@
 #' @return `TRUE` (invisibly) if written, `FALSE` if `dest` already exists
 #'
 #' @noRd
-use_ger_template <- function(template, dest, data = list()) {
+use_grp_template <- function(template, dest, data = list()) {
   if (fs::file_exists(dest)) {
     cli::cli_alert_info("Skipping {.path {dest}} (already exists)")
     return(invisible(FALSE))
@@ -26,7 +26,7 @@ use_ger_template <- function(template, dest, data = list()) {
 #' Ask the user a yes/no question (aborts when not interactive)
 #'
 #' @noRd
-ger_confirm <- function(msg, .envir = parent.frame()) {
+grp_confirm <- function(msg, .envir = parent.frame()) {
   if (!interactive()) {
     cli::cli_abort(
       c(msg, "i" = "User input required, but session is not interactive."),

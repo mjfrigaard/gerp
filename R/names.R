@@ -1,4 +1,4 @@
-#' Symbols and their abbreviations (used by `ger_name()`)
+#' Symbols and their abbreviations (used by `grp_name()`)
 #'
 #' @noRd
 symbol_abbrs <- c(
@@ -71,9 +71,9 @@ copy_result <- function(x, clip) {
 #' @export
 #'
 #' @examples
-#' ger_name("2022-10-12-Alpha-20%", clip = FALSE)
-#' ger_name("Alpha & Beta", clip = FALSE)
-ger_name <- function(x, abbr = FALSE, clip = TRUE) {
+#' grp_name("2022-10-12-Alpha-20%", clip = FALSE)
+#' grp_name("Alpha & Beta", clip = FALSE)
+grp_name <- function(x, abbr = FALSE, clip = TRUE) {
   nm <- tolower(symb2abbr(x))
   nm <- gsub("[^a-z0-9]+", "_", nm)
   nm <- gsub("^_+|_+$", "", nm)
@@ -100,9 +100,9 @@ ger_name <- function(x, abbr = FALSE, clip = TRUE) {
 #' @export
 #'
 #' @examples
-#' ger_fname("November profits (monday)-Carl's copy", clip = FALSE)
-#' ger_fname("%file & with @_gArbage NAME.txt", date = NULL, clip = FALSE)
-ger_fname <- function(x, date = Sys.Date(), clip = TRUE) {
+#' grp_fname("November profits (monday)-Carl's copy", clip = FALSE)
+#' grp_fname("%file & with @_gArbage NAME.txt", date = NULL, clip = FALSE)
+grp_fname <- function(x, date = Sys.Date(), clip = TRUE) {
   ext <- tools::file_ext(x)
   ext <- ifelse(nzchar(ext), paste0(".", ext), "")
   prefix <- if (is.null(date)) "" else paste0(format(as.Date(date)), "_")

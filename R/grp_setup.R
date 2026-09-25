@@ -19,12 +19,12 @@
 #'
 #' @examples
 #' tmp <- file.path(tempdir(), "setup-example")
-#' ger_setup(tmp)
-ger_setup <- function(path = ".") {
-  use_ger_template("changelog.md", fs::path(path, "changelog.md"),
+#' grp_setup(tmp)
+grp_setup <- function(path = ".") {
+  use_grp_template("changelog.md", fs::path(path, "changelog.md"),
     data = list(date = as.character(Sys.Date())))
-  use_ger_template("citation.txt", fs::path(path, "CITATION"))
-  use_ger_template("requirements.md", fs::path(path, "requirements.md"))
-  use_ger_template("LICENSE", fs::path(path, "LICENSE"))
+  use_grp_template("citation.txt", fs::path(path, "CITATION"))
+  use_grp_template("requirements.md", fs::path(path, "requirements.md"))
+  use_grp_template("LICENSE", fs::path(path, "LICENSE"))
   invisible(path)
 }

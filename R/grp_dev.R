@@ -11,8 +11,8 @@
 #'
 #' @examples
 #' tmp <- file.path(tempdir(), "dev-example")
-#' ger_dev(tmp)
-ger_dev <- function(path = ".") {
-  use_ger_template("notebook.Rmd", fs::path(path, "dev", "notebook.Rmd"))
+#' grp_dev(tmp)
+grp_dev <- function(path = ".") {
+  use_grp_template("notebook.Rmd", fs::path(path, "dev", "notebook.Rmd"))
   invisible(path)
 }

@@ -12,8 +12,8 @@
 #'
 #' @examples
 #' tmp <- file.path(tempdir(), "report-example")
-#' ger_report(tmp)
-ger_report <- function(path = ".") {
-  use_ger_template("manuscript.Rmd", fs::path(path, "report", "manuscript.Rmd"))
+#' grp_report(tmp)
+grp_report <- function(path = ".") {
+  use_grp_template("manuscript.Rmd", fs::path(path, "report", "manuscript.Rmd"))
   invisible(path)
 }

@@ -11,8 +11,8 @@
 #'
 #' @examples
 #' # with RStudio or Positron running:
-#' # ger_headr()
-ger_headr <- function() {
+#' # grp_headr()
+grp_headr <- function() {
   rule <- strrep("~", 69)
   header <- paste0(
     "#", rule, "#\n",
@@ -25,13 +25,15 @@ ger_headr <- function() {
   insert_text(header)
 }
 
-#' Insert a fun R script section header `<(+_+)>`
+#' Insert an R script section header
 #'
 #' @description
 #' Insert a section header at the cursor in RStudio or Positron (similar to
-#' `Cmd/Ctrl + Shift + R`).
+#' `Cmd/Ctrl + Shift + R`). Use `level` to nest sections in the document
+#' outline.
 #'
 #' @param name section name
+#' @param level section level (`1` is `#`, `2` is `##`, etc.)
 #'
 #' @return the section header text (invisibly)
 #'
@@ -39,9 +41,14 @@ ger_headr <- function() {
 #'
 #' @examples
 #' # with RStudio or Positron running:
-#' # ger_sect("import")
-ger_sect <- function(name) {
-  header <- paste0("# <(+_+)> ", name, " ", strrep("--+", 16), " ----\n")
+#' # grp_sect("import")
+#' # grp_sect("read csv files", level = 2)
+grp_sect <- function(name, level = 1) {
+  if (!is.numeric(level) || length(level) != 1 || level < 1 || level %% 1 != 0) {
+    cli::cli_abort("{.arg level} must be a single positive whole number.")
+  }
+  start <- paste0(strrep("#", level), " ", name, " ")
+  header <- paste0(start, strrep("-", max(4, 80 - nchar(start))), "\n")
   insert_text(header)
 }
 

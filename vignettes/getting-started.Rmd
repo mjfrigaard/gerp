@@ -55,13 +55,13 @@ library(gerp)
 
 To create a new `gerp` project, enter the following code in your **Console** (RStudio or Positron):
 
-```{r ger_create, eval=FALSE}
-gerp::ger_create("~/projects/my-project")
+```{r grp_create, eval=FALSE}
+gerp::grp_create("~/projects/my-project")
 ```
 
 <br>
 
-`ger_create()` creates the project folder, adds the `gerp` files and folders, and opens the project in a new session. See the [Create gerp projects vignette](https://mjfrigaard.github.io/gerp/articles/create.html) for more details.
+`grp_create()` creates the project folder, adds the `gerp` files and folders, and opens the project in a new session. See the [Create gerp projects vignette](https://mjfrigaard.github.io/gerp/articles/create.html) for more details.
 
 <br>
 

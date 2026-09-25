@@ -2,7 +2,7 @@
 #'
 #' @description
 #' Rename every file in `path` with a date prefix (`YYYY-MM-DD_`) and a clean,
-#' lowercase, hyphenated name (see [ger_fname()]). Files that already start
+#' lowercase, hyphenated name (see [grp_fname()]). Files that already start
 #' with a date prefix are skipped.
 #'
 #' @param path path to folder
@@ -20,8 +20,8 @@
 #' tmp <- file.path(tempdir(), "rename-example")
 #' dir.create(tmp)
 #' file.create(file.path(tmp, c("My File.txt", "Joe's DATA (final).csv")))
-#' ger_batch_rename(tmp, dry_run = TRUE)
-ger_batch_rename <- function(path,
+#' grp_batch_rename(tmp, dry_run = TRUE)
+grp_batch_rename <- function(path,
                              prefix = c("modification", "birth", "access", "change"),
                              dry_run = FALSE) {
   prefix <- match.arg(prefix)
@@ -42,7 +42,7 @@ ger_batch_rename <- function(path,
   }
 
   old <- as.character(info$path)
-  new_nm <- ger_fname(fs::path_file(old), date = as.Date(dates), clip = FALSE)
+  new_nm <- grp_fname(fs::path_file(old), date = as.Date(dates), clip = FALSE)
   new <- as.character(fs::path(fs::path_dir(old), new_nm))
   out <- data.frame(old = old, new = new)
 

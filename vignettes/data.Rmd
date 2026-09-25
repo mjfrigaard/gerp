@@ -18,19 +18,19 @@ knitr::opts_chunk$set(
 library(gerp)
 ```
 
-# `ger_data()`
+# `grp_data()`
 
-Use `ger_data()` to create the data folders in your R projects: 
+Use `grp_data()` to create the data folders in your R projects: 
 
-```{r ger_data-gif, echo=FALSE, out.width='100%', eval=TRUE, fig.align='center'}
-knitr::include_graphics("../man/figures/ger_data.gif")
+```{r grp_data-gif, echo=FALSE, out.width='100%', eval=TRUE, fig.align='center'}
+knitr::include_graphics("../man/figures/grp_data.png")
 ```
 
 <br>
 
-The `ger_data()` creates three folders and a `data.md` file.
+The `grp_data()` creates three folders and a `data.md` file.
 
-```{r ger_data, eval=FALSE}
+```{r grp_data, eval=FALSE}
 ├── data.md
 ├── data
 ├── data-raw

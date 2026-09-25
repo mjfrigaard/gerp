@@ -41,9 +41,9 @@ pak::pak("mjfrigaard/gerp")
 Creating a new `gerp` project:
 
 ```{r example, eval=FALSE}
-gerp::ger_create("~/projects/my-project")
+gerp::grp_create("~/projects/my-project")
 ```
 
-```{r my_project.gif, echo=FALSE, eval=TRUE, out.width='100%', fig.align='center', fig.cap='New gerp project!'}
-knitr::include_graphics("man/figures/my_project.gif")
+```{r grp_create.png, echo=FALSE, eval=TRUE, out.width='100%', fig.align='center', fig.cap='New gerp project!'}
+knitr::include_graphics("man/figures/grp_create.png")
 ```

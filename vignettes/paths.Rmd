@@ -311,11 +311,11 @@ We'll use folder trees to describe the special directories implied by `"."` and 
 
 ## Path functions
 
-`gerp` has three functions designed to help you become familiar with folder paths: `ger_path()`, `ger_root()`, and `ger_fpath()`
+`gerp` has three functions designed to help you become familiar with folder paths: `grp_path()`, `grp_root()`, and `grp_fpath()`
 
-First we'll cover `ger_path()`, because it comes in handy when you're setting up a new `gerp` project. 
+First we'll cover `grp_path()`, because it comes in handy when you're setting up a new `gerp` project. 
 
-### `ger_path()`
+### `grp_path()`
 
 We've already installed and loaded the `gerp` package, but sometimes handy to explicitly tell R which function we intend to use from a package. We can do this by entering `package::function()`, and you can see why in the image below: 
 
@@ -331,70 +331,52 @@ Using `package::function()` shows us all the functions and objects in a package.
 
 <br>
 
-```{r namespacing-doc, echo=FALSE, eval=TRUE, out.width='80%', fig.align='center', fig.cap='help for ger_path()'}
+```{r namespacing-doc, echo=FALSE, eval=TRUE, out.width='80%', fig.align='center', fig.cap='help for grp_path()'}
 knitr::include_graphics("../man/figures/namespacing-doc.png")
 ```
 
 <br>
 
-To use `ger_path()`, start by entering a forward slash enclosed in quotes (`"/"`)
+To use `grp_path()`, start by entering a forward slash enclosed in quotes (`"/"`)
 
 ```{r , eval=FALSE}
-gerp::ger_path("/")
+gerp::grp_path("/")
 ```
 
-If you hit the **Tab** key, you'll see the list of folders available starting at your home directory. 
+If you hit the **Tab** key inside the quotes, RStudio and Positron will list the folders available (starting at the root folder). You can then continue using your mouse (or the arrow keys) to navigate to the parent folder you want your R project to live in (in my case, it's `~/projects/`).
+
+Use `tree = TRUE` to see what's inside a folder, and `type = "rel"` to get a path relative to your working directory:
 
 <br>
 
-```{r ger_path-home, echo=FALSE, eval=TRUE, out.width='60%', fig.align='center', fig.cap='Home directory (macOS)'}
-knitr::include_graphics("../man/figures/ger_path-home.png")
-```
-
-<br>
-
-You can then continue using your mouse (or the arrow keys) to navigate to the parent folder you want your R project to live in (in my case, it's `/Users/mjfrigaard/projects/`)
-
-<br>
-
-```{r ger_path-gif, echo=FALSE, fig.align='center', eval=TRUE, out.width='80%'}
-knitr::include_graphics("../man/figures/ger_path.gif")
-```
-
-<br>
-
-`ger_path()` works the same way on Windows: 
-
-<br>
-
-```{r ger_path-win-gif, echo=FALSE, fig.align='center', eval=TRUE, out.width='80%'}
-knitr::include_graphics("../man/figures/ger_path-win.gif")
+```{r grp_path-png, echo=FALSE, fig.align='center', eval=TRUE, out.width='80%'}
+knitr::include_graphics("../man/figures/grp_path.png")
 ```
 
 <br>
 
 ### Absolute vs. relative paths
 
-The `type` argument controls whether `gerp::ger_path()` returns a relative or absolute folder path. An absolute path returns the complete and specific location of the folder in the file system, starting from the root directory.
+The `type` argument controls whether `gerp::grp_path()` returns a relative or absolute folder path. An absolute path returns the complete and specific location of the folder in the file system, starting from the root directory.
 
-```{r ger_path-abs, eval=FALSE}
-gerp::ger_path("/Users/mjfrigaard/projects/", type = "abs")
+```{r grp_path-abs, eval=FALSE}
+gerp::grp_path("/Users/mjfrigaard/projects/", type = "abs")
 [1] "/Users/mjfrigaard/projects"
 ```
 
 A relative path refers to the location of the folder relative to the current working folder (i.e., the folder where the user is currently located). 
 
-```{r ger_path-rel, eval=FALSE}
-gerp::ger_path("/Users/mjfrigaard/projects/", type = "rel")
+```{r grp_path-rel, eval=FALSE}
+gerp::grp_path("/Users/mjfrigaard/projects/", type = "rel")
 [1] "projects"
 ```
 
 ### Return a `tree`
 
-If you'd like to see a folder tree for the path in `gerp::ger_path()`, you can set `tree` to `TRUE`
+If you'd like to see a folder tree for the path in `gerp::grp_path()`, you can set `tree` to `TRUE`
 
-```{r ger_path-tree, eval=FALSE}
-gerp::ger_path("/Users/mjfrigaard/projects/", tree = TRUE)
+```{r grp_path-tree, eval=FALSE}
+gerp::grp_path("/Users/mjfrigaard/projects/", tree = TRUE)
 /Users/mjfrigaard/projects
 ├── apps
 ├── blogs
@@ -403,17 +385,17 @@ gerp::ger_path("/Users/mjfrigaard/projects/", tree = TRUE)
 └── pkgs
 ```
 
-### `ger_root()`
+### `grp_root()`
 
-The `ger_root()` function will return the 'root' folder path for your project. This comes in handy if you're looking for a certain file. 
+The `grp_root()` function will return the 'root' folder path for your project. This comes in handy if you're looking for a certain file. 
 
-```{r ger_root, eval=FALSE}
-ger_root()
+```{r grp_root, eval=FALSE}
+grp_root()
 /Users/mjfrigaard/projects/pkgs/gerp
 ```
 
-```{r ger_root_tree, eval=FALSE}
-ger_root(tree = TRUE)
+```{r grp_root_tree, eval=FALSE}
+grp_root(tree = TRUE)
 /Users/mjfrigaard/projects/pkgs/gerp
 ├── DESCRIPTION
 ├── LICENSE
@@ -436,38 +418,38 @@ ger_root(tree = TRUE)
 ```
 
 
-### `ger_fpath()`
+### `grp_fpath()`
 
-`ger_fpath()` will return path to the current file in the **Source** pane.
+`grp_fpath()` will return path to the current file in the **Source** pane.
 
-```{r ger_fpath, eval=FALSE}
-ger_fpath()
+```{r grp_fpath, eval=FALSE}
+grp_fpath()
 /Users/mjfrigaard/projects/pkgs/gerp/vignettes/paths.Rmd
 ```
 
 If `tree` is set to `TRUE`, a folder tree is returned:
 
-```{r ger_fpath_tree, eval=FALSE}
-ger_fpath(tree = TRUE)
+```{r grp_fpath_tree, eval=FALSE}
+grp_fpath(tree = TRUE)
 /Users/mjfrigaard/projects/pkgs/gerp/vignettes
 └── paths.Rmd
 ```
 
 
-### `ger_lkp_path()`
+### `grp_lkp_path()`
 
-`ger_lkp_path()` will return the folder tree (or trees) of the provided file or folder to `x`:
+`grp_lkp_path()` will return the folder tree (or trees) of the provided file or folder to `x`:
 
-```{r ger_lkp_path_dir, eval=FALSE}
+```{r grp_lkp_path_dir, eval=FALSE}
 # check for inst/ folder
-gerp::ger_lkp_path("inst")
+gerp::grp_lkp_path("inst")
 /Users/mjfrigaard/projects/pkgs/gerp
 └── inst
 ```
 
-```{r ger_lkp_path_dirs, eval=FALSE}
+```{r grp_lkp_path_dirs, eval=FALSE}
 # check for README.Rmd files
-gerp::ger_lkp_path(x = "README.Rmd")
+gerp::grp_lkp_path(x = "README.Rmd")
 /Users/mjfrigaard/projects/pkgs/gerp
 └── README.Rmd
 /Users/mjfrigaard/projects/pkgs/gerp/inst/rmarkdown/templates/gerp-README

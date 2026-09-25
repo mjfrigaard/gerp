@@ -18,10 +18,10 @@ knitr::opts_chunk$set(
 library(gerp)
 ```
 
-# `ger_setup()`
+# `grp_setup()`
 
-For quick setup, run the `ger_setup()` function to create `changelog.md`, `LICENSE`, `CITATION` and `requirements.md` files.
+For quick setup, run the `grp_setup()` function to create `changelog.md`, `LICENSE`, `CITATION` and `requirements.md` files.
 
-```{r ger_setup, echo=FALSE, eval=TRUE, out.width='100%'}
-knitr::include_graphics("../man/figures/ger_setup.gif")
+```{r grp_setup, echo=FALSE, eval=TRUE, out.width='100%'}
+knitr::include_graphics("../man/figures/grp_setup.png")
 ```
